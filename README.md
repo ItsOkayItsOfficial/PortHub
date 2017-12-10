@@ -41,22 +41,22 @@
 
 ## Tools <a name='tools'></a>
 
+- <img height="15px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/react/react-original.svg?sanitize=true"> React - app build
 - <img height="15px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/nodejs/nodejs-original.svg?sanitize=true"> Node.js
   - <img height="15px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/npm/npm-original-wordmark.svg?sanitize=true"> Body-Parser - translate various formats
   - <img height="25px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/express/express-original-wordmark.svg?sanitize=true"> Express.js
-    - <img height="25px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/handlebars/handlebars-original-wordmark.svg?sanitize=true"> Handlebars - templating engine for student profiles and instructor/admin dashboards
-    - <img height="25px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/sequelize/sequelize-original-wordmark.svg?sanitize=true"> Sequelize -  manipulating MySQL tables
-  - <img height="15px" src="http://www.jordanhawker.com/assets/momentjs-7f0552e21c342fd1a62f26cad3e81532.png"> Moment.js -  user session tracking
-  - <img height="15px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/mysql/mysql-original-wordmark.svg?sanitize=true"> MySQL - linking to database
-- <img height="15px" src="https://azure.microsoft.com/svghandler/sql-database/"> MySQL Database - to capture users, resources, interaction
-- <img height="15px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg?sanitize=true"> Bootstrap 4 - HTML/CSS frameworks
+  - <img height="25px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/handlebars/handlebars-original-wordmark.svg?sanitize=true"> Handlebars - templating engine for user generated templates
+  - <img height="25px" src="http://mongodb-tools.com/img/mongoose.png"> Mongoose -  manipulating MongoDB
+- <img height="15px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/heroku/heroku-original.svg?sanitize=true"> Heroku - app deployment
+- <img height="15px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/mongodb/mongodb-original.svg?sanitize=true"> MongoDB - to capture users, resources, interaction
+- <img height="15px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg?sanitize=true"> Bootstrap 4 - HTML/CSS frameworks for app
+- <img height="15px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg?sanitize=true"> Bootstrap 3.0.2 - Template formatting use
 - <img height="15px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Oauth_logo.svg/180px-Oauth_logo.svg.png"> OAuth (GitHub) - login and administering of privileges
 - <img height="15px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/electron/electron-original-wordmark.svg?sanitize=true"> Electron - multi-platform usability (desktop or in-browser)
 - <img height="15px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/github/github-original-wordmark.svg?sanitize=true"> GitHub - repository for versioning and project cards
 - <img height="15px" src="https://www.draw.io/images/google-drive-logo.svg"> Google Drive - doc coordination and hosting
 - <img height="15px" src="https://raw.githubusercontent.com/konpa/devicon/master/icons/slack/slack-original.svg?sanitize=true"> Slack Channel (private) - team communication
 - <img height="15px" src="https://www.draw.io/images/apple-touch-icon.png"> Draw io - mockups and wireframes for site, user flow, and database organization
-- <img height="15px" src="https://d2cy1obokpvee9.cloudfront.net/manifest/favicon-196x196.png"> Chatkit - on-site and/or in-app chat
 
 <br>
 <hr>
