@@ -1,0 +1,281 @@
+/*
+ * Author: Carlos Alvarez
+ * URL: http://alvarez.is
+ *
+ * Project Name: Small - Free Bootstrap 3 Theme
+ * Version: 1.0
+ * URL: http://blacktie.co
+ */
+ 
+/* FONTS */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800);
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #f5f6f7;
+  color: #f5f6f7;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  font-weight: 300; }
+
+
+nav ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: none; }
+
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+  
+  /* =========================
+
+		GENERAL STYLES 
+
+   =========================*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none; }
+
+a:link,
+a:visited,
+a:active {
+  font-weight: 600;
+  color: #f5f6f7;
+  text-decoration: none; }
+  a:link:hover,
+  a:visited:hover,
+  a:active:hover {
+    color: #e1e1e1;
+    -webkit-transition: color 1s;
+    -moz-transition: color 1s;
+    -ms-transition: color 1s;
+    -o-transition: color 1s;
+    transition: color 1s; }
+
+
+.nav {
+  position: fixed;
+  width: 30px;
+  height: 84px;
+  z-index: 100;
+  right: 0;
+  top: 50%;
+  margin-top: -42px; }
+  .nav a {
+    text-indent: -9999px;
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: rgba(245, 246, 247, 0.4);
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -ms-transition: background 0.5s;
+    -o-transition: background 0.5s;
+    transition: background 0.5s; }
+    .nav a:hover {
+      background: #f5f6f7;
+      -webkit-transition: background 1s;
+      -moz-transition: background 1s;
+      -ms-transition: background 1s;
+      -o-transition: background 1s;
+      transition: background 1s; }
+
+.mb-7 {
+  margin-bottom: 70px; }
+  
+.centered {
+	text-align: center;
+}
+
+/* =========================
+
+		SECTION STYLES 
+
+   =========================*/
+#hero,
+#work,
+#networks {
+  position: relative; }
+
+.hero-block,
+.footer-block {
+  height: 390px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  margin-top: -195px; }
+
+.hero-image {
+  width: auto;
+  height: auto; }
+
+.footer-block {
+  height: 180px;
+  margin-top: -90px; }
+
+#hero {
+  background: #1abc9c; }
+
+#work {
+  background: #3498db; }
+
+#networks {
+  background: #474e5d; }
+
+.down-arrow {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  margin-left: -12px;
+  width: 25px;
+  height: 14px;
+  background: url("../img/arrow.png") no-repeat; }
+
+/* =========================
+
+			WORK 
+
+   =========================*/
+
+#work .showcase {
+  width: 100%;
+  padding: 0px;
+  
+   }
+
+.showcase-tiles {
+  padding-top: 0px;
+  margin-top: 0px;
+  display: table-row; }
+
+.showcase-info {
+  display: table-row; }
+
+.showcase-info {
+  text-align: center; }
+
+/* =========================
+
+		DRIBBBLE FEED 
+
+   =========================*/
+.d-hover {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  padding-top: 25%;
+  line-height: 20px;
+  background: rgba(231, 76, 60, 0.9); }
+  .d-hover p {
+    display: block !important;
+    z-index: 500;
+    margin-top: 25px;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 300; }
+
+ul.slides {
+  line-height: 0px;
+  padding: 0px; }
+  
+ul.slides li {
+display: inline-block;
+width: 25%; }
+
+  
+ul.slides li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative; }
+
+ul.slides li a:hover .d-hover {
+  display: block; }
+	    
+ul.slides li a img {
+	width: 100%; }
+
+ul.slides li a p {
+	display: none; }
+
+ul, menu, dir {
+	display: block;
+	list-style-type: disc;
+	-webkit-margin-before: 0px;
+	-webkit-margin-after: 0px;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 0px;
+}
+
+@media only screen and (max-width: 1000px) {
+      ul.slides li {
+        width: 33%; } }
+    @media only screen and (max-width: 767px) {
+      ul.slides li {
+        width: 50%; } }
+    ul.slides li a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative; }
+      ul.slides li a:hover .d-hover {
+        display: block; }
+      ul.slides li a img {
+        width: 100%; }
+      ul.slides li a p {
+        display: none; }
+/* =========================
+
+			FOOTER 
+
+   =========================*/
+#networks {
+	width: 100%;
+	height: 100%;
+	padding-top: 200px;
+}
+
+#networks i {
+	font-size: 60px;
+	color: white;
+	padding: 18px;
+}
+
+#networks .dribbble:hover {
+	color: #ed6297;
+}
+
+#networks .facebook:hover {
+	color: #3b5998;
+}
+
+#networks .twitter:hover {
+	color: #2094CA;
+}
+
+#networks .mail:hover {
+	color: #f39c12;
+}
