@@ -1,4 +1,4 @@
-# Project 3 <img height="100px" src="public/images/logo.png">
+# Project 3
 ### Developer Portfolio Builder
 “You're not a designer”
 
@@ -9,7 +9,6 @@
 | III. | [Tools](#tools) |
 | IV.  | [File Tree](#filetree) |
 | V.   | [Contributions](#contributionpolicy) |
-
 
 <br>
 <hr>
