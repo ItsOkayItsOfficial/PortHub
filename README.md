@@ -90,6 +90,12 @@ Project3 lets you build static portfolio sites quickly and with your information
 
 ## Contribution Policy <a name='contributionpolicy'></a>
 
+### Branch Assignments
+master - Protected
+app - Work within porthub/
+dev - Work on infrastructure items (README.md, templates/, concepts/, assets/)
+devops - Work on devops/
+
 ### GitHub Flow
 GitHub Flow is a simple and effective branching strategy which the folks at GitHub use. Most teams actually do not need everything GitFlow gives them and are much better off with a simpler workflow.
 
