@@ -13,7 +13,7 @@ const Navbar = props =>
       </div>
       <ul className="nav navbar-nav">
         <li>
-          <i class="fa fa-user-circle" aria-hidden="true"></i>
+          <i className="fa fa-user-circle" aria-hidden="true"></i>
           <a href='/login/'>Login</a>
         </li>
       </ul>
