@@ -1,7 +1,8 @@
 import React from "react";
+import "./Jumbotron.css";
 
 const Jumbotron = ({ children }) =>
-  <div style={{ height: 250 }} className="jumbotron jumbotron-fluid bg-dark">
+  <div className="jumbotron jumbotron-fluid bg-dark text-white">
     {children}
   </div>;
 

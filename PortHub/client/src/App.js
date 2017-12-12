@@ -7,11 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Jumbtron>
-          <img src='/assets/images/porthub_logo.png' alt="logo" />          
-        </Jumbtron>
         <LandingPage />
-
       </div>
     );
   }
