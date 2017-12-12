@@ -29,6 +29,8 @@ Project3 lets you build static portfolio sites quickly and with your information
 ## App <a name='app'></a>
 
 ### Wireframe
+[Live Wireframe](https://xd.adobe.com/view/5a9d41a9-6662-404d-8489-166a20209558/?hints=off)
+
 <kbd><img border="1px" height="300px" src="https://cdn.rawgit.com/ItsOkayItsOfficial/project3/dev/assets/wireframe/Landing%20Page.svg?sanitize=true"><kbd>
 
 | Site Flow | Resume Flow |
@@ -40,6 +42,9 @@ Project3 lets you build static portfolio sites quickly and with your information
 
 ### User Flow
 <img height="500px" src="./assets/images/user_flow(UML).png">
+
+### Data Flow
+<img height="500px" src="./assets/images/data_flow.png">
 
 <br>
 <hr>
@@ -91,10 +96,10 @@ Project3 lets you build static portfolio sites quickly and with your information
 ## Contribution Policy <a name='contributionpolicy'></a>
 
 ### Branch Assignments
-master - Protected
-app - Work within porthub/
-dev - Work on infrastructure items (README.md, templates/, concepts/, assets/)
-devops - Work on devops/
+#### master - Protected
+#### app - Work within porthub/
+#### dev - Work on infrastructure items (README.md, templates/, concepts/, assets/)
+#### devops - Work on devops/
 
 ### GitHub Flow
 GitHub Flow is a simple and effective branching strategy which the folks at GitHub use. Most teams actually do not need everything GitFlow gives them and are much better off with a simpler workflow.
