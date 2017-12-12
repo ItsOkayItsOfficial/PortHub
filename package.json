@@ -1,0 +1,25 @@
+{
+  "name": "porthub",
+  "version": "1.0.0",
+  "description": "Portfolio builder",
+  "main": "index.js",
+  "repository": "https://github.com/ItsOkayItsOfficial/project3.git",
+  "author": "wcrozier12 <wcc8@nau.edu>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "express": "^4.16.2",
+    "mongojs": "^2.4.1",
+    "mongoose": "^4.13.6",
+    "nodemon": "^1.12.5"
+  },
+  "scripts": {
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build": "node scripts/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
+  }
+}
