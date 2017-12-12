@@ -21,7 +21,7 @@ As budding web developers applying for jobs in the field, sometimes creating an 
 
 
 ### Fix
-Project3 lets you build static portfolio sites quickly and with your information and data.
+PortHub lets you build static portfolio sites quickly and with your information and data.
 
 <br>
 <hr>
