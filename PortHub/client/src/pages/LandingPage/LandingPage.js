@@ -13,12 +13,10 @@ const LandingPage = ({ children }) =>
     <p> Create a portfolio website and a resume in minutes!<br/>Stay a step ahead of your competitors in the job market and get that job your deserve.</p>
   </Jumbtron>
   <div>
-    <Row>
       <Col size='lg-12' className='d-flex flex-row justify-content-center'>
-        <Button className="btn btn-warning m-4 p-2">Create a Portfolio Website</Button>
-        <Button className="btn btn-info  m-4 p-2">Create a Resume</Button>
+        <a href='/createsite' className="btn btn-warning m-4 p-2">Create a Portfolio Website</a>
+        <a href='/createresume'className="btn btn-info  m-4 p-2">Create a Resume</a>
       </Col>
-    </Row>
   </div>
 </div>
 export default LandingPage;
