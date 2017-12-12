@@ -1,8 +1,11 @@
 import React from "react";
 import   './TemplatePage.css';
+import Template from './Template/Template';
+
 
 const TemplatePage = ({ type, children }) =>
 <div>
-  Template page for {type} fool.
+
+  <Template />
 </div>
 export default TemplatePage;

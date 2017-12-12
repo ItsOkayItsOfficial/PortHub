@@ -1,11 +1,11 @@
 import React, { Component } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import LandingPage from "../../pages/LandingPage";
-import TemplatePage from "../../pages/TemplatePage";
-import CreateUserPage from "../../pages/CreateUserPage";
-import LoginPage from "../../pages/LoginPage";
-import NoMatch from "../../pages/NoMatch";
-import Nav from "../../components/Navbar";
+import LandingPage from "../pages/LandingPage";
+import TemplatePage from "../pages/TemplatePage";
+import CreateUserPage from "../pages/CreateUserPage";
+import LoginPage from "../pages/LoginPage";
+import NoMatch from "../pages/NoMatch";
+import Nav from "../components/Navbar";
 
 class Layout extends Component{
 
