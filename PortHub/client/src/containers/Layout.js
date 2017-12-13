@@ -17,7 +17,7 @@ class Layout extends Component{
     return(
       <Router>
       <div>
-        <Nav />
+        <Nav className='navbar-fixed-top'/>
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/createSite" render={()=> <TemplatePage type='site'/>}/>
