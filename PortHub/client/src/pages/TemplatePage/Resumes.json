@@ -1,7 +1,12 @@
 [
   {
     "img": "/assets/images/resumeTemplates/resume-left-right-rtl.png",
-    "title":"resume-left-right-rtl"
+    "title":"resume-left-right-rtl",
+    "inputs": {
+      "experience": 3,
+      "education": 2,
+      "skills": 8
+    }
   },
   {
     "img": "/assets/images/resumeTemplates/resume-left-right.png",

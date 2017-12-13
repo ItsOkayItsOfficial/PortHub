@@ -6,6 +6,9 @@ import CreateUserPage from "../pages/CreateUserPage";
 import LoginPage from "../pages/LoginPage";
 import NoMatch from "../pages/NoMatch";
 import Nav from "../components/Navbar";
+import InputPage from '../pages/InputPage/InputPage';
+import Resumes from '../pages/TemplatePage/Resumes.json';
+
 
 class Layout extends Component{
 
@@ -19,8 +22,10 @@ class Layout extends Component{
   }
 
   detailedTemplateHandler = (title) => {
+    let selectedTemplate = Resumes.filter(resume => resume.title === title);
+    selectedTemplate = selectedTemplate.shift();
     this.setState({viewingTemplate: true,
-                   selectedTemplate: title})
+                   selectedTemplate})
   }
   closeDetailedTemplateHandler = () => {
     this.setState({viewingTemplate: false,
@@ -50,6 +55,8 @@ class Layout extends Component{
                                   viewTemplate={this.detailedTemplateHandler}
                                   selectedTemplate={this.state.selectedTemplate}/>}
             />
+            <Route exact path='/inputPage' render={() => <InputPage
+                                                          selectedTemplate={this.state.selectedTemplate} />} />
             <Route exact path="/createUser" component={CreateUserPage} />
             <Route exact path="/Login" component={LoginPage} />
             <Route component={NoMatch} />
