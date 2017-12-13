@@ -10,13 +10,22 @@ import Nav from "../components/Navbar";
 class Layout extends Component{
 
   state={
-    type:''
+    viewingTemplate: false,
+    selectedTemplate: ''
   }
   handleTemplate(type){
     if (type !== this.state.type)
       console.log(type);
   }
 
+  detailedTemplateHandler = (title) => {
+    this.setState({viewingTemplate: true,
+                   selectedTemplate: title})
+  }
+  closeDetailedTemplateHandler = () => {
+    this.setState({viewingTemplate: false,
+                   selectedTemplate: ''})
+  }
   render(){
     return(
 
@@ -26,8 +35,21 @@ class Layout extends Component{
         <Router>        
           <Switch>
             <Route exact path="/" component={LandingPage} />
-            <Route exact path="/createSite" onChange={this.handleTemplate('site')} render={()=> <TemplatePage type='site'/>}/>
-            <Route exact path="/createResume" onChange={this.handleTemplate('resume')} render={()=> <TemplatePage type='resume'/>}/>
+            <Route exact path="/createSite" 
+                   onChange={this.handleTemplate('site')} 
+                   render={()=> <TemplatePage 
+                                type='site'
+                                showModal={this.state.viewingTemplate}/>}
+            />
+            <Route exact path="/createResume" 
+                   onChange={this.handleTemplate('resume')} 
+                   render={()=> <TemplatePage 
+                                  type='resume'
+                                  showModal={this.state.viewingTemplate}
+                                  closeModal={this.closeDetailedTemplateHandler}
+                                  viewTemplate={this.detailedTemplateHandler}
+                                  selectedTemplate={this.state.selectedTemplate}/>}
+            />
             <Route exact path="/createUser" component={CreateUserPage} />
             <Route exact path="/Login" component={LoginPage} />
             <Route component={NoMatch} />
