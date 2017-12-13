@@ -19,8 +19,7 @@
   }
   
   #navbar a:hover {
-    background-color: #ddd;
-    color: black;
+    font-size: 18px;
   }
   
   #navbar a.active {
@@ -29,7 +28,7 @@
   }
   
   .content {
-    padding: 16px;
+    padding: 5px;
   }
   
   .sticky {
@@ -39,5 +38,5 @@
   }
   
   .sticky + .content {
-    padding-top: 60px;
-  
+    padding-top: 20px;
+  }

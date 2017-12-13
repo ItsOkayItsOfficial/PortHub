@@ -1,30 +1,30 @@
 [
   {
-    "img": "/assets/images/resume-left-right-rtl.png",
+    "img": "/assets/images/resumeTemplates/resume-left-right-rtl.png",
     "title":"resume-left-right-rtl"
   },
   {
-    "img": "/assets/images/resume-left-right.png",
+    "img": "/assets/images/resumeTemplates/resume-left-right.png",
     "title":"resume-left-right"
   },
   {
-    "img": "/assets/images/resume-material-dark.png",
+    "img": "/assets/images/resumeTemplates/resume-material-dark.png",
     "title":"resume-material-dark"
   },
   {
-    "img": "/assets/images/resume-oblique.png",
+    "img": "/assets/images/resumeTemplates/resume-oblique.png",
     "title":"resume-oblique"
   },
   {
-    "img": "/assets/images/resume-purple.png",
+    "img": "/assets/images/resumeTemplates/resume-purple.png",
     "title":"resume-purple"
   },
   {
-    "img": "/assets/images/resume-side-bar-rtl.png",
+    "img": "/assets/images/resumeTemplates/resume-side-bar-rtl.png",
     "title":"resume-side-bar-rtl"
   },
   {
-    "img": "/assets/images/resume-side-bar.png",
+    "img": "/assets/images/resumeTemplates/resume-side-bar.png",
     "title":"resume-side-bar"
   } 
 ]

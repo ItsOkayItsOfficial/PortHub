@@ -3,13 +3,15 @@ import "./Navbar.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props =>
-  <nav id="navbar" className="navbar navbar-default navbar-fixed-top text-white">
-    <div className="container-fluid">
+  <nav id="navbar" className="navbar navbar-default navbar-fixed-top text-white bg-dark">
+    <div className="container-fluid align-self-center">
       <div className="navbar-header">
-        <div className="navbar-brand" to="/" style={{display:'none'}}>
-          Porthub // make invisible on landing page then visible when other menus
+        <div className="navbar-brand">
+          <a href="/"><img src='/assets/images/ph/porthub_icon.png' alt='ph logo' /></a>
         </div>
+
       </div>
+      <div className="navbar-title my-auto h-100" ></div>
       <ul className="nav navbar-nav">
         <li>
           <a className='btn btn-outline-success' href='/login/'>

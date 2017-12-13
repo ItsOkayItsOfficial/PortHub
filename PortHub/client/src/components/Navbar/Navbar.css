@@ -6,3 +6,13 @@ nav ul li i{
 nav {
   z-index: 100;
 }
+nav img{
+  padding: 0;
+  height: 50px;
+}
+#navbar{
+  padding: 0;
+}
+.navbar-title{
+  font-size: 18px;
+}

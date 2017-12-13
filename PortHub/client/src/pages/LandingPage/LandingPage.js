@@ -4,9 +4,9 @@ import Jumbtron from '../../components/Jumbotron';
 import   './LandingPage.css';
 
 const LandingPage = ({ children }) =>
-<div className='landingPageContainer' style={{height:'100vh'}}>
+<div>
       <Jumbtron>
-        <img src='/assets/images/porthub_logo.png' alt="logo" />       
+        <img src='/assets/images/ph/porthub_logo.png' alt="logo" />       
         <p> Create a portfolio website and a resume in minutes!<br/>Stay a step ahead of your competitors in the job market and get that job your deserve.</p>
       </Jumbtron>
       <Col size='lg-12' className='d-flex flex-row justify-content-center'>
