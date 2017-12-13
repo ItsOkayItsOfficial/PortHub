@@ -16,16 +16,18 @@ class Layout extends Component{
   render(){
     return(
       <Router>
-      <div>
+      <div>       
         <Nav className='navbar-fixed-top'/>
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/createSite" render={()=> <TemplatePage type='site'/>}/>
-          <Route exact path="/createResume" render={()=> <TemplatePage type='resume'/>}/>
-          <Route exact path="/createUser" component={CreateUserPage} />
-          <Route exact path="/Login" component={LoginPage} />
-          <Route component={NoMatch} />
-        </Switch>
+        <div style={{position:'absolute', top:'50px'}}>
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/createSite" render={()=> <TemplatePage type='site'/>}/>
+            <Route exact path="/createResume" render={()=> <TemplatePage type='resume'/>}/>
+            <Route exact path="/createUser" component={CreateUserPage} />
+            <Route exact path="/Login" component={LoginPage} />
+            <Route component={NoMatch} />
+          </Switch>
+        </div>
       </div>
     </Router>
     )

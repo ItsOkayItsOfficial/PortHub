@@ -3,7 +3,7 @@ import "./Navbar.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props =>
-  <nav className="navbar navbar-default navbar-fixed-top text-white">
+  <nav id="navbar" className="navbar navbar-default navbar-fixed-top text-white">
     <div className="container-fluid">
       <div className="navbar-header">
         <div className="navbar-brand" to="/" style={{display:'none'}}>
@@ -12,8 +12,10 @@ const Navbar = props =>
       </div>
       <ul className="nav navbar-nav">
         <li>
+          <a className='btn btn-outline-success' href='/login/'>
+          Login
           <i className="fa fa-user-circle" aria-hidden="true"></i>
-          <a href='/login/'>Login</a>
+          </a>
         </li>
       </ul>
     </div>
