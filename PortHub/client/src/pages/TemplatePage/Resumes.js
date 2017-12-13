@@ -1,12 +1,12 @@
 export const Resumes = [
   {
-    "img": "%PUBLIC_URL%/assets/images/resume-left-right-rtl.png"
+    "img": "/assets/images/resume-left-right-rtl.png"
   },
   {
-    "img": "%PUBLIC_URL%/assets/images/resume-left-right.png"
+    "img": "/assets/images/resume-left-right.png"
   },
   {
-    "img": "%PUBLIC_URL%/assets/images/resume-material-dark.png"
+    "img": "/assets/images/resume-material-dark.png"
   },
   {
     "img": "%PUBLIC_URL%/assets/images/resume-oblique.png"
@@ -21,3 +21,5 @@ export const Resumes = [
     "img": "%PUBLIC_URL%/assets/images/resume-side-bar.png"
   }
 ];
+
+export
