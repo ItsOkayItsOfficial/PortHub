@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Montreal = ({contact, experience, education, skills, portfolio }) => {
+const Montreal = ({contact, experience, education, skills, portfolio, clicked }) => {
   let skillSection = skills.map((skill, i) => {
         const offset = i===3 ? "col-lg-offset-3" : ''; 
           return (
@@ -85,7 +85,7 @@ const Montreal = ({contact, experience, education, skills, portfolio }) => {
         )
       })
       portfolioSection = portfolioSection.join('');
-  return ( `<!DOCTYPE html>
+  const html =  `<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -334,6 +334,8 @@ const Montreal = ({contact, experience, education, skills, portfolio }) => {
 
 </body>
 </html>`
+  return (
+    <button className="btn btn-primary" onClick={() => clicked(html)}>Submit</button>
   )
 }
 export default Montreal;

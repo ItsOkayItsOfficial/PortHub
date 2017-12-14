@@ -5,19 +5,20 @@ import Education from '../../components/Inputs/Education';
 import Skills from '../../components/Inputs/Skills';
 import Experience from '../../components/Inputs/Experience';
 import NoMatch from '../../pages/NoMatch/NoMatch';
-import Montreal from '../../components/Websites/Montreal'
-import Portfolio from '../../components/Inputs/Portfolio'
+import Montreal from '../../components/Websites/Montreal';
+import Portfolio from '../../components/Inputs/Portfolio';
+import Modal from '../../components/Modal/Modal';
+import SuccessScreen from '../../pages/InputPage/SuccessScreen/SuccessScreen'
 
 class InputPage extends Component{
-  constructor(props) {
-    super(props);
-  }
+
   state ={
     contact: {},
     education:[],
     experience: [],
     skills: [],
     portfolio: [],
+    viewSuccessScreen: false,
     html: ''
   }
 
@@ -42,8 +43,8 @@ class InputPage extends Component{
     }
   }
   
-  submitFormHandler =(html) => {
-    this.setState({html: <Montreal input={this.state} />})
+  submitFormHandler = (html) => {
+    this.setState({html, viewSuccessScreen: true});
   }
   render() {
       const inputs = 
@@ -65,16 +66,21 @@ class InputPage extends Component{
       }) : [];
       const renderedInputs = this.props.selectedTemplate.inputs ? 
                              [<BaseInput key={'base'} changed={this.prepareStateHandler}/>,
-                             <button className="btn btn-primary" onClick={this.submitFormHandler}>Submit</button> ,  ...inputs] 
+                              ...inputs] 
                              : <NoMatch />
+      // const SelectedComponent = this.props.selectedTemplate.title ? this.props.selectedTemplate.title : '';
       return (
         <Aux>
           {renderedInputs}
+          <Modal show={this.state.viewSuccessScreen} >
+            <SuccessScreen />
+          </Modal>
           <Montreal education={this.state.education}
                     experience={this.state.experience}
                     skills={this.state.skills}
                     contact={this.state.contact}
-                    portfolio={this.state.portfolio}/>
+                    portfolio={this.state.portfolio}
+                    clicked={this.submitFormHandler}/>
         </Aux>
       )
     }
