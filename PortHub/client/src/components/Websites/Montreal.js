@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Montreal = (props) => {
+const Montreal = ({ inputs }) => {
   return (
 `<!DOCTYPE html>
 <html lang="en">
@@ -131,12 +131,12 @@ const Montreal = (props) => {
 			<div class="col-lg-2 col-lg-offset-1">
 				<h5>EDUCATION</h5>
       </div> 
-      ${props.education.map((education, i) => {
+      ${inputs.education.map((education, i) => {
         return 	(		
           `<div class="col-lg-6" ${i!==1 ? "col-lg-offset-3" : null}>
             <p>
-              <t>${education.subject}</t>
-              <br/>${education.school}
+              <t>${education.major}</t>
+              <br/>${education.schoolName}
               <br/>
             </p>
           </div>
