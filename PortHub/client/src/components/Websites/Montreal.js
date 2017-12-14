@@ -142,7 +142,7 @@ const Montreal = ({ inputs }) => {
           </div>
           <div class="col-lg-3">
             <p>
-					    <sm>${education.start} - ${education.end}</sm>
+					    <sm>${education.startDate} - ${education.endDate}</sm>
               <br/>
               <imp>
               </imp>

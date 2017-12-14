@@ -62,6 +62,34 @@ const Education = ( {index, id, changed} ) => {
                   </div>
               </div>
           </div>
+        <div className="row">
+              <div className="col-md-6">
+                  <div className="form-group">
+                      <label>Start Date</label>
+                      <input type="text" 
+                      name="name" 
+                      className="form-control" 
+                      placeholder="Please enter the your start date (month, YYYY)" 
+                      required="required" 
+                      data-error="Start Date is required."
+                      onChange={(event) => changed(event, id, 'startDate')} />
+                      <div className="help-block with-errors"></div>
+                  </div>
+              </div>
+              <div className="col-md-6">
+                  <div className="form-group">
+                      <label>End Date</label>
+                      <input type="text" 
+                             name="end Date" 
+                             className="form-control" 
+                             placeholder="Please enter the your end date (month, YYYY)" 
+                             required="required" 
+                             data-error="End Date is required."
+                             onChange={(event) => changed(event, id, 'endDate')} />
+                      <div className="help-block with-errors"></div>
+                  </div>
+              </div>
+          </div>
       </div>
   )
 }
