@@ -2,25 +2,24 @@
     position: fixed;
     z-index: 500;
     background-color: white;
-    width: 70%;
+    width: 90vw;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
     padding: 16px;
-    left: 15%;
-    top: 10%;
+    top: 15px;
     box-sizing: border-box;
     transition: all 0.3s ease-out;
     animation: zoomIn .4s;
     overflow: scroll;
-    height: 85vh;
+    height: 90vh;
 }
 
-@media (min-width: 600px) {
+/* @media (min-width: 600px) {
     .Modal {
         width: 60vw;
         left: calc(50% - 30vw);
     }
-}
+} */
 
 @keyframes zoomIn {
   0% {

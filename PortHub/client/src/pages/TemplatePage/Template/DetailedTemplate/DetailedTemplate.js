@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 const DetailedTemplate = ({ img, src, title, type}) => {
 
     return (
-      <div className='container'>
+      <div className='container flex-column text-center'>
           <h4> {title} </h4>
-          {type==="resume" ? <img src={img} alt={title}/> : <iframe src={src} alt={title} zoom='.5'/>}
+          {type==="resume" ? <img src={img} alt={title}/> : <iframe src={src} alt={title} zoom='.4' style={{width:'100%', height:'90vh'}}/>}
             <Link to='inputPage'> 
-              <button className="btn btn-primary" 
+              <button className="btn btn-primary align-self-center" 
                       style={{margin:"auto"}}>Select this template</button>
             </Link>
       </div>
