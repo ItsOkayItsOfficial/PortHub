@@ -14,7 +14,7 @@ const Education = ( {index, id, changed} ) => {
                       placeholder="Please enter the school you attended" 
                       required="required" 
                       data-error="Firstname is required."
-                      onChange={(event) => changed(event, id, 'schoolName')} />
+                      onChange={(event) => changed(event, id, 'education', 'schoolName')} />
                       <div className="help-block with-errors"></div>
                   </div>
               </div>
@@ -27,7 +27,7 @@ const Education = ( {index, id, changed} ) => {
                              placeholder="Please enter your schools city and state." 
                              required="required" 
                              data-error="Lastname is required."
-                             onChange={(event) => changed(event, id, 'schoolLocation')} />
+                             onChange={(event) => changed(event, id, 'education', 'schoolLocation')} />
                       <div className="help-block with-errors"></div>
                   </div>
               </div>
@@ -37,7 +37,7 @@ const Education = ( {index, id, changed} ) => {
                   <div className="form-group">
                       <label>Type of Degree</label>
                     <select className="form-control" 
-                            onChange={(event) => changed(event, id, 'degreeType')}>
+                            onChange={(event) => changed(event, id, 'education', 'degreeType')}>
                       <option>Other</option>
                       <option>Bachelor of Science</option>
                       <option>Master of Science</option>
@@ -57,7 +57,7 @@ const Education = ( {index, id, changed} ) => {
                              placeholder="Please enter your field of study" 
                              required="required" 
                              data-error="Firstname is required."
-                             onChange={(event) => changed(event, id, 'major')} />
+                             onChange={(event) => changed(event, id, 'education', 'major')} />
                       <div className="help-block with-errors"></div>
                   </div>
               </div>
@@ -72,7 +72,7 @@ const Education = ( {index, id, changed} ) => {
                       placeholder="Please enter the your start date (month, YYYY)" 
                       required="required" 
                       data-error="Start Date is required."
-                      onChange={(event) => changed(event, id, 'startDate')} />
+                      onChange={(event) => changed(event, id, 'education', 'startDate')} />
                       <div className="help-block with-errors"></div>
                   </div>
               </div>
@@ -85,7 +85,7 @@ const Education = ( {index, id, changed} ) => {
                              placeholder="Please enter the your end date (month, YYYY)" 
                              required="required" 
                              data-error="End Date is required."
-                             onChange={(event) => changed(event, id, 'endDate')} />
+                             onChange={(event) => changed(event, id, 'education', 'endDate')} />
                       <div className="help-block with-errors"></div>
                   </div>
               </div>

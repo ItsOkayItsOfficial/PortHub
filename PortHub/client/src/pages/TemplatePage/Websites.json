@@ -12,7 +12,13 @@
   {
     "src": "/assets/templates/montreal/index.html",
     "img": "/assets/templates/websitepeeks/montreal.png",
-    "title":"montreal"
+    "title":"montreal",
+    "inputs": {
+      "experience": 2,
+      "education": 2,
+      "skills": 6,
+      "portfolio": 3
+    }
   },
   {
     "src": "/assets/templates/oslo/index.html",
