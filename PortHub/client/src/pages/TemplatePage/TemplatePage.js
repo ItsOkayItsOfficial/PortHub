@@ -9,7 +9,7 @@ import Websites from './Websites.json';
 const TemplatePage = ({ type, children, showModal, closeModal, viewTemplate, selectedTemplate }) => {
 
   return(
-    <div>
+    <div className='text-center'>
     <h1> create your {type} </h1>
     <Col size='lg-12' className="d-flex flex-row flex-wrap justify-content-center">
       { type==='resume' ? Resumes.map((resume) => {
