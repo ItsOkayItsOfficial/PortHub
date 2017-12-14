@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Education = () => {
+const Education = ( {index} ) => {
   return (
       <div className='container'>
+        <h3> Education {index+1} </h3>
         <div className="row">
               <div className="col-md-6">
                   <div className="form-group">

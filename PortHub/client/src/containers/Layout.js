@@ -14,7 +14,7 @@ class Layout extends Component{
 
   state={
     viewingTemplate: false,
-    selectedTemplate: ''
+    selectedTemplate: {}
   }
   handleTemplate(type){
     if (type !== this.state.type)

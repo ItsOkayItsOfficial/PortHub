@@ -5,7 +5,6 @@ import   './NoMatch.css';
 
 const NoMatch = ({ children }) =>
 <div>
-  <Navbar />
   <Jumbtron>
     <img src='/assets/images/porthub_logo.png' alt="logo" />       
     <p> 404 Page not found </p>
