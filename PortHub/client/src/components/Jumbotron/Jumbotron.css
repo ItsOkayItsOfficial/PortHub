@@ -1,7 +1,29 @@
 .jumbotron p{
+
+}
+.jumbotron{
+    position: fixed;
+    opacity: .5;
+    z-index: 500;    
+}
+.jumbotron-contents{
+    position: fixed;
+    width: 100%;
     font-size: 24px;
-    margin-left: 100px;
-    margin-right:100px;
-    margin-top:50px;
     text-align: center;
+    color: white;
+    text-shadow: 3px 3px black;    
+    position: fixed;
+    top: 60px;;
+    margin-top:100px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1000;
+}
+
+.jumbotron-contents p{
+    margin-top: 75px;
+}
+.jumbotron-contents img{
+    border-radius: 8px;
 }
