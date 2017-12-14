@@ -6,7 +6,7 @@ const Jumbotron = ({ children }) =>
   //   {children}
   // </div>;
 
-  <div className="bg-dark" style={{opacity:'.5', width:'100%', height:'400px'}}>
+  <div className="bg-dark" style={{opacity:'.2', width:'100%', height:'400px'}}>
     {children}
   </div>
 export default Jumbotron;
