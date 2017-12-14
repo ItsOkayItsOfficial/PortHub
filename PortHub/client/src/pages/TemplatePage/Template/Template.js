@@ -3,12 +3,14 @@ import Modal from '../../../components/Modal/Modal';
 import DetailedTemplate from './DetailedTemplate/DetailedTemplate';
 import Aux from '../../../HOCs/Aux';
 
-const Template = ({ img,type, title, showModal, closeModal, viewTemplate, selectedTemplate }) => {
-  return (  
+const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, selectedTemplate }) => {
+  return (
     <Aux>
       <Modal selectedTemplate={selectedTemplate.title} id={title} show={showModal} closeModal={closeModal}>
         <DetailedTemplate
           img={img}
+          src={src}
+          type = {type}
           title={title} />
       </Modal>
         <div className="card m-4 " style={{width: "25vw"}}>
@@ -23,6 +25,7 @@ const Template = ({ img,type, title, showModal, closeModal, viewTemplate, select
         </div>
     </Aux>
   )
+
 }
 
 
