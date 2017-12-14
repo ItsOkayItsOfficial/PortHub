@@ -1,0 +1,46 @@
+[
+  {
+    "src": "/assets/templates/cairo/index.html",
+    "title":"cairo"
+  },
+  {
+    "src": "/assets/templates/delhi/index.html",
+    "title":"delhi"
+  },
+  {
+    "src": "/assets/templates/dubai/index.html",
+    "title":"dubai"
+  },
+  {
+    "src": "/assets/templates/krakow/index.html",
+    "title":"krakow"
+  },
+  {
+    "src": "/assets/templates/lawrence/index.html",
+    "title":"lawrence"
+  },
+  {
+    "src": "/assets/templates/london/index.html",
+    "title":"london"
+  },
+  {
+    "src": "/assets/templates/montreal/index.html",
+    "title":"montreal"
+  },
+  {
+    "src": "/assets/templates/oslo/index.html",
+    "title":"oslo"
+  },
+  {
+    "src": "/assets/templates/phoenix/index.html",
+    "title":"phoenix"
+  },
+  {
+    "src": "/assets/templates/portland/index.html",
+    "title":"portland"
+  },
+  {
+    "src": "/assets/templates/stuttgart/index.html",
+    "title":"stuttgart"
+  }   
+]
