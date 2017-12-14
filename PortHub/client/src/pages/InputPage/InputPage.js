@@ -13,13 +13,12 @@ const InputPage = ({ selectedTemplate }) => {
             switch (inputType) {
               case ('education'):
                 return <Education key={inputType + i} index={i}/>
-                break;
               case ('skills'):
                 return <Skills key={inputType + i} />
-                break;
               case ('experience'):
                 return <Experience key={inputType + i}/>
-                break;
+              default:
+                return null;
             }
         });
   }) : [];

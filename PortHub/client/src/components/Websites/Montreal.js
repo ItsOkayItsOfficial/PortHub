@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+import React from 'react';
+
+const Montreal = (props) => {
+  return (
+`<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -30,10 +34,9 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
 
 </head>
-
 <body data-spy="scroll" data-offset="0" data-target="#nav">
 
-	<div id="section-topbar">
+	<div id="section-topbar">'
 		<div id="topbar-inner">
 			<div class="container">
 				<div class="row">
@@ -80,8 +83,8 @@
 		<div class="container">
 			<div class="row centered">
 				<div class="col-lg-12">
-					<h1>William T. Kelvin</h1>
-					<h3>Web Designer | kelvin@blacktie.co</h3>
+					<h1>${props.name}</h1>
+					<h3>${props.jobtitle} | ${props.email}</h3>
 				</div>
 				<!--/.col-lg-12 -->
 			</div>
@@ -101,9 +104,7 @@
 					<h5>ABOUT</h5>
 				</div>
 				<div class="col-lg-6">
-					<p>I'm web designer & front-end developer with 7 years of professional experience. I'm interested in all kinds of visual
-						communication, but my major focus is on designing web, mobile & tablet interfaces. I also have skills in other fields
-						like branding, icon design or web development.</p>
+					<p>{props.bio}</p>
 				</div>
 				<div class="col-lg-3">
 					<p>
@@ -129,38 +130,25 @@
 
 			<div class="col-lg-2 col-lg-offset-1">
 				<h5>EDUCATION</h5>
-			</div>
-			<div class="col-lg-6 ">
-				<p>
-					<t>Master of Web Design</t>
-					<br/> St. Patrick University
-					<br/>
-					<i>3 Years Course</i>
-				</p>
-			</div>
-			<div class="col-lg-3">
-				<p>
-					<sm>GRADUATING IN MAY 2014</sm>
-					<br/>
-					<imp>
-						<sm>IN PROGRESS</sm>
-					</imp>
-				</p>
-			</div>
-
-			<div class="col-lg-6 col-lg-offset-3">
-				<p>
-					<t>Degree of Web Developer</t>
-					<br/> Hastings University
-					<br/>
-					<i>2 Years Course</i>
-				</p>
-			</div>
-			<div class="col-lg-3">
-				<p>
-					<sm>JUNE 2012</sm>
-				</p>
-			</div>
+      </div> 
+      ${props.education.map((education, i) => {
+        return 	(		
+          `<div class="col-lg-6" ${i!==1 ? "col-lg-offset-3" : null}>
+            <p>
+              <t>${education.subject}</t>
+              <br/>${education.school}
+              <br/>
+            </p>
+          </div>
+          <div class="col-lg-3">
+            <p>
+					    <sm>${education.start} - ${education.end}</sm>
+              <br/>
+              <imp>
+              </imp>
+            </p>
+          </div>`)
+      })} 
 
 		</div>
 		<!--/.row -->
@@ -173,47 +161,29 @@
 	<!--WORK DESCRIPTION -->
 	<div class="container desc">
 		<div class="row">
-
 			<div class="col-lg-2 col-lg-offset-1">
 				<h5>WORK</h5>
 			</div>
-			<div class="col-lg-6">
+    ${props.work.map((work, i) => {
+			return (
+      `<div class="col-lg-6" ${i!==1 ? "col-lg-offset-3" : null}>
 				<p>
-					<t>Front-end Developer</t>
-					<br/> Black Tie Corp.
+					<t>${work.title}</t>
+					<br/>${work.company}
 					<br/>
 				</p>
 				<p>
-					<more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-						dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
-						book.
+					<more>${work.description}
 					</more>
 				</p>
 			</div>
 			<div class="col-lg-3">
 				<p>
-					<sm>AUGUST 2012 - CURRENT</sm>
+					<sm>${work.start} - ${work.end}</sm>
 				</p>
-			</div>
+			</div>`)   
+    })}
 
-			<div class="col-lg-6 col-lg-offset-3">
-				<p>
-					<t>Web Designer - Intern</t>
-					<br/> Onassis Ltd.
-					<br/>
-				</p>
-				<p>
-					<more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-						dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
-						book.
-					</more>
-				</p>
-			</div>
-			<div class="col-lg-3">
-				<p>
-					<sm>JUNE 2010 - JULY 2012</sm>
-				</p>
-			</div>
 		</div>
 		<!--/.row -->
 		<br>
@@ -472,19 +442,17 @@
 				<div class="col-lg-6">
 					<p>
 						<t>Email</t>
-						<br/> william@blacktie.co
+						<br/> {props.email}
 						<br/>
 					</p>
 					<p>
-						<t>Adress</t>
-						<br/> Some Ave. 987
-						<br/> Postal 23892
-						<br/> London, England.
+						<t>Address</t>
+            {props.address}
 						<br/>
 					</p>
 					<p>
 						<t>Phone</t>
-						<br/> +55 8933-2383
+						<br/> {props.phone}
 						<br/>
 					</p>
 				</div>
@@ -494,19 +462,10 @@
 					</p>
 					<p>
 						<a href="#">
-							<i class="icon-dribbble"></i>
+							<i class="icon-linkedin">{props.linkedin}</i>
 						</a>
 						<a href="#">
-							<i class="icon-twitter"></i>
-						</a>
-						<a href="#">
-							<i class="icon-facebook"></i>
-						</a>
-						<a href="#">
-							<i class="icon-linkedin"></i>
-						</a>
-						<a href="#">
-							<i class="icon-apple"></i>
+							<i class="icon-github">{props.github}</i>
 						</a>
 
 					</p>
@@ -525,11 +484,11 @@
 			</p>
 
 		</div>
-	</div>
-
-
+  </div>
 	<!-- Bootstrap 3.0.2 -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
-</body>
-</html>
+
+</body>`
+  )
+}

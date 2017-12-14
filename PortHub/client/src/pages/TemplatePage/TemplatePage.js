@@ -44,8 +44,6 @@ if (type === 'resume'){
       }
         </Col>
       </div>
-
-
   )
 }
 }
