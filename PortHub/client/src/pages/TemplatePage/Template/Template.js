@@ -3,7 +3,7 @@ import Modal from '../../../components/Modal/Modal';
 import DetailedTemplate from './DetailedTemplate/DetailedTemplate';
 import Aux from '../../../HOCs/Aux';
 
-const Template = ({ img,title, showModal, closeModal, viewTemplate, selectedTemplate }) => {
+const Template = ({ img,type, title, showModal, closeModal, viewTemplate, selectedTemplate }) => {
   return (  
     <Aux>
       <Modal selectedTemplate={selectedTemplate.title} id={title} show={showModal} closeModal={closeModal}>
@@ -16,7 +16,7 @@ const Template = ({ img,title, showModal, closeModal, viewTemplate, selectedTemp
           <div className="card-footer d-flex flex-column">
             <p className="card-title text-center">{title}</p>
               <button className="btn btn-primary" 
-                      onClick={() => viewTemplate(title)} 
+                      onClick={() => viewTemplate(title, type)} 
                       style={{margin:"auto"}}>
                       Select </button> 
           </div>

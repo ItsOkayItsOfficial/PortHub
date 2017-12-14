@@ -8,7 +8,7 @@ import NoMatch from "../pages/NoMatch";
 import Nav from "../components/Navbar";
 import InputPage from '../pages/InputPage/InputPage';
 import Resumes from '../pages/TemplatePage/Resumes.json';
-
+import Websites from '../pages/TemplatePage/Websites.json';
 
 class Layout extends Component{
 
@@ -21,12 +21,19 @@ class Layout extends Component{
       console.log(type);
   }
 
-  detailedTemplateHandler = (title) => {
-    let selectedTemplate = Resumes.filter(resume => resume.title === title);
-    selectedTemplate = selectedTemplate.shift();
-    this.setState({viewingTemplate: true,
-                   selectedTemplate})
-  }
+  detailedTemplateHandler = (title, type) => {
+    let selectedTemplate = '';
+      if (type === "resume"){
+        selectedTemplate = Resumes.filter(resume => resume.title === title);
+      } else {
+
+        selectedTemplate = Websites.filter(website => website.title === title);
+        console.log (selectedTemplate);
+      }
+      selectedTemplate = selectedTemplate.shift();
+      this.setState({viewingTemplate: true,
+                    selectedTemplate})
+    }
   closeDetailedTemplateHandler = () => {
     this.setState({viewingTemplate: false,
                    selectedTemplate: ''})
@@ -44,7 +51,10 @@ class Layout extends Component{
                    onChange={this.handleTemplate('site')} 
                    render={()=> <TemplatePage 
                                 type='site'
-                                showModal={this.state.viewingTemplate}/>}
+                                showModal={this.state.viewingTemplate}
+                                closeModal={this.closeDetailedTemplateHandler}
+                                viewTemplate={this.detailedTemplateHandler}
+                                selectedTemplate={this.state.selectedTemplate}/>}
             />
             <Route exact path="/createResume" 
                    onChange={this.handleTemplate('resume')} 
