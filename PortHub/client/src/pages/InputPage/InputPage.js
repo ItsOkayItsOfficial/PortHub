@@ -44,6 +44,7 @@ class InputPage extends Component{
   }
   
   submitFormHandler = (html) => {
+    console.log(html);
     this.setState({html, viewSuccessScreen: true});
   }
   render() {
@@ -68,7 +69,6 @@ class InputPage extends Component{
                              [<BaseInput key={'base'} changed={this.prepareStateHandler}/>,
                               ...inputs] 
                              : <NoMatch />
-      // const SelectedComponent = this.props.selectedTemplate.title ? this.props.selectedTemplate.title : '';
       return (
         <Aux>
           {renderedInputs}
@@ -81,6 +81,7 @@ class InputPage extends Component{
                     contact={this.state.contact}
                     portfolio={this.state.portfolio}
                     clicked={this.submitFormHandler}/>
+          
         </Aux>
       )
     }

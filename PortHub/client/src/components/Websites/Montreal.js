@@ -100,7 +100,7 @@ const Montreal = ({contact, experience, education, skills, portfolio, clicked })
 	<!-- Bootstrap 3.0.2 CSS -->
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
-	<link href="assets/css/main.css" rel="stylesheet">
+	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/app/PortHub/client/public/assets/templates/montreal/assets/css/main.css" rel="stylesheet">
 
 	<!-- Font Awesome 4.0.3 -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
@@ -111,7 +111,7 @@ const Montreal = ({contact, experience, education, skills, portfolio, clicked })
 	<!-- jQuery 1.1.2 -->
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<!-- SmoothScroll -->
-	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="https://rawgit.com/ItsOkayItsOfficial/project3/app/PortHub/client/public/assets/templates/montreal/assets/js/smoothscroll.js"></script>
 	<!-- Chart.js 1.0.1 -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
 
