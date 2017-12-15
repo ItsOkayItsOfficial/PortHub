@@ -72,7 +72,7 @@ class InputPage extends Component{
       return (
         <Aux>
           {renderedInputs}
-          <Modal show={this.state.viewSuccessScreen} >
+          <Modal show={this.state.viewSuccessScreen} modalType='success'>
             <SuccessScreen />
           </Modal>
           <Montreal education={this.state.education}
@@ -81,7 +81,6 @@ class InputPage extends Component{
                     contact={this.state.contact}
                     portfolio={this.state.portfolio}
                     clicked={this.submitFormHandler}/>
-          
         </Aux>
       )
     }

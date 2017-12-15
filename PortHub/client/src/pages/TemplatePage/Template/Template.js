@@ -7,7 +7,7 @@ import './Template.css';
 const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, selectedTemplate }) => {
   return (
     <Aux>
-      <Modal selectedTemplate={selectedTemplate.title} id={title} show={showModal} closeModal={closeModal} className='detailModal' title={title}>
+      <Modal selectedTemplate={selectedTemplate.title} id={title} show={showModal} closeModal={closeModal} className='detailModal' title={title} type='templateSelect'>
         <DetailedTemplate
           img={img}
           src={src}
