@@ -11,7 +11,7 @@ const Portfolio = ({ id, index, changed }) => {
                       <input type="email" 
                              name="email" 
                              className="form-control" 
-                             placeholder="Please enter your portfolio title" 
+                             placeholder="portfolio title" 
                              required="required" 
                              data-error="Valid email is required."
                              onChange={(event) => changed(event, id, 'portfolio', 'title')} />
@@ -24,7 +24,7 @@ const Portfolio = ({ id, index, changed }) => {
                       <input type="tel" 
                              name="phone" 
                              className="form-control" 
-                             placeholder="Please enter your portfolio description"
+                             placeholder="portfolio description"
                              onChange={(event) => changed(event, id, 'portfolio', 'description')} />
                       <div className="help-block with-errors"></div>
                   </div>
@@ -35,7 +35,7 @@ const Portfolio = ({ id, index, changed }) => {
                       <input type="bio" 
                              name="bio" 
                              className="form-control" 
-                             placeholder="Please enter your portfolio image"
+                             placeholder="portfolio image"
                              onChange={(event) => changed(event, id, 'portfolio', 'img')} />
                       <div className="help-block with-errors"></div>
                   </div>

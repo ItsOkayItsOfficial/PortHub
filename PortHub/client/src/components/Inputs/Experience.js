@@ -11,7 +11,7 @@ const Experience = ({index, id, changed}) => {
                   <input type="text" 
                          name="name" 
                          className="form-control" 
-                         placeholder="Please enter your employer" 
+                         placeholder="employer" 
                          required="required" 
                          data-error="Employer is required."
                          onChange={(event) => changed(event, id, 'experience', 'employer')} />
@@ -24,7 +24,7 @@ const Experience = ({index, id, changed}) => {
                   <input type="text" 
                          name="name" 
                          className="form-control" 
-                         placeholder="Please enter your title" 
+                         placeholder="title" 
                          required="required" 
                          data-error="Job title is required."
                          onChange={(event) => changed(event, id, 'experience', 'title')} />
@@ -37,7 +37,7 @@ const Experience = ({index, id, changed}) => {
                   <input type="text" 
                          name="surname" 
                          className="form-control" 
-                         placeholder="Please enter your job duties" 
+                         placeholder="job duties" 
                          required="required" 
                          data-error="Job duties are required."
                          onChange={(event) => changed(event, id, 'experience', 'duties')} />

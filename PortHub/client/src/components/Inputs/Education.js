@@ -24,7 +24,7 @@ const Education = ( {index, id, changed} ) => {
                       <input type="text" 
                              name="surname" 
                              className="form-control" 
-                             placeholder="Please enter your schools city and state." 
+                             placeholder="schools city and state." 
                              required="required" 
                              data-error="Lastname is required."
                              onChange={(event) => changed(event, id, 'education', 'schoolLocation')} />
@@ -54,7 +54,7 @@ const Education = ( {index, id, changed} ) => {
                       <input type="text" 
                              name="name" 
                              className="form-control" 
-                             placeholder="Please enter your field of study" 
+                             placeholder="field of study" 
                              required="required" 
                              data-error="Firstname is required."
                              onChange={(event) => changed(event, id, 'education', 'major')} />
@@ -69,7 +69,7 @@ const Education = ( {index, id, changed} ) => {
                       <input type="text" 
                       name="name" 
                       className="form-control" 
-                      placeholder="Please enter the your start date (month, YYYY)" 
+                      placeholder="start date (month, YYYY)" 
                       required="required" 
                       data-error="Start Date is required."
                       onChange={(event) => changed(event, id, 'education', 'startDate')} />
@@ -82,7 +82,7 @@ const Education = ( {index, id, changed} ) => {
                       <input type="text" 
                              name="end Date" 
                              className="form-control" 
-                             placeholder="Please enter the your end date (month, YYYY)" 
+                             placeholder="end date (month, YYYY)" 
                              required="required" 
                              data-error="End Date is required."
                              onChange={(event) => changed(event, id, 'education', 'endDate')} />

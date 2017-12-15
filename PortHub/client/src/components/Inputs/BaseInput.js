@@ -11,7 +11,7 @@ const BaseInput = ({ changed }) => {
                       <input type="text" 
                              name="name" 
                              className="form-control" 
-                             placeholder="Please enter your firstname *" 
+                             placeholder="firstname *" 
                              required="required" 
                              data-error="Firstname is required."
                              onChange={(event) => changed(event, "_", 'contact', 'firstName')} />
@@ -24,7 +24,7 @@ const BaseInput = ({ changed }) => {
                       <input type="text" 
                              name="surname" 
                              className="form-control" 
-                             placeholder="Please enter your lastname *" 
+                             placeholder="lastname *" 
                              required="required" 
                              data-error="Lastname is required."
                              onChange={(event) => changed(event, "_", 'contact', 'lastName')} />
@@ -39,7 +39,7 @@ const BaseInput = ({ changed }) => {
                       <input type="email" 
                              name="email" 
                              className="form-control" 
-                             placeholder="Please enter your email *" 
+                             placeholder="email *" 
                              required="required" 
                              data-error="Valid email is required."
                              onChange={(event) => changed(event, "_", 'contact', 'email')} />
@@ -52,7 +52,7 @@ const BaseInput = ({ changed }) => {
                       <input type="tel" 
                              name="phone" 
                              className="form-control" 
-                             placeholder="Please enter your phone"
+                             placeholder="phone"
                              onChange={(event) => changed(event, "_", 'contact', 'phone')} />
                       <div className="help-block with-errors"></div>
                   </div>
@@ -76,7 +76,7 @@ const BaseInput = ({ changed }) => {
                       <input type="text" 
                              name="email" 
                              className="form-control" 
-                             placeholder="Please enter your current job title" 
+                             placeholder="current job title" 
                              required="required" 
                              data-error="Valid email is required."
                              onChange={(event) => changed(event, "_", 'contact', 'currentTitle')} />
@@ -102,7 +102,7 @@ const BaseInput = ({ changed }) => {
                       <input type="text" 
                              name="email" 
                              className="form-control" 
-                             placeholder="Please enter your address" 
+                             placeholder="address" 
                              required="required" 
                              data-error="Valid address is required."
                              onChange={(event) => changed(event, "_", 'contact', 'address')} />
