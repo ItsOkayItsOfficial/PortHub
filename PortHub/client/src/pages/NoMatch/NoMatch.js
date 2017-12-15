@@ -6,6 +6,7 @@ const NoMatch = ({ children }) =>
   <div className='jumbotron-contents'>
     <img src='/assets/images/ph/porthub_logo.png' alt="logo" />       
     <p style={{color:'red', textShadow:'none'}}> oh snap fool! 404 Page not found </p>
+    <iframe src="https://giphy.com/embed/MQ4gUFfumJppm" width="480" height="402" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>
   </div>
 
 </div>
