@@ -7,7 +7,6 @@ const modal = ({ show, closeModal, selectedTemplate, id, children, className, ti
   selectedTemplate===id ?
   <Aux>
     <Backdrop show={show} clicked={closeModal} />
-
     <div 
       className={className ? "Modal " + className : 'Modal'}
       style={{
