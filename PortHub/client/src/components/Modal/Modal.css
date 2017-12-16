@@ -29,8 +29,20 @@
     transform:scale(1);
   }
 }
-.modal-header{
-  background-color: rgba(0, 0, 0, .5);
+.modalHeader{
+  background-color: rgba(0, 0, 0, .3);
   border-width: 1px;
   color: white;
+  margin-bottom: 5px;
+  border-radius: 2px; 
+  height: 3em;
+  line-height: 3em;
+  padding: 3px;
+}
+.modalTitle p{
+  text-align: center;
+  margin-left:10px;
+}
+a.btn{
+  padding: 4px;
 }

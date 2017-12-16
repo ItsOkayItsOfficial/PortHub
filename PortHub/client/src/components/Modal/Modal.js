@@ -14,19 +14,18 @@ const modal = ({ show, closeModal, selectedTemplate, id, children, className, ti
         transform: show ? 'translateY(0)' : 'translateY(-100vh)',
         opacity: show ? '1' : '0'
       }}>
-    <div className="modal-header">
-      <div className="modal-title">
-        <p>{title} theme</p>
+    <div className="modalHeader d-flex justify-content-center">
+      <div className="modalTitle">
+        <p className='align-self-center'>{title} theme</p>
       </div>
-      <div>
+      <div className='ml-auto'>
         { type==='templateSelect' ?
-          <Link to='inputPage'> 
-            <button className="btn btn-primary mr-4">Select</button>
+          <Link to='inputPage' className="btn btn-success mr-4 btn-sm"> 
+            Select
           </Link> : ''}        
-          <button type="button" onClick={closeModal} className="btn-danger">
+          <a onClick={closeModal} className="btn btn-danger">
               <i className="fa fa-times"></i>          
-          </button>
-
+          </a>
       </div>
     </div>
       {children}

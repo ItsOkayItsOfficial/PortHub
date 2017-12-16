@@ -14,16 +14,15 @@ const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, 
           type = {type}
           title={title} />
       </Modal>
-      <div className="card m-4 " style={{width: "25vw"}}>
-        <img className="card-img-top" src={img} alt={title}/>
-        <div className="card-footer d-flex flex-column">
-          <p className="card-title text-center">{title}</p>
-            <button className="btn btn-primary" 
-                    onClick={() => viewTemplate(title, type)} 
-                    style={{margin:"auto"}}>
-                    Select </button> 
-        </div>
-      </div>
+      <button onClick={() => viewTemplate(title, type)} >
+          <div className="card m-4 " style={{width: "25vw"}}>
+            <img className="card-img-top" src={img} alt={title}/>
+            <div className="card-footer d-flex flex-column">
+              <p className="card-title text-center">{title}</p>
+
+            </div>
+          </div>
+      </button>
     </Aux>
   )
 
