@@ -23,28 +23,7 @@ class InputPage extends Component{
     html: '',
     selectButton:''
   }
-  componentWillMount(){
-    var props = {};
-    props.education = this.state.education;
-    props.experience= this.state.experience;
-    props.skills= this.state.skills;
-    props.contact= this.state.contact;
-    props.portfolio= this.state.portfolio;
-    props.clicked= this.submitFormHandler; 
-    let currentTemplate = this.props.selectedTemplate.title;
- 
-    switch (currentTemplate){
-      case "Montreal":
-            this.setState({selectButton:<Montreal {...props}/>});
-            break;
-      case "resume-left-right-rtl":
-            this.setState({selectButton:<ResumeLeftRightRTL {...props}/>});
-            break;   
-      default:
-            break;
-    }
-    
-  }
+
   prepareStateHandler = (event, id, field, subfield) => {
     if (field === 'contact') {
       const contact = {...this.state.contact};
@@ -88,10 +67,31 @@ class InputPage extends Component{
                 }
             });
       }) : [];
-      const renderedInputs = this.props.selectedTemplate.inputs ? 
-                             [<BaseInput key={'base'} changed={this.prepareStateHandler}/>,
-                              ...inputs] 
-                             : <NoMatch />
+    const renderedInputs = this.props.selectedTemplate.inputs ? 
+                            [<BaseInput key={'base'} changed={this.prepareStateHandler}/>,
+                            ...inputs] 
+                            : <NoMatch />
+
+
+    const currentTemplate = this.props.selectedTemplate.title;
+    let selectButton = '';
+    const props = {};
+    props.education = this.state.education;
+    props.experience= this.state.experience;
+    props.skills= this.state.skills;
+    props.contact= this.state.contact;
+    props.portfolio= this.state.portfolio;
+    props.clicked= this.submitFormHandler; 
+    switch (currentTemplate){
+      case "Montreal":
+            selectButton = <Montreal {...props}/>;
+            break;
+      case "resume-left-right-rtl":
+            selectButton = <ResumeLeftRightRTL {...props}/>;
+            break;   
+      default:
+            break;
+    }
       return (
         <Aux>
           {renderedInputs}
@@ -99,7 +99,7 @@ class InputPage extends Component{
             <SuccessScreen />
           </Modal>
           <div className="text-center">
-            {this.state.selectButton}
+            {selectButton}
           </div>
           {/* <Montreal education={this.state.education}
                     experience={this.state.experience}
