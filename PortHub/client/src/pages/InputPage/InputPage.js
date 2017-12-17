@@ -5,7 +5,8 @@ import Education from '../../components/Inputs/Education';
 import Skills from '../../components/Inputs/Skills';
 import Experience from '../../components/Inputs/Experience';
 import NoMatch from '../../pages/NoMatch/NoMatch';
-import Montreal from '../../components/Websites/Montreal';
+import {Montreal} from '../../components/Websites';
+import {ResumeLeftRightRTL} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
 import Modal from '../../components/Modal/Modal';
 import SuccessScreen from '../../pages/InputPage/SuccessScreen/SuccessScreen'
@@ -19,9 +20,31 @@ class InputPage extends Component{
     skills: [],
     portfolio: [],
     viewSuccessScreen: false,
-    html: ''
+    html: '',
+    selectButton:''
   }
-
+  componentWillMount(){
+    var props = {};
+    props.education = this.state.education;
+    props.experience= this.state.experience;
+    props.skills= this.state.skills;
+    props.contact= this.state.contact;
+    props.portfolio= this.state.portfolio;
+    props.clicked= this.submitFormHandler; 
+    let currentTemplate = this.props.selectedTemplate.title;
+ 
+    switch (currentTemplate){
+      case "Montreal":
+            this.setState({selectButton:<Montreal {...props}/>});
+            break;
+      case "resume-left-right-rtl":
+            this.setState({selectButton:<ResumeLeftRightRTL {...props}/>});
+            break;   
+      default:
+            break;
+    }
+    
+  }
   prepareStateHandler = (event, id, field, subfield) => {
     if (field === 'contact') {
       const contact = {...this.state.contact};
@@ -75,12 +98,15 @@ class InputPage extends Component{
           <Modal show={this.state.viewSuccessScreen} modalType='success'>
             <SuccessScreen />
           </Modal>
-          <Montreal education={this.state.education}
+          <div className="text-center">
+            {this.state.selectButton}
+          </div>
+          {/* <Montreal education={this.state.education}
                     experience={this.state.experience}
                     skills={this.state.skills}
                     contact={this.state.contact}
                     portfolio={this.state.portfolio}
-                    clicked={this.submitFormHandler}/>
+                    clicked={this.submitFormHandler}/> */}
         </Aux>
       )
     }

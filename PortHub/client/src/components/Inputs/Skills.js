@@ -9,7 +9,7 @@ const Skills = ({index, changed, id}) => {
                   <input type="text" 
                          name="name" 
                          className="form-control" 
-                         placeholder="Please enter your employer" 
+                         placeholder="Please enter your skill" 
                          required="required" 
                          data-error="Firstname is required."
                          onChange={(event) => changed(event, id, 'skills', 'skill')} />

@@ -16,10 +16,10 @@ class Layout extends Component{
     viewingTemplate: false,
     selectedTemplate: {}
   }
-  handleTemplate(type){
-    if (type !== this.state.type)
-      console.log(type);
-  }
+  // handleTemplate(type){
+  //   if (type !== this.state.type)
+  //     console.log(type);
+  // }
 
   detailedTemplateHandler = (title, type) => {
     let selectedTemplate = '';
@@ -28,7 +28,6 @@ class Layout extends Component{
       } else {
 
         selectedTemplate = Websites.filter(website => website.title === title);
-        console.log (selectedTemplate);
       }
       selectedTemplate = selectedTemplate.shift();
       this.setState({viewingTemplate: true,
@@ -48,7 +47,7 @@ class Layout extends Component{
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/createSite" 
-                   onChange={this.handleTemplate('site')} 
+                  //  onChange={this.handleTemplate('site')} 
                    render={()=> <TemplatePage 
                                 type='site'
                                 showModal={this.state.viewingTemplate}
@@ -57,7 +56,7 @@ class Layout extends Component{
                                 selectedTemplate={this.state.selectedTemplate}/>}
             />
             <Route exact path="/createResume" 
-                   onChange={this.handleTemplate('resume')} 
+                  //  onChange={this.handleTemplate('resume')} 
                    render={()=> <TemplatePage 
                                   type='resume'
                                   showModal={this.state.viewingTemplate}

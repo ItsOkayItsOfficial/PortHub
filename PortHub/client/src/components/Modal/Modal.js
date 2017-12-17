@@ -20,7 +20,7 @@ const modal = ({ show, closeModal, selectedTemplate, id, children, className, ti
       </div>
       <div className='ml-auto'>
         { type==='templateSelect' ?
-          <Link to='inputPage' className="btn btn-success mr-4 btn-sm"> 
+          <Link to='inputPage' className="btn btn-success mr-4 btn-sm" title={title}> 
             Select
           </Link> : ''}        
           <a onClick={closeModal} className="btn btn-danger">
