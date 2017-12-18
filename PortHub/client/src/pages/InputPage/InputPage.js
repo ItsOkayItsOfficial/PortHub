@@ -50,23 +50,24 @@ class InputPage extends Component{
     this.setState({html, viewSuccessScreen: true});
   }
   render() {
-      const inputs = 
+    const inputs = 
         this.props.selectedTemplate && this.props.selectedTemplate.inputs ? Object.keys(this.props.selectedTemplate.inputs).map((inputType, i) => {
-            return [...Array(this.props.selectedTemplate.inputs[inputType])].map((_, i) => {
-                switch (inputType) {
-                  case ('education'):
-                    return <Education key={inputType + i} index={i} id={inputType+i} changed={this.prepareStateHandler}/>
-                  case ('skills'):
-                    return <Skills key={inputType + i} index={i} id={inputType+i} changed={this.prepareStateHandler} />
-                  case ('experience'):
-                    return <Experience key={inputType + i} index= {i} id={inputType+i} changed={this.prepareStateHandler}/>
-                  case ('portfolio'):
-                    return <Portfolio key={inputType + i} index= {i} id={inputType+i} changed={this.prepareStateHandler} />
-                  default:
-                    return null;
-                }
-            });
+          return [...Array(this.props.selectedTemplate.inputs[inputType])].map((_, i) => {
+            switch (inputType) {
+              case ('education'):
+                return <Education key={inputType + i} index={i} id={inputType+i} changed={this.prepareStateHandler}/>
+              case ('skills'):
+                return <Skills key={inputType + i} index={i} id={inputType+i} changed={this.prepareStateHandler} />
+              case ('experience'):
+                return <Experience key={inputType + i} index= {i} id={inputType+i} changed={this.prepareStateHandler}/>
+              case ('portfolio'):
+                return <Portfolio key={inputType + i} index= {i} id={inputType+i} changed={this.prepareStateHandler} />
+              default:
+                return null;
+            }
+          });
       }) : [];
+
     const renderedInputs = this.props.selectedTemplate.inputs ? 
                             [<BaseInput key={'base'} changed={this.prepareStateHandler}/>,
                             ...inputs] 
@@ -101,12 +102,6 @@ class InputPage extends Component{
           <div className="text-center">
             {selectButton}
           </div>
-          {/* <Montreal education={this.state.education}
-                    experience={this.state.experience}
-                    skills={this.state.skills}
-                    contact={this.state.contact}
-                    portfolio={this.state.portfolio}
-                    clicked={this.submitFormHandler}/> */}
         </Aux>
       )
     }
