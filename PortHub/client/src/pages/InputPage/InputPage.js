@@ -65,15 +65,15 @@ class InputPage extends Component{
               default:
                 return null;
             }
-          });
+          })
+          
       }) : [];
-
     const renderedInputs = this.props.selectedTemplate.inputs ? 
                             [<BaseInput key={'base'} changed={this.prepareStateHandler}/>,
                             ...inputs] 
                             : <NoMatch />
 
-
+    const education = inputs.slice(1,2);
     const currentTemplate = this.props.selectedTemplate.title;
     let selectButton = '';
     const props = {};
@@ -95,6 +95,9 @@ class InputPage extends Component{
     }
       return (
         <Aux>
+        <Accordion id='education'>
+        {education}
+        </Accordion>
           {renderedInputs}
           <Modal show={this.state.viewSuccessScreen} modalType='success'>
             <SuccessScreen />
