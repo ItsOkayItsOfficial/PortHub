@@ -12,14 +12,10 @@ import Websites from '../pages/TemplatePage/Websites.json';
 
 class Layout extends Component{
 
-  state={
+  state = {
     viewingTemplate: false,
     selectedTemplate: {}
   }
-  // handleTemplate(type){
-  //   if (type !== this.state.type)
-  //     console.log(type);
-  // }
 
   detailedTemplateHandler = (title, type) => {
     let selectedTemplate = '';

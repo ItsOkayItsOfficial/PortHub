@@ -46,10 +46,12 @@ class InputPage extends Component{
   }
   
   submitFormHandler = (html) => {
-    console.log(html);
     this.setState({html, viewSuccessScreen: true});
   }
+
+
   render() {
+    //Logic to render input fields
     const inputs = 
         this.props.selectedTemplate && this.props.selectedTemplate.inputs ? Object.keys(this.props.selectedTemplate.inputs).map((inputType, i) => {
           return [...Array(this.props.selectedTemplate.inputs[inputType])].map((_, i) => {
@@ -72,7 +74,6 @@ class InputPage extends Component{
                             [<BaseInput key={'base'} changed={this.prepareStateHandler}/>,
                             ...inputs] 
                             : <NoMatch />
-
     const education = inputs.slice(1,2);
     const currentTemplate = this.props.selectedTemplate.title;
     let selectButton = '';
@@ -95,9 +96,6 @@ class InputPage extends Component{
     }
       return (
         <Aux>
-        <Accordion id='education'>
-        {education}
-        </Accordion>
           {renderedInputs}
           <Modal show={this.state.viewSuccessScreen} modalType='success'>
             <SuccessScreen />
