@@ -41,7 +41,6 @@ class InputPage extends Component{
       } : {id};
       if (subfield === "startDate" || "endDate"){  // when dates are passed back, convert to string
         fieldObj[subfield] = moment(event).format("MM/YYYY");
-        console.log(fieldObj[subfield]);
       } else {
         fieldObj[subfield] = event.target.value;
       }
