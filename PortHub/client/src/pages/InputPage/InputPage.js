@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Aux from '../../HOCs/Aux';
 import BaseInput from '../../components/Inputs/BaseInput';
 import Education from '../../components/Inputs/Education';
@@ -9,7 +10,6 @@ import {Montreal} from '../../components/Websites';
 import {ResumeLeftRightRTL} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
 import Modal from '../../components/Modal/Modal';
-import SuccessScreen from '../../pages/InputPage/SuccessScreen/SuccessScreen'
 
 class InputPage extends Component{
 
@@ -46,7 +46,7 @@ class InputPage extends Component{
   }
   
   submitFormHandler = (html) => {
-    this.setState({html, viewSuccessScreen: true});
+    localStorage.setItem('html', html);
   }
 
 
@@ -97,11 +97,8 @@ class InputPage extends Component{
       return (
         <Aux>
           {renderedInputs}
-          <Modal show={this.state.viewSuccessScreen} modalType='success'>
-            <SuccessScreen />
-          </Modal>
           <div className="text-center">
-            {selectButton}
+            <Link to='/success'>{selectButton}</Link>
           </div>
         </Aux>
       )

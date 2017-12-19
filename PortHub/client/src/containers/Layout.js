@@ -9,6 +9,9 @@ import Nav from "../components/Navbar";
 import InputPage from '../pages/InputPage/InputPage';
 import Resumes from '../pages/TemplatePage/Resumes.json';
 import Websites from '../pages/TemplatePage/Websites.json';
+import SuccessPage from '../pages/SuccessPage/SuccessPage';
+import LoadingPage from '../pages/LoadingPage/LoadingPage';
+import Keys from '../keys/keys';
 
 class Layout extends Component{
 
@@ -16,7 +19,6 @@ class Layout extends Component{
     viewingTemplate: false,
     selectedTemplate: {}
   }
-
   detailedTemplateHandler = (title, type) => {
     let selectedTemplate = '';
       if (type === "resume"){
@@ -33,8 +35,14 @@ class Layout extends Component{
     this.setState({viewingTemplate: false,
                    selectedTemplate: ''})
   }
+  redirectToGitHubHandler = () => {
+    window.location.replace('https://github.com/login/oauth/authorize?client_id=' 
+  + Keys.clientId + '&redirect_uri=http://localhost:3000/loading&state=1234&scope=user,public_repo');
+  }
+  
   render(){
     return(
+
 
     <div>       
       <Nav className='navbar-fixed-top' title={this.state.type} />
@@ -61,6 +69,10 @@ class Layout extends Component{
                                   selectedTemplate={this.state.selectedTemplate}/>}
             />
             <Route exact path='/inputPage' render={() => <InputPage
+                                                          selectedTemplate={this.state.selectedTemplate} />} />
+            <Route exact path='/success' render={() => <SuccessPage
+                                                          redirect={this.redirectToGitHubHandler} />} />
+            <Route exact path='/loading' render={() => <LoadingPage
                                                           selectedTemplate={this.state.selectedTemplate} />} />
             <Route exact path="/createUser" component={CreateUserPage} />
             <Route exact path="/Login" component={LoginPage} />

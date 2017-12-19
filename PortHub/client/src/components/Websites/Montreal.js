@@ -5,8 +5,8 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
         const offset = i===3 ? "col-lg-offset-3" : ''; 
           return (
         `<div class="col-lg-3 centered ${offset}" >
-					<canvas id=${skill.skill} height="130" width="130"></canvas>
-					<p>${skill.skill}</p>
+					<canvas id="${skill.skill.trim().replace(/\s/g, '')}" height="130" width="130"></canvas>
+					<p>${skill.skill.trim()}</p>
 					<br>
 					<script>
 						var doughnutData = [{
@@ -18,7 +18,7 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 								color: "#ecf0f1"
 							}
 						];
-						var myDoughnut = new Chart(document.getElementById("${skill.skill}").getContext("2d")).Doughnut(doughnutData);
+						var myDoughnut = new Chart(document.getElementById("${skill.skill.trim().replace(/\s/g, '')}").getContext("2d")).Doughnut(doughnutData);
 					</script>
 				</div>`
           )
@@ -98,15 +98,15 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 					<title>Montreal</title>
 
 					<!-- Bootstrap 3.0.2 CSS -->
-					<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+					<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 					<!-- Custom CSS -->
 					<link href="https://rawgit.com/ItsOkayItsOfficial/project3/app/PortHub/client/public/assets/templates/montreal/assets/css/main.css" rel="stylesheet">
 
 					<!-- Font Awesome 4.0.3 -->
 					<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 					<!-- Google fonts -->
-					<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-					<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+					<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+					<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
 
 					<!-- jQuery 1.1.2 -->
 					<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -323,13 +323,13 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 					<div id="c">
 						<div class="container">
 							<p>Created by
-								<a href="http://www.blacktie.co">BLACKTIE.CO</a>
+								<a href="https://www.blacktie.co">BLACKTIE.CO</a>
 							</p>
 
 						</div>
 					</div>
 					<!-- Bootstrap 3.0.2 -->
-					<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+					<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
 
 				</body>
