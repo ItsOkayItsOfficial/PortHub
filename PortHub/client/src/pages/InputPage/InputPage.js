@@ -5,11 +5,12 @@ import BaseInput from '../../components/Inputs/BaseInput';
 import Education from '../../components/Inputs/Education';
 import Skills from '../../components/Inputs/Skills';
 import Experience from '../../components/Inputs/Experience';
-import NoMatch from '../../pages/NoMatch/NoMatch';
+// import NoMatch from '../../pages/NoMatch/NoMatch';
 import {Montreal} from '../../components/Websites';
 import {ResumeLeftRightRTL} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
-import Modal from '../../components/Modal/Modal';
+
+import Accordion from '../../components/Accordion/Accordion';
 
 class InputPage extends Component{
 
@@ -49,7 +50,6 @@ class InputPage extends Component{
     localStorage.setItem('html', html);
   }
 
-
   render() {
     //Logic to render input fields
     const inputs = 
@@ -70,20 +70,25 @@ class InputPage extends Component{
           })
           
       }) : [];
-    const renderedInputs = this.props.selectedTemplate.inputs ? 
-                            [<BaseInput key={'base'} changed={this.prepareStateHandler}/>,
-                            ...inputs] 
-                            : <NoMatch />
+    // const renderedInputs = this.props.selectedTemplate.inputs ? 
+    //                         [<BaseInput key={'base'} changed={this.prepareStateHandler}/>,
+    //                         ...inputs] 
+    //                         : <NoMatch />
     const education = inputs.slice(1,2);
+    const skills = inputs.slice(2,3);
+    const experience = inputs.slice(3,4);
+    const portfolio = inputs.slice(4,5);
+
     const currentTemplate = this.props.selectedTemplate.title;
+
     let selectButton = '';
     const props = {};
-    props.education = this.state.education;
-    props.experience= this.state.experience;
-    props.skills= this.state.skills;
-    props.contact= this.state.contact;
-    props.portfolio= this.state.portfolio;
-    props.clicked= this.submitFormHandler; 
+      props.education = this.state.education;
+      props.experience= this.state.experience;
+      props.skills= this.state.skills;
+      props.contact= this.state.contact;
+      props.portfolio= this.state.portfolio;
+      props.clicked= this.submitFormHandler; 
     switch (currentTemplate){
       case "Montreal":
             selectButton = <Montreal {...props}/>;
@@ -96,7 +101,13 @@ class InputPage extends Component{
     }
       return (
         <Aux>
-          {renderedInputs}
+          <BaseInput key={'base'} changed={this.prepareStateHandler}/>
+          <div id="accordion" role="tablist" aria-multiselectable="true">
+              { (education.length>0) ? <Accordion type="education" i='0'>{education}</Accordion> : ''}
+              { (experience.length>0) ? <Accordion type="experience"i='1'>{experience}</Accordion> : ''}
+              { (skills.length>0) ? <Accordion type="skills" i='2'>{skills}</Accordion> : ''}
+              { (portfolio.length>0) ? <Accordion type="portfolio" i='3'>{portfolio}</Accordion> : ''}
+          </div>
           <div className="text-center">
             <Link to='/success'>{selectButton}</Link>
           </div>
