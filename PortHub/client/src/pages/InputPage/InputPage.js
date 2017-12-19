@@ -9,8 +9,8 @@ import Experience from '../../components/Inputs/Experience';
 import {Montreal} from '../../components/Websites';
 import {ResumeLeftRightRTL} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
-
 import Accordion from '../../components/Accordion/Accordion';
+import moment from 'moment';
 
 class InputPage extends Component{
 
@@ -39,8 +39,12 @@ class InputPage extends Component{
       const fieldObj = this.state[field][inputIndex] ? {
         ...this.state[field][inputIndex]
       } : {id};
-      fieldObj[subfield] = event.target.value;
-
+      if (subfield === "startDate" || "endDate"){  // when dates are passed back, convert to string
+        fieldObj[subfield] = moment(event).format("MM/YYYY");
+        console.log(fieldObj[subfield]);
+      } else {
+        fieldObj[subfield] = event.target.value;
+      }
       !fieldState[inputIndex] ? fieldState.push(fieldObj) : fieldState[inputIndex]=fieldObj;
       this.setState({[field]: fieldState})
     }
@@ -76,19 +80,21 @@ class InputPage extends Component{
     //                         : <NoMatch />
     const education = inputs.slice(1,2);
     const skills = inputs.slice(2,3);
-    const experience = inputs.slice(3,4);
-    const portfolio = inputs.slice(4,5);
+    const portfolio = inputs.slice(3,4);
+    const experience = inputs.slice(0,1);
 
     const currentTemplate = this.props.selectedTemplate.title;
 
     let selectButton = '';
     const props = {};
-      props.education = this.state.education;
-      props.experience= this.state.experience;
-      props.skills= this.state.skills;
-      props.contact= this.state.contact;
-      props.portfolio= this.state.portfolio;
-      props.clicked= this.submitFormHandler; 
+
+    props.education = this.state.education;
+    props.experience= this.state.experience;
+    props.skills= this.state.skills;
+    props.contact= this.state.contact;
+    props.portfolio= this.state.portfolio;
+    props.clicked= this.submitFormHandler; 
+
     switch (currentTemplate){
       case "Montreal":
             selectButton = <Montreal {...props}/>;
@@ -115,6 +121,5 @@ class InputPage extends Component{
       )
     }
   }
-
 
 export default InputPage;

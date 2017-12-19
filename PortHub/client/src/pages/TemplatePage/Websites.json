@@ -2,7 +2,13 @@
   {
     "src": "/assets/templates/lawrence/index.html",
     "img": "/assets/templates/websitepeeks/lawrence.png",
-    "title":"lawrence"
+    "title":"lawrence",
+    "inputs": {
+      "experience": 2,
+      "education": 2,
+      "skills": 6,
+      "portfolio": 3
+    }
   },
   {
     "src": "/assets/templates/london/index.html",

@@ -8,7 +8,6 @@ const Accordion = (props) =>{
     let ariacontrols = `collapse${props.i}`;
     let type = `${props.type}`;
     let children=props.children;
-    console.log(props.children);
     
     return (
         <div className="card">
@@ -20,7 +19,7 @@ const Accordion = (props) =>{
           </h5>
         </div>
     
-        <div id={id} className="collapse" role="tabpanel" aria-labelledby={arialabelledby}>
+        <div id={id} className="collapse show" role="tabpanel" aria-labelledby={arialabelledby}>
           <div className="card-block">
             {children}
           </div>
