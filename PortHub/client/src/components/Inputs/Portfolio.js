@@ -2,10 +2,10 @@ import React from 'react';
 
 const Portfolio = ({ id, index, changed }) => {
   return (
-      <div className='container m-2 border border-primary rounded'>
+      <div className='w-75 m-2 border border-primary rounded'>
         <h3> Portfolio {index+1} </h3>
           <div className="row border-1 rounded">
-              <div className="col-md-4 ">
+              <div className="col-md-4">
                   <div className="form-group">
                       <label >Title</label>
                       <input type="text" 

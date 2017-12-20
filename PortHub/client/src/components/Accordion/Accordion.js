@@ -22,7 +22,7 @@ const Accordion = (props) =>{
           </a>
 
           <div id={id} className="collapse" role="tabpanel" aria-labelledby={arialabelledby}>
-            <div className="card-block m-5">
+            <div className="d-flex flex-wrap justify-content-center">
               {children}
             </div>
           </div>

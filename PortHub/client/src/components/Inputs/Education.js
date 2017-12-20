@@ -2,7 +2,7 @@ import React  from 'react';
 
 const Education = ({id, index, changed}) => { 
     return (
-        <div className='container m-2 border border-primary rounded'>
+        <div className='m-5 p-5 border border-primary rounded'>
             <h3> Education {index+1} </h3>
             <div className="row">
                 <div className="col-md-6">
