@@ -2,7 +2,7 @@ import React from 'react';
 
 const Experience = ({index, id, changed}) => {
   return (
-  <div className='container'>
+  <div className='container border border-primary rounded m-4'>
   <h3> Employer {index+1} </h3>
     <div className="row">
           <div className="col-md-4">
@@ -49,12 +49,10 @@ const Experience = ({index, id, changed}) => {
               <div className="col-md-6">
                   <div className="form-group">
                       <label>Start Date</label>
-                      <input type="text" 
+                      <input type="month" 
                       name="name" 
                       className="form-control" 
                       placeholder="Please enter the your start date (month, YYYY)" 
-                      required="required" 
-                      data-error="Start Date is required."
                       onChange={(event) => changed(event, id, 'experience', 'startDate')} />
                       <div className="help-block with-errors"></div>
                   </div>
@@ -62,12 +60,10 @@ const Experience = ({index, id, changed}) => {
               <div className="col-md-6">
                   <div className="form-group">
                       <label>End Date</label>
-                      <input type="text" 
+                      <input type="month" 
                              name="end Date" 
                              className="form-control" 
                              placeholder="Please enter the your end date (month, YYYY)" 
-                             required="required" 
-                             data-error="End Date is required."
                              onChange={(event) => changed(event, id, 'experience', 'endDate')} />
                       <div className="help-block with-errors"></div>
                   </div>

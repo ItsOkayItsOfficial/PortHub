@@ -11,20 +11,22 @@ const Accordion = (props) =>{
     
     return (
         <div className="card">
-        <div className="card-header" role="tab" id={arialabelledby}>
-          <h5 className="mb-0">
-            <a data-toggle="collapse" data-parent="#accordion" href={href} aria-expanded="true" aria-controls={ariacontrols}>
-              {type}
-            </a>
-          </h5>
-        </div>
-    
-        <div id={id} className="collapse show" role="tabpanel" aria-labelledby={arialabelledby}>
-          <div className="card-block">
-            {children}
+          <a data-toggle="collapse" data-parent="#accordion" href={href} aria-expanded="true" aria-controls={ariacontrols}>
+            <div className="card-header" role="tab" id={arialabelledby} data-toggle="collapse">
+              <h5 className="mb-0">
+                
+                  {type}
+
+              </h5>
+            </div>
+          </a>
+
+          <div id={id} className="collapse" role="tabpanel" aria-labelledby={arialabelledby}>
+            <div className="card-block m-5">
+              {children}
+            </div>
           </div>
         </div>
-      </div>
     )
 }
 

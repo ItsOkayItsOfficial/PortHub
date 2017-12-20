@@ -2,126 +2,140 @@ import React from 'react';
 
 const BaseInput = ({ changed }) => {
     return(
-      <div className='container'>
-        <h1> Please enter your information </h1>      
-        <div className="row">
-              <div className="col-md-6">
-                  <div className="form-group">
-                      <label>Firstname *</label>
-                      <input type="text" 
-                             name="name" 
-                             className="form-control" 
-                             placeholder="firstname *" 
-                             required="required" 
-                             data-error="Firstname is required."
-                             onChange={(event) => changed(event, "_", 'contact', 'firstName')} />
-                      <div className="help-block with-errors"></div>
-                  </div>
-              </div>
-              <div className="col-md-6">
-                  <div className="form-group">
-                      <label>Lastname *</label>
-                      <input type="text" 
-                             name="surname" 
-                             className="form-control" 
-                             placeholder="lastname *" 
-                             required="required" 
-                             data-error="Lastname is required."
-                             onChange={(event) => changed(event, "_", 'contact', 'lastName')} />
-                      <div className="help-block with-errors"></div>
-                  </div>
-              </div>
-          </div>
-          <div className="row">
-              <div className="col-md-3">
-                  <div className="form-group">
-                      <label >Email *</label>
-                      <input type="email" 
-                             name="email" 
-                             className="form-control" 
-                             placeholder="email *" 
-                             required="required" 
-                             data-error="Valid email is required."
-                             onChange={(event) => changed(event, "_", 'contact', 'email')} />
-                      <div className="help-block with-errors"></div>
-                  </div>
-              </div>
-              <div className="col-md-3">
-                  <div className="form-group">
-                      <label>Phone</label>
-                      <input type="tel" 
-                             name="phone" 
-                             className="form-control" 
-                             placeholder="phone"
-                             onChange={(event) => changed(event, "_", 'contact', 'phone')} />
-                      <div className="help-block with-errors"></div>
-                  </div>
-              </div>
-              <div className="col-md-6">
-                  <div className="form-group">
-                      <label>Bio</label>
-                      <input type="bio" 
-                             name="bio" 
-                             className="form-control" 
-                             placeholder="Please enter your bio"
-                             onChange={(event) => changed(event, "_", 'contact', 'bio')} />
-                      <div className="help-block with-errors"></div>
-                  </div>
-              </div>
-          </div>
-          <div className="row">
-              <div className="col-md-6">
-                  <div className="form-group">
-                      <label>Current Job Title</label>
-                      <input type="text" 
-                             name="email" 
-                             className="form-control" 
-                             placeholder="current job title" 
-                             required="required" 
-                             data-error="Valid email is required."
-                             onChange={(event) => changed(event, "_", 'contact', 'currentTitle')} />
-                      <div className="help-block with-errors"></div>
-                  </div>
-              </div>
-              <div className="col-md-6">
-                  <div className="form-group">
-                      <label>Personal Website URL</label>
-                      <input type="text" 
-                             name="phone" 
-                             className="form-control" 
-                             placeholder="Please enter personal site URL"
-                             onChange={(event) => changed(event, "_", 'contact', 'site')} />
-                      <div className="help-block with-errors"></div>
-                  </div>
-              </div>
-          </div>
-          <div className="row">
-              <div className="col-md-6">
-                  <div className="form-group">
-                      <label>Address</label>
-                      <input type="text" 
-                             name="email" 
-                             className="form-control" 
-                             placeholder="address" 
-                             required="required" 
-                             data-error="Valid address is required."
-                             onChange={(event) => changed(event, "_", 'contact', 'address')} />
-                      <div className="help-block with-errors"></div>
-                  </div>
-              </div>
-              <div className="col-md-6">
-                  <div className="form-group">
-                      <label>GitHub URL</label>
-                      <input type="text" 
-                             name="github" 
-                             className="form-control" 
-                             placeholder="Please enter github URL"
-                             onChange={(event) => changed(event, "_", 'contact', 'github')} />
-                      <div className="help-block with-errors"></div>
-                  </div>
-              </div>
-          </div>
-      </div>)
+        <div className="container border border-primary rounded p-5 mt-5 mb-5">
+            <h1 className="text-center"> Please enter your information </h1> 
+            <div className="row">
+                <div className="col-md-6">
+                    <label>Name *</label>
+                    <div className="row">
+                        <div className="form-inline w-100">
+                            <div className="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div className="input-group-addon">F</div>                        
+                                <input type="text" 
+                                        name="name" 
+                                        className="form-control w-50" 
+                                        placeholder="First Name *" 
+                                        required="required" 
+                                        data-error="Firstname is required."
+                                        onChange={(event) => changed(event, "_", 'contact', 'firstName')} />
+                            </div>
+                            <div className="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div className="input-group-addon">L</div>  
+                                <input type="text" 
+                                        name="lastname" 
+                                        className="form-control w-50" 
+                                        placeholder="Last Name *" 
+                                        required="required" 
+                                        data-error="Last name is required."
+                                        onChange={(event) => changed(event, "_", 'contact', 'lastName')} />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="form-group w-100">
+                            <label>Address</label>
+                            <div className="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div className="input-group-addon">
+                                    <i className="fa fa-address-card-o fa-2x" aria-hidden="true"></i>                                
+                                </div>  
+                                    <textarea type="text" 
+                                            name="address" 
+                                            className="form-control" 
+                                            placeholder="address" 
+                                            required="required" 
+                                            data-error="Valid address is required."
+                                            onChange={(event) => changed(event, "_", 'contact', 'address')} />
+                            </div>
+                            <div className="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div className="row">
+                            <div className="form-group w-50">
+                                <label>Phone</label>
+                                <div className="input-group">
+                                    <div className="input-group-addon">
+                                        <i className="fa fa-phone" aria-hidden="true"></i>                               
+                                    </div> 
+                                    <input type="tel" 
+                                            name="phone" 
+                                            className="form-control" 
+                                            placeholder="phone"
+                                            onChange={(event) => changed(event, "_", 'contact', 'phone')} />
+                                    <div className="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div className="form-group w-50">
+                                <label >Email </label>
+                                <div className="input-group mb-2 mr-sm-2 mb-sm-0">
+                                    <div className="input-group-addon">@</div>
+                                    <input type="email" 
+                                            name="email" 
+                                            className="form-control" 
+                                            placeholder="email" 
+                                            onChange={(event) => changed(event, "_", 'contact', 'email')} />
+                                </div>
+                                <div className="help-block with-errors"></div>
+                            </div>
+                    </div>  
+                </div>
+                <div className="col-md-6">
+                        <div className="form-group">
+                            <label>Bio</label>
+                            <textarea type="text" 
+                                    name="bio" 
+                                    rows="5"
+                                    className="form-control" 
+                                    placeholder="Please enter your bio"
+                                    onChange={(event) => changed(event, "_", 'contact', 'bio')} />
+                            <div className="help-block with-errors"></div>
+                        </div>
+                        <div className="form-group">
+                                <label>Current Job Title</label>
+                                <input type="text" 
+                                        name="jobTitle" 
+                                        className="form-control" 
+                                        placeholder="current job title" 
+                                        onChange={(event) => changed(event, "_", 'contact', 'currentTitle')} />
+                                <div className="help-block with-errors"></div>
+                            </div>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-6">
+                    <div className="form-group">
+                        <label>Personal Website URL</label>
+                        <div className="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div className="input-group-addon">
+                                <i className="fa fa-globe" aria-hidden="true"></i>
+                            </div>
+                            <input type="text" 
+                                    name="phone" 
+                                    className="form-control" 
+                                    placeholder="Please enter personal site URL"
+                                    onChange={(event) => changed(event, "_", 'contact', 'site')} />
+                        </div>
+                        <div className="help-block with-errors"></div>
+                    </div>   
+                </div>
+                <div className="col-md-6">
+                    <div className="form-group">
+                        <label>GitHub URL</label>
+                        <div className="input-group">
+                            <div className="input-group-addon">
+                                <i className="fa fa-github" aria-hidden="true"></i>
+                            </div>                            
+                                <input type="text" 
+                                        name="github" 
+                                        className="form-control" 
+                                        placeholder="Please enter github URL"
+                                        onChange={(event) => changed(event, "_", 'contact', 'github')} />
+                        </div>
+                        <div className="help-block with-errors"></div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    )
 }
 
 export default BaseInput;

@@ -1,35 +1,9 @@
-import React, { Component }  from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import moment from 'moment';
+import React  from 'react';
 
-class Education extends Component{
-    constructor (props) {
-        super(props);
-        this.state ={
-            startDate: moment(),
-            endDate: moment(),
-            education:{}
-        };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleEndChange = this.handleEndChange.bind(this);
-    }
-    handleChange(date) {
-        this.setState({
-          startDate: date
-        });
-    }
-    handleEndChange(date) {
-        this.setState({
-          endDate: date
-        });
-
-    }
-    render (){
-        
+const Education = ({id, index, changed}) => { 
     return (
-        <div className='container'>
-            <h3> Education {this.props.index+1} </h3>
+        <div className='container m-2 border border-primary rounded'>
+            <h3> Education {index+1} </h3>
             <div className="row">
                 <div className="col-md-6">
                     <div className="form-group">
@@ -92,37 +66,30 @@ class Education extends Component{
                 <div className="col-md-6">
                     <div className="form-group">
                         <label>Start Date</label>
-                        <DatePicker
-                                selected={this.state.startDate}
-                                value={moment(this.state.startDate).format("MM/YYYY")} 
-                                onSelect={this.handleChange}
-                                onChange={(event) => this.props.changed(event, this.props.id, 'education', 'startDate')}
-                                peekNextMonth
-                                showMonthDropdown
-                                showYearDropdown
-                                dropdownMode="select"
-                            />
+                        <input type="month" 
+                            name="name" 
+                            className="form-control" 
+                            placeholder="Please enter the your start date (month, YYYY)" 
+                            required="required" 
+                            onChange={(event) => changed(event, id, 'education', 'startDate')} />
+                            <div className="help-block with-errors"></div>
                     </div>
                 </div>
                 <div className="col-md-6">
                     <div className="form-group">
                         <label>End Date</label>
-                        <DatePicker
-                                selected={this.state.endDate}
-                                value={moment(this.state.endDate).format("MM/YYYY")} 
-                                onSelect={this.handleEndChange}
-                                onChange={(event) => this.props.changed(event, this.props.id, 'education', 'endDate')}
-                                peekNextMonth
-                                showMonthDropdown
-                                showYearDropdown
-                                dropdownMode="select"
-                            />
+                        <input type="month" 
+                            name="name" 
+                            className="form-control" 
+                            placeholder="Please enter the your end date (month, YYYY)" 
+                            required="required" 
+                            onChange={(event) => changed(event, id, 'education', 'startDate')} />
+                            <div className="help-block with-errors"></div>
                     </div>
                 </div>
             </div>
         </div>
-    )
-    }
+    );
 }
 
 export default Education;
