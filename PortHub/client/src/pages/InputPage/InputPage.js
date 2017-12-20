@@ -11,7 +11,7 @@ import {Lawrence} from '../../components/Websites';
 import {ResumeLeftRightRTL} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
 import Accordion from '../../components/Accordion/Accordion';
-import moment from 'moment';
+// import moment from 'moment';
 
 class InputPage extends Component{
 
@@ -25,14 +25,20 @@ class InputPage extends Component{
     html: '',
     selectButton:''
   }
+  componentDidMount(){
+    //check if there windows.sessionStorage.getItem('userName') then
+    //pull user db info and set state values 
 
+  }
   prepareStateHandler = (event, id, field, subfield) => {
     if (field === 'contact') {
       const contact = {...this.state.contact};
       contact[subfield] = event.target.value;
-      this.setState({contact})
+      this.setState({contact});
+      window.sessionStorage.setItem('contact'+subfield,event.target.value);
     }
     else {
+      console.log("id:" + id);
       const fieldState = [...this.state[field]] ? [...this.state[field]] : [];
       const inputIndex = this.state[field].findIndex(input => {
         return input.id === id;
@@ -40,19 +46,21 @@ class InputPage extends Component{
       const fieldObj = this.state[field][inputIndex] ? {
         ...this.state[field][inputIndex]
       } : {id};
-      if (subfield === "startDate" || "endDate"){  // when dates are passed back, convert to string
-        fieldObj[subfield] = moment(event).format("MM/YYYY");
-      } else {
-        fieldObj[subfield] = event.target.value;
-      }
+
+      fieldObj[subfield] = event.target.value;
+
       !fieldState[inputIndex] ? fieldState.push(fieldObj) : fieldState[inputIndex]=fieldObj;
       this.setState({[field]: fieldState})
+
+      window.sessionStorage.setItem(id+subfield,event.target.value);
     }
+
   }
   
   submitFormHandler = (html) => {
     console.log(html);
     localStorage.setItem('html', html);
+    // write whatever state to user db profile
   }
 
   render() {

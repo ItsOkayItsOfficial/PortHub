@@ -1,6 +1,13 @@
 import React  from 'react';
 
+
 const Education = ({id, index, changed}) => { 
+    let educationName = window.sessionStorage.getItem(id+"schoolName") || "";
+    let educationLocation = window.sessionStorage.getItem(id+"schoolLocation") || "";
+    let educationMajor = window.sessionStorage.getItem(id+"major") || "";
+    let educationStartDate = window.sessionStorage.getItem(id+"startDate") || "";    
+    let educationEndDate = window.sessionStorage.getItem(id+"endDate") || ""; 
+
     return (
         <div className='m-5 p-5 border border-primary rounded'>
             <h3> Education {index+1} </h3>
@@ -10,6 +17,7 @@ const Education = ({id, index, changed}) => {
                         <label>School attended</label>
                         <input type="text" 
                         name="name" 
+                        value = {educationName}
                         className="form-control" 
                         placeholder="Please enter the school you attended" 
                         required="required" 
@@ -23,6 +31,7 @@ const Education = ({id, index, changed}) => {
                         <label>School Location (City, ST)</label>
                         <input type="text" 
                                 name="location" 
+                                value={educationLocation}
                                 className="form-control" 
                                 placeholder="schools city and state." 
                                 required="required" 
@@ -53,6 +62,7 @@ const Education = ({id, index, changed}) => {
                         <label>Field of Study</label>
                         <input type="text" 
                                 name="name" 
+                                value={educationMajor}
                                 className="form-control" 
                                 placeholder="field of study" 
                                 required="required" 
@@ -68,6 +78,7 @@ const Education = ({id, index, changed}) => {
                         <label>Start Date</label>
                         <input type="month" 
                             name="name" 
+                            value = {educationStartDate}
                             className="form-control" 
                             placeholder="Please enter the your start date (month, YYYY)" 
                             required="required" 
@@ -79,11 +90,16 @@ const Education = ({id, index, changed}) => {
                     <div className="form-group">
                         <label>End Date</label>
                         <input type="month" 
-                            name="name" 
+                            name="name"
+                            value = {educationEndDate} 
                             className="form-control" 
                             placeholder="Please enter the your end date (month, YYYY)" 
                             required="required" 
+<<<<<<< HEAD
                             onChange={(event) => this.props.changed(event, id, 'education', 'endDate')} />
+=======
+                            onChange={(event) => changed(event, id, 'education', 'endDate')} />
+>>>>>>> 530a0481a4a7554afaf63b37e28298844c7faa66
                             <div className="help-block with-errors"></div>
                     </div>
                 </div>
