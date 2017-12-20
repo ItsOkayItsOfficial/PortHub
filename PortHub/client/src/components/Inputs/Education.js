@@ -14,7 +14,7 @@ const Education = ({id, index, changed}) => {
                         placeholder="Please enter the school you attended" 
                         required="required" 
                         data-error="School name is required."
-                        onChange={(event) => this.props.changed(event, this.props.id, 'education', 'schoolName')} />
+                        onChange={(event) => changed(event, id, 'education', 'schoolName')} />
                         <div className="help-block with-errors"></div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@ const Education = ({id, index, changed}) => {
                                 placeholder="schools city and state." 
                                 required="required" 
                                 data-error="Location is required."
-                                onChange={(event) => this.props.changed(event, this.props.id, 'education', 'schoolLocation')} />
+                                onChange={(event) => changed(event, id, 'education', 'schoolLocation')} />
                         <div className="help-block with-errors"></div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ const Education = ({id, index, changed}) => {
                     <div className="form-group">
                         <label>Type of Degree</label>
                         <select className="form-control" 
-                                onChange={(event) => this.props.changed(event, this.props.id, 'education', 'degreeType')}>
+                                onChange={(event) => changed(event, id, 'education', 'degreeType')}>
                         <option>Other</option>
                         <option>Bachelor of Science</option>
                         <option>Master of Science</option>
@@ -57,7 +57,7 @@ const Education = ({id, index, changed}) => {
                                 placeholder="field of study" 
                                 required="required" 
                                 data-error="field of study is required."
-                                onChange={(event) => this.props.changed(event, this.props.id, 'education', 'major')} />
+                                onChange={(event) => changed(event, id, 'education', 'major')} />
                         <div className="help-block with-errors"></div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ const Education = ({id, index, changed}) => {
                             className="form-control" 
                             placeholder="Please enter the your end date (month, YYYY)" 
                             required="required" 
-                            onChange={(event) => changed(event, id, 'education', 'startDate')} />
+                            onChange={(event) => this.props.changed(event, id, 'education', 'endDate')} />
                             <div className="help-block with-errors"></div>
                     </div>
                 </div>

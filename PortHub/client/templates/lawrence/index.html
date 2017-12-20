@@ -7,14 +7,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Lawrence Theme">
 	<meta name="author" content="Carlos Alvarez - Alvarez.is - blacktie.co">
-	<link rel="shortcut icon" href="assets/ico/favicon.png">
+	<link rel="shortcut icon" href="">
 
-	<title>Lawrence</title>
+	<title>${contact ? contact.firstName + ' ' + contact.lastName : ''}</title>
 
 	<!-- Bootstrap 3.0.2 CSS -->
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
-	<link href="assets/css/main.css" rel="stylesheet">
+	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/master/templates/lawrence/assets/css/main.css" rel="stylesheet">
 
 	<!-- Font Awesome 4.0.3 -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
@@ -22,11 +22,13 @@
 	<!-- jQuery 1.10.2 -->
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<!-- Chart.js 1.0.1 -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
+  <!--Smooth Scroll  -->
+  <script type="text/javascript" src="https://rawgit.com/ItsOkayItsOfficial/project3/app/PortHub/client/public/assets/templates/montreal/assets/js/smoothscroll.js"></script>
 
 </head>
 
-<body>
+<body data-spy="scroll" data-offset="0" data-target="#nav">
 
 	<!-- Fixed navbar -->
 	<div class="navbar navbar-default navbar-fixed-top">
@@ -41,9 +43,9 @@
 					<i class="fa fa-bolt"></i>
 				</a>
 			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="active">
+			<div class="navbar-collapse collapse" >
+				<ul class="nav navbar-nav navbar-right" id='nav'>
+					<li class="active smoothScroll">
 						<a href="#contact">Contact</a>
 					</li>
 				</ul>
@@ -66,17 +68,18 @@
 		</div>
 		<!-- /container -->
 	</div>
-	<!-- /hello -->
-
+  <!-- /hello -->
+  
+<section id="about" name='about'></section>
 	<div id="green">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5 centered">
-					<img src="assets/img/iphone.png" alt="">
+					<img src="https://rawgit.com/ItsOkayItsOfficial/project3/master/templates/lawrence/assets/img/iphone.png" alt="">
 				</div>
 
 				<div class="col-lg-7 centered">
-					<h3>WHAT I CAN DO?</h3>
+					<h3>WHO AM I?</h3>
 					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
 						dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
 						book.
@@ -86,14 +89,17 @@
 		</div>
 	</div>
 
+<section id="portfolio"></section>
 	<div class="container">
 		<div class="row centered mt grid">
 			<h3>MY LATEST WORK</h3>
 			<div class="mt"></div>
-			<div class="col-lg-4">
-				<a id="proj_1" href="#">
+			<div class="col-lg-4" style='text-align:center; word-wrap: break-word;'>
+				<a id="proj_1" href="" target='_blank'>
 					<img src="assets/img/01.jpg" alt="">
-				</a>
+        </a>
+        <h3 style='margin: 10px auto auto auto'> project Title </h3>
+          <p style='width: 300px; margin:auto'>awdaawdawdawdawdawdawdawijaowidjaowidijawdpoajw ijwduia iuhawiudha iuhawdiuhaw iuahwdiuahwdi uhaiuwdhaiuwhd aiuahwdiua h</p>
 			</div>
 			<div class="col-lg-4">
 				<a id="proj_2" href="#">
@@ -112,7 +118,8 @@
 			<div class="col-lg-4">
 				<a id="proj_4" href="#">
 					<img src="assets/img/04.jpg" alt="">
-				</a>
+        </a>
+        <p> Project Descriptionawdawdawdklawdoaiwjdoiawjdoaiwjdaoiwjdaowijdaoiwjaoiwjdaoiwjd </p>
 			</div>
 			<div class="col-lg-4">
 				<a id="proj_5" href="#">
@@ -123,19 +130,6 @@
 				<a id="proj_6" href="#">
 					<img src="assets/img/06.jpg" alt="">
 				</a>
-			</div>
-		</div>
-
-		<div class="row mt centered">
-			<div class="col-lg-7 col-lg-offset-1 mt">
-				<p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-					dummy text ever.</p>
-			</div>
-
-			<div class="col-lg-3 mt">
-				<p>
-					<button type="button" class="btn btn-theme btn-lg">Email Me!</button>
-				</p>
 			</div>
 		</div>
 	</div>
@@ -225,22 +219,17 @@
 		<div class="container">
 			<div class="row centered">
 				<div class="col-lg-8 col-lg-offset-2">
-					<div class="col-md-3">
+					<div class="col-md-4">
 						<a href="#">
-							<i class="fa fa-facebook"></i>
+							<i class="fa fa-linkedin"></i>
 						</a>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-4">
 						<a href="#">
-							<i class="fa fa-dribbble"></i>
+							<i class="fa fa-github"></i>
 						</a>
 					</div>
-					<div class="col-md-3">
-						<a href="#">
-							<i class="fa fa-twitter"></i>
-						</a>
-					</div>
-					<div class="col-md-3">
+					<div class="col-md-4">
 						<a href="#">
 							<i class="fa fa-envelope"></i>
 						</a>

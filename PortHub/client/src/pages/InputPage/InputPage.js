@@ -7,6 +7,7 @@ import Skills from '../../components/Inputs/Skills';
 import Experience from '../../components/Inputs/Experience';
 // import NoMatch from '../../pages/NoMatch/NoMatch';
 import {Montreal} from '../../components/Websites';
+import {Lawrence} from '../../components/Websites';
 import {ResumeLeftRightRTL} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
 import Accordion from '../../components/Accordion/Accordion';
@@ -50,6 +51,7 @@ class InputPage extends Component{
   }
   
   submitFormHandler = (html) => {
+    console.log(html);
     localStorage.setItem('html', html);
   }
 
@@ -68,7 +70,7 @@ class InputPage extends Component{
               case ('portfolio'):
                 return <Portfolio key={inputType + i} index= {i} id={inputType+i} changed={this.prepareStateHandler} />
               default:
-                return null;
+                return '';
             }
           })
           
@@ -77,6 +79,7 @@ class InputPage extends Component{
     //                         [<BaseInput key={'base'} changed={this.prepareStateHandler}/>,
     //                         ...inputs] 
     //                         : <NoMatch />
+    console.log(inputs)
     const education = inputs.slice(1,2);
     const skills = inputs.slice(2,3);
     const portfolio = inputs.slice(3,4);
@@ -86,7 +89,6 @@ class InputPage extends Component{
 
     let selectButton = '';
     const props = {};
-
     props.education = this.state.education;
     props.experience= this.state.experience;
     props.skills= this.state.skills;
@@ -96,10 +98,13 @@ class InputPage extends Component{
 
     switch (currentTemplate){
       case "Montreal":
-            selectButton = <Montreal {...props}/>;
+            selectButton = <Montreal {...props }/>;
+            break;
+      case "Lawrence":
+            selectButton = <Lawrence {...props} />
             break;
       case "resume-left-right-rtl":
-            selectButton = <ResumeLeftRightRTL {...props}/>;
+            selectButton = <ResumeLeftRightRTL {...props} />;
             break;   
       default:
             break;
@@ -108,10 +113,10 @@ class InputPage extends Component{
         <Aux>
           <BaseInput key={'base'} changed={this.prepareStateHandler}/>
           <div id="accordion" role="tablist" aria-multiselectable="true">
-              { (education.length>0) ? <Accordion type="education" i='0'>{education}</Accordion> : ''}
-              { (experience.length>0) ? <Accordion type="experience"i='1'>{experience}</Accordion> : ''}
-              { (skills.length>0) ? <Accordion type="skills" i='2'>{skills}</Accordion> : ''}
-              { (portfolio.length>0) ? <Accordion type="portfolio" i='3'>{portfolio}</Accordion> : ''}
+              { (education[0] && education[0].length>0) ? <Accordion type="education" i='0'>{education}</Accordion> : ''}
+              { (experience[0] && experience[0].length>0) ? <Accordion type="experience"i='1'>{experience}</Accordion> : ''}
+              { (skills[0] && skills[0].length>0) ? <Accordion type="skills" i='2'>{skills}</Accordion> : ''}
+              { (portfolio[0] && portfolio[0].length>0) ? <Accordion type="portfolio" i='3'>{portfolio}</Accordion> : ''}
           </div>
           <div className="text-center">
             <Link to='/success'>{selectButton}</Link>
