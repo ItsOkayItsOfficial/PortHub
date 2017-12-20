@@ -95,7 +95,7 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 					<meta name="author" content="Carlos Alvarez - Alvarez.is - blacktie.co">
 					<link rel="shortcut icon" href="assets/ico/favicon.png">
 
-					<title>Montreal</title>
+					<title>${contact ? contact.firstName + ' ' + contact.lastName : ''}</title>
 
 					<!-- Bootstrap 3.0.2 CSS -->
 					<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
@@ -304,10 +304,10 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 										<sm>SOCIAL LINKS</sm>
 									</p>
 									<p>
-										<a href="#">
+										<a href="${contact.linkedin}">
 											<i class="icon-linkedin">${contact ? contact.linkedin : ''}</i>
 										</a>
-										<a href="#">
+										<a href="${contact.github}">
 											<i class="icon-github">${contact ? contact.github : ''}</i>
 										</a>
 

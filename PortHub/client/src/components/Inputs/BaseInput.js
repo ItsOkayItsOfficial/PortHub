@@ -118,7 +118,7 @@ const BaseInput = ({ changed }) => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-4">
                     <div className="form-group">
                         <label>Personal Website URL</label>
                         <div className="input-group mb-2 mr-sm-2 mb-sm-0">
@@ -135,7 +135,7 @@ const BaseInput = ({ changed }) => {
                         <div className="help-block with-errors"></div>
                     </div>   
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-4">
                     <div className="form-group">
                         <label>GitHub URL</label>
                         <div className="input-group">
@@ -152,7 +152,23 @@ const BaseInput = ({ changed }) => {
                         <div className="help-block with-errors"></div>
                     </div>
                 </div>
-        </div>
+                <div className="col-md-4">
+                    <div className="form-group">
+                        <label>LinkedIn URL</label>
+                        <div className="input-group">
+                            <div className="input-group-addon">
+                                <i className="fa fa-linkedin" aria-hidden="true"></i>
+                            </div>                            
+                                <input type="text" 
+                                        name="github" 
+                                        className="form-control" 
+                                        placeholder="Please enter LinkedIn URL"
+                                        onChange={(event) => changed(event, "_", 'contact', 'linkedin')} />
+                        </div>
+                        <div className="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
     </div>
     )
 }

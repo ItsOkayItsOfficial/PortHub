@@ -2,12 +2,12 @@
   {
     "src": "/assets/templates/lawrence/index.html",
     "img": "/assets/templates/websitepeeks/lawrence.png",
-    "title":"lawrence",
+    "title":"Lawrence",
     "inputs": {
-      "experience": 2,
-      "education": 2,
-      "skills": 6,
-      "portfolio": 3
+      "experience": 0,
+      "education": 0,
+      "skills": 4,
+      "portfolio": 6
     }
   },
   {
