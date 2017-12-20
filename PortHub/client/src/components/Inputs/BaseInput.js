@@ -2,7 +2,7 @@ import React from 'react';
 
 const BaseInput = ({ changed }) => {
     let contactFirstName = window.sessionStorage.getItem('contactfirstName') || "";
-    let contactLastName = window.sessionStorage.getItem('contactflastName') || "";
+    let contactLastName = window.sessionStorage.getItem('contactlastName') || "";
     let contactAddress = window.sessionStorage.getItem('contactaddress') || "";
     let contactPhone = window.sessionStorage.getItem('contactphone') || "";
     let contactEmail = window.sessionStorage.getItem('contactemail') || "";
@@ -33,7 +33,7 @@ const BaseInput = ({ changed }) => {
                             <div className="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div className="input-group-addon">L</div>  
                                 <input type="text" 
-                                        name="lastname"
+                                        name="lastName"
                                         value={contactLastName}
                                         className="form-control w-50" 
                                         placeholder="Last Name *" 

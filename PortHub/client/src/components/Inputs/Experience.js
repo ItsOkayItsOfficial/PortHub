@@ -1,8 +1,13 @@
 import React from 'react';
 
-
 const Experience = ({index, id, changed}) => {
-  return (
+    let experienceTitle = window.sessionStorage.getItem(id+"title") || "";
+    let experienceEmployer = window.sessionStorage.getItem(id+"employer") || "";
+    let experienceDuties = window.sessionStorage.getItem(id+"duties") || "";
+    let experienceStartDate = window.sessionStorage.getItem(id+"startDate") || "";    
+    let experienceEndDate = window.sessionStorage.getItem(id+"endDate") || ""; 
+
+    return (
   <div className='m-5 p-5 border border-primary rounded'>
   <h3> Employer {index+1} </h3>
     <div className="row">
@@ -10,7 +15,8 @@ const Experience = ({index, id, changed}) => {
               <div className="form-group">
                   <label>Employer</label>
                   <input type="text" 
-                         name="name" 
+                         name="employer" 
+                         value = {experienceEmployer}
                          className="form-control" 
                          placeholder="employer" 
                          required="required" 
@@ -23,7 +29,8 @@ const Experience = ({index, id, changed}) => {
               <div className="form-group">
                   <label>Job Title</label>
                   <input type="text" 
-                         name="name" 
+                         name="title" 
+                         value = {experienceTitle}
                          className="form-control" 
                          placeholder="title" 
                          required="required" 
@@ -36,7 +43,8 @@ const Experience = ({index, id, changed}) => {
               <div className="form-group">
                   <label>Job Duties</label>
                   <input type="text" 
-                         name="surname" 
+                         name="duties"
+                         value = {experienceDuties} 
                          className="form-control" 
                          placeholder="job duties" 
                          required="required" 
@@ -51,7 +59,8 @@ const Experience = ({index, id, changed}) => {
                   <div className="form-group">
                       <label>Start Date</label>
                       <input type="month" 
-                      name="name" 
+                      name="startDate"
+                      value={experienceStartDate}
                       className="form-control" 
                       placeholder="Please enter the your start date (month, YYYY)" 
                       onChange={(event) => changed(event, id, 'experience', 'startDate')} />
@@ -62,7 +71,8 @@ const Experience = ({index, id, changed}) => {
                   <div className="form-group">
                       <label>End Date</label>
                       <input type="month" 
-                             name="end Date" 
+                             name="endDate"
+                             value = {experienceEndDate} 
                              className="form-control" 
                              placeholder="Please enter the your end date (month, YYYY)" 
                              onChange={(event) => changed(event, id, 'experience', 'endDate')} />
