@@ -1,6 +1,16 @@
 import React from 'react';
 
 const BaseInput = ({ changed }) => {
+    let contactFirstName = window.sessionStorage.getItem('contactfirstName') || "";
+    let contactLastName = window.sessionStorage.getItem('contactflastName') || "";
+    let contactAddress = window.sessionStorage.getItem('contactaddress') || "";
+    let contactPhone = window.sessionStorage.getItem('contactphone') || "";
+    let contactEmail = window.sessionStorage.getItem('contactemail') || "";
+    let contactBio = window.sessionStorage.getItem('contactbio') || "";
+    let contactCurrentTitle = window.sessionStorage.getItem('contactcurrentTitle') || "";
+    let contactSite = window.sessionStorage.getItem('contactsite') || "";
+    let contactGitHub = window.sessionStorage.getItem('contactgithub') || "";    
+
     return(
         <div className="container border border-primary rounded p-5 mt-5 mb-5">
             <h1 className="text-center"> Please enter your information </h1> 
@@ -12,7 +22,8 @@ const BaseInput = ({ changed }) => {
                             <div className="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div className="input-group-addon">F</div>                        
                                 <input type="text" 
-                                        name="name" 
+                                        name="name"
+                                        value={contactFirstName} 
                                         className="form-control w-50" 
                                         placeholder="First Name *" 
                                         required="required" 
@@ -22,7 +33,8 @@ const BaseInput = ({ changed }) => {
                             <div className="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div className="input-group-addon">L</div>  
                                 <input type="text" 
-                                        name="lastname" 
+                                        name="lastname"
+                                        value={contactLastName}
                                         className="form-control w-50" 
                                         placeholder="Last Name *" 
                                         required="required" 
@@ -39,7 +51,8 @@ const BaseInput = ({ changed }) => {
                                     <i className="fa fa-address-card-o fa-2x" aria-hidden="true"></i>                                
                                 </div>  
                                     <textarea type="text" 
-                                            name="address" 
+                                            name="address"
+                                            value={contactAddress} 
                                             className="form-control" 
                                             placeholder="address" 
                                             required="required" 
@@ -57,7 +70,8 @@ const BaseInput = ({ changed }) => {
                                         <i className="fa fa-phone" aria-hidden="true"></i>                               
                                     </div> 
                                     <input type="tel" 
-                                            name="phone" 
+                                            name="phone"
+                                            value={contactPhone} 
                                             className="form-control" 
                                             placeholder="phone"
                                             onChange={(event) => changed(event, "_", 'contact', 'phone')} />
@@ -69,7 +83,8 @@ const BaseInput = ({ changed }) => {
                                 <div className="input-group mb-2 mr-sm-2 mb-sm-0">
                                     <div className="input-group-addon">@</div>
                                     <input type="email" 
-                                            name="email" 
+                                            name="email"
+                                            value={contactEmail} 
                                             className="form-control" 
                                             placeholder="email" 
                                             onChange={(event) => changed(event, "_", 'contact', 'email')} />
@@ -82,7 +97,8 @@ const BaseInput = ({ changed }) => {
                         <div className="form-group">
                             <label>Bio</label>
                             <textarea type="text" 
-                                    name="bio" 
+                                    name="bio"
+                                    value={contactBio} 
                                     rows="5"
                                     className="form-control" 
                                     placeholder="Please enter your bio"
@@ -92,7 +108,8 @@ const BaseInput = ({ changed }) => {
                         <div className="form-group">
                                 <label>Current Job Title</label>
                                 <input type="text" 
-                                        name="jobTitle" 
+                                        name="jobTitle"
+                                        value={contactCurrentTitle} 
                                         className="form-control" 
                                         placeholder="current job title" 
                                         onChange={(event) => changed(event, "_", 'contact', 'currentTitle')} />
@@ -110,7 +127,8 @@ const BaseInput = ({ changed }) => {
                             </div>
                             <input type="text" 
                                     name="phone" 
-                                    className="form-control" 
+                                    className="form-control"
+                                    value={contactSite} 
                                     placeholder="Please enter personal site URL"
                                     onChange={(event) => changed(event, "_", 'contact', 'site')} />
                         </div>
@@ -125,7 +143,8 @@ const BaseInput = ({ changed }) => {
                                 <i className="fa fa-github" aria-hidden="true"></i>
                             </div>                            
                                 <input type="text" 
-                                        name="github" 
+                                        name="github"
+                                        value={contactGitHub}
                                         className="form-control" 
                                         placeholder="Please enter github URL"
                                         onChange={(event) => changed(event, "_", 'contact', 'github')} />
