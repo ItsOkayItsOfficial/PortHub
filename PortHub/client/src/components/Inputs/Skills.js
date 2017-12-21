@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Skills = ({index, changed, id}) => {
+    let skillTitle = window.sessionStorage.getItem(id+"skill") || "";
+    // let skillLevel = window.sessionStorage.getItem(id+"description") || "";  
   return (<div className='container'>
     <div className="row">
           <div className="col-md-5 offset-2">
@@ -8,6 +10,7 @@ const Skills = ({index, changed, id}) => {
                   <h5 className="mr-1">skill</h5>
                   <input type="text" 
                          name="title" 
+                         value = {skillTitle}
                          className="form-control" 
                          placeholder="Please enter your skill" 
                          required="required" 

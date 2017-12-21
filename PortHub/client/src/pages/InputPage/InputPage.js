@@ -25,8 +25,10 @@ class InputPage extends Component{
     html: '',
     selectButton:''
   }
+
   componentDidMount(){
     //check if there windows.sessionStorage.getItem('userName') then
+    console.log(window.sessionStorage);
     //pull user db info and set state values 
 
   }
@@ -61,6 +63,8 @@ class InputPage extends Component{
     console.log(html);
     localStorage.setItem('html', html);
     // write whatever state to user db profile
+    // let userName = "keugenio";
+    
   }
 
   render() {
