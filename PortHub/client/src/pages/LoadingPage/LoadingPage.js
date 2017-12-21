@@ -1,6 +1,7 @@
 import React from 'react';
 import Keys from '../../keys/keys';
 import axios from 'axios';
+import './LoadingPage.css';
 
 const LoadingPage = () => {
   // TO DO--- check for when access token = 'ification_code'
@@ -110,9 +111,11 @@ const LoadingPage = () => {
     createSite();
   }
   return (
-    <div>
-    loading...
+  <div className='loadContainer'>
+    <div className="ld ld-bounce">
+      <img src="https://rawgit.com/ItsOkayItsOfficial/project3/app/assets/images/porthub_icon.png" className='loadImg'/>
     </div>
+  </div>
   )
 }
 
