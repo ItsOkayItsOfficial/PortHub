@@ -46,7 +46,7 @@ PortHub lets you build static portfolio sites quickly and with your information 
 
 
 ### Task Orientation
-<img height="200px" src="./assets/images/capture.png">
+<img height="200px" src="./assets/images/capture.png">  l
 
 <br>
 <hr>
