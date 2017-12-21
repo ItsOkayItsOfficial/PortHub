@@ -76,6 +76,11 @@ class InputPage extends Component{
   }
 
   render() {
+    // let accessToken = localStorage.getItem('accessToken')
+    //                   ? localStorage.getItem('accessToken') : '';
+    // if (!accessToken) {
+    //   return <Redirect to={'/noMatch'} />
+    // }
     //Logic to render input fields
     const inputs = 
         this.props.selectedTemplate && this.props.selectedTemplate.inputs ? Object.keys(this.props.selectedTemplate.inputs).map((inputType, i) => {

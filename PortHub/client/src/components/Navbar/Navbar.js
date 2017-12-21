@@ -2,7 +2,7 @@ import React from "react";
 import "./Navbar.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-const Navbar = props =>
+const Navbar = ({ title, ghRedirect }) =>
   <nav id="navbar" className="navbar navbar-default navbar-fixed-top text-white bg-dark">
     <div className="container-fluid align-self-center">
       <div className="navbar-header">
@@ -14,7 +14,7 @@ const Navbar = props =>
       <div className="navbar-title my-auto h-100" ></div>
       <ul className="nav navbar-nav">
         <li>
-          <a className='btn btn-outline-success' href='/login/'>
+          <a className='btn btn-outline-success' onClick={ghRedirect}>
           Login
           <i className="fa fa-user-circle" aria-hidden="true"></i>
           </a>

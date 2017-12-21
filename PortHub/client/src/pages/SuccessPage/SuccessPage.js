@@ -1,8 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './SuccessPage.css';
 
 const SuccessScreen = ({ redirect }) => {
   const html = localStorage.getItem('html');
+  // let accessToken = localStorage.getItem('accessToken')
+  //                   ? localStorage.getItem('accessToken') : '';
+  // if (!accessToken) {
+  //   return <Redirect to={'/noMatch'} />
+  // }
   return (
   <div className='container successWrapper'>
     <h1 style={{margin: '10px'}}>Success!</h1> 
@@ -28,10 +34,10 @@ const SuccessScreen = ({ redirect }) => {
                     <li><small>And that's it, your portfolio will be up and running for future employers to marvel over.</small></li>
                 </ol>
             </li>
-            <li> Don't have a Github account? Create one <a href='https://github.com/' target='_blank'> here </a></li>
+            <li> Don't have a Github account? Create one <a href='https://github.com/' rel="noopener noreferrer" target='_blank'> here </a></li>
           </ul>
         <div className='row' style={{textAlign:'center'}} >
-          <button onClick={redirect} style={{margin: 'auto'}}className='btn btn-success'> Publish to GitHub </button>
+          <Link to={'/siteLoader'}><button style={{margin: 'auto'}}className='btn btn-success'> Publish to GitHub </button></Link>
         </div>
       </div>
     </div>
