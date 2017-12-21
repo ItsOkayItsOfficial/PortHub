@@ -1,6 +1,10 @@
 import React from 'react';
 
 const Portfolio = ({ id, index, changed }) => {
+    let portfolioTitle = window.sessionStorage.getItem(id+"title") || "";
+    let portfolioImage = window.sessionStorage.getItem(id+"img") || "";
+    let portfolioUrl = window.sessionStorage.getItem(id+"url") || "";
+    let portfolioDescription = window.sessionStorage.getItem(id+"description") || "";    
   return (
       <div className='w-75 m-2 border border-primary rounded'>
         <h3> Portfolio {index+1} </h3>
@@ -10,6 +14,7 @@ const Portfolio = ({ id, index, changed }) => {
                     <label >Title</label>
                     <input type="text" 
                             name="title" 
+                            value={portfolioTitle}
                             className="form-control" 
                             placeholder="portfolio title" 
                             required="required" 
@@ -22,7 +27,8 @@ const Portfolio = ({ id, index, changed }) => {
                 <div className="form-group">
                     <label>Image</label>
                     <input type="text" 
-                            name="portfolioImage" 
+                            name="portfolioImage"
+                            value={portfolioImage} 
                             className="form-control" 
                             placeholder="portfolio image"
                             onChange={(event) => changed(event, id, 'portfolio', 'img')} />
@@ -33,7 +39,8 @@ const Portfolio = ({ id, index, changed }) => {
                 <div className="form-group">
                     <label>Project URL</label>
                     <input type="text" 
-                            name="portfolioURL" 
+                            name="portfolioURL"
+                            value={portfolioUrl} 
                             className="form-control" 
                             placeholder="portfolio URL"
                             onChange={(event) => changed(event, id, 'portfolio', 'url')} />
@@ -47,7 +54,8 @@ const Portfolio = ({ id, index, changed }) => {
                       <label>Description</label>
                         <label htmlFor="description"></label>
                         <textarea className="form-control" 
-                            id="description" 
+                            id="description"
+                            value = {portfolioDescription} 
                             rows="3"
                             placeholder="portfolio description"                            
                             onChange={(event) => changed(event, id, 'portfolio', 'description')}>

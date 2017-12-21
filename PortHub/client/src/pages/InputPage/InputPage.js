@@ -25,8 +25,10 @@ class InputPage extends Component{
     html: '',
     selectButton:''
   }
+
   componentDidMount(){
     //check if there windows.sessionStorage.getItem('userName') then
+    console.log(window.sessionStorage);
     //pull user db info and set state values 
 
   }
@@ -61,6 +63,8 @@ class InputPage extends Component{
     console.log(html);
     localStorage.setItem('html', html);
     // write whatever state to user db profile
+    // let userName = "keugenio";
+    
   }
 
   render() {
@@ -87,7 +91,6 @@ class InputPage extends Component{
     //                         [<BaseInput key={'base'} changed={this.prepareStateHandler}/>,
     //                         ...inputs] 
     //                         : <NoMatch />
-    console.log(inputs)
     const education = inputs.slice(1,2);
     const skills = inputs.slice(2,3);
     const portfolio = inputs.slice(3,4);

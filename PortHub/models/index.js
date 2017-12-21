@@ -1,7 +1,7 @@
 module.exports = {
   User: require("./user"),
-  Employment: require("./employment"),
+  Experience: require("./experience"),
   Education: require("./education"),
-  Project: require("./project"),
-  Reference: require("./reference")
+  Portfolio: require("./portfolio"),
+  Skill: require("./skills"),  
 };

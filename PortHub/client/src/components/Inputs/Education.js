@@ -95,11 +95,7 @@ const Education = ({id, index, changed}) => {
                             className="form-control" 
                             placeholder="Please enter the your end date (month, YYYY)" 
                             required="required" 
-<<<<<<< HEAD
-                            onChange={(event) => this.props.changed(event, id, 'education', 'endDate')} />
-=======
                             onChange={(event) => changed(event, id, 'education', 'endDate')} />
->>>>>>> 530a0481a4a7554afaf63b37e28298844c7faa66
                             <div className="help-block with-errors"></div>
                     </div>
                 </div>
