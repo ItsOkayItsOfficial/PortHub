@@ -12,6 +12,8 @@ import {London} from '../../components/Websites';
 import {ResumeLeftRightRTL} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
 import Accordion from '../../components/Accordion/Accordion';
+import axios from 'axios';
+import { Redirect } from 'react-router'
 // import moment from 'moment';
 
 class InputPage extends Component{
@@ -22,9 +24,9 @@ class InputPage extends Component{
     experience: [],
     skills: [],
     portfolio: [],
-    viewSuccessScreen: false,
+    success: false,
     html: '',
-    selectButton:''
+    selectButton:'',
   }
 
   componentDidMount(){
@@ -65,6 +67,14 @@ class InputPage extends Component{
     localStorage.setItem('html', html);
     // write whatever state to user db profile
     // let userName = "keugenio";
+    axios.post('/api/create', this.state)
+    .then((response) => {
+      console.log(response)
+      response.data==='success' ? this.setState({success:true}): console.log('failed')
+    })
+    .catch((err) => {
+      console.log(err)
+    })
     
   }
 
@@ -124,6 +134,11 @@ class InputPage extends Component{
       default:
             break;
     }
+    if (this.state.success) {
+      return (
+        <Redirect to={'/success'}/>
+      )
+    }
       return (
         <Aux>
           <BaseInput key={'base'} changed={this.prepareStateHandler}/>
@@ -134,7 +149,7 @@ class InputPage extends Component{
               { (portfolio[0] && portfolio[0].length>0) ? <Accordion type="portfolio" i='3'>{portfolio}</Accordion> : ''}
           </div>
           <div className="text-center">
-            <Link to='/success'>{selectButton}</Link>
+            {selectButton}
           </div>
         </Aux>
       )
