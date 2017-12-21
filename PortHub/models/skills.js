@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const employementSchema = new Schema({
+const skillsSchema = new Schema({
   title: { type: String, required: true },
-  level: { type: Int8Array, required: true }
+  level: { type: String, required: true }
 });
 
-const Skill = mongoose.model("Skill", employmentSchema);
+const Skill = mongoose.model("Skill", skillsSchema);
 
 module.exports = Skill;

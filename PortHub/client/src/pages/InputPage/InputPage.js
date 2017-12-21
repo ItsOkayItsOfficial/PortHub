@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import Aux from '../../HOCs/Aux';
 import BaseInput from '../../components/Inputs/BaseInput';
 import Education from '../../components/Inputs/Education';
 import Skills from '../../components/Inputs/Skills';
 import Experience from '../../components/Inputs/Experience';
-// import NoMatch from '../../pages/NoMatch/NoMatch';
-import {Montreal} from '../../components/Websites';
-import {Lawrence} from '../../components/Websites';
-import {London} from '../../components/Websites';
+
+import {Montreal, Lawrence, London} from '../../components/Websites';
 import {ResumeLeftRightRTL} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
 import Accordion from '../../components/Accordion/Accordion';
@@ -31,7 +29,7 @@ class InputPage extends Component{
 
   componentDidMount(){
     //check if there windows.sessionStorage.getItem('userName') then
-    console.log(window.sessionStorage);
+    // console.log(window.sessionStorage);
     //pull user db info and set state values 
 
   }
@@ -43,7 +41,6 @@ class InputPage extends Component{
       window.sessionStorage.setItem('contact'+subfield,event.target.value);
     }
     else {
-      console.log("id:" + id);
       const fieldState = [...this.state[field]] ? [...this.state[field]] : [];
       const inputIndex = this.state[field].findIndex(input => {
         return input.id === id;
@@ -63,13 +60,13 @@ class InputPage extends Component{
   }
   
   submitFormHandler = (html) => {
-    console.log(html);
+    //console.log(html);
     localStorage.setItem('html', html);
     // write whatever state to user db profile
     // let userName = "keugenio";
     axios.post('/api/create', this.state)
     .then((response) => {
-      console.log(response)
+      console.log("axios: ", response)
       response.data==='success' ? this.setState({success:true}): console.log('failed')
     })
     .catch((err) => {

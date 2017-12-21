@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const employementSchema = new Schema({
+const experienceSchema = new Schema({
   employer: { type: String, required: true },
   title: { type: String, required: true },
   startDate: { type: String, required: true },
@@ -9,6 +9,6 @@ const employementSchema = new Schema({
   duties: String
 });
 
-const Experience = mongoose.model("Experience", employmentSchema);
+const Experience = mongoose.model("Experience", experienceSchema);
 
 module.exports = Experience;

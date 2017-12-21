@@ -8,8 +8,8 @@ const LoadingPage = () => {
                     ? localStorage.getItem('accessToken') : '';
   let userName = localStorage.getItem('userName') ? localStorage.getItem('userName') : '';
   const generateAuthCode = () => {
-    accessToken==='ification_code' ? localStorage.clear() : '';
-    return window.location.href.match(/[&\?]code=([\w\/\-]+)/)[1];
+    accessToken === 'notification_code' ? localStorage.clear() : accessToken="";
+    return window.location.href.match(/[&]code=([\w]+)/)[1];
   }
 
   const authenticateUser = () => {
@@ -17,9 +17,10 @@ const LoadingPage = () => {
       + Keys.clientId + '&client_secret=' + Keys.clientSecret + '&code=' + generateAuthCode())
       .then((response) => {
         console.log('finished authenticating')
-        return response.data.indexOf('error')>=0 ? false :
-        accessToken = response.data.slice(13, response.data.indexOf('&'))
+        accessToken = response.data.slice(13, response.data.indexOf('&'));
         localStorage.setItem('accessToken', accessToken);
+        return response.data.indexOf('error')>=0 ? false :
+        accessToken 
       })
   }
   const getUserInfo = () => {

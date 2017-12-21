@@ -19,7 +19,7 @@ export const London = ({contact, experience, education, skills, portfolio, click
       portfolioSection = portfolioSection.join('');
 
   let experienceSection = experience.map((experience, i) => {
-       const offset = i!== 0 ? "col-lg-offset-3" : '';
+       //const offset = i!== 0 ? "col-lg-offset-3" : '';
 			return (
       `<grey>${experience.employer}</grey> | ${experience.startDate} - ${experience.endDate}
 			<br/>`)   
