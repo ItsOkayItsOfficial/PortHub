@@ -26,15 +26,16 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
 
   let portfolioSection = portfolio.map((portfolio, i) => {
        const row = i===0||i===3 ? '<div class="row centered mt grid">' : '';
+       const rowEnd = i===2||i===5 ? '</div>' : '';
        const header = i===0 ? '<h3>MY LATEST WORK</h3>' : '';
         return (
           `${row}${header}<div class="col-lg-4" style='text-align:center; word-wrap: break-word;'>
             <a id="proj_1" href="${portfolio.url}" target='_blank'>
-              <img src="${portfolio.img}" alt="">
+              <img style='width:300px; height:300px'src="${portfolio.img}" alt="">
             </a>
             <h3 style='margin: 10px auto auto auto'>${portfolio.title}</h3>
               <p style='width: 300px; margin:auto'>${portfolio.description}</p>
-          </div>`
+          </div>${rowEnd}`
         )
       })
       portfolioSection = portfolioSection.join('');

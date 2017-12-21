@@ -87,7 +87,6 @@ class InputPage extends Component{
     //                         [<BaseInput key={'base'} changed={this.prepareStateHandler}/>,
     //                         ...inputs] 
     //                         : <NoMatch />
-    console.log(inputs)
     const education = inputs.slice(1,2);
     const skills = inputs.slice(2,3);
     const portfolio = inputs.slice(3,4);
