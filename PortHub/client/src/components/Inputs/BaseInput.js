@@ -9,7 +9,8 @@ const BaseInput = ({ changed }) => {
     let contactBio = window.sessionStorage.getItem('contactbio') || "";
     let contactCurrentTitle = window.sessionStorage.getItem('contactcurrentTitle') || "";
     let contactSite = window.sessionStorage.getItem('contactsite') || "";
-    let contactGitHub = window.sessionStorage.getItem('contactgithub') || "";    
+    let contactGitHub = window.sessionStorage.getItem('contactgithub') || ""; 
+    let contactLinkedIn = window.sessionStorage.getItem('contactlinkedin') || "";        
 
     return(
         <div className="container border border-primary rounded p-5 mt-5 mb-5">
@@ -178,7 +179,8 @@ const BaseInput = ({ changed }) => {
                                 <i className="fa fa-linkedin" aria-hidden="true"></i>
                             </div>                            
                                 <input type="text" 
-                                        name="github" 
+                                        name="github"
+                                        value = {contactLinkedIn} 
                                         className="form-control" 
                                         placeholder="Please enter LinkedIn URL"
                                         onChange={(event) => changed(event, "_", 'contact', 'linkedin')} />
