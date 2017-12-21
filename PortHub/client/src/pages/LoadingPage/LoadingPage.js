@@ -6,10 +6,10 @@ const LoadingPage = () => {
   // TO DO--- check for when access token = 'ification_code'
   let accessToken = localStorage.getItem('accessToken')
                     ? localStorage.getItem('accessToken') : '';
-  let userName = localStorage.getItem('userName') ? localStorage.getItem('userName') : '';
+  let login = localStorage.getItem('login') ? localStorage.getItem('login') : '';
   const generateAuthCode = () => {
-    accessToken === 'notification_code' ? localStorage.clear() : accessToken="";
-    return window.location.href.match(/[&]code=([\w]+)/)[1];
+    accessToken === 'ification_code' ? localStorage.clear() : '';
+    return window.location.href.match(/[&\?]code=([\w\/\-]+)/)[1];
   }
 
   const authenticateUser = () => {
@@ -22,13 +22,16 @@ const LoadingPage = () => {
         return response.data.indexOf('error')>=0 ? false :
         accessToken 
       })
+      .catch((error) => {
+        console.log(error);
+      })
   }
   const getUserInfo = () => {
     try {
       return axios.get('https://api.github.com/user?access_token=' + accessToken)
               .then((response) => {
-                userName=response.data.login;
-                localStorage.setItem('userName', userName);
+                login=response.data.login;
+                localStorage.setItem('login', login);
               })
     }
     catch(error) {
@@ -38,10 +41,10 @@ const LoadingPage = () => {
 
   const getUserRepos = () => {
     try {
-      return axios.get(`https://api.github.com/users/${userName}/repos?access_token=` + accessToken)
+      return axios.get(`https://api.github.com/users/${login}/repos?access_token=` + accessToken)
             .then((response) => {
               for (let i=0; i< response.data.length; i++) {
-                if (response.data[i].name === `${userName}.github.io`){
+                if (response.data[i].name === `${login}.github.io`){
                   return true;
                 }
               }
@@ -57,12 +60,12 @@ const LoadingPage = () => {
         method: 'post',
         dataType: 'json',
         contentType: 'application/json',
-        data:`{"name": "${userName}.github.io", "auto_init":true}`,
+        data:`{"name": "${login}.github.io", "auto_init":true}`,
         processData: false,
         url: 'https://api.github.com/user/repos?access_token=' + accessToken,
         })
         .then((response) => {
-          console.log(response)
+          console.log('Repo Created')
         })
       }
     catch(error) {
@@ -71,15 +74,14 @@ const LoadingPage = () => {
   }
 
   const createFile = () => {
-    const filename = "testbio4.html";
+    const filename = "testbio7.html";
     const filemessage = "uploading a file";
     const filecontent = localStorage.getItem('html');
     const basecontent = btoa(filecontent);
     const filedata = '{"message":"'+filemessage+'","content":"'+basecontent+'"}';
     accessToken = localStorage.getItem('accessToken');
-    const userName = localStorage.getItem('userName');
-    const url = 'https://api.github.com/repos/' + userName + '/' + userName + '.github.io/contents/' + filename + '?access_token=' + accessToken;
-      try {
+    const login = localStorage.getItem('login');
+    const url = 'https://api.github.com/repos/' + login + '/' + login + '.github.io/contents/' + filename + '?access_token=' + accessToken;
         return axios({
           method: 'put',
           contentType: 'application/json',
@@ -92,22 +94,19 @@ const LoadingPage = () => {
         .catch((error) => {
           return true;
         })
-      }
-      catch(err) {
-        return console.log(err)
-      }
   }
 
   const createSite = () => {
     getUserInfo().then(() => getUserRepos())
-    .then((hasRepo) => hasRepo ? console.log('User has Repo') : createUserRepo())
+    .then((hasRepo) => hasRepo ? console.log('User already has GH pages repo') : createUserRepo())
     .then(() => createFile())
-    .then((fileNameTaken) => fileNameTaken ? console.log('That filename already exists.') : console.log('Your website has been made'))
+    .then((fileNameTaken) => fileNameTaken ? console.log('That filename already exists in users repo.') : console.log('Your website has been made'))
   }
-  if (!accessToken || !userName) {
+  if (!accessToken || !login) {
     authenticateUser().then(() => createSite())
   }
   else {
+    console.log('User is already authenticated')
     createSite();
   }
   return (

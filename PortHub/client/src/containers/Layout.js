@@ -42,8 +42,6 @@ class Layout extends Component{
   
   render(){
     return(
-
-
     <div>       
       <Nav className='navbar-fixed-top' title={this.state.type} />
       <div style={{position:'absolute', top:'60px', width:'100%'}}>
