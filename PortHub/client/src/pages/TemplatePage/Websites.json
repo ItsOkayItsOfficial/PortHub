@@ -13,7 +13,13 @@
   {
     "src": "/assets/templates/london/index.html",
     "img": "/assets/templates/websitepeeks/london.png",
-    "title":"london"
+    "title":"London",
+    "inputs": {
+      "experience": 2,
+      "education": 2,
+      "skills": 0,
+      "portfolio": 4
+    }
   },
   {
     "src": "/assets/templates/montreal/index.html",
@@ -29,11 +35,11 @@
   {
     "src": "/assets/templates/oslo/index.html",
     "img": "/assets/templates/websitepeeks/oslo.png",
-    "title":"oslo"
+    "title":"Oslo"
   },
   {
     "src": "/assets/templates/portland/index.html",
     "img": "/assets/templates/websitepeeks/portland.png",
-    "title":"portland"
+    "title":"Portland"
   } 
 ]

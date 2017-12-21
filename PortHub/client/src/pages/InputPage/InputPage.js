@@ -8,6 +8,7 @@ import Experience from '../../components/Inputs/Experience';
 // import NoMatch from '../../pages/NoMatch/NoMatch';
 import {Montreal} from '../../components/Websites';
 import {Lawrence} from '../../components/Websites';
+import {London} from '../../components/Websites';
 import {ResumeLeftRightRTL} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
 import Accordion from '../../components/Accordion/Accordion';
@@ -113,6 +114,9 @@ class InputPage extends Component{
             break;
       case "Lawrence":
             selectButton = <Lawrence {...props} />
+            break;
+      case "London":
+            selectButton = <London {...props} />
             break;
       case "resume-left-right-rtl":
             selectButton = <ResumeLeftRightRTL {...props} />;

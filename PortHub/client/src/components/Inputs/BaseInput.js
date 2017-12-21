@@ -44,6 +44,7 @@ const BaseInput = ({ changed }) => {
                         </div>
                     </div>
                     <div className="row">
+                      <div className='col-md-6'>
                         <div className="form-group w-100">
                             <label>Address</label>
                             <div className="input-group mb-2 mr-sm-2 mb-sm-0">
@@ -61,6 +62,23 @@ const BaseInput = ({ changed }) => {
                             </div>
                             <div className="help-block with-errors"></div>
                         </div>
+                      </div>
+                      <div className='col-md-6'>
+                            <div className="form-group w-100">
+                                <label>Profile Picture</label>
+                                <div className="input-group">
+                                    <div className="input-group-addon">
+                                        <i className="fa fa-picture" aria-hidden="true"></i>                               
+                                    </div> 
+                                    <input type="text" 
+                                            name="profilePicture"
+                                            className="form-control" 
+                                            placeholder="Profile Picture"
+                                            onChange={(event) => changed(event, "_", 'contact', 'profilePicture')} />
+                                    <div className="help-block with-errors"></div>
+                                </div>
+                            </div>
+                      </div>
                     </div>
                     <div className="row">
                             <div className="form-group w-50">

@@ -1,4 +1,39 @@
-<!DOCTYPE html>
+import React from 'react';
+
+export const London = ({contact, experience, education, skills, portfolio, clicked }) => {
+
+  let portfolioSection = portfolio.map((portfolio, i) => {
+       const row = i===0||i===2 ? '<div class="row">' : '';
+       const rowEnd = i===1||i===3 ? '</div>' : '';
+       const br = i===2 ? '<br>' : '';
+        return (
+          `${row}${br}<div class="col-xs-6 centered">
+            <img class="img-responsive" src="${portfolio.img}" alt="${portfolio.title}">
+            <a href="${portfolio.url}">
+              <h6>
+                <i class="icon-link"></i>${portfolio.title}</h6>
+            </a>
+          </div>${rowEnd}`
+        )
+      })
+      portfolioSection = portfolioSection.join('');
+
+  let experienceSection = experience.map((experience, i) => {
+       const offset = i!== 0 ? "col-lg-offset-3" : '';
+			return (
+      `<grey>${experience.employer}</grey> | ${experience.startDate} - ${experience.endDate}
+			<br/>`)   
+    })
+
+  let educationSection = education.map((education, i) => {
+        return 	(		
+          `<grey>${education.major}</grey> | ${education.schoolName}
+					<br/>`)
+      })
+      educationSection = educationSection.join('');
+
+const html = 
+`<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -25,7 +60,7 @@
 </head>
 
 <body>
-
+<span class='wrapper'></span>
 
 	<div class="container">
 		<div class="col-lg-6 col-lg-offset-3">
@@ -33,7 +68,7 @@
 			<!-- ===== vCard Navigation ===== -->
 			<div class="row w">
 				<div class="col-md-4">
-					<img class="img-responsive" src="assets/img/avatar.jpg" alt="">
+					<img class="img-responsive" src="${contact.profilePicture}" alt="${contact.firstName}">
 					<ul class="nav nav-tabs nav-stacked" id="myTab">
 						<li class="active">
 							<a href="#about">About</a>
@@ -57,12 +92,10 @@
 
 						<!-- ===== First Tab ===== -->
 						<div class="tab-pane active" id="about">
-							<h3>Victoria Wallberg</h3>
-							<h5>Web Designer</h5>
+							<h3>${contact ? contact.firstName + ' ' + contact.lastName : ''}</h3>
+							<h5>${contact ? contact.currentTitle : ''}</h5>
 							<hr>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-							<p>Has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-								scrambled it.</p>
+							<p>${contact ? contact.bio: ''}</p>
 							<p class="pull-right red">
 								<i class="icon-heart"></i>
 							</p>
@@ -73,67 +106,21 @@
 						<div class="tab-pane" id="profile">
 							<h4>
 								<i class="icon-briefcase"></i> Job Experience</h4>
-							<p class="sm">
-								<grey>Black Tie Corp.</grey> | June 2013 - Actual.
-								<br/>
-								<grey>Other Corp.</grey> | January 2011 - May 2013.
-								<br/>
+              <p class="sm">
+              ${experienceSection}
 							</p>
 
 							<h4>
 								<i class="icon-file-text-alt"></i> Education</h4>
 							<p class="sm">
-								<grey>Web Designer</grey> | Greenville University.
-								<br/>
-								<grey>Business Master</grey> | Loyal Univesrity.
-								<br/>
+              ${educationSection}
 							</p>
-
 						</div>
 						<!-- Tab Profile -->
 
 						<!-- ===== Third Tab ===== -->
-						<div class="tab-pane" id="portfolio">
-							<div class="row">
-								<div class="col-xs-6 centered">
-									<img class="img-responsive" src="assets/img/p01.png" alt="">
-									<a href="#">
-										<h6>
-											<i class="icon-link"></i> Project Name</h6>
-									</a>
-								</div>
-								<!-- col-xs-6 -->
-								<div class="col-xs-6 centered">
-									<img class="img-responsive" src="assets/img/p02.png" alt="">
-									<a href="#">
-										<h6>
-											<i class="icon-link"></i> Project Name</h6>
-									</a>
-								</div>
-								<!-- col-xs-6 -->
-							</div>
-							<!-- row -->
-
-							<div class="row">
-								<br>
-								<div class="col-xs-6 centered">
-									<img class="img-responsive" src="assets/img/p03.png" alt="">
-									<a href="#">
-										<h6>
-											<i class="icon-link"></i> Project Name</h6>
-									</a>
-								</div>
-								<!-- col-xs-6 -->
-								<div class="col-xs-6 centered">
-									<img class="img-responsive" src="assets/img/p04.png" alt="">
-									<a href="#">
-										<h6>
-											<i class="icon-link"></i> Project Name</h6>
-									</a>
-								</div>
-								<!-- col-xs-6 -->
-							</div>
-							<!-- row -->
+            <div class="tab-pane" id="portfolio">
+            ${portfolioSection}
 						</div>
 						<!-- /Tab Portfolio -->
 
@@ -144,18 +131,17 @@
 							<div class="row">
 								<div class="col-xs-6">
 									<p class="sm">
-										<i class="icon-globe"></i> - BlackTie.co
+										<i class="icon-globe"></i> - ${contact.site}
 										<br/>
-										<i class="icon-envelope"></i> - victoria@blacktie.co
+										<i class="icon-envelope"></i> - ${contact.email}
 									</p>
 								</div>
 								<!-- col-xs-6 -->
 
 								<div class="col-xs-6">
 									<p class="sm">
-										<i class="icon-phone"></i> - +44 2009-4839
+										<i class="icon-phone"></i> - ${contact.phone}
 										<br/>
-										<i class="icon-apple"></i> - 902 3940-4439
 									</p>
 								</div>
 								<!-- col-xs-6 -->
@@ -167,18 +153,17 @@
 							<div class="row">
 								<div class="col-xs-6">
 									<p class="sm">
-										<i class="icon-facebook"></i> - Vicky.Wallberg
+										<i class="icon-github"></i> - ${contact.github}
 										<br/>
-										<i class="icon-tumblr"></i> - Love-Vicky-Site
+										<i class="icon-linkedin"></i> - ${contact.linkedin}
 									</p>
 								</div>
 								<!-- col-xs-6 -->
 
 								<div class="col-xs-6">
 									<p class="sm">
-										<i class="icon-dribbble"></i> - Vicoooria
+										<i></i> - ${contact.site}
 										<br/>
-										<i class="icon-twitter"></i> - @BlackTie_co
 									</p>
 								</div>
 								<!-- col-xs-6 -->
@@ -198,7 +183,9 @@
 	</div>
 	<!-- /.container -->
 
-
+<style>
+.wrapper {position:fixed; top: 0; left: 0; height: 100%; width: 100%; background-image: url(${contact.profilePicture}); background-size: cover; opacity: 0.5}
+</style>
 	<!-- jQuery 1.1.2 -->
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<!-- Bootstrap 3.0.2 -->
@@ -213,4 +200,8 @@
 
 </body>
 
-</html>
+</html>`
+      return (
+        <button className="btn btn-primary" onClick={() => clicked(html)}>Submit</button>
+      )
+}
