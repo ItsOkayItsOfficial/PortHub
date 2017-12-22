@@ -4,7 +4,7 @@ import axios from 'axios';
 import './AuthLoader.css';
 import { Redirect } from 'react-router';
 
-const AuthLoader = () => {
+const AuthLoader = ({ getUserInfo }) => {
   let accessToken = localStorage.getItem('accessToken')
                     ? localStorage.getItem('accessToken') : '';
   const getAuthCode = () => {
@@ -12,7 +12,6 @@ const AuthLoader = () => {
     return window.location.href.match(/[&\?]code=([\w\/\-]+)/) ? window.location.href.match(/[&\?]code=([\w\/\-]+)/)[1] 
     : '';
   }
-
   const authenticateUser = () => {
     return axios.post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token?&client_id=' 
       + Keys.clientId + '&client_secret=' + Keys.clientSecret + '&code=' + getAuthCode())
@@ -27,7 +26,7 @@ const AuthLoader = () => {
         console.log(error.response);
       })
   }
-    authenticateUser()
+  authenticateUser()
 
     if (authenticateUser()) {
       return <Redirect to={'/'} />

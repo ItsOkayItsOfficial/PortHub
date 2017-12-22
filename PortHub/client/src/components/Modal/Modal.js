@@ -16,7 +16,7 @@ const modal = ({ show, closeModal, selectedTemplate, id, children, className, ti
       }}>
     <div className="modalHeader d-flex justify-content-center">
       <div className="modalTitle">
-        <p className='align-self-center'>{title} theme</p>
+        <p className='align-self-center'>{title}</p>
       </div>
       <div className='ml-auto'>
         { type==='templateSelect' ?

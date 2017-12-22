@@ -14,6 +14,7 @@ import CreateSiteLoader from '../pages/LoadingPages/CreateSiteLoader/CreateSiteL
 import AuthLoader from '../pages/LoadingPages/AuthLoader/AuthLoader';
 import Keys from '../keys/keys';
 import axios from 'axios';
+import Aux from '../HOCs/Aux';
 
 class Layout extends Component{
 
@@ -21,7 +22,9 @@ class Layout extends Component{
     viewingTemplate: false,
     selectedTemplate: {},
     currentUser: {},
-    isAuthenticated: false
+    isAuthenticated: false,
+    createSiteMessage: '',
+    createSiteModal: false,
   }
 
   detailedTemplateHandler = (title, type) => {
@@ -48,62 +51,67 @@ class Layout extends Component{
   }
 
   getUserInfoHandler = (token) => {
-      return axios.get('https://api.github.com/user?access_token=' + token)
-              .then((response) => {
-                this.setState({currentUser:response.data, isAuthenticated: true})
-              })
-              .catch(error => {
-                console.log('Error getting user info: ', error.response)
-              })
+      axios.get('https://api.github.com/user?access_token=' + token)
+          .then((response) => {
+            this.setState({currentUser:response.data})
+          })
+          .catch(error => {
+            console.log('Error getting user info: ', error.response)
+          })
   }
-  componentDidMount() {
+  componentWillMount() {
       let accessToken = localStorage.getItem('accessToken') === 'ification_code' ? localStorage.clear()
                     : localStorage.getItem('accessToken');
       if (accessToken) {
+        this.setState({isAuthenticated: true})
         return this.getUserInfoHandler(accessToken)
       }
   }
   render(){
     return(
-    <div>       
-      <Nav className='navbar-fixed-top' ghRedirect={this.redirectToGitHubHandler}title={this.state.type} />
-      <div style={{position:'absolute', top:'60px', width:'100%'}}>
-        <Router>        
-          <Switch>
-            <Route exact path="/" component={LandingPage} />
-            <Route exact path="/createSite" 
-                  //  onChange={this.handleTemplate('site')} 
-                   render={()=> <TemplatePage 
-                                type='site'
-                                showModal={this.state.viewingTemplate}
-                                closeModal={this.closeDetailedTemplateHandler}
-                                viewTemplate={this.detailedTemplateHandler}
-                                selectedTemplate={this.state.selectedTemplate}/>}
-            />
-            <Route exact path="/createResume" 
-                  //  onChange={this.handleTemplate('resume')} 
-                   render={()=> <TemplatePage 
-                                  type='resume'
+    <div> 
+      <Router>
+        <Aux>    
+          <Nav className='navbar-fixed-top' ghRedirect={this.redirectToGitHubHandler}
+              title={this.state.type} isAuthenticated={this.state.isAuthenticated}
+              user={this.state.currentUser}
+              getUserInfo={this.getUserInfoHandler} />    
+            <Switch>
+              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/createSite" 
+                    //  onChange={this.handleTemplate('site')} 
+                    render={()=> <TemplatePage 
+                                  type='site'
                                   showModal={this.state.viewingTemplate}
                                   closeModal={this.closeDetailedTemplateHandler}
                                   viewTemplate={this.detailedTemplateHandler}
                                   selectedTemplate={this.state.selectedTemplate}/>}
-            />
-            <Route exact path='/inputPage' render={() => <InputPage
-                                                          selectedTemplate={this.state.selectedTemplate} />} />
-            <Route exact path='/success' render={() => <SuccessPage
-                                                           />} />
-            <Route exact path='/siteLoader' render={() => <CreateSiteLoader
-                                                          selectedTemplate={this.state.selectedTemplate}
-                                                          login={this.state.currentUser.login} />} />
-            <Route exact path='/authLoader' render={() => <AuthLoader
-                                                          selectedTemplate={this.state.selectedTemplate} />} />
-            <Route exact path="/createUser" component={CreateUserPage} />
-            <Route exact path="/Login" component={LoginPage} />
-            <Route component={NoMatch} />
-          </Switch>
-        </Router>
-      </div>
+              />
+              <Route exact path="/createResume" 
+                    //  onChange={this.handleTemplate('resume')} 
+                    render={()=> <TemplatePage 
+                                    type='resume'
+                                    showModal={this.state.viewingTemplate}
+                                    closeModal={this.closeDetailedTemplateHandler}
+                                    viewTemplate={this.detailedTemplateHandler}
+                                    selectedTemplate={this.state.selectedTemplate}/>}
+              />
+              <Route exact path='/inputPage' render={() => <InputPage
+                                                            selectedTemplate={this.state.selectedTemplate} />} />
+              <Route exact path='/success' render={() => <SuccessPage
+                                                            />} />
+              <Route exact path='/siteLoader' render={() => <CreateSiteLoader
+                                                            selectedTemplate={this.state.selectedTemplate}
+                                                            login={this.state.currentUser.login} />} />
+              <Route exact path='/authLoader' render={() => <AuthLoader
+                                                            selectedTemplate={this.state.selectedTemplate} />} />
+              <Route exact path="/createUser" component={CreateUserPage} />
+              <Route exact path="/Login" render={() => <LoginPage 
+                                                        ghRedirect={this.redirectToGitHubHandler}/>} />
+              <Route component={NoMatch} />
+            </Switch>
+        </Aux>
+      </Router>
     </div>
 
     )

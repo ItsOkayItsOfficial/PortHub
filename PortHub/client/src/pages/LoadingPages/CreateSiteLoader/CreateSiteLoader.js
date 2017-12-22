@@ -1,8 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+import CreateSiteMessage from './CreateSiteMessage/CreateSiteMessage';
+import Modal from '../../../components/Modal/Modal';
+import Aux from '../../../HOCs/Aux';
 import './CreateSiteLoader.css';
 
-const CreateSiteLoader = ({ login }) => {
+const CreateSiteLoader = ({ login, message }) => {
   // TO DO--- check for when access token = 'ification_code'
   let accessToken = localStorage.getItem('accessToken')
                     ? localStorage.getItem('accessToken') : '';
@@ -66,7 +69,8 @@ const CreateSiteLoader = ({ login }) => {
     getUserRepos()
     .then((hasRepo) => hasRepo ? console.log('User already has GH pages repo') : createUserRepo())
     .then(() => createFile())
-    .then((fileNameTaken) => fileNameTaken ? console.log('That filename already exists in users repo.') : console.log('Your website has been made'))
+    .then((fileNameTaken) =>  fileNameTaken ? console.log('That filename already exists in users repo.')
+    : console.log('Your website has been made'))
   }
 
   // if (accessToken && login) {
@@ -74,11 +78,13 @@ const CreateSiteLoader = ({ login }) => {
   // }
   createSite();
   return (
-  <div className='loadContainer'>
-    <div className="ld ld-bounce">
-      <img src="https://rawgit.com/ItsOkayItsOfficial/project3/app/assets/images/porthub_icon.png" alt='porthub'className='loadImg'/>
+  <Aux>
+    <div className='loadContainer'>
+      <div className="ld ld-bounce">
+        <img src="https://rawgit.com/ItsOkayItsOfficial/project3/app/assets/images/porthub_icon.png" alt='porthub'className='loadImg'/>
+      </div>
     </div>
-  </div>
+  </Aux>
   )
 }
 

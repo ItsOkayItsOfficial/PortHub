@@ -1,0 +1,11 @@
+.welcomeText {
+  margin: 10px;
+  font-size: 18px;
+}
+.welcomeContainer {
+  display:inherit;
+}
+
+.dropdown-menu .dropdown-item {
+  z-index: 10000;
+}

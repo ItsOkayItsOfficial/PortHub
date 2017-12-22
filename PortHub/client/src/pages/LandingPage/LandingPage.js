@@ -1,6 +1,7 @@
 import React from "react";
 import {Col} from "../../components/Grid";
 import Jumbtron from '../../components/Jumbotron';
+import { Link } from 'react-router-dom'
 import   './LandingPage.css';
 
 const LandingPage = ({ children }) =>
@@ -10,8 +11,8 @@ const LandingPage = ({ children }) =>
          <p> Create a portfolio website and a resume in minutes!<br/>Stay a step ahead of your competitors in the job market and get that job your deserve.</p>
       </Jumbtron>   
       <Col size='lg-12' className='d-flex flex-row justify-content-center'>
-        <a href='/createsite' className="btn btn-warning landingButton">Create a Portfolio Website</a>
-        <a href='/createresume'className="btn btn-info  landingButton">Create a Resume</a>
+        <Link to='createsite' className="btn btn-warning landingButton">Create a Portfolio Website</Link>
+        <Link to='createresume'className="btn btn-info  landingButton">Create a Resume</Link>
       </Col> 
     <div className="fullscreen-bg">
       <video className="fullscreen-bg__video" autoPlay="true" name="media" loop>
