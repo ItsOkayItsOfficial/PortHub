@@ -2,20 +2,20 @@ import React from 'react';
 import Aux from '../../../HOCs/Aux'
 import './WelcomeMessage.css';
 
-const WelcomeMessage = ({user}) => {
+const WelcomeMessage = ({user, logout}) => {
 // To DO- Redirect on click to user dashboard
   return (
-      <div className='welcomeContainer'>
-        <p className='welcomeText'> Welcome, {user.login}</p> 
-        <li className="nav-item dropdown">  
-        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src={user.avatar_url} alt='user' />
-        </button>
-        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a className="dropdown-item" href="#">Action</a>
-        </div>
-        </li>
+    <div className='welcomeContainer'>
+      <p className='welcomeText'> Welcome, {user.login}</p> 
+      <li className="nav-item dropdown">  
+      <a className="nav-link dropdown-toggle" id="navBarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src={user.avatar_url} alt='user' />
+      </a>
+      <div className="dropdown-menu">
+        <a className="dropdown-item" onClick={logout}>Logout</a>
       </div>
+      </li>
+    </div>
   )
 }
 

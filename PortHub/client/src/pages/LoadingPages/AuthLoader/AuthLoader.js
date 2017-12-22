@@ -4,41 +4,35 @@ import axios from 'axios';
 import './AuthLoader.css';
 import { Redirect } from 'react-router';
 
-const AuthLoader = ({ getUserInfo }) => {
-  let accessToken = localStorage.getItem('accessToken')
-                    ? localStorage.getItem('accessToken') : '';
+const AuthLoader = ({ getUserInfo, authenticated }) => {
+  localStorage.clear('accessToken');
+  let accessToken = '';
   const getAuthCode = () => {
     accessToken === 'ification_code' ? localStorage.clear() : '';
     return window.location.href.match(/[&\?]code=([\w\/\-]+)/) ? window.location.href.match(/[&\?]code=([\w\/\-]+)/)[1] 
     : '';
   }
   const authenticateUser = () => {
-    return axios.post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token?&client_id=' 
+   axios.post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token?&client_id=' 
       + Keys.clientId + '&client_secret=' + Keys.clientSecret + '&code=' + getAuthCode())
       .then(response => {
         console.log('finished authenticating')
         accessToken = response.data.slice(13, response.data.indexOf('&'));
         localStorage.setItem('accessToken', accessToken);
-        return response.data.indexOf('error')>=0 ? false :
-        true
+        window.location.replace('/');
       })
       .catch(error => {
-        console.log(error.response);
+        return 'error';
       })
   }
-  authenticateUser()
-
-    if (authenticateUser()) {
-      return <Redirect to={'/'} />
-    }
-    
-  return (
-  <div className='loadContainer'>
-    <div className="ld ld-bounce">
-      <img src="https://rawgit.com/ItsOkayItsOfficial/project3/app/assets/images/porthub_icon.png" alt='porthub' className='loadImg'/>
-    </div>
-  </div>
-  )
+  authenticateUser();
+    return (
+        <div className='loadContainer'>
+          <div className="ld ld-bounce">
+            <img src="https://rawgit.com/ItsOkayItsOfficial/project3/app/assets/images/porthub_icon.png" alt='porthub'className='loadImg'/>
+          </div>
+        </div>
+    )
 }
 
 export default AuthLoader;

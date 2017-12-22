@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import LandingPage from "../pages/LandingPage";
 import TemplatePage from "../pages/TemplatePage";
 import CreateUserPage from "../pages/CreateUserPage";
@@ -43,6 +43,7 @@ class Layout extends Component{
   closeDetailedTemplateHandler = () => {
     this.setState({viewingTemplate: false,
                    selectedTemplate: ''})
+    return <Redirect to={'/'} />
   }
 
   redirectToGitHubHandler = () => {
@@ -59,6 +60,10 @@ class Layout extends Component{
             console.log('Error getting user info: ', error.response)
           })
   }
+  logoutHandler = () => {
+    localStorage.clear('accessToken');
+    this.setState({currentUser: {}, isAuthenticated:false});
+  }
   componentWillMount() {
       let accessToken = localStorage.getItem('accessToken') === 'ification_code' ? localStorage.clear()
                     : localStorage.getItem('accessToken');
@@ -69,13 +74,13 @@ class Layout extends Component{
   }
   render(){
     return(
-    <div> 
       <Router>
         <Aux>    
           <Nav className='navbar-fixed-top' ghRedirect={this.redirectToGitHubHandler}
               title={this.state.type} isAuthenticated={this.state.isAuthenticated}
               user={this.state.currentUser}
-              getUserInfo={this.getUserInfoHandler} />    
+              getUserInfo={this.getUserInfoHandler}
+              logoutHandler={this.logoutHandler} />    
             <Switch>
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/createSite" 
@@ -112,7 +117,6 @@ class Layout extends Component{
             </Switch>
         </Aux>
       </Router>
-    </div>
 
     )
       
