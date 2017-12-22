@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon.ico">
+
+  <title>PortHub</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class='container center'>
+    <video class="background" autoplay="true" name="media" loop>
+      <source src="https://s3-eu-west-1.amazonaws.com/video.gallereplay.com/artistarea/Lighthouse%20stands%20in%20Istanbul%E2%80%99s%20harbour_0554659b-5dc1-43d6-8a93-b31ec6b67f63/Cinemagraph_plain/1920x1080/cinemagraph.mp4"
+        type="video/mp4">
+    </video>
+
+    <nav class="navbar">
+      <ul class="navbar-nav ml-auto">
+        <li>
+          <a data-toggle="modal" data-target="#login">
+            <i class="fa fa-user-o">
+              <p>Sign In</p>
+            </i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class='row'>
+      <div id='hero-lg' class='col-lg-12'>
+        <a class="sp1" data-toggle="tooltip" data-placement="right" title='"Some tooltip text! This is a really long tool tip that will take up a lot of space!"'>
+          <img width="300px" src='https://camo.githubusercontent.com/8f12aa75a329d4b8df4ded8a752981f73573f2a7/68747470733a2f2f63646e2e7261776769742e636f6d2f4974734f6b61794974734f6666696369616c2f70726f6a656374332f6465762f6173736574732f696d616765732f706f72746875622d6c6f676f2e7376673f73616e6974697a653d74727565'>
+        </a>
+      </div>
+      <!-- /#hero -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row center">
+      <div class="col-lg-12">
+        <p>What do you want to build?</p>
+      </div>
+    </div>
+    <!-- /.row center -->
+    <div class="row center">
+      <div class='col-lg-6'>
+        <a class="btn btn-primary" href="portfolio.html">Portfolio</a>
+      </div>
+      <div class='col-lg-6'>
+        <a class="btn btn-primary" href="resume.html">Resume</a>
+      </div>
+    </div>
+    <!-- /.row center -->
+  </div>
+  <!-- /.container -->
+
+  <footer class="center">
+    <div class='col-lg-12'>
+      <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#info">i</button>
+    </div>
+  </footer>
+
+  <!-- Info Modal -->
+  <div id="info" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header center">
+          <div class="col-md-12">
+            <h3>Welcome!</h3>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.</p>
+            </div>
+            <!-- /.col-md-6 -->
+            <div class="col-md-6">
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+            <!-- /.col-md-6 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.modal-body -->
+      </div>
+      <!-- /.modal-content -->
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="login" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content center">
+        <br>
+        <a class="center" data-toggle="popover" title="GitHub Sign In" data-content="And here's some amazing content. It's very engaging. Right?">
+          <img src="https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png" height="100" width="100">
+        </a>
+        <h3>Sign In</h3>
+        <br>
+        <div class="col-auto">
+          <div class="form-group">
+            <label for="InputEmail1">Email</label>
+            <input type="email" class="form-control" id="InputEmail1" placeholder="GitHub email">
+          </div>
+
+          <div class="form-group">
+            <label for="InputPassword1">Password</label>
+            <input type="password" class="form-control" id="InputPassword1" placeholder="Account password">
+          </div>
+        </div>
+
+        <div class="col-6-lg">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <br>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+</body>
+
+</html>
