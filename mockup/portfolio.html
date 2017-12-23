@@ -23,13 +23,21 @@
         height="30" class="d-inline-block align-top" alt="">
     </a>
     <h1>Portfolio Templates</h1>
-    <ul class="navbar-nav ml-auto">
-      <li>
-        <a href="#">
-          <i class="fa fa-bars fa-2x" style="color:white"></i>
-        </a>
-      </li>
-    </ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown mr-5">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="fa fa-user-o"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#login">Login</a>
+          </div>
+        </li>
+      </ul>
+    </div>
   </nav>
   <!-- /.navbar -->
 
@@ -38,7 +46,8 @@
 
       <div class="card-deck">
         <div id="btnOslo" class="card" type="button" data-toggle="modal" data-target="#oslo">
-          <img class="card-img-top" src="https://raw.githubusercontent.com/ItsOkayItsOfficial/project3/devops/templates/oslo/assets/img/oslo_previewSM.png" alt="Oslo">
+          <img class="card-img-top" src="https://raw.githubusercontent.com/ItsOkayItsOfficial/project3/devops/templates/oslo/assets/img/oslo_previewSM.png"
+            alt="Oslo">
         </div>
 
         <!-- Modal -->
