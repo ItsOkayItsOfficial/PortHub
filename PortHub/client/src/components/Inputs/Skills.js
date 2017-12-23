@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Skills = ({index, changed, id}) => {
     let skillTitle = window.sessionStorage.getItem(id+"skill") || "";
     // let skillLevel = window.sessionStorage.getItem(id+"description") || "";  
@@ -16,8 +17,7 @@ const Skills = ({index, changed, id}) => {
                          required="required" 
                          data-error="skill title is required."
                          onChange={(event) => changed(event, id, 'skills', 'skill')} />
-                  <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
-              </span>
+                  </span>
           </div>
       </div>
   </div>)

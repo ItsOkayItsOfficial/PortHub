@@ -5,7 +5,3 @@
 .welcomeContainer {
   display:inherit;
 }
-
-.dropdown-menu .dropdown-item {
-  z-index: 100;
-}

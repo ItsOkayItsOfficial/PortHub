@@ -15,6 +15,7 @@ import AuthLoader from '../pages/LoadingPages/AuthLoader/AuthLoader';
 import Keys from '../keys/keys';
 import axios from 'axios';
 import Aux from '../HOCs/Aux';
+import Modal from '../components/Modal/Modal';
 
 class Layout extends Component{
 
@@ -75,7 +76,7 @@ class Layout extends Component{
   render(){
     return(
       <Router>
-        <Aux>    
+        <Aux>
           <Nav className='navbar-fixed-top' ghRedirect={this.redirectToGitHubHandler}
               title={this.state.type} isAuthenticated={this.state.isAuthenticated}
               user={this.state.currentUser}
