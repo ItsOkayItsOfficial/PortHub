@@ -11,28 +11,38 @@ import {ResumeLeftRightRTL} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
 import Accordion from '../../components/Accordion/Accordion';
 import axios from 'axios';
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router';
+ 
+
 // import moment from 'moment';
 
 class InputPage extends Component{
-
-  state ={
-    contact: {},
-    education:[],
-    experience: [],
-    skills: [],
-    portfolio: [],
-    success: false,
-    html: '',
-    selectButton:'',
+    state = {
+      contact: {},
+      education:[],
+      experience: [],
+      skills: [],
+      portfolio: [],
+      success: false,
+      html: '',
+      selectButton:'',
+      currentTemplate:'',
+      currentUser:''
   }
-
-  componentDidMount(){
+  componentWillMount(){
     //check if there windows.sessionStorage.getItem('userName') then
     // console.log(window.sessionStorage);
     //pull user db info and set state values 
+    // write whatever  into state to user db profile
+    this.setState({currentTemplate:window.localStorage.currentUser});
+    this.setState({currentUser:window.localStorage.currentTemplate});
 
   }
+  componentDidMount(){
+    const el = findDOMNode(this.refs.firstName);
+    console.log("jquery:", $(el).value);
+  }
+
   prepareStateHandler = (event, id, field, subfield) => {
     if (field === 'contact') {
       const contact = {...this.state.contact};
@@ -59,11 +69,11 @@ class InputPage extends Component{
 
   }
   
-  submitFormHandler = (html) => {
+  submitFormHandler = (html) => {   
     //console.log(html);
     localStorage.setItem('html', html);
+
     // write whatever state to user db profile
-    // let userName = "keugenio";
     axios.post('/api/create', this.state)
     .then((response) => {
       console.log("axios: ", response)
@@ -71,8 +81,7 @@ class InputPage extends Component{
     })
     .catch((err) => {
       console.log(err)
-    })
-    
+    });     
   }
 
   render() {

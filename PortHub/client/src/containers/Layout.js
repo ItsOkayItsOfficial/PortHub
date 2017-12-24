@@ -28,6 +28,11 @@ class Layout extends Component{
     createSiteModal: false,
   }
 
+  componentDidUpdate(){
+    window.localStorage.setItem("currentUser", this.state.currentUser.login);
+    window.localStorage.setItem("currentTemplate", this.state.selectedTemplate.title);
+  }
+
   detailedTemplateHandler = (title, type) => {
     let selectedTemplate = '';
       if (type === "resume"){
@@ -61,6 +66,7 @@ class Layout extends Component{
             console.log('Error getting user info: ', error.response)
           })
   }
+
   logoutHandler = () => {
     localStorage.clear('accessToken');
     this.setState({currentUser: {}, isAuthenticated:false});
@@ -103,7 +109,8 @@ class Layout extends Component{
                                     selectedTemplate={this.state.selectedTemplate}/>}
               />
               <Route exact path='/inputPage' render={() => <InputPage
-                                                            selectedTemplate={this.state.selectedTemplate} />} />
+                                                            selectedTemplate={this.state.selectedTemplate} 
+                                                            currentUser = {this.state.currentUser} />} />
               <Route exact path='/success' render={() => <SuccessPage
                                                             />} />
               <Route exact path='/siteLoader' render={() => <CreateSiteLoader

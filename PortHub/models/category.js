@@ -9,6 +9,8 @@ const categorySchema = new Schema({
   experience: [],
   skills: [],
   portfolio: [],
+  currentUser: {},
+  templateName: {},
 });
 
 const Category = mongoose.model("Category", categorySchema);
