@@ -1,91 +1,4 @@
-import React from 'react';
-
-export const ResumeLeftRightRTL = ({contact, experience, education, skills, portfolio, clicked }) => {
-  let skillSection = skills.map((skill, i) => {
-        const offset = i===3 ? "col-lg-offset-3" : ''; 
-          return (
-        `<div class="col-lg-3 centered ${offset}" >
-					<canvas id=${skill.skill} height="130" width="130"></canvas>
-					<p>${skill.skill}</p>
-					<br>
-					<script>
-						var doughnutData = [{
-								value: 100,
-								color: "#1abc9c"
-							},
-							{
-								value: 0,
-								color: "#ecf0f1"
-							}
-						];
-						var myDoughnut = new Chart(document.getElementById("${skill.skill}").getContext("2d")).Doughnut(doughnutData);
-					</script>
-				</div>`
-          )
-        })
-    skillSection = skillSection.join('');
-  let experienceSection = experience.map((experience, i) => {
-       const offset = i!== 0 ? "col-lg-offset-3" : '';
-			return (
-      `<div class="col-lg-6 ${offset}">
-				<p>
-					<t>${experience.title}</t>
-					<br/>${experience.employer}
-					<br/>
-				</p>
-				<p>
-					<more>${experience.duties}
-					</more>
-				</p>
-			</div>
-			<div class="col-lg-3">
-				<p>
-					<sm>${experience.startDate} - ${experience.endDate}</sm>
-				</p>
-			</div>`)   
-    })
-    experienceSection = experienceSection.join('');
-  let educationSection = education.map((education, i) => {
-        const offset = i!== 0 ? "col-lg-offset-3" : '';
-        return 	(		
-          `<div class="col-lg-6 ${offset}">
-            <p>
-              <t>${education.major}</t>
-              <br/>${education.schoolName}
-              <br/>
-            </p>
-          </div>
-          <div class="col-lg-3">
-            <p>
-					    <sm>${education.startDate} - ${education.endDate}</sm>
-              <br/>
-            </p>
-          </div>`)
-      })
-      educationSection = educationSection.join('');
-
-		// let portfolioSection = portfolio.map((portfolio, i) => {
-		//      const offset = i!== 0 ? "col-lg-offset-3" : '';
-		//       return (
-		//         `<div class="col-lg-6 ${offset}">
-		//           <p>
-		//             <img class="img-responsive" src="${portfolio.img}" alt="${portfolio.title}">
-		//           </p>
-		//         </div>
-		//         <div class="col-lg-3">
-		//           <p>${portfolio.title}</p>
-		//           <p>
-		//             <more>${portfolio.description}
-		//               <br/>
-		//               <br/>
-		//               <sm>
-		//             </more>
-		//           </p>
-		//         </div>`
-		//       )
-		//     })
-		//     portfolioSection = portfolioSection.join('');
-  const html =  `<!DOCTYPE html>
+<!DOCTYPE html>
 		<html lang="en">
 			<head>
 			<meta charset="utf-8">
@@ -94,15 +7,15 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
 			<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 			<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    
 		
-			<title>${contact ? contact.firstName:""} ${contact ? contact.lastName:""} Resume</title>
+			<title>Bob Schlob Resume</title>
 			</head>
 		
 			<body>
 			<div class="container-fluid border border-dark">
 				<div class="jumbotron align-content-center" style="background-color:rgba(255, 255, 255, 0); height:2.5in">
-				<div class="text-center border border-dark">${contact ? contact.firstName:""} ${contact ? contact.lastName:""}</div>
+				<div class="text-center border border-dark">Bob Schlob</div>
 				<div class="text-center">
-					<p>${contact ? contact.bio: ""}</p>
+					<p>undefined</p>
 				</div>
 				<div class="image text-center">
 					<div class="img">img</div>
@@ -115,7 +28,7 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
 							<div class="experience">
 							<h3>Experience</h3>
 							<<div class="experience-block" v-for="experience in contact.experience" :key="experience.company">>
-								<div class="company"> ${experienceSection}</div>
+								<div class="company"> </div>
 							</div>
 							</div>
 							<div class="contact">
@@ -123,23 +36,24 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
 							<table class="table-sm border-0">
 								<tr>
 								<td><i class="fa fa-envelope" aria-hidden="true"></i></td>
-								<td><a href="'mailto:'+contact.contact.email">${contact ? contact.email:""}</a></td>
+								<td><a href="'mailto:'+contact.contact.email">undefined</a></td>
 								</tr>
 								<tr>
 								<td><i class="fa fa-phone" aria-hidden="true"></i></td>
-								<td><a href="'tel:'+contact.contact.phone">${contact ? contact.phone:""}</a></td>
+								<td><a href="'tel:'+contact.contact.phone">undefined</a></td>
 								</tr>
 								<tr>
 								<td><i class="fa fa-home" aria-hidden="true"></i></td>
-								<td>${contact ? contact.address:""}<br> ${contact ? contact.city:""}</td>
+								<td>814 E Mulberry St
+Scottsdale, AZ 85251<br> undefined</td>
 								</tr>
 								<tr v-if="contact.contact.website">
 								<td><i class="fa fa-globe" aria-hidden="true"></i></td>
-								<td><a href="contact.contact.website">${contact ? contact.website:""}</a></td>
+								<td><a href="contact.contact.website">undefined</a></td>
 								</tr>
 								<tr v-if="contact.contact.github">
 								<td><i class="fa fa-github" aria-hidden="true"></i></td>
-								<td><a href="https://github.com/'+${contact ? contact.github:""}">https://github.com/${contact ? contact.github:""}</a></td>
+								<td><a href="https://github.com/'+undefined">https://github.com/undefined</a></td>
 								</tr>
 							</table>
 							</div>
@@ -147,12 +61,12 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
 					<div class="col text-right align-items-center">
 							<div class="education">
 							<h3>Education</h3>
-								<div class="degree">${educationSection}</div>
+								<div class="degree"></div>
 							</div>
 							<h3>Skills</h3>
 							<div class="skills">
 								<div style="width:100%" class="d-flex flex-row">
-									${skillSection}
+									
 									<label for="slider-range-min">{{skillName}}</label>
 									<div class="slider w-100"></div>                     
 								</div>
@@ -215,9 +129,4 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
 				background: #4CAF50;
 				cursor: pointer;
 			}
-		</style>`;
-
-  return (
-    <button className="btn btn-primary" onClick={() => clicked(html)}>Submit</button>
-  )
-}
+		</style>

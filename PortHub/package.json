@@ -11,9 +11,11 @@
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
     "express": "^4.16.2",
+    "html-pdf": "^2.2.0",
     "mongojs": "^2.4.1",
     "mongoose": "^4.13.6",
-    "nodemon": "^1.12.5"
+    "nodemon": "^1.12.5",
+    "react-file-download": "^0.3.5"
   },
   "scripts": {
     "client": "node scripts/start-client.js",

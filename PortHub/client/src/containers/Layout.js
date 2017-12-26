@@ -10,12 +10,13 @@ import InputPage from '../pages/InputPage/InputPage';
 import Resumes from '../pages/TemplatePage/Resumes.json';
 import Websites from '../pages/TemplatePage/Websites.json';
 import SuccessPage from '../pages/SuccessPage/SuccessPage';
+import ResumeSuccessPage from '../pages/SuccessPage/ResumeSuccessPage';
 import CreateSiteLoader from '../pages/LoadingPages/CreateSiteLoader/CreateSiteLoader';
 import AuthLoader from '../pages/LoadingPages/AuthLoader/AuthLoader';
 import Keys from '../keys/keys';
 import axios from 'axios';
 import Aux from '../HOCs/Aux';
-import Modal from '../components/Modal/Modal';
+//import Modal from '../components/Modal/Modal';
 
 class Layout extends Component{
 
@@ -26,6 +27,7 @@ class Layout extends Component{
     isAuthenticated: false,
     createSiteMessage: '',
     createSiteModal: false,
+    type:''
   }
 
   componentDidUpdate(){
@@ -34,6 +36,7 @@ class Layout extends Component{
   }
 
   detailedTemplateHandler = (title, type) => {
+    this.setState({type:type});
     let selectedTemplate = '';
       if (type === "resume"){
         selectedTemplate = Resumes.filter(resume => resume.title === title);
@@ -109,10 +112,13 @@ class Layout extends Component{
                                     selectedTemplate={this.state.selectedTemplate}/>}
               />
               <Route exact path='/inputPage' render={() => <InputPage
+                                                            type = {this.state.type}
                                                             selectedTemplate={this.state.selectedTemplate} 
                                                             currentUser = {this.state.currentUser} />} />
               <Route exact path='/success' render={() => <SuccessPage
                                                             />} />
+              <Route exact path='/resumeSuccess' render={() => <ResumeSuccessPage
+                                                            />} />                                                            
               <Route exact path='/siteLoader' render={() => <CreateSiteLoader
                                                             selectedTemplate={this.state.selectedTemplate}
                                                             login={this.state.currentUser.login} />} />

@@ -11,6 +11,7 @@ const categorySchema = new Schema({
   portfolio: [],
   currentUser: {},
   templateName: {},
+  type:{},
 });
 
 const Category = mongoose.model("Category", categorySchema);

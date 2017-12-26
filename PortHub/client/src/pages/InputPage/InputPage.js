@@ -12,7 +12,7 @@ import Portfolio from '../../components/Inputs/Portfolio';
 import Accordion from '../../components/Accordion/Accordion';
 import axios from 'axios';
 import { Redirect } from 'react-router';
- 
+
 
 // import moment from 'moment';
 
@@ -24,23 +24,33 @@ class InputPage extends Component{
       skills: [],
       portfolio: [],
       success: false,
+      resumeSuccess: false,
       html: '',
       selectButton:'',
       currentTemplate:'',
-      currentUser:''
+      currentUser:'',
+      type:'',
   }
   componentWillMount(){
     //check if there windows.sessionStorage.getItem('userName') then
     // console.log(window.sessionStorage);
     //pull user db info and set state values 
     // write whatever  into state to user db profile
-    this.setState({currentTemplate:window.localStorage.currentUser});
-    this.setState({currentUser:window.localStorage.currentTemplate});
+
+    this.setState({currentTemplate:window.localStorage.currentTemplate});
+    this.setState({currentUser:"keugenio"});
+    this.setState({type:this.props.type});
 
   }
+
   componentDidMount(){
-    const el = findDOMNode(this.refs.firstName);
-    console.log("jquery:", $(el).value);
+    // const el = findDOMNode(this.refs.firstName);
+    // console.log("jquery:", $(el).value);
+    axios.post('/api/user', {currentUser:this.state.currentUser, currentTemplate:this.state.currentTemplate})
+    .then((response) => {
+      console.log("did Mount", response.data);          
+    });
+
   }
 
   prepareStateHandler = (event, id, field, subfield) => {
@@ -73,18 +83,46 @@ class InputPage extends Component{
     //console.log(html);
     localStorage.setItem('html', html);
 
-    // write whatever state to user db profile
-    axios.post('/api/create', this.state)
-    .then((response) => {
-      console.log("axios: ", response)
-      response.data==='success' ? this.setState({success:true}): console.log('failed')
-    })
-    .catch((err) => {
-      console.log(err)
-    });     
+    if (this.props.type === "resume") {
+        // write whatever state to user db profile
+        axios.post('/api/create', this.state)
+        .then((response) => {
+          console.log("**** response data:", response.data);
+          //this.setState({success:true});         
+        })
+        .then((response) => {
+          axios.post('/api/resume', {html:html})
+          .then((response) => {
+            response.data !== "html created" ? console.log("pdf creation failed"): console.log(response.data);
+          }).then((response) => {
+              console.log("boom");
+              axios.post('/api/createpdf')
+              .then((response) => {
+                response.data === "pdf created" ? this.setState({resumeSuccess:true}) : console.log("pdf creation failed");
+              })
+            }) 
+        })
+       
+        .catch((err) => {
+          console.log(err)
+        }); 
+    } else {
+        console.log("site");
+        // write whatever state to user db profile
+        axios.post('/api/create', this.state)
+        .then((response) => {
+          console.log("axios: ", response)
+          response.data==='success' ? this.setState({success:true}): console.log('failed')
+        })
+        .catch((err) => {
+          console.log(err)
+        });   
+    };  
   }
 
   render() {
+
+
     let accessToken = localStorage.getItem('accessToken')
                       ? localStorage.getItem('accessToken') : '';
     if (!accessToken) {
@@ -148,6 +186,10 @@ class InputPage extends Component{
     if (this.state.success) {
       return (
         <Redirect to={'/success'}/>
+      )
+    } else if (this.state.resumeSuccess) {
+      return (
+        <Redirect to={'/resumeSuccess'}/>
       )
     }
       return (

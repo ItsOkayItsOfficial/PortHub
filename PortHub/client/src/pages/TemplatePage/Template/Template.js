@@ -19,7 +19,6 @@ const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, 
             <img className="card-img-top" src={img} alt={title}/>
             <div className="card-footer d-flex flex-column">
               <p className="card-title text-center">{title}</p>
-
             </div>
           </div>
       </button>
