@@ -83,6 +83,7 @@ class InputPage extends Component{
     //console.log(html);
     localStorage.setItem('html', html);
 
+    // if resume, write state to db. write html to resume.html file then create resume.pdf for optional download
     if (this.props.type === "resume") {
         // write whatever state to user db profile
         axios.post('/api/create', this.state)
@@ -95,14 +96,12 @@ class InputPage extends Component{
           .then((response) => {
             response.data !== "html created" ? console.log("pdf creation failed"): console.log(response.data);
           }).then((response) => {
-              console.log("boom");
               axios.post('/api/createpdf')
               .then((response) => {
                 response.data === "pdf created" ? this.setState({resumeSuccess:true}) : console.log("pdf creation failed");
               })
             }) 
         })
-       
         .catch((err) => {
           console.log(err)
         }); 

@@ -29,7 +29,6 @@ router.post('/api/resume', ((req, res) => {
 }))
 
 router.post('/api/createpdf', ((req, res) =>{
-    console.log("******HERE****");
     var fs = require('fs');     
     var pdf = require('html-pdf');
     var options = { format: 'Letter' };     
@@ -39,10 +38,12 @@ router.post('/api/createpdf', ((req, res) =>{
         console.log(res1);
         res.json("pdf created");
       });
-}));
-router.get('/api/download', ((req, res) => {
-    res.sendFile("./temp/resume.html");
 }))
+
+router.get('/api/download', (req, res) => {
+    res.download(__dirname + "/../temp/resume.html");
+    res.json("pdf downloaded");
+})
 
 router.post('/api/user', ((req, res) => {
     console.log("**** currentTemplate:" + req.body.currentTemplate + 

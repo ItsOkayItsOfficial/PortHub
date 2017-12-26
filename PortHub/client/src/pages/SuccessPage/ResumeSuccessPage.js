@@ -13,7 +13,7 @@ const ResumeSuccessScreen = ({ redirect }) => {
   <div className='container successWrapper'>
     <h1 style={{margin: '10px'}}>Success!</h1> 
     <div className='row'>
-      <div className='col-lg-6'>
+      <div className='col-lg-6 justify-content-center'>
       <h4>Access your brand new resume as a PDF:</h4>
 
       <Link to="/api/download" className = "btn btn-primary">Download</Link>
