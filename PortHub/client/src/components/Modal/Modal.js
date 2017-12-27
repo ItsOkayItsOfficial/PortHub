@@ -4,35 +4,34 @@ import Aux from '../../HOCs/Aux';
 import Backdrop from '../Backdrop/Backdrop';
 import { Link } from 'react-router-dom';
 
-const modal = ({ show, closeModal, selectedTemplate, id, children, className, title, type}) => (
-  selectedTemplate===id ?
+const modal = ({ show, closeModal, selectedTemplate, id, children, className, title, type, zIndex }) => {
+  const continueAsGuestStyle = {
+    transform: show ? 'translateY(0)' : 'translateY(-100vh)',
+    opacity: show ? '1' : '0',
+    width: '60vw',
+    height: '60vh',
+    right: '20%',
+    top: '10%',
+    zIndex: 5000
+  }
+  return (
+  selectedTemplate===id || className==='continueAsGuest' ?
   <Aux>
-    <Backdrop show={show} clicked={closeModal} />
+    <Backdrop show={show} clicked={closeModal} className={className} />
     <div 
       className={className ? "Modal " + className : 'Modal'}
-      style={{
+      style={className==='continueAsGuest' ? continueAsGuestStyle : 
+      {
         transform: show ? 'translateY(0)' : 'translateY(-100vh)',
         opacity: show ? '1' : '0',
-        right: type==='resume' || 'site' ? '5%' : 0
+        right: type==='resume' || 'site' ? '5%' : '0',
       }}>
-    <div className="modalHeader d-flex justify-content-center">
-      <div className="modalTitle">
-        <p className='align-self-center'>{title}</p>
-      </div>
-      <div className='ml-auto'>
-        { type==='templateSelect' ?
-          <Link to='inputPage' className="btn btn-success mr-4 btn-sm" title={title}> 
-            Select
-          </Link> : ''}        
-          <a onClick={closeModal} className="btn btn-danger">
-              <i className="fa fa-times"></i>          
-          </a>
-      </div>
-    </div>
       {children}
     </div>
   </Aux>
   : null
-)
-
+  )
+}
 export default modal;
+
+

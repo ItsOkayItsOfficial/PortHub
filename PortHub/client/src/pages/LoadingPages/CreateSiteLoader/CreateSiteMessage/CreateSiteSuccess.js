@@ -4,6 +4,7 @@ import './CreateSiteSuccess.css';
 
 const CreateSiteMessage = ({ login, file }) => {
   return (
+    <div className='d-flex container CreateSiteSuccessContainer'>
     <div className='d-flex flex-column p-2 justify-content-center align-items-center successContent'>
         <h1 className='p-2 successHeader'> Congratulations! </h1>
         <h5> Your new personal portfolio site is now hosted at <a href={`www.${login}.github.io/${file.split('.').shift()}`} target='_blank' rel="noopener noreferrer">{`www.${login}.github.io/${file.split('.').shift()}`}</a>. However, it may take a few minutes to appear.</h5>
@@ -19,6 +20,7 @@ const CreateSiteMessage = ({ login, file }) => {
           <a href='/createsite' className="btn btn-warning successButton">Create a Portfolio Website</a>
           <a href='/createresume' className="btn btn-info successButton">Create a Resume</a>
         </div>
+    </div>
     </div>
 
   )

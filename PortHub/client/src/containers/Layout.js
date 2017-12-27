@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Redirect } from 'react-router'
 import LandingPage from "../pages/LandingPage";
 import TemplatePage from "../pages/TemplatePage";
 import CreateUserPage from "../pages/CreateUserPage";
@@ -13,6 +14,8 @@ import SuccessPage from '../pages/SuccessPage/SuccessPage';
 import ResumeSuccessPage from '../pages/SuccessPage/ResumeSuccessPage';
 import CreateSiteLoader from '../pages/LoadingPages/CreateSiteLoader/CreateSiteLoader';
 import AuthLoader from '../pages/LoadingPages/AuthLoader/AuthLoader';
+import Modal from '../components/Modal/Modal';
+import ContinueAsGuest from '../components/ContinueAsGuest/ContinueAsGuest';
 import Keys from '../keys/keys';
 import axios from 'axios';
 import Aux from '../HOCs/Aux';
@@ -27,8 +30,8 @@ class Layout extends Component{
     selectedTemplate: {},
     currentUser: {},
     isAuthenticated: false,
-    createSiteMessage: '',
-    createSiteModal: false,
+    viewingGuestContinueModal: false,
+    redirectToInput: false,
     type:''
   }
 
@@ -58,6 +61,11 @@ class Layout extends Component{
     return <Redirect to={'/'} />
   }
 
+  guestContinueModalHander = () => {
+  this.state.viewingGuestContinueModal ?
+    this.setState({viewingGuestContinueModal:false})
+    : this.setState({viewingGuestContinueModal:true})
+  }
   redirectToGitHubHandler = () => {
     window.location.replace('https://github.com/login/oauth/authorize?client_id=' 
   + Keys.clientId + '&redirect_uri=http://localhost:3000/authLoader&state=1234&scope=user,public_repo');
@@ -91,6 +99,9 @@ class Layout extends Component{
     return(
       <Router>
         <Aux>
+          <Modal show={this.state.viewingGuestContinueModal} closeModal={this.guestContinueModalHander} className='continueAsGuest'>
+            <ContinueAsGuest closeModal={this.guestContinueModalHander} />
+          </Modal>
           <Nav className='navbar-fixed-top' ghRedirect={this.redirectToGitHubHandler}
               title={this.state.type} isAuthenticated={this.state.isAuthenticated}
               user={this.state.currentUser}
@@ -105,7 +116,10 @@ class Layout extends Component{
                                   showModal={this.state.viewingTemplate}
                                   closeModal={this.closeDetailedTemplateHandler}
                                   viewTemplate={this.detailedTemplateHandler}
-                                  selectedTemplate={this.state.selectedTemplate}/>}
+                                  selectedTemplate={this.state.selectedTemplate}
+                                  guestContinueShow={this.guestContinueModalHander}
+                                  viewingContinueAsGuest={this.state.viewingGuestContinueModal}
+                                  isAuthenticated={this.state.isAuthenticated} />}
               />
               <Route exact path="/createResume" 
                     //  onChange={this.handleTemplate('resume')} 
@@ -114,7 +128,10 @@ class Layout extends Component{
                                     showModal={this.state.viewingTemplate}
                                     closeModal={this.closeDetailedTemplateHandler}
                                     viewTemplate={this.detailedTemplateHandler}
-                                    selectedTemplate={this.state.selectedTemplate}/>}
+                                    selectedTemplate={this.state.selectedTemplate}
+                                    guestContinueShow={this.guestContinueModalHander}
+                                    viewingContinueAsGuest={this.state.viewingGuestContinueModal}
+                                    isAuthenticated={this.state.isAuthenticated}/>}
               />
               <Route exact path='/inputPage' render={() => <InputPage
                                                             type = {this.state.type}

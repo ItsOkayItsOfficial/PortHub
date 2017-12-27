@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import './SuccessPage.css';
 
 const SuccessScreen = ({ redirect }) => {
   const html = localStorage.getItem('html');
-  // let accessToken = localStorage.getItem('accessToken')
-  //                   ? localStorage.getItem('accessToken') : '';
-  // if (!accessToken) {
-  //   return <Redirect to={'/noMatch'} />
-  // }
+  let accessToken = localStorage.getItem('accessToken')
+                    ? localStorage.getItem('accessToken') : '';
+  if (!accessToken) {
+    return <Redirect to={'/noMatch'} />
+  }
   return (
   <div className='container successWrapper'>
     <h1 style={{margin: '10px'}}>Success!</h1> 

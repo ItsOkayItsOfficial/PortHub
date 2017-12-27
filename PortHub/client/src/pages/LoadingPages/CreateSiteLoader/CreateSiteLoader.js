@@ -1,19 +1,25 @@
 import React from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router';
 import CreateSiteSuccess from './CreateSiteMessage/CreateSiteSuccess';
 import CreateSiteError from './CreateSiteMessage/CreateSiteError';
 import Aux from '../../../HOCs/Aux';
 import './CreateSiteLoader.css';
 import Alert from 'react-s-alert';
 
-const CreateSiteLoader = ({ login, message }) => {
+const CreateSiteLoader = ({ login, message, selectedTemplate }) => {
   // TO DO--- check for when access token = 'ification_code'
   let accessToken = localStorage.getItem('accessToken')
                     ? localStorage.getItem('accessToken') : '';
+  let userRepoNum = 0;
+  if (!accessToken || !login || !selectedTemplate) {
+    return <Redirect to={'/noMatch'} />
+  }
   const getUserRepos = () => {
       return axios.get(`https://api.github.com/users/${login}/repos?access_token=` + accessToken)
             .then((response) => {
               console.log(response)
+              response.data.length >= 30 ? userRepoNum = 31 : userRepoNum = 0;
               for (let i=0; i< response.data.length; i++) {
                 if (response.data[i].name === `${login}.github.io`){
                 return Alert.info(`${login} already has a has GitHub pages repository.`, {
@@ -33,6 +39,7 @@ const CreateSiteLoader = ({ login, message }) => {
               return false;
             })
             .catch(error => {
+              console.log(error);
               return Alert.error(<CreateSiteError />, {
                 timeout: 'none',
                 position: 'top',
@@ -60,18 +67,19 @@ const CreateSiteLoader = ({ login, message }) => {
                })
       })
       .catch(error => {
-          return Alert.error(<CreateSiteError />, {
-            timeout: 'none',
-            position: 'top',
-            effect: 'bouncyflip',
-            offset: 80
-          })
+        console.log(error)
+        return userRepoNum > 30 ? console.log('User has more than 30 repos') :
+              Alert.error(<CreateSiteError />, {
+                timeout: 'none',
+                position: 'top',
+                effect: 'bouncyflip',
+                offset: 80
+              })
       })
   }
 
   const createFile = () => {
-    // const filename = `${login}${Math.floor(Math.random() * 4000)}.html`;
-    const filename = "biobio.html"
+    const filename = `${login}${Math.floor(Math.random() * 4000)}.html`;
     const filemessage = "uploading a file";
     const filecontent = localStorage.getItem('html');
     const basecontent = btoa(filecontent);
@@ -107,13 +115,11 @@ const CreateSiteLoader = ({ login, message }) => {
     getUserRepos()
     .then((hasRepo) => hasRepo ? console.log('User already has GH pages repo') : createUserRepo())
     .then(() => createFile())
-    .then((fileNameTaken) =>  fileNameTaken ? console.log('That filename already exists in users repo.')
-    : console.log('Your website has been made'))
   }
 
-  if (accessToken && login) {
+
     createSite();
-  }
+
   return (
   <Aux>
     <div className='loadContainer'>

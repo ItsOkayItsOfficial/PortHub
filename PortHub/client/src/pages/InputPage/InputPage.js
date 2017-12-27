@@ -37,9 +37,9 @@ class InputPage extends Component{
     //pull user db info and set state values 
     // write whatever  into state to user db profile
 
-    this.setState({currentTemplate:window.localStorage.currentTemplate});
-    this.setState({currentUser:"keugenio"});
-    this.setState({type:this.props.type});
+    // this.setState({currentTemplate:window.localStorage.currentTemplate});
+    // this.setState({currentUser:"keugenio"});
+    // this.setState({type:this.props.type});
 
   }
 

@@ -8,7 +8,7 @@ import Requirements from './Requirements/Requirements'
 import Aux from '../../HOCs/Aux';
 
 
-const TemplatePage = ({ type, children, showModal, closeModal, viewTemplate, selectedTemplate }) => {
+const TemplatePage = ({ type, children, showModal, closeModal, viewTemplate, selectedTemplate, guestContinueShow, isAuthenticated  }) => {
 
   return(
     <Aux>
@@ -29,7 +29,9 @@ const TemplatePage = ({ type, children, showModal, closeModal, viewTemplate, sel
                               showModal={showModal}
                               viewTemplate={viewTemplate}
                               closeModal={closeModal}
-                              selectedTemplate={selectedTemplate}/>
+                              selectedTemplate={selectedTemplate}
+                              guestContinueShow={guestContinueShow}
+                              isAuthenticated={isAuthenticated}/>
               })
             : Websites.map((website) => {
               return <Template key={website.title} 
@@ -41,7 +43,9 @@ const TemplatePage = ({ type, children, showModal, closeModal, viewTemplate, sel
                               showModal={showModal}
                               viewTemplate={viewTemplate}
                               closeModal={closeModal}
-                              selectedTemplate={selectedTemplate}/>
+                              selectedTemplate={selectedTemplate}
+                              guestContinueShow={guestContinueShow}
+                              isAuthenticated={isAuthenticated}/>
               })
             }
             </div>

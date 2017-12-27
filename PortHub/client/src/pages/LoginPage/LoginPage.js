@@ -1,13 +1,13 @@
 import React from "react";
-import Jumbtron from '../../components/Jumbotron';
-import   './LoginPage.css';
+import Jumbotron from '../../components/Jumbotron';
+import  './LoginPage.css';
 
 const LoginPage = ({ children, ghRedirect, localLogin }) =>
 <div>
-  <Jumbtron>
+  <Jumbotron>
     <img src='/assets/images/ph/porthub_logo.png' alt="logo" />       
     <p> Login </p>
-  </Jumbtron>
+  </Jumbotron>
 
   <div className="container">
   <div className="row h-100 align-items-center">

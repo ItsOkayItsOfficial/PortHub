@@ -15,7 +15,32 @@
 }
 
 @media (max-height: 740px) {
-  .successContent {
-    height: 500px;
+  .s-alert-box-inner {
+    width: 100%;
+    height: 120vh;
+    overflow: scroll;
   }
+  .CreateSiteSuccessContainer {
+    height: 150%;
+    overflow: scroll;
+  }
+  .successContent {
+    position: relative;
+    top: -12%;
+    height: 100%;
+    overflow: scroll;
+  }
+  .successContent>h5 {
+    width: 100%;
+    overflow-wrap: break-word;
+  }
+  .successHeader {
+    width: 90%;
+    font-size: 200%;
+  }
+  .successSteps {
+    width: 100%;
+    overflow-wrap: break-word;
+  }
+
 }

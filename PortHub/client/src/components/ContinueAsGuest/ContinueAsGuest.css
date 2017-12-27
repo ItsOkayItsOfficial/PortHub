@@ -1,0 +1,22 @@
+.CAGcontainer {
+  height: 100%
+}
+
+.CAGcol {
+  height: 85%;
+  text-align:left;
+}
+
+.CAGbuttons {
+  display: block;
+  text-align: center;
+}
+
+.fa-check {
+  margin-right: 5px;
+  color: green;
+}
+
+.fa-close {
+  color: red;
+}
