@@ -16,7 +16,8 @@ import AuthLoader from '../pages/LoadingPages/AuthLoader/AuthLoader';
 import Keys from '../keys/keys';
 import axios from 'axios';
 import Aux from '../HOCs/Aux';
-//import Modal from '../components/Modal/Modal';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
 
 class Layout extends Component{
 
@@ -31,8 +32,9 @@ class Layout extends Component{
   }
 
   componentDidUpdate(){
-    window.localStorage.setItem("currentUser", this.state.currentUser.login);
-    window.localStorage.setItem("currentTemplate", this.state.selectedTemplate.title);
+    // window.localStorage.setItem("currentUser", this.state.currentUser.login);
+    // window.localStorage.setItem("currentTemplate", this.state.selectedTemplate.title);
+    console.log('did update')
   }
 
   detailedTemplateHandler = (title, type) => {
@@ -73,13 +75,14 @@ class Layout extends Component{
   logoutHandler = () => {
     localStorage.clear('accessToken');
     this.setState({currentUser: {}, isAuthenticated:false});
+    window.location.replace('/')
   }
   componentWillMount() {
       let accessToken = localStorage.getItem('accessToken') === 'ification_code' ? localStorage.clear()
                     : localStorage.getItem('accessToken');
       if (accessToken) {
         this.setState({isAuthenticated: true})
-        return this.getUserInfoHandler(accessToken)
+        this.getUserInfoHandler(accessToken)
       }
   }
   render(){
@@ -129,6 +132,7 @@ class Layout extends Component{
                                                         ghRedirect={this.redirectToGitHubHandler}/>} />
               <Route component={NoMatch} />
             </Switch>
+            <Alert stack={{limit: 3}} />
         </Aux>
       </Router>
 

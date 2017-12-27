@@ -1,9 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import CreateSiteMessage from './CreateSiteMessage/CreateSiteMessage';
+import CreateSiteSuccess from './CreateSiteMessage/CreateSiteSuccess';
+import CreateSiteError from './CreateSiteMessage/CreateSiteError';
 import Modal from '../../../components/Modal/Modal';
 import Aux from '../../../HOCs/Aux';
 import './CreateSiteLoader.css';
+import Alert from 'react-s-alert';
 
 const CreateSiteLoader = ({ login, message }) => {
   // TO DO--- check for when access token = 'ification_code'
@@ -15,10 +17,15 @@ const CreateSiteLoader = ({ login, message }) => {
               console.log(response)
               for (let i=0; i< response.data.length; i++) {
                 if (response.data[i].name === `${login}.github.io`){
-                  console.log('user has repo')
-                  return true;
+                Alert.info(`${login} already has a has GitHub pages repository.`, {
+                    timeout: 'none',
+                    position: 'top',
+                    offset: 80
+                  })
+                  return true
                 }
               }
+              return false;
             })
             .catch(error => {
               console.log('Get user repos error: ', error.response)
@@ -35,7 +42,11 @@ const CreateSiteLoader = ({ login, message }) => {
       url: 'https://api.github.com/user/repos?access_token=' + accessToken,
       })
       .then((response) => {
-        console.log('Repo Created')
+        return Alert.success(`New GitHub pages repository created for ${login}.`, {
+                timeout: 'none',
+                position: 'top',
+                offset: 80
+               })
       })
       .catch(error => {
         console.log('Create repo error:', error.response)
@@ -43,7 +54,7 @@ const CreateSiteLoader = ({ login, message }) => {
   }
 
   const createFile = () => {
-    const filename = "testbio10.html";
+    const filename = "testbio35.html";
     const filemessage = "uploading a file";
     const filecontent = localStorage.getItem('html');
     const basecontent = btoa(filecontent);
@@ -57,10 +68,19 @@ const CreateSiteLoader = ({ login, message }) => {
           url: url
         })
         .then((response) => {
-          console.log(response)
+        Alert.success(<CreateSiteSuccess login={login} file={filename}/>, {
+          timeout: 'none',
+          position: 'top',
+          offset: 80
+        })
         })
         .catch((error) => {
           console.log('Create file error: ', error.response)
+          Alert.error(<CreateSiteSuccess login={login} file={filename}/>, {
+            timeout: 'none',
+            position: 'top',
+            offset: 80
+          })
           return true;
         })
   }
@@ -73,10 +93,9 @@ const CreateSiteLoader = ({ login, message }) => {
     : console.log('Your website has been made'))
   }
 
-  // if (accessToken && login) {
-  //   createSite();
-  // }
-  createSite();
+  if (accessToken && login) {
+    createSite();
+  }
   return (
   <Aux>
     <div className='loadContainer'>

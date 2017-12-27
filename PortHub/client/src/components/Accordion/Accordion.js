@@ -11,9 +11,9 @@ const Accordion = (props) =>{
     let children=props.children;
     
     return (
-        <div className="card accordionCard">
+        <div className="card">
           <a data-toggle="collapse" data-parent="#accordion" href={href} aria-expanded="true" aria-controls={ariacontrols}>
-            <div className="card-header" role="tab" id={arialabelledby} data-toggle="collapse">
+            <div className="card-header accordionHead" role="tab" id={arialabelledby} data-toggle="collapse">
               <h5 className="mb-0 accordionText">
                 
                   {type}

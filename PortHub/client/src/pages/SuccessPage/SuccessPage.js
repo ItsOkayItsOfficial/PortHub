@@ -37,7 +37,7 @@ const SuccessScreen = ({ redirect }) => {
             <li> Don't have a Github account? Create one <a href='https://github.com/' rel="noopener noreferrer" target='_blank'> here </a></li>
           </ul>
         <div className='row' style={{textAlign:'center'}} >
-          <Link to={'/siteLoader'}><button style={{margin: 'auto'}}className='btn btn-success'> Publish to GitHub </button></Link>
+          <Link to={'/siteLoader'} style={{margin: 'auto'}}><button className='btn btn-success'> Publish to GitHub </button></Link>
         </div>
       </div>
     </div>
