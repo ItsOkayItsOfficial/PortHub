@@ -1,4 +1,5 @@
 import React from "react";
+import './Accordion.css';
 
 const Accordion = (props) =>{
     let href=`#${props.type}`;
@@ -10,10 +11,10 @@ const Accordion = (props) =>{
     let children=props.children;
     
     return (
-        <div className="card">
+        <div className="card accordionCard">
           <a data-toggle="collapse" data-parent="#accordion" href={href} aria-expanded="true" aria-controls={ariacontrols}>
             <div className="card-header" role="tab" id={arialabelledby} data-toggle="collapse">
-              <h5 className="mb-0">
+              <h5 className="mb-0 accordionText">
                 
                   {type}
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Websites.css';
 
 export const London = ({contact, experience, education, skills, portfolio, clicked }) => {
 
@@ -202,6 +203,6 @@ const html =
 
 </html>`
       return (
-        <button className="btn btn-primary" onClick={() => clicked(html)}>Submit</button>
+        <button className="btn btn-success sitebtn" onClick={() => clicked(html)}>Submit</button>
       )
 }

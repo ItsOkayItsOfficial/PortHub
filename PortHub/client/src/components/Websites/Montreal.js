@@ -1,4 +1,6 @@
 import React from 'react';
+import './Websites.css';
+
 
 export const Montreal = ({contact, experience, education, skills, portfolio, clicked }) => {
   let skillSection = skills.map((skill, i) => {
@@ -335,6 +337,6 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 				</body>
 				</html>`
   return (
-    <button className="btn btn-primary" onClick={() => clicked(html)}>Submit</button>
+    <button className="btn btn-success sitebtn" onClick={() => clicked(html)}>Submit</button>
   )
 }
