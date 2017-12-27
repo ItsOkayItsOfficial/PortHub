@@ -11,6 +11,17 @@
     }
   },
   {
+    "src": "/assets/templates/oslo/index.html",
+    "img": "/assets/templates/websitepeeks/oslo.png",
+    "title":"Oslo",
+    "inputs": {
+      "experience": 0,
+      "education": 0,
+      "skills": 4,
+      "portfolio": 6
+    }
+  },
+  {
     "src": "/assets/templates/london/index.html",
     "img": "/assets/templates/websitepeeks/london.png",
     "title":"London",
@@ -33,13 +44,14 @@
     }
   },
   {
-    "src": "/assets/templates/oslo/index.html",
-    "img": "/assets/templates/websitepeeks/oslo.png",
-    "title":"Oslo"
-  },
-  {
     "src": "/assets/templates/portland/index.html",
     "img": "/assets/templates/websitepeeks/portland.png",
-    "title":"Portland"
+    "title":"Portland",
+    "inputs": {
+      "experience": 0,
+      "education": 0,
+      "skills": 4,
+      "portfolio": 6
+    }
   } 
 ]

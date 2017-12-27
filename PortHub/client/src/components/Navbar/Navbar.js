@@ -24,7 +24,6 @@ const Navbar = ({ title, ghRedirect, isAuthenticated, user, logoutHandler, login
                                                   login={loginHandler} />}
         </ul>
       </div>
-
   </nav>
   )
 }

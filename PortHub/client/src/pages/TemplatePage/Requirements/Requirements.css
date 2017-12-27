@@ -1,0 +1,20 @@
+.requirementBanner {
+  background-color: #4F575E;
+  color: white;
+}
+.requirementContent {
+  position: fixed;
+  width: 22%;
+}
+.MainReqHeader {
+  margin: auto;
+  border-bottom: 1px solid white;
+}
+.ReqHeaders {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.ReqList {
+  text-align: left;
+}

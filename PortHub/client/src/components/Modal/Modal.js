@@ -12,7 +12,8 @@ const modal = ({ show, closeModal, selectedTemplate, id, children, className, ti
       className={className ? "Modal " + className : 'Modal'}
       style={{
         transform: show ? 'translateY(0)' : 'translateY(-100vh)',
-        opacity: show ? '1' : '0'
+        opacity: show ? '1' : '0',
+        right: type==='resume' || 'site' ? '5%' : 0
       }}>
     <div className="modalHeader d-flex justify-content-center">
       <div className="modalTitle">
