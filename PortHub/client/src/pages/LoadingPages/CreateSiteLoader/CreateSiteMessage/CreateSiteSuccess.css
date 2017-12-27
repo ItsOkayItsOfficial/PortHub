@@ -1,0 +1,21 @@
+.successSteps {
+  width: 40vw;
+  line-height: 24px;
+  margin: 24px 0;
+}
+
+.successHeader {
+  line-height: 48px;
+  margin: 24px 0;
+}
+
+.successButton {
+  margin: 10px;
+  opacity: 1 !important;
+}
+
+@media (max-height: 740px) {
+  .successContent {
+    height: 500px;
+  }
+}

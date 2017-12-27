@@ -2,7 +2,6 @@ import React from 'react';
 import Keys from '../../../keys/keys';
 import axios from 'axios';
 import './AuthLoader.css';
-import { Redirect } from 'react-router';
 
 const AuthLoader = ({ getUserInfo, authenticated }) => {
   localStorage.clear('accessToken');

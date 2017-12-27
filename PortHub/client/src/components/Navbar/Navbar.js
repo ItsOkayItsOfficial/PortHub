@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import WelcomeMessage from './WelcomeMessage/WelcomeMessage';
 import LoginButton from './NavLinks/LoginButton';
 import "./Navbar.css";
+import Alert from 'react-s-alert';
+
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = ({ title, ghRedirect, isAuthenticated, user, logoutHandler, loginHandler }) => {
@@ -10,7 +12,7 @@ const Navbar = ({ title, ghRedirect, isAuthenticated, user, logoutHandler, login
   <nav className="navbar navbar-expand bg-dark text-white">
       <div className="navbar-header">
         <div className="navbar-brand">
-          <Link to="/"><img src='/assets/images/ph/porthub_icon.png' alt='ph logo' /></Link>
+          <Link to="/" onClick={Alert.closeAll()}><img src='/assets/images/ph/porthub_icon.png' alt='ph logo' /></Link>
         </div>
       </div>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

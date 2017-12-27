@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import CreateSiteSuccess from './CreateSiteMessage/CreateSiteSuccess';
 import CreateSiteError from './CreateSiteMessage/CreateSiteError';
-import Modal from '../../../components/Modal/Modal';
 import Aux from '../../../HOCs/Aux';
 import './CreateSiteLoader.css';
 import Alert from 'react-s-alert';
@@ -17,18 +16,29 @@ const CreateSiteLoader = ({ login, message }) => {
               console.log(response)
               for (let i=0; i< response.data.length; i++) {
                 if (response.data[i].name === `${login}.github.io`){
-                Alert.info(`${login} already has a has GitHub pages repository.`, {
-                    timeout: 'none',
+                return Alert.info(`${login} already has a has GitHub pages repository.`, {
+                    timeout: 3000,
                     position: 'top',
+                    effect: 'bouncyflip',
                     offset: 80
                   })
-                  return true
                 }
               }
+              Alert.info(`Creating ${login}'s GitHub pages repository..`, {
+                timeout: 3000,
+                position: 'top',
+                effect: 'bouncyflip',
+                offset: 80
+              })
               return false;
             })
             .catch(error => {
-              console.log('Get user repos error: ', error.response)
+              return Alert.error(<CreateSiteError />, {
+                timeout: 'none',
+                position: 'top',
+                effect: 'bouncyflip',
+                offset: 80
+              })
             })
 
   }
@@ -43,18 +53,25 @@ const CreateSiteLoader = ({ login, message }) => {
       })
       .then((response) => {
         return Alert.success(`New GitHub pages repository created for ${login}.`, {
-                timeout: 'none',
+                timeout: 3000,
                 position: 'top',
+                effect: 'bouncyflip',
                 offset: 80
                })
       })
       .catch(error => {
-        console.log('Create repo error:', error.response)
+          return Alert.error(<CreateSiteError />, {
+            timeout: 'none',
+            position: 'top',
+            effect: 'bouncyflip',
+            offset: 80
+          })
       })
   }
 
   const createFile = () => {
-    const filename = "testbio35.html";
+    // const filename = `${login}${Math.floor(Math.random() * 4000)}.html`;
+    const filename = "biobio.html"
     const filemessage = "uploading a file";
     const filecontent = localStorage.getItem('html');
     const basecontent = btoa(filecontent);
@@ -68,20 +85,21 @@ const CreateSiteLoader = ({ login, message }) => {
           url: url
         })
         .then((response) => {
-        Alert.success(<CreateSiteSuccess login={login} file={filename}/>, {
+        return Alert.success(<CreateSiteSuccess login={login} file={filename}/>, {
           timeout: 'none',
           position: 'top',
+          effect: 'bouncyflip',
           offset: 80
         })
         })
         .catch((error) => {
           console.log('Create file error: ', error.response)
-          Alert.error(<CreateSiteSuccess login={login} file={filename}/>, {
+          return Alert.error(<CreateSiteError login={login} file={filename}/>, {
             timeout: 'none',
             position: 'top',
+            effect: 'bouncyflip',
             offset: 80
           })
-          return true;
         })
   }
 

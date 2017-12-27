@@ -56,7 +56,7 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
 	<title>${contact ? contact.firstName + ' ' + contact.lastName : ''}</title>
 
 	<!-- Bootstrap 3.0.2 CSS -->
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
 	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/master/templates/lawrence/assets/css/main.css" rel="stylesheet">
 
@@ -184,7 +184,7 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
 
 
 	<!-- Bootstrap 3.0.2 -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
 </body>
 
