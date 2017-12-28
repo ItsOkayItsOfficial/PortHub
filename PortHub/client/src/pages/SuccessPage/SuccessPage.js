@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import './SuccessPage.css';
 
-const SuccessScreen = ({ redirect }) => {
+const SuccessPage = ({ redirect, currentUser }) => {
   const html = localStorage.getItem('html');
   let accessToken = localStorage.getItem('accessToken')
                     ? localStorage.getItem('accessToken') : '';
-  if (!accessToken) {
+  if (!accessToken && !currentUser) {
     return <Redirect to={'/noMatch'} />
   }
   return (
@@ -22,6 +22,7 @@ const SuccessScreen = ({ redirect }) => {
         </ul>
       <textarea className='htmlField' defaultValue={html}></textarea>
       </div>
+      {currentUser === 'guest' ? null : 
       <div className='col-lg-6'>
         <h4>Publish your site to GitHub Pages</h4>
           <ul>
@@ -40,10 +41,10 @@ const SuccessScreen = ({ redirect }) => {
         <div className='row' style={{textAlign:'center'}} >
           <Link to={'/siteLoader'} style={{margin: 'auto'}}><button className='btn btn-success'> Publish to GitHub </button></Link>
         </div>
-      </div>
+      </div>}
     </div>
   </div>
   )
 }
 
-export default SuccessScreen;
+export default SuccessPage;

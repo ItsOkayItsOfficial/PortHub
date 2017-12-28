@@ -1,9 +1,8 @@
 import React from 'react';
-import Jumbotron from  '../../components/Jumbotron/Jumbotron';
 import { Link } from 'react-router-dom';
 import './ContinueAsGuest.css';
 
-const ContinueAsGuest = ({closeModal}) => {
+const ContinueAsGuest = ({closeModal, ghRedirect, guestUser}) => {
   return (
     <div className="CAGcontainer container">
       <div className='row justify-content-center'>
@@ -37,7 +36,7 @@ const ContinueAsGuest = ({closeModal}) => {
               </div>
             </div>
             <div className='row CAGbuttons'>
-              <button className="btn btn-success">
+              <button className="btn btn-success" onClick={ghRedirect}>
                 Login<i style={{marginLeft:'10px'}} className="fa fa-github-alt" aria-hidden="true"></i>
               </button>
             </div>
@@ -69,7 +68,7 @@ const ContinueAsGuest = ({closeModal}) => {
               </div>
             </div>
             <div className='row CAGbuttons'>
-              <Link to='/inputPage'><button onClick={closeModal} className="btn btn-primary">Continue as guest</button></Link>
+              <Link to='/inputPage'><button onClick={guestUser} className="btn btn-primary">Continue as guest</button></Link>
             </div>
           </div>
         </div>

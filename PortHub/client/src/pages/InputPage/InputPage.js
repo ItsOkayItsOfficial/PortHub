@@ -27,8 +27,8 @@ class InputPage extends Component{
       resumeSuccess: false,
       html: '',
       selectButton:'',
-      currentTemplate:'',
-      currentUser:'',
+      currentTemplate: this.props.selectedTemplate,
+      currentUser: this.props.currentUser,
       type:'',
   }
   componentWillMount(){
@@ -120,11 +120,9 @@ class InputPage extends Component{
   }
 
   render() {
-
-
     let accessToken = localStorage.getItem('accessToken')
                       ? localStorage.getItem('accessToken') : '';
-    if (!accessToken) {
+    if (!accessToken && !this.state.currentUser || Object.keys(this.state.currentTemplate).length === 0) {
       return <Redirect to={'/noMatch'} />
     }
     //Logic to render input fields

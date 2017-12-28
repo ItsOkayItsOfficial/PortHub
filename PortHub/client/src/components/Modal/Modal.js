@@ -2,7 +2,6 @@ import React from 'react';
 import './Modal.css';
 import Aux from '../../HOCs/Aux';
 import Backdrop from '../Backdrop/Backdrop';
-import { Link } from 'react-router-dom';
 
 const modal = ({ show, closeModal, selectedTemplate, id, children, className, title, type, zIndex }) => {
   const continueAsGuestStyle = {

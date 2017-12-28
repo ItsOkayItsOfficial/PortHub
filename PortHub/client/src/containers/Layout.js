@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Redirect } from 'react-router'
 import LandingPage from "../pages/LandingPage";
 import TemplatePage from "../pages/TemplatePage";
 import CreateUserPage from "../pages/CreateUserPage";
@@ -58,13 +57,16 @@ class Layout extends Component{
   closeDetailedTemplateHandler = () => {
     this.setState({viewingTemplate: false,
                    selectedTemplate: ''})
-    return <Redirect to={'/'} />
   }
 
   guestContinueModalHander = () => {
   this.state.viewingGuestContinueModal ?
     this.setState({viewingGuestContinueModal:false})
     : this.setState({viewingGuestContinueModal:true})
+  }
+
+  guestUserHandler =() => {
+    this.setState({currentUser: 'guest', viewingGuestContinueModal:false })
   }
   redirectToGitHubHandler = () => {
     window.location.replace('https://github.com/login/oauth/authorize?client_id=' 
@@ -100,7 +102,9 @@ class Layout extends Component{
       <Router>
         <Aux>
           <Modal show={this.state.viewingGuestContinueModal} closeModal={this.guestContinueModalHander} className='continueAsGuest'>
-            <ContinueAsGuest closeModal={this.guestContinueModalHander} />
+            <ContinueAsGuest 
+            ghRedirect={this.redirectToGitHubHandler}
+            guestUser={this.guestUserHandler} />
           </Modal>
           <Nav className='navbar-fixed-top' ghRedirect={this.redirectToGitHubHandler}
               title={this.state.type} isAuthenticated={this.state.isAuthenticated}
@@ -138,7 +142,7 @@ class Layout extends Component{
                                                             selectedTemplate={this.state.selectedTemplate} 
                                                             currentUser = {this.state.currentUser} />} />
               <Route exact path='/success' render={() => <SuccessPage
-                                                            />} />
+                                                            currentUser={this.state.currentUser}/>} />
               <Route exact path='/resumeSuccess' render={() => <ResumeSuccessPage
                                                             />} />                                                            
               <Route exact path='/siteLoader' render={() => <CreateSiteLoader
