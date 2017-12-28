@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import './SuccessPage.css';
 
-const SuccessPage = ({ redirect, currentUser }) => {
+const SuccessPage = ({ redirect, currentUser, currentTemplate }) => {
   const html = localStorage.getItem('html');
   let accessToken = localStorage.getItem('accessToken')
                     ? localStorage.getItem('accessToken') : '';
-  if (!accessToken && !currentUser) {
+  if (!accessToken && !currentUser || Object.keys(currentTemplate).length === 0) {
     return <Redirect to={'/noMatch'} />
   }
   return (
@@ -36,7 +36,6 @@ const SuccessPage = ({ redirect, currentUser }) => {
                     <li><small>And that's it, your portfolio will be up and running for future employers to marvel over.</small></li>
                 </ol>
             </li>
-            <li> Don't have a Github account? Create one <a href='https://github.com/' rel="noopener noreferrer" target='_blank'> here </a></li>
           </ul>
         <div className='row' style={{textAlign:'center'}} >
           <Link to={'/siteLoader'} style={{margin: 'auto'}}><button className='btn btn-success'> Publish to GitHub </button></Link>

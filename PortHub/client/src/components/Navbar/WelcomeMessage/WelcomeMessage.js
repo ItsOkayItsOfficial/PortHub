@@ -11,6 +11,7 @@ const WelcomeMessage = ({user, logout}) => {
             <img src={user.avatar_url} alt='user' />
         </a>
         <div className="dropdown-menu pull-left" style={{left:'-126%'}}>
+          <a className="dropdown-item" href='#dropdown'>Dashboard</a>
           <a className="dropdown-item" href='#dropdown' onClick={logout}>Logout</a>
         </div>
       </li>

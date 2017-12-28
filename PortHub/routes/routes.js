@@ -45,12 +45,41 @@ router.get('/api/download', (req, res) => {
     res.json("pdf downloaded");
 })
 
-router.post('/api/user', ((req, res) => {
-    console.log("**** currentTemplate:" + req.body.currentTemplate + 
-                " currentUser: " + req.body.currentUser);
-    db.Category.find({currentUser : req.body.currentUser, template: req.body.currentTemplate})
-    .then((response)=>{
-        res.json(response)
-    });
-}))
+// router.post('/api/user', ((req, res) => {
+//     console.log("**** currentTemplate:" + req.body.currentTemplate + 
+//                 " currentUser: " + req.body.currentUser);
+//     db.Category.find({currentUser : req.body.currentUser, template: req.body.currentTemplate})
+//     .then((response)=>{
+//         res.json(response)
+//     });
+// }))
+
+//user routes
+router.post('/api/user', (req, res) => {
+  db.User.find({login:req.body.login})
+  .then((user) => {
+    return user.length === 0 ? 
+      db.User.create({
+        login:req.body.login,
+        avatar_url: req.body.avatar_url
+      })
+      : user
+  })
+  .then((response) => {
+    console.log('User sent to client');
+    res.json(response);
+  })
+})
+
+// router.post('/api/create', (req, res) => {
+//   db.User.findOneAndUpdate({
+//     login: req.body.currentUser.login
+//   },
+//   {
+//     contact: req.body.contact
+//   })
+//   .then((response) => {
+//     console.log(response);
+//   })
+// })
 module.exports = router;

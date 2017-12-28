@@ -74,13 +74,16 @@ class Layout extends Component{
   }
 
   getUserInfoHandler = (token) => {
-      axios.get('https://api.github.com/user?access_token=' + token)
-          .then((response) => {
-            this.setState({currentUser:response.data})
-          })
-          .catch(error => {
-            console.log('Error getting user info: ', error.response)
-          })
+  axios.get('https://api.github.com/user?access_token=' + token)
+    .then((response) => {
+    return axios.post('/api/user', response.data) 
+    })
+    .then((user) => {
+      this.setState({currentUser:user.data[0]})
+    })
+    .catch(error => {
+      console.log('Error getting user info: ', error.response)
+    })
   }
 
   logoutHandler = () => {
@@ -142,7 +145,8 @@ class Layout extends Component{
                                                             selectedTemplate={this.state.selectedTemplate} 
                                                             currentUser = {this.state.currentUser} />} />
               <Route exact path='/success' render={() => <SuccessPage
-                                                            currentUser={this.state.currentUser}/>} />
+                                                            currentUser={this.state.currentUser}
+                                                            currentTemplate={this.state.selectedTemplate}/>} />
               <Route exact path='/resumeSuccess' render={() => <ResumeSuccessPage
                                                             />} />                                                            
               <Route exact path='/siteLoader' render={() => <CreateSiteLoader

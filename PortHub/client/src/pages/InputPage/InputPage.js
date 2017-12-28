@@ -16,7 +16,7 @@ import { Redirect } from 'react-router';
 
 // import moment from 'moment';
 
-class InputPage extends Component{
+class InputPage extends Component {
     state = {
       contact: {},
       education:[],
@@ -29,7 +29,7 @@ class InputPage extends Component{
       selectButton:'',
       currentTemplate: this.props.selectedTemplate,
       currentUser: this.props.currentUser,
-      type:'',
+      type: this.props.type
   }
   componentWillMount(){
     //check if there windows.sessionStorage.getItem('userName') then
@@ -46,10 +46,10 @@ class InputPage extends Component{
   componentDidMount(){
     // const el = findDOMNode(this.refs.firstName);
     // console.log("jquery:", $(el).value);
-    axios.post('/api/user', {currentUser:this.state.currentUser, currentTemplate:this.state.currentTemplate})
-    .then((response) => {
-      console.log("did Mount", response.data);          
-    });
+    // axios.post('/api/user', {currentUser:this.state.currentUser, currentTemplate:this.state.currentTemplate})
+    // .then((response) => {
+    //   console.log("did Mount", response.data);          
+    // });
 
   }
 
