@@ -35,7 +35,7 @@ router.post('/api/createpdf', ((req, res) =>{
     var htmlFile = fs.readFileSync(__dirname + '/../client/public/temp/resume.html', 'utf8');   
     pdf.create(htmlFile, options).toFile(__dirname + '/../client/public/temp/resume.pdf', function(err, res1) {
         if (err) return console.log(err);
-        res1.json("pdf created");
+        res.json("pdf created");
       });
 }))
 
