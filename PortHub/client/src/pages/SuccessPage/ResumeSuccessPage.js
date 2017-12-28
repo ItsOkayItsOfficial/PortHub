@@ -12,21 +12,6 @@ componentWillMount(){
   // console.log(this.state.html)
 }
 
-  onClick = () =>{
-    var text = $(this).attr("data-html");;
-    var filename = "MyResume.pdf";
-    alert("text: ", text);
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-    element.setAttribute('download', filename);
-
-    element.style.display = 'none';
-    document.body.appendChild(element);
-
-    element.click();  
-    document.body.removeChild(element);
-  }
-
   render(){
       return (
       <div className='successWrapper'>

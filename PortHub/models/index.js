@@ -4,5 +4,6 @@ module.exports = {
   Education: require("./education"),
   Portfolio: require("./portfolio"),
   Skill: require("./skills"),
-  Category: require("./category"),    
+  Category: require("./category"), 
+  Contact: require('./contact')   
 };

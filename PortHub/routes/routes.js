@@ -58,12 +58,12 @@ router.get('/api/download', (req, res) => {
 router.post('/api/user', (req, res) => {
   db.User.find({login:req.body.login})
   .then((user) => {
-    return user.length === 0 ? 
-      db.User.create({
-        login:req.body.login,
-        avatar_url: req.body.avatar_url
-      })
-      : user
+  return user.length === 0 ? 
+    db.User.create({
+      login:req.body.login,
+      avatar_url: req.body.avatar_url
+    })
+    : user
   })
   .then((response) => {
     console.log('User sent to client');
