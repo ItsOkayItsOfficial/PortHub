@@ -18,11 +18,11 @@ import { Redirect } from 'react-router';
 
 class InputPage extends Component {
     state = {
-      contact: {},
-      education:[],
-      experience: [],
-      skills: [],
-      portfolio: [],
+      contact: this.props.currentUser.contact,
+      education:this.props.currentUser.education,
+      experience: this.props.currentUser.experience,
+      skills: this.props.currentUser.skills,
+      portfolio: this.props.currentUser.portfolio,
       success: false,
       resumeSuccess: false,
       html: '',
@@ -31,27 +31,7 @@ class InputPage extends Component {
       currentUser: this.props.currentUser,
       type: this.props.type
   }
-  componentWillMount(){
-    //check if there windows.sessionStorage.getItem('userName') then
-    // console.log(window.sessionStorage);
-    //pull user db info and set state values 
-    // write whatever  into state to user db profile
 
-    // this.setState({currentTemplate:window.localStorage.currentTemplate});
-    // this.setState({currentUser:"keugenio"});
-    // this.setState({type:this.props.type});
-
-  }
-
-  componentDidMount(){
-    // const el = findDOMNode(this.refs.firstName);
-    // console.log("jquery:", $(el).value);
-    // axios.post('/api/user', {currentUser:this.state.currentUser, currentTemplate:this.state.currentTemplate})
-    // .then((response) => {
-    //   console.log("did Mount", response.data);          
-    // });
-
-  }
 
   prepareStateHandler = (event, id, field, subfield) => {
     if (field === 'contact') {
@@ -131,13 +111,13 @@ class InputPage extends Component {
           return [...Array(this.props.selectedTemplate.inputs[inputType])].map((_, i) => {
             switch (inputType) {
               case ('education'):
-                return <Education key={inputType + i} index={i} id={inputType+i} changed={this.prepareStateHandler}/>
+                return <Education key={inputType + i} index={i} id={inputType+i} changed={this.prepareStateHandler} education={this.state.education}/>
               case ('skills'):
-                return <Skills key={inputType + i} index={i} id={inputType+i} changed={this.prepareStateHandler} />
+                return <Skills key={inputType + i} index={i} id={inputType+i} changed={this.prepareStateHandler} skills={this.state.skills}/>
               case ('experience'):
-                return <Experience key={inputType + i} index= {i} id={inputType+i} changed={this.prepareStateHandler}/>
+                return <Experience key={inputType + i} index= {i} id={inputType+i} changed={this.prepareStateHandler} experience={this.state.experience}/>
               case ('portfolio'):
-                return <Portfolio key={inputType + i} index= {i} id={inputType+i} changed={this.prepareStateHandler} />
+                return <Portfolio key={inputType + i} index= {i} id={inputType+i} changed={this.prepareStateHandler} portfolio={this.state.portfolio} />
               default:
                 return '';
             }
@@ -191,7 +171,7 @@ class InputPage extends Component {
     }
       return (
         <Aux>
-          <BaseInput key={'base'} changed={this.prepareStateHandler}/>
+          <BaseInput key={'base'} changed={this.prepareStateHandler} contact={this.state.contact}/>
           <div id="accordion" role="tablist" aria-multiselectable="true">
               { (education[0] && education[0].length>0) ? <Accordion type="education" i='0'>{education}</Accordion> : ''}
               { (experience[0] && experience[0].length>0) ? <Accordion type="experience"i='1'>{experience}</Accordion> : ''}

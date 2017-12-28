@@ -39,7 +39,7 @@ router.post('/api/createpdf', ((req, res) =>{
       });
 }))
 
-                        education:response[0].education,
+
 router.get('/api/download', (req, res) => {
     res.download(__dirname + "/../temp/resume.html");
     res.json("pdf downloaded");
