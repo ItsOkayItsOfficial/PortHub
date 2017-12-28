@@ -101,6 +101,7 @@ class Layout extends Component{
   }
 
   render(){
+
     return(
       <Router>
         <Aux>

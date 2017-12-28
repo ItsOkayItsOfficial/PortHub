@@ -24,7 +24,7 @@ router.post('/api/create', ((req, res) => {
 
 router.post('/api/resume', ((req, res) => {
     var fs = require('fs'); 
-    fs.writeFile("./temp/resume.html", req.body.html);
+    fs.writeFile(__dirname + '/../client/public/temp/resume.html', req.body.html);
     res.json("html created");
 }))
 
@@ -32,14 +32,14 @@ router.post('/api/createpdf', ((req, res) =>{
     var fs = require('fs');     
     var pdf = require('html-pdf');
     var options = { format: 'Letter' };     
-    var htmlFile = fs.readFileSync('./temp/resume.html', 'utf8');   
-    pdf.create(htmlFile, options).toFile('./temp/resume.pdf', function(err, res1) {
+    var htmlFile = fs.readFileSync(__dirname + '/../client/public/temp/resume.html', 'utf8');   
+    pdf.create(htmlFile, options).toFile(__dirname + '/../client/public/temp/resume.pdf', function(err, res1) {
         if (err) return console.log(err);
-        console.log(res1);
-        res.json("pdf created");
+        res1.json("pdf created");
       });
 }))
 
+                        education:response[0].education,
 router.get('/api/download', (req, res) => {
     res.download(__dirname + "/../temp/resume.html");
     res.json("pdf downloaded");
