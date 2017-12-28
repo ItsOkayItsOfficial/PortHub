@@ -1,8 +1,12 @@
 import React from 'react';
 
 
-const Skills = ({index, changed, id}) => {
-    let skillTitle = window.sessionStorage.getItem(id+"skill") || "";
+const Skills = ({index, changed, id, skills}) => {
+    let Skills = {};
+    skills[index] ? Skills = skills[index] : Skills={};
+
+    let skillTitle = Skills.skill || window.sessionStorage.getItem(id+"skill") || "";
+
     // let skillLevel = window.sessionStorage.getItem(id+"description") || "";  
   return (<div className='container'>
     <div className="row">

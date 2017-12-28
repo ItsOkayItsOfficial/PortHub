@@ -1,16 +1,17 @@
 import React from 'react';
 
-const BaseInput = ({ changed }) => {
-    let contactFirstName = window.sessionStorage.getItem('contactfirstName') || "";
-    let contactLastName = window.sessionStorage.getItem('contactlastName') || "";
-    let contactAddress = window.sessionStorage.getItem('contactaddress') || "";
-    let contactPhone = window.sessionStorage.getItem('contactphone') || "";
-    let contactEmail = window.sessionStorage.getItem('contactemail') || "";
-    let contactBio = window.sessionStorage.getItem('contactbio') || "";
-    let contactCurrentTitle = window.sessionStorage.getItem('contactcurrentTitle') || "";
-    let contactSite = window.sessionStorage.getItem('contactsite') || "";
-    let contactGitHub = window.sessionStorage.getItem('contactgithub') || ""; 
-    let contactLinkedIn = window.sessionStorage.getItem('contactlinkedin') || "";        
+const BaseInput = ({ changed, contact }) => {
+    let contactFirstName = contact.firstName || window.sessionStorage.getItem('contactfirstName') || "";
+    let contactLastName = contact.lastName || window.sessionStorage.getItem('contactlastName') || "";
+    let contactAddress = contact.address || window.sessionStorage.getItem('contactaddress') || "";
+    let contactPhone = contact.phone || window.sessionStorage.getItem('contactphone') || "";
+    let contactEmail = contact.email || window.sessionStorage.getItem('contactemail') || "";
+    let contactBio = contact.bio || window.sessionStorage.getItem('contactbio') || "";
+    let contactCurrentTitle = contact.currentTitle|| window.sessionStorage.getItem('contactcurrentTitle') || "";
+    let contactSite = contact.site || window.sessionStorage.getItem('contactsite') || "";
+    let contactGitHub = contact.github || window.sessionStorage.getItem('contactgithub') || ""; 
+    let contactLinkedIn = contact.linkedin || window.sessionStorage.getItem('contactlinkedin') || "";        
+    let contactProfilePicture = contact.profilePicture || window.sessionStorage.getItem('contactProfilePicture') || "";        
 
     return(
         <div className="container border border-primary rounded p-5 mt-5 mb-5">
@@ -73,6 +74,7 @@ const BaseInput = ({ changed }) => {
                                     </div> 
                                     <input type="text" 
                                             name="profilePicture"
+                                            value={contactProfilePicture}
                                             className="form-control" 
                                             placeholder="Profile Picture"
                                             onChange={(event) => changed(event, "_", 'contact', 'profilePicture')} />

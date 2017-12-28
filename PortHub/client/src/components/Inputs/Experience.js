@@ -1,11 +1,16 @@
 import React from 'react';
 
-const Experience = ({index, id, changed}) => {
-    let experienceTitle = window.sessionStorage.getItem(id+"title") || "";
-    let experienceEmployer = window.sessionStorage.getItem(id+"employer") || "";
-    let experienceDuties = window.sessionStorage.getItem(id+"duties") || "";
-    let experienceStartDate = window.sessionStorage.getItem(id+"startDate") || "";    
-    let experienceEndDate = window.sessionStorage.getItem(id+"endDate") || ""; 
+const Experience = ({index, id, changed, experience}) => {
+
+    // fill in values from props passed or session storage or just blank
+    let Experience = {};
+    experience[index] ? Experience = experience[index]: Experience={};
+
+    let experienceTitle = Experience.title || window.sessionStorage.getItem(id+"title") || "";
+    let experienceEmployer = Experience.employer || window.sessionStorage.getItem(id+"employer") || "";
+    let experienceDuties = Experience.duties || window.sessionStorage.getItem(id+"duties") || "";
+    let experienceStartDate = Experience.startDate || window.sessionStorage.getItem(id+"startDate") || "";    
+    let experienceEndDate = Experience.endDate || window.sessionStorage.getItem(id+"endDate") || ""; 
 
     return (
   <div className='m-5 p-5 border border-primary rounded'>

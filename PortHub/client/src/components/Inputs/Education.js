@@ -1,12 +1,17 @@
 import React  from 'react';
 
 
-const Education = ({id, index, changed}) => { 
-    let educationName = window.sessionStorage.getItem(id+"schoolName") || "";
-    let educationLocation = window.sessionStorage.getItem(id+"schoolLocation") || "";
-    let educationMajor = window.sessionStorage.getItem(id+"major") || "";
-    let educationStartDate = window.sessionStorage.getItem(id+"startDate") || "";    
-    let educationEndDate = window.sessionStorage.getItem(id+"endDate") || ""; 
+const Education = ({id, index, changed, education}) => { 
+    let Education = {}
+
+    education[index] ? Education = education[index] : Education = {};
+
+    let educationName = Education.schoolName || window.sessionStorage.getItem(id+"schoolName") || "";
+    let educationLocation = Education.schoolLocation || window.sessionStorage.getItem(id+"schoolLocation") || "";
+    let educationMajor = Education.major || window.sessionStorage.getItem(id+"major") || "";
+    let educationStartDate = Education.startDate || window.sessionStorage.getItem(id+"startDate") || "";    
+    let educationEndDate = Education.endDate || window.sessionStorage.getItem(id+"endDate") || ""; 
+    let educationDegreeType = Education.degreeType || window.sessionStorage.getItem(id+"degreeType") || "";     
 
     return (
         <div className='m-5 p-5 border border-primary rounded'>
@@ -46,6 +51,7 @@ const Education = ({id, index, changed}) => {
                     <div className="form-group">
                         <label>Type of Degree</label>
                         <select className="form-control" 
+                                value={educationDegreeType}
                                 onChange={(event) => changed(event, id, 'education', 'degreeType')}>
                         <option>Other</option>
                         <option>Bachelor of Science</option>

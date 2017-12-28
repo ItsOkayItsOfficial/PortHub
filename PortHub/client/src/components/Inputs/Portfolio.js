@@ -1,10 +1,14 @@
 import React from 'react';
 
-const Portfolio = ({ id, index, changed }) => {
-    let portfolioTitle = window.sessionStorage.getItem(id+"title") || "";
-    let portfolioImage = window.sessionStorage.getItem(id+"img") || "";
-    let portfolioUrl = window.sessionStorage.getItem(id+"url") || "";
-    let portfolioDescription = window.sessionStorage.getItem(id+"description") || "";    
+const Portfolio = ({ id, index, changed , portfolio}) => {
+    let Portfolio = {};
+    portfolio[index] ? Portfolio=portfolio[index] : Portfolio={};
+
+    let portfolioTitle = Portfolio.title || window.sessionStorage.getItem(id+"title") || "";
+    let portfolioImage = Portfolio.image || window.sessionStorage.getItem(id+"img") || "";
+    let portfolioUrl = Portfolio.url || window.sessionStorage.getItem(id+"url") || "";
+    let portfolioDescription = Portfolio.description || window.sessionStorage.getItem(id+"description") || "";    
+    
   return (
       <div className='w-75 m-2 border border-primary rounded'>
         <h3> Portfolio {index+1} </h3>
