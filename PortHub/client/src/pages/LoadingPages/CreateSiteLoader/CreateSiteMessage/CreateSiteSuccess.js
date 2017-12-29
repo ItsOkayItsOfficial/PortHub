@@ -7,7 +7,7 @@ const CreateSiteMessage = ({ login, file }) => {
     <div className='d-flex container CreateSiteSuccessContainer'>
     <div className='d-flex flex-column p-2 justify-content-center align-items-center successContent'>
         <h1 className='p-2 successHeader'> Congratulations! </h1>
-        <h5> Your new personal portfolio site is now hosted at <a href={`www.${login}.github.io/${file.split('.').shift()}`} target='_blank' rel="noopener noreferrer">{`www.${login}.github.io/${file.split('.').shift()}`}</a>. However, it may take a few minutes to appear.</h5>
+        <h5> Your new personal portfolio site is now hosted at <a href={`https://${login}.github.io/${file.split('.').shift()}`} target='_blank' rel="noopener noreferrer">{`${login}.github.io/${file.split('.').shift()}`}</a>. However, it may take a few minutes to appear.</h5>
       <div className='successSteps'>
         <br></br><h6>Here are a few steps you may want to take to in the meantime:</h6>
         <ul>

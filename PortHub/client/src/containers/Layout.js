@@ -95,6 +95,10 @@ class Layout extends Component{
     window.location.replace('/')
   }
 
+  closeAlertsAndResetTemplateHandler = () => {
+    Alert.closeAll()
+    this.setState({selectedTemplate:{}})
+  }
   componentWillMount() {
       const accessToken = localStorage.getItem('accessToken') === 'ification_code' ? localStorage.clear()
                     : localStorage.getItem('accessToken');
@@ -118,7 +122,8 @@ class Layout extends Component{
               title={this.state.type} isAuthenticated={this.state.isAuthenticated}
               user={this.state.currentUser}
               getUserInfo={this.getUserInfoHandler}
-              logoutHandler={this.logoutHandler} />    
+              logoutHandler={this.logoutHandler}
+              reset={this.closeAlertsAndResetTemplateHandler} />    
             <Switch>
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/createSite" 
