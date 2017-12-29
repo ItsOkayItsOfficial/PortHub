@@ -25,7 +25,7 @@ const LoginPage = ({ children, ghRedirect, localLogin }) =>
             <button type="submit" onClick={localLogin} className="btn btn-primary">Submit</button>
         </form>
     </div>
-    <div className="col-lh-6 mx-auto">
+    <div className="col-lg-6 mx-auto">
     <button type="submit" onClick={ghRedirect} className="btn btn-success">
       <i className="fa fa-github-alt fa-5x" aria-hidden="true"></i>
       <p> login with your github account</p>

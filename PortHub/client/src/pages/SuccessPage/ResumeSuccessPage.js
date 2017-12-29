@@ -8,7 +8,6 @@ class ResumeSuccessScreen extends Component {
   }
 componentWillMount(){
   this.setState({html:window.localStorage.getItem("html")});
-  // console.log(this.state.html)
 }
 
   render(){

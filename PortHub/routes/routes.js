@@ -15,7 +15,7 @@ router.post('/api/create', ((req, res) => {
     contact: req.body.contact
   })
   .then((response)=>{
-    console.log('response',response);
+//    console.log('response',response);
       res.json('success');
   })
   .catch((err) => {
@@ -26,18 +26,22 @@ router.post('/api/create', ((req, res) => {
 router.post('/api/resume', ((req, res) => {
     var fs = require('fs'); 
     fs.writeFile(__dirname + '/../client/public/temp/resume.html', req.body.html);
-    res.json("html created");
+    //fs.writeFile('./resume.html', req.body.html);    
+    console.log("html created");
+    res.json("success");
 }))
 
 router.post('/api/createpdf', ((req, res) =>{
     var fs = require('fs');     
     var pdf = require('html-pdf');
-    var options = { format: 'Letter' };     
+ 
     var htmlFile = fs.readFileSync(__dirname + '/../client/public/temp/resume.html', 'utf8');   
-    pdf.create(htmlFile, options).toFile(__dirname + '/../client/public/temp/resume.pdf', function(err, res1) {
+    var options = { format: 'Letter'};    
+
+    pdf.create(htmlFile, options).toFile(__dirname + '/../client/public/temp/resume.pdf', function(err, res) {
         if (err) return console.log(err);
-        res1.json("pdf created");
       });
+    res.json("success");
 }))
 
 
@@ -46,14 +50,6 @@ router.get('/api/download', (req, res) => {
     res.json("pdf downloaded");
 })
 
-// router.post('/api/user', ((req, res) => {
-//     console.log("**** currentTemplate:" + req.body.currentTemplate + 
-//                 " currentUser: " + req.body.currentUser);
-//     db.Category.find({currentUser : req.body.currentUser, template: req.body.currentTemplate})
-//     .then((response)=>{
-//         res.json(response)
-//     });
-// }))
 
 //user routes
 router.post('/api/user', (req, res) => {

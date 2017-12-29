@@ -68,17 +68,16 @@ class InputPage extends Component {
         // write whatever state to user db profile
         axios.post('/api/create', this.state)
         .then((response) => {
-          console.log("**** response data:", response.data);
-          //this.setState({success:true});         
+          response.data === 'success' ? console.log("user info saved to db") : console.log("error writing to db");         
         })
         .then((response) => {
           axios.post('/api/resume', {html:html})
           .then((response) => {
-            response.data !== "html created" ? console.log("pdf creation failed"): console.log(response.data);
+            response.data === "success" ? console.log("html created"): console.log("error creating html");
           }).then((response) => {
               axios.post('/api/createpdf')
               .then((response) => {
-                response.data === "pdf created" ? this.setState({resumeSuccess:true}) : console.log("pdf creation failed");
+                response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
               })
             }) 
         })
@@ -124,10 +123,7 @@ class InputPage extends Component {
           })
           
       }) : [];
-    // const renderedInputs = this.props.selectedTemplate.inputs ? 
-    //                         [<BaseInput key={'base'} changed={this.prepareStateHandler}/>,
-    //                         ...inputs] 
-    //                         : <NoMatch />
+
     const education = inputs.slice(1,2);
     const skills = inputs.slice(2,3);
     const portfolio = inputs.slice(3,4);
@@ -160,14 +156,15 @@ class InputPage extends Component {
       default:
             break;
     }
+
     if (this.state.success) {
       return (
         <Redirect to={'/success'}/>
       )
     } else if (this.state.resumeSuccess) {
-      return (
-        <Redirect to={'/resumeSuccess'}/>
-      )
+        return (
+          <Redirect to={'/resumeSuccess'}/>
+        )
     }
       return (
         <Aux>

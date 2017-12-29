@@ -34,12 +34,6 @@ class Layout extends Component{
     type:''
   }
 
-  componentDidUpdate(){
-    // window.localStorage.setItem("currentUser", this.state.currentUser.login);
-    // window.localStorage.setItem("currentTemplate", this.state.selectedTemplate.title);
-    console.log('did update')
-  }
-
   detailedTemplateHandler = (title, type) => {
     this.setState({type:type});
     let selectedTemplate = '';
@@ -60,17 +54,19 @@ class Layout extends Component{
   }
 
   guestContinueModalHander = () => {
-  this.state.viewingGuestContinueModal ?
-    this.setState({viewingGuestContinueModal:false})
-    : this.setState({viewingGuestContinueModal:true})
+    this.state.viewingGuestContinueModal ?
+      this.setState({viewingGuestContinueModal:false})
+      : this.setState({viewingGuestContinueModal:true})
   }
 
   guestUserHandler =() => {
     this.setState({currentUser: 'guest', viewingGuestContinueModal:false })
   }
+
   redirectToGitHubHandler = () => {
-    window.location.replace('https://github.com/login/oauth/authorize?client_id=' 
-  + Keys.clientId + '&redirect_uri=http://localhost:3000/authLoader&state=1234&scope=user,public_repo');
+    console.log("clientid:", Keys.clientId);
+    window.location.replace('https://github.com/login/oauth/authorize?client_id='+ 
+    Keys.clientId + '&redirect_uri=http://localhost:3000/authLoader&state=1234&scope=user,public_repo');
   }
 
   getUserInfoHandler = (token) => {
@@ -79,7 +75,7 @@ class Layout extends Component{
     return axios.post('/api/user', response.data) 
     })
     .then((user) => {
-      console.log(user);
+      console.log("logged in user: ", user.data[0].login);
       user.data.length===1 ? this.setState({currentUser:user.data[0]}) : this.setState({currentUser:user.data})
     })
     .catch(error => {
@@ -92,6 +88,7 @@ class Layout extends Component{
     this.setState({currentUser: {}, isAuthenticated:false});
     window.location.replace('/')
   }
+
   componentWillMount() {
       const accessToken = localStorage.getItem('accessToken') === 'ification_code' ? localStorage.clear()
                     : localStorage.getItem('accessToken');

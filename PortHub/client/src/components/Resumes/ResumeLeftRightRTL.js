@@ -8,19 +8,7 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
 					<canvas id=${skill.skill} height="130" width="130"></canvas>
 					<p>${skill.skill}</p>
 					<br>
-					<script>
-						var doughnutData = [{
-								value: 100,
-								color: "#1abc9c"
-							},
-							{
-								value: 0,
-								color: "#ecf0f1"
-							}
-						];
-						var myDoughnut = new Chart(document.getElementById("${skill.skill}").getContext("2d")).Doughnut(doughnutData);
-					</script>
-				</div>`
+		</div>`
           )
         })
     skillSection = skillSection.join('');
@@ -63,28 +51,6 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
           </div>`)
       })
       educationSection = educationSection.join('');
-
-		// let portfolioSection = portfolio.map((portfolio, i) => {
-		//      const offset = i!== 0 ? "col-lg-offset-3" : '';
-		//       return (
-		//         `<div class="col-lg-6 ${offset}">
-		//           <p>
-		//             <img class="img-responsive" src="${portfolio.img}" alt="${portfolio.title}">
-		//           </p>
-		//         </div>
-		//         <div class="col-lg-3">
-		//           <p>${portfolio.title}</p>
-		//           <p>
-		//             <more>${portfolio.description}
-		//               <br/>
-		//               <br/>
-		//               <sm>
-		//             </more>
-		//           </p>
-		//         </div>`
-		//       )
-		//     })
-		//     portfolioSection = portfolioSection.join('');
   const html =  `<!DOCTYPE html>
 		<html lang="en">
 			<head>
@@ -164,7 +130,8 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
 			</body>
 		
 			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script><script src="assets/bootstrap/js/bootstrap.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
 			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 			<script>
