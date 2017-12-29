@@ -101,7 +101,8 @@ class InputPage extends Component {
   render() {
     let accessToken = localStorage.getItem('accessToken')
                       ? localStorage.getItem('accessToken') : '';
-    if (!accessToken && !this.state.currentUser || Object.keys(this.state.currentTemplate).length === 0) {
+                      console.log(this.state.currentUser)
+    if ((!accessToken && !this.state.currentUser) || Object.keys(this.state.currentTemplate).length === 0) {
       return <Redirect to={'/noMatch'} />
     }
     //Logic to render input fields

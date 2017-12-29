@@ -306,10 +306,10 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 										<sm>SOCIAL LINKS</sm>
 									</p>
 									<p>
-										<a href="${contact ? contact.linkedin : ''}">
+										<a target="_blank" href="${contact ? contact.linkedin : ''}">
 											<i class="icon-linkedin">${contact ? contact.linkedin : ''}</i>
 										</a>
-										<a href="${contact ? contact.github : ''}">
+										<a target="_blank" href="${contact ? contact.github : ''}">
 											<i class="icon-github">${contact ? contact.github : ''}</i>
 										</a>
 

@@ -21,6 +21,7 @@ import Aux from '../HOCs/Aux';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/bouncyflip.css';
+require('default-passive-events');
 
 class Layout extends Component{
 
@@ -34,7 +35,7 @@ class Layout extends Component{
     type:''
   }
 
-  detailedTemplateHandler = (title, type) => {
+  detailedTemplateHandler = (title, type, event) => {
     this.setState({type:type});
     let selectedTemplate = '';
       if (type === "resume"){

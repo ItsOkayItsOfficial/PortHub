@@ -151,17 +151,17 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
 			<div class="row centered">
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="col-md-4">
-						<a href="${contact ? contact.linkedin : ''}">
+						<a target="_blank" href="${contact ? contact.linkedin : ''}">
 							<i class="fa fa-linkedin"></i>
 						</a>
 					</div>
 					<div class="col-md-4">
-						<a href="${contact ? contact.github : ''}">
+						<a target="_blank" href="${contact ? contact.github : ''}">
 							<i class="fa fa-github"></i>
 						</a>
 					</div>
 					<div class="col-md-4">
-						<a href="${contact ? contact.email : ''}">
+						<a target="_blank" href="${contact ? contact.email : ''}">
 							<i class="fa fa-envelope"></i>
 						</a>
 					</div>

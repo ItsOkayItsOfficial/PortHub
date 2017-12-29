@@ -438,6 +438,10 @@ deep-extend@~0.4.0:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.4.2.tgz#48b699c27e334bf89f10892be432f6e4c7d34a7f"
 
+default-passive-events@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/default-passive-events/-/default-passive-events-1.0.2.tgz#fdf54508222bdaa2fa604fd3036f49034ecf7542"
+
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"

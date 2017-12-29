@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import WelcomeMessage from './WelcomeMessage/WelcomeMessage';
 import LoginButton from './NavLinks/LoginButton';
 import "./Navbar.css";
-import Alert from 'react-s-alert';
-
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = ({ title, ghRedirect, isAuthenticated, user, logoutHandler, loginHandler, reset }) => {
