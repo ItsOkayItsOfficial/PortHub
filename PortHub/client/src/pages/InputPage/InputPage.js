@@ -62,7 +62,6 @@ class InputPage extends Component {
   submitFormHandler = (html) => {   
     //console.log(html);
     localStorage.setItem('html', html);
-
     // if resume, write state to db. write html to resume.html file then create resume.pdf for optional download
     if (this.props.type === "resume") {
         // write whatever state to user db profile
@@ -87,6 +86,7 @@ class InputPage extends Component {
     } else {
         console.log("site");
         // write whatever state to user db profile
+        return this.state.currentUser.login === 'guest' ? this.setState({success:true}) :
         axios.post('/api/create', this.state)
         .then((response) => {
           console.log("axios: ", response)

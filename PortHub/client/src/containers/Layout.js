@@ -60,7 +60,13 @@ class Layout extends Component{
   }
 
   guestUserHandler =() => {
-    this.setState({currentUser: 'guest', viewingGuestContinueModal:false })
+    const currentUser = {};
+    currentUser.login = 'guest';
+    currentUser.education = [];
+    currentUser.experience = [];
+    currentUser.skills = [];
+    currentUser.portfolio = []
+    this.setState({currentUser, viewingGuestContinueModal:false })
   }
 
   redirectToGitHubHandler = () => {
@@ -92,8 +98,6 @@ class Layout extends Component{
   componentWillMount() {
       const accessToken = localStorage.getItem('accessToken') === 'ification_code' ? localStorage.clear()
                     : localStorage.getItem('accessToken');
-      const login = localStorage.getItem('login');
-      const avatar_url = localStorage.getItem('avatar_url');
       if (accessToken) {
         this.setState({isAuthenticated: true})
         this.getUserInfoHandler(accessToken)

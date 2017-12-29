@@ -22,7 +22,7 @@ const SuccessPage = ({ redirect, currentUser, currentTemplate }) => {
         </ul>
       <textarea className='htmlField' defaultValue={html}></textarea>
       </div>
-      {currentUser === 'guest' ? null : 
+      {currentUser.login === 'guest' ? null : 
       <div className='col-lg-6'>
         <h4>Publish your site to GitHub Pages</h4>
           <ul>
