@@ -1,17 +1,18 @@
 import React from 'react';
 
 const BaseInput = ({ changed, contact }) => {
-    let contactFirstName = contact.firstName || window.sessionStorage.getItem('contactfirstName') || "";
-    let contactLastName = contact.lastName || window.sessionStorage.getItem('contactlastName') || "";
-    let contactAddress = contact.address || window.sessionStorage.getItem('contactaddress') || "";
-    let contactPhone = contact.phone || window.sessionStorage.getItem('contactphone') || "";
-    let contactEmail = contact.email || window.sessionStorage.getItem('contactemail') || "";
-    let contactBio = contact.bio || window.sessionStorage.getItem('contactbio') || "";
-    let contactCurrentTitle = contact.currentTitle|| window.sessionStorage.getItem('contactcurrentTitle') || "";
-    let contactSite = contact.site || window.sessionStorage.getItem('contactsite') || "";
-    let contactGitHub = contact.github || window.sessionStorage.getItem('contactgithub') || ""; 
-    let contactLinkedIn = contact.linkedin || window.sessionStorage.getItem('contactlinkedin') || "";        
-    let contactProfilePicture = contact.profilePicture || window.sessionStorage.getItem('contactProfilePicture') || "";        
+
+    // let contactFirstName = contact.firstName || window.sessionStorage.getItem('contactfirstName') || "";
+    // let contactLastName = contact.lastName || window.sessionStorage.getItem('contactlastName') || "";
+    // let contactAddress = contact.address || window.sessionStorage.getItem('contactaddress') || "";
+    // let contactPhone = contact.phone || window.sessionStorage.getItem('contactphone') || "";
+    // let contactEmail = contact.email || window.sessionStorage.getItem('contactemail') || "";
+    // let contactBio = contact.bio || window.sessionStorage.getItem('contactbio') || "";
+    // let contactCurrentTitle = contact.currentTitle|| window.sessionStorage.getItem('contactcurrentTitle') || "";
+    // let contactSite = contact.site || window.sessionStorage.getItem('contactsite') || "";
+    // let contactGitHub = contact.github || window.sessionStorage.getItem('contactgithub') || ""; 
+    // let contactLinkedIn = contact.linkedin || window.sessionStorage.getItem('contactlinkedin') || "";        
+    // let contactProfilePicture = contact.profilePicture || window.sessionStorage.getItem('contactProfilePicture') || "";        
 
     return(
         <div className="container border border-primary rounded p-5 mt-5 mb-5">
@@ -25,7 +26,7 @@ const BaseInput = ({ changed, contact }) => {
                                 <div className="input-group-addon">F</div>                        
                                 <input type="text" 
                                         name="name"
-                                        value={contactFirstName} 
+                                        value={contact ? contact.firstName : ''} 
                                         className="form-control w-50" 
                                         placeholder="First Name *" 
                                         required="required" 
@@ -36,7 +37,7 @@ const BaseInput = ({ changed, contact }) => {
                                 <div className="input-group-addon">L</div>  
                                 <input type="text" 
                                         name="lastName"
-                                        value={contactLastName}
+                                        value={contact ? contact.lastName : ''}
                                         className="form-control w-50" 
                                         placeholder="Last Name *" 
                                         required="required" 
@@ -55,7 +56,7 @@ const BaseInput = ({ changed, contact }) => {
                                 </div>  
                                     <textarea type="text" 
                                             name="address"
-                                            value={contactAddress} 
+                                            value={contact ? contact.address : ''} 
                                             className="form-control" 
                                             placeholder="address" 
                                             required="required" 
@@ -74,7 +75,7 @@ const BaseInput = ({ changed, contact }) => {
                                     </div> 
                                     <input type="text" 
                                             name="profilePicture"
-                                            value={contactProfilePicture}
+                                            value={contact ? contact.profilePicture : ''}
                                             className="form-control" 
                                             placeholder="Profile Picture"
                                             onChange={(event) => changed(event, "_", 'contact', 'profilePicture')} />
@@ -92,7 +93,7 @@ const BaseInput = ({ changed, contact }) => {
                                     </div> 
                                     <input type="tel" 
                                             name="phone"
-                                            value={contactPhone} 
+                                            value={contact ? contact.phone : ''} 
                                             className="form-control" 
                                             placeholder="phone"
                                             onChange={(event) => changed(event, "_", 'contact', 'phone')} />
@@ -105,7 +106,7 @@ const BaseInput = ({ changed, contact }) => {
                                     <div className="input-group-addon">@</div>
                                     <input type="email" 
                                             name="email"
-                                            value={contactEmail} 
+                                            value={contact ? contact.email : ''} 
                                             className="form-control" 
                                             placeholder="email" 
                                             onChange={(event) => changed(event, "_", 'contact', 'email')} />
@@ -119,7 +120,7 @@ const BaseInput = ({ changed, contact }) => {
                             <label>Bio</label>
                             <textarea type="text" 
                                     name="bio"
-                                    value={contactBio} 
+                                    value={contact ? contact.bio : ''} 
                                     rows="5"
                                     className="form-control" 
                                     placeholder="Please enter your bio"
@@ -130,7 +131,7 @@ const BaseInput = ({ changed, contact }) => {
                                 <label>Current Job Title</label>
                                 <input type="text" 
                                         name="jobTitle"
-                                        value={contactCurrentTitle} 
+                                        value={contact ? contact.currentTitle : ''} 
                                         className="form-control" 
                                         placeholder="current job title" 
                                         onChange={(event) => changed(event, "_", 'contact', 'currentTitle')} />
@@ -149,7 +150,7 @@ const BaseInput = ({ changed, contact }) => {
                             <input type="text" 
                                     name="phone" 
                                     className="form-control"
-                                    value={contactSite} 
+                                    value={contact ? contact.site : ''} 
                                     placeholder="Please enter personal site URL"
                                     onChange={(event) => changed(event, "_", 'contact', 'site')} />
                         </div>
@@ -165,7 +166,7 @@ const BaseInput = ({ changed, contact }) => {
                             </div>                            
                                 <input type="text" 
                                         name="github"
-                                        value={contactGitHub}
+                                        value={contact ? contact.github : ''}
                                         className="form-control" 
                                         placeholder="Please enter github URL"
                                         onChange={(event) => changed(event, "_", 'contact', 'github')} />
@@ -182,7 +183,7 @@ const BaseInput = ({ changed, contact }) => {
                             </div>                            
                                 <input type="text" 
                                         name="github"
-                                        value = {contactLinkedIn} 
+                                        value = {contact ? contact.linkedin : ''} 
                                         className="form-control" 
                                         placeholder="Please enter LinkedIn URL"
                                         onChange={(event) => changed(event, "_", 'contact', 'linkedin')} />

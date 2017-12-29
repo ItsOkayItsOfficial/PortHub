@@ -5,7 +5,7 @@ const Portfolio = ({ id, index, changed , portfolio}) => {
     portfolio[index] ? Portfolio=portfolio[index] : Portfolio={};
 
     let portfolioTitle = Portfolio.title || window.sessionStorage.getItem(id+"title") || "";
-    let portfolioImage = Portfolio.image || window.sessionStorage.getItem(id+"img") || "";
+    let portfolioImage = Portfolio.img || window.sessionStorage.getItem(id+"img") || "";
     let portfolioUrl = Portfolio.url || window.sessionStorage.getItem(id+"url") || "";
     let portfolioDescription = Portfolio.description || window.sessionStorage.getItem(id+"description") || "";    
     

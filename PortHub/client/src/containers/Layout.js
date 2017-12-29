@@ -74,12 +74,13 @@ class Layout extends Component{
   }
 
   getUserInfoHandler = (token) => {
-  axios.get('https://api.github.com/user?access_token=' + token)
+   axios.get('https://api.github.com/user?access_token=' + token)
     .then((response) => {
     return axios.post('/api/user', response.data) 
     })
     .then((user) => {
-      this.setState({currentUser:user.data[0]})
+      console.log(user);
+      user.data.length===1 ? this.setState({currentUser:user.data[0]}) : this.setState({currentUser:user.data})
     })
     .catch(error => {
       console.log('Error getting user info: ', error.response)
@@ -92,8 +93,10 @@ class Layout extends Component{
     window.location.replace('/')
   }
   componentWillMount() {
-      let accessToken = localStorage.getItem('accessToken') === 'ification_code' ? localStorage.clear()
+      const accessToken = localStorage.getItem('accessToken') === 'ification_code' ? localStorage.clear()
                     : localStorage.getItem('accessToken');
+      const login = localStorage.getItem('login');
+      const avatar_url = localStorage.getItem('avatar_url');
       if (accessToken) {
         this.setState({isAuthenticated: true})
         this.getUserInfoHandler(accessToken)

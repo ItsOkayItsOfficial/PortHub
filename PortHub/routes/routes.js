@@ -4,22 +4,23 @@ const router = express.Router();
 
 
 router.post('/api/create', ((req, res) => {
-  db.Category.create({
-    contact : req.body.contact,
-    education : req.body.education,
-    experience : req.body.experience,
-    skills : req.body.skills,
-    portfolio : req.body.portfolio,
-    currentUser : req.body.currentUser,
-    templateName : req.body.currentTemplate,
-    type:req.body.type
-    })
-    .then((response)=>{
-        res.json('success');
-    })
-    .catch((err) => {
-        console.log(err)
-      });     
+  db.User.findOneAndUpdate({
+    login: req.body.currentUser.login
+  },
+  {
+    education: req.body.education,
+    experience: req.body.experience,
+    skills: req.body.skills,
+    portfolio: req.body.portfolio,
+    contact: req.body.contact
+  })
+  .then((response)=>{
+    console.log('response',response);
+      res.json('success');
+  })
+  .catch((err) => {
+      console.log(err)
+    });     
 }))
 
 router.post('/api/resume', ((req, res) => {
@@ -35,7 +36,7 @@ router.post('/api/createpdf', ((req, res) =>{
     var htmlFile = fs.readFileSync(__dirname + '/../client/public/temp/resume.html', 'utf8');   
     pdf.create(htmlFile, options).toFile(__dirname + '/../client/public/temp/resume.pdf', function(err, res1) {
         if (err) return console.log(err);
-        res.json("pdf created");
+        res1.json("pdf created");
       });
 }))
 

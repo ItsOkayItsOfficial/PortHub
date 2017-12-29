@@ -4,44 +4,12 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   login: {type:String, required:true},
   avatar_url: {type:String, required:true},
-  contact: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Contact"
-    }
-  ],
-  education: [
-    {
-      // Store ObjectIds in the array
-      type: Schema.Types.ObjectId,
-      // The ObjectIds will refer to the ids in the Note model
-      ref: "Education"
-    }
-  ],
-  experience: [
-    {
-      // Store ObjectIds in the array
-      type: Schema.Types.ObjectId,
-      // The ObjectIds will refer to the ids in the Note model
-      ref: "Experience"
-    }
-  ],
-  portfolio: [
-    {
-      // Store ObjectIds in the array
-      type: Schema.Types.ObjectId,
-      // The ObjectIds will refer to the ids in the Note model
-      ref: "Portfolio"
-    }
-  ],
-  skills: [
-    {
-      // Store ObjectIds in the array
-      type: Schema.Types.ObjectId,
-      // The ObjectIds will refer to the ids in the Note model
-      ref: "Skills"
-    }
-  ]
+  contact: {},
+  education: [],
+  experience: [],
+  portfolio: [],
+  skills: [], 
+  education: []
 });
 
 const User = mongoose.model("User", userSchema);

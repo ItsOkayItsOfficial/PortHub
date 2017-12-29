@@ -69,7 +69,7 @@ const html =
 			<!-- ===== vCard Navigation ===== -->
 			<div class="row w">
 				<div class="col-md-4">
-					<img class="img-responsive" src="${contact.profilePicture}" alt="${contact.firstName}">
+					<img class="img-responsive" src="${contact ? contact.profilePicture : ''}" alt="${contact ? contact.firstName : ''}">
 					<ul class="nav nav-tabs nav-stacked" id="myTab">
 						<li class="active">
 							<a href="#about">About</a>
@@ -132,16 +132,16 @@ const html =
 							<div class="row">
 								<div class="col-xs-6">
 									<p class="sm">
-										<i class="icon-globe"></i> - ${contact.site}
+										<i class="icon-globe"></i> - ${contact ? contact.site : ''}
 										<br/>
-										<i class="icon-envelope"></i> - ${contact.email}
+										<i class="icon-envelope"></i> - ${contact ? contact.email : ''}
 									</p>
 								</div>
 								<!-- col-xs-6 -->
 
 								<div class="col-xs-6">
 									<p class="sm">
-										<i class="icon-phone"></i> - ${contact.phone}
+										<i class="icon-phone"></i> - ${contact ? contact.phone : ''}
 										<br/>
 									</p>
 								</div>
@@ -154,16 +154,16 @@ const html =
 							<div class="row">
 								<div class="col-xs-6">
 									<p class="sm">
-										<i class="icon-github"></i> - ${contact.github}
+										<i class="icon-github"></i> - ${contact ? contact.github : ''}
 										<br/>
-										<i class="icon-linkedin"></i> - ${contact.linkedin}
+										<i class="icon-linkedin"></i> - ${contact ? contact.linkedin : ''}
 									</p>
 								</div>
 								<!-- col-xs-6 -->
 
 								<div class="col-xs-6">
 									<p class="sm">
-										<i></i> - ${contact.site}
+										<i></i> - ${contact ? contact.site : ''}
 										<br/>
 									</p>
 								</div>
@@ -185,7 +185,7 @@ const html =
 	<!-- /.container -->
 
 <style>
-.wrapper {position:fixed; top: 0; left: 0; height: 100%; width: 100%; background-image: url(${contact.profilePicture}); background-size: cover; opacity: 0.5}
+.wrapper {position:fixed; top: 0; left: 0; height: 100%; width: 100%; background-image: url(${contact ? contact.profilePicture : ''}); background-size: cover; opacity: 0.5}
 </style>
 	<!-- jQuery 1.1.2 -->
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
