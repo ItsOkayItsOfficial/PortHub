@@ -7,7 +7,7 @@ export const London = ({contact, experience, education, skills, portfolio, click
        const row = i===0||i===2 ? '<div class="row">' : '';
        const rowEnd = i===1||i===3 ? '</div>' : '';
        const br = i===2 ? '<br>' : '';
-        return (
+        return i > 3 ? null : (
           `${row}${br}<div class="col-xs-6 centered">
             <img class="img-responsive" src="${portfolio.img}" alt="${portfolio.title}">
             <a href="${portfolio.url}">
@@ -21,13 +21,13 @@ export const London = ({contact, experience, education, skills, portfolio, click
 
   let experienceSection = experience.map((experience, i) => {
        //const offset = i!== 0 ? "col-lg-offset-3" : '';
-			return (
+			return i > 1 ? null : (
       `<grey>${experience.employer}</grey> | ${experience.startDate} - ${experience.endDate}
 			<br/>`)   
     })
 
   let educationSection = education.map((education, i) => {
-        return 	(		
+        return 	i > 1 ? null : (		
           `<grey>${education.major}</grey> | ${education.schoolName}
 					<br/>`)
       })

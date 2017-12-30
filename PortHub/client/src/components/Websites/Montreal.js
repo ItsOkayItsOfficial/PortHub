@@ -5,7 +5,7 @@ import './Websites.css';
 export const Montreal = ({contact, experience, education, skills, portfolio, clicked }) => {
   let skillSection = skills.map((skill, i) => {
         const offset = i===3 ? "col-lg-offset-3" : ''; 
-          return (
+          return i > 5 ? null : (
         `<div class="col-lg-3 centered ${offset}" >
 					<canvas id="${skill.skill.trim().replace(/\s/g, '')}" height="130" width="130"></canvas>
 					<p>${skill.skill.trim()}</p>
@@ -28,7 +28,7 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
     skillSection = skillSection.join('');
   let experienceSection = experience.map((experience, i) => {
        const offset = i!== 0 ? "col-lg-offset-3" : '';
-			return (
+			return i > 1 ? null : (
       `<div class="col-lg-6 ${offset}">
 				<p>
 					<t>${experience.title}</t>
@@ -49,7 +49,7 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
     experienceSection = experienceSection.join('');
   let educationSection = education.map((education, i) => {
         const offset = i!== 0 ? "col-lg-offset-3" : '';
-        return 	(		
+        return i > 1 ? null :	(		
           `<div class="col-lg-6 ${offset}">
             <p>
               <t>${education.major}</t>
@@ -68,7 +68,7 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 
   let portfolioSection = portfolio.map((portfolio, i) => {
        const offset = i!== 0 ? "col-lg-offset-3" : '';
-        return (
+        return i > 2 ? null : (
           `<div class="col-lg-6 ${offset}">
             <p>
               <img class="img-responsive" src="${portfolio.img}" alt="${portfolio.title}">

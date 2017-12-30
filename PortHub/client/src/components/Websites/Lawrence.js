@@ -3,7 +3,7 @@ import './Websites.css';
 
 export const Lawrence = ({contact, experience, education, skills, portfolio, clicked }) => {
   let skillSection = skills.map((skill, i) => {
-          return (
+          return  i > 3 ? null : (
         `<div class="col-lg-3 mt">
 					<canvas id="${skill.skill.trim().replace(/\s/g, '')}" height="130" width="130"></canvas>
 					<p>${skill.skill.trim()}</p>
@@ -29,7 +29,7 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
        const row = i===0||i===3 ? '<div class="row centered mt grid">' : '';
        const rowEnd = i===2||i===5 ? '</div>' : '';
        const header = i===0 ? '<h3>MY LATEST WORK</h3>' : '';
-        return (
+        return  i > 5 ? null : (
           `${row}${header}<div class="col-lg-4" style='text-align:center; word-wrap: break-word;'>
             <a id="proj_1" href="${portfolio.url}" target='_blank'>
               <img style='width:300px; height:300px'src="${portfolio.img}" alt="">
@@ -58,7 +58,7 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
 	<!-- Bootstrap 3.0.2 CSS -->
 	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
-	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/master/templates/lawrence/assets/css/main.css" rel="stylesheet">
+	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/app/PortHub/client/public/assets/templates/lawrence/assets/css/main.css" rel="stylesheet">
 
 	<!-- Font Awesome 4.0.3 -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
@@ -85,10 +85,19 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
 					<i class="fa fa-bolt"></i>
 				</a>
 			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="active">
-						<a href="#contact">Contact</a>
+			<div class="navbar-collapse collapse" >
+				<ul class="nav navbar-nav navbar-right" id='nav'>
+					<li>
+						<a href="#about" class='nav-link'>About</a>
+          </li>
+					<li>
+						<a href="#portfolio" class='nav-link'>Portfolio</a>
+          </li>
+					<li>
+						<a href="#skills" class='nav-link'>Skills</a>
+					</li>
+					<li>
+						<a href="#contact" class='nav-link'>Contact</a>
 					</li>
 				</ul>
 			</div>
@@ -112,7 +121,7 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
 	</div>
 	<!-- /hello -->
 
-	<div id="green">
+	<div class="green" id='about'>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5 centered">
@@ -128,7 +137,7 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
 		</div>
 	</div>
 
-	<div class="container">
+	<div class="container" id='portfolio'>
     ${portfolioSection}
 	</div>
 
@@ -187,7 +196,16 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
 	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
 </body>
+	<script>
+    $('.nav-link, .nav-logo').on('click', function (event) {
+      event.preventDefault()
 
+      $('html, body').animate(
+        {scrollTop: $(this.hash).offset().top},
+        {duration: 1000, easing: 'swing'}
+      );
+    });
+	</script>
 </html>`
 
 

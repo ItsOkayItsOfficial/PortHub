@@ -9,12 +9,12 @@
 	<meta name="author" content="Carlos Alvarez - Alvarez.is - blacktie.co">
 	<link rel="shortcut icon" href="">
 
-	<title>${contact ? contact.firstName + ' ' + contact.lastName : ''}</title>
+	<title>Cody Crozier</title>
 
 	<!-- Bootstrap 3.0.2 CSS -->
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
-	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/master/templates/lawrence/assets/css/main.css" rel="stylesheet">
+	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/app/PortHub/client/public/assets/templates/lawrence/assets/css/main.css" rel="stylesheet">
 
 	<!-- Font Awesome 4.0.3 -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
@@ -22,13 +22,11 @@
 	<!-- jQuery 1.10.2 -->
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<!-- Chart.js 1.0.1 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
-  <!--Smooth Scroll  -->
-  <script type="text/javascript" src="https://rawgit.com/ItsOkayItsOfficial/project3/app/PortHub/client/public/assets/templates/montreal/assets/js/smoothscroll.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
 
 </head>
 
-<body data-spy="scroll" data-offset="0" data-target="#nav">
+<body>
 
 	<!-- Fixed navbar -->
 	<div class="navbar navbar-default navbar-fixed-top">
@@ -45,8 +43,17 @@
 			</div>
 			<div class="navbar-collapse collapse" >
 				<ul class="nav navbar-nav navbar-right" id='nav'>
-					<li class="active smoothScroll">
-						<a href="#contact">Contact</a>
+					<li>
+						<a href="#about" class='nav-link'>About</a>
+          </li>
+					<li>
+						<a href="#portfolio" class='nav-link'>Portfolio</a>
+          </li>
+					<li>
+						<a href="#skills" class='nav-link'>Skills</a>
+					</li>
+					<li>
+						<a href="#contact" class='nav-link'>Contact</a>
 					</li>
 				</ul>
 			</div>
@@ -59,8 +66,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 centered">
-					<h1>Lawrence</h1>
-					<h2>PORTFOLIO THEME BY PROJECT 3</h2>
+					<h1>Cody Crozier</h1>
+					<h2>Web Developer | wcc8@nau.edu</h2>
 				</div>
 				<!-- /col-lg-8 -->
 			</div>
@@ -68,10 +75,9 @@
 		</div>
 		<!-- /container -->
 	</div>
-  <!-- /hello -->
-  
-<section id="about" name='about'></section>
-	<div id="green">
+	<!-- /hello -->
+
+	<div class="green" id='about'>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5 centered">
@@ -80,67 +86,60 @@
 
 				<div class="col-lg-7 centered">
 					<h3>WHO AM I?</h3>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-						dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
-						book.
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 					</p>
 				</div>
 			</div>
 		</div>
 	</div>
 
-<section id="portfolio"></section>
-	<div class="container">
-		<div class="row centered mt grid">
-			<h3>MY LATEST WORK</h3>
-			<div class="mt"></div>
-			<div class="col-lg-4" style='text-align:center; word-wrap: break-word;'>
-				<a id="proj_1" href="" target='_blank'>
-					<img src="assets/img/01.jpg" alt="">
-        </a>
-        <h3 style='margin: 10px auto auto auto'> project Title </h3>
-          <p style='width: 300px; margin:auto'>awdaawdawdawdawdawdawdawijaowidjaowidijawdpoajw ijwduia iuhawiudha iuhawdiuhaw iuahwdiuahwdi uhaiuwdhaiuwhd aiuahwdiua h</p>
-			</div>
-			<div class="col-lg-4">
-				<a id="proj_2" href="#">
-					<img src="assets/img/02.jpg" alt="">
-				</a>
-			</div>
-			<div class="col-lg-4">
-				<a id="proj_3" href="#">
-					<img src="assets/img/03.jpg" alt="">
-				</a>
-			</div>
-		</div>
-
-		<div class="row centered mt grid">
-			<div class="mt"></div>
-			<div class="col-lg-4">
-				<a id="proj_4" href="#">
-					<img src="assets/img/04.jpg" alt="">
-        </a>
-        <p> Project Descriptionawdawdawdklawdoaiwjdoiawjdoaiwjdaoiwjdaowijdaoiwjaoiwjdaoiwjd </p>
-			</div>
-			<div class="col-lg-4">
-				<a id="proj_5" href="#">
-					<img src="assets/img/05.jpg" alt="">
-				</a>
-			</div>
-			<div class="col-lg-4">
-				<a id="proj_6" href="#">
-					<img src="assets/img/06.jpg" alt="">
-				</a>
-			</div>
-		</div>
+	<div class="container" id='portfolio'>
+    <div class="row centered mt grid"><h3>MY LATEST WORK</h3><div class="col-lg-4" style='text-align:center; word-wrap: break-word;'>
+            <a id="proj_1" href="port.com" target='_blank'>
+              <img style='width:300px; height:300px'src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="">
+            </a>
+            <h3 style='margin: 10px auto auto auto'>Port 1</h3>
+              <p style='width: 300px; margin:auto'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </div><div class="col-lg-4" style='text-align:center; word-wrap: break-word;'>
+            <a id="proj_1" href="port.com" target='_blank'>
+              <img style='width:300px; height:300px'src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="">
+            </a>
+            <h3 style='margin: 10px auto auto auto'>Port 2</h3>
+              <p style='width: 300px; margin:auto'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </div><div class="col-lg-4" style='text-align:center; word-wrap: break-word;'>
+            <a id="proj_1" href="port.com" target='_blank'>
+              <img style='width:300px; height:300px'src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="">
+            </a>
+            <h3 style='margin: 10px auto auto auto'>Port 3</h3>
+              <p style='width: 300px; margin:auto'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </div></div><div class="row centered mt grid"><div class="col-lg-4" style='text-align:center; word-wrap: break-word;'>
+            <a id="proj_1" href="port.com" target='_blank'>
+              <img style='width:300px; height:300px'src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="">
+            </a>
+            <h3 style='margin: 10px auto auto auto'>Port 4</h3>
+              <p style='width: 300px; margin:auto'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </div><div class="col-lg-4" style='text-align:center; word-wrap: break-word;'>
+            <a id="proj_1" href="port.com" target='_blank'>
+              <img style='width:300px; height:300px'src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="">
+            </a>
+            <h3 style='margin: 10px auto auto auto'>Port 5</h3>
+              <p style='width: 300px; margin:auto'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </div><div class="col-lg-4" style='text-align:center; word-wrap: break-word;'>
+            <a id="proj_1" href="port.com" target='_blank'>
+              <img style='width:300px; height:300px'src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="">
+            </a>
+            <h3 style='margin: 10px auto auto auto'>Port 6</h3>
+              <p style='width: 300px; margin:auto'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </div></div>
 	</div>
 
 
 	<div id="skills">
 		<div class="container">
 			<div class="row centered">
-				<h3>MY SKILLS</h3>
-				<div class="col-lg-3 mt">
-					<canvas id="javascript" height="130" width="130"></canvas>
+        <h3>MY SKILLS</h3>
+        <div class="col-lg-3 mt">
+					<canvas id="Javascript" height="130" width="130"></canvas>
 					<p>Javascript</p>
 					<br>
 					<script>
@@ -153,58 +152,55 @@
 								color: "#3c3c3c"
 							}
 						];
-						var myDoughnut = new Chart(document.getElementById("javascript").getContext("2d")).Doughnut(doughnutData);
+						var myDoughnut = new Chart(document.getElementById("Javascript").getContext("2d")).Doughnut(doughnutData);
 					</script>
-				</div>
-				<div class="col-lg-3 mt">
-					<canvas id="bootstrap" height="130" width="130"></canvas>
-					<p>Bootstrap</p>
+				</div><div class="col-lg-3 mt">
+					<canvas id="HTML" height="130" width="130"></canvas>
+					<p>HTML</p>
 					<br>
 					<script>
 						var doughnutData = [{
-								value: 90,
+								value: 70,
 								color: "#74cfae"
 							},
 							{
-								value: 10,
+								value: 30,
 								color: "#3c3c3c"
 							}
 						];
-						var myDoughnut = new Chart(document.getElementById("bootstrap").getContext("2d")).Doughnut(doughnutData);
+						var myDoughnut = new Chart(document.getElementById("HTML").getContext("2d")).Doughnut(doughnutData);
 					</script>
-				</div>
-				<div class="col-lg-3 mt">
-					<canvas id="wordpress" height="130" width="130"></canvas>
-					<p>Wordpress</p>
+				</div><div class="col-lg-3 mt">
+					<canvas id="CSS" height="130" width="130"></canvas>
+					<p>CSS</p>
 					<br>
 					<script>
 						var doughnutData = [{
-								value: 65,
+								value: 70,
 								color: "#74cfae"
 							},
 							{
-								value: 35,
+								value: 30,
 								color: "#3c3c3c"
 							}
 						];
-						var myDoughnut = new Chart(document.getElementById("wordpress").getContext("2d")).Doughnut(doughnutData);
+						var myDoughnut = new Chart(document.getElementById("CSS").getContext("2d")).Doughnut(doughnutData);
 					</script>
-				</div>
-				<div class="col-lg-3 mt">
-					<canvas id="photoshop" height="130" width="130"></canvas>
-					<p>Photoshop</p>
+				</div><div class="col-lg-3 mt">
+					<canvas id="Jquery" height="130" width="130"></canvas>
+					<p>Jquery</p>
 					<br>
 					<script>
 						var doughnutData = [{
-								value: 50,
+								value: 70,
 								color: "#74cfae"
 							},
 							{
-								value: 50,
+								value: 30,
 								color: "#3c3c3c"
 							}
 						];
-						var myDoughnut = new Chart(document.getElementById("photoshop").getContext("2d")).Doughnut(doughnutData);
+						var myDoughnut = new Chart(document.getElementById("Jquery").getContext("2d")).Doughnut(doughnutData);
 					</script>
 				</div>
 			</div>
@@ -220,17 +216,17 @@
 			<div class="row centered">
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="col-md-4">
-						<a href="#">
+						<a target="_blank" href="linked.com">
 							<i class="fa fa-linkedin"></i>
 						</a>
 					</div>
 					<div class="col-md-4">
-						<a href="#">
+						<a target="_blank" href="https://github.com/wcrozier12">
 							<i class="fa fa-github"></i>
 						</a>
 					</div>
 					<div class="col-md-4">
-						<a href="#">
+						<a target="_blank" href="wcc8@nau.edu">
 							<i class="fa fa-envelope"></i>
 						</a>
 					</div>
@@ -253,8 +249,17 @@
 
 
 	<!-- Bootstrap 3.0.2 -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
 </body>
+	<script>
+    $('.nav-link, .nav-logo').on('click', function (event) {
+      event.preventDefault()
 
+      $('html, body').animate(
+        {scrollTop: $(this.hash).offset().top},
+        {duration: 1000, easing: 'swing'}
+      );
+    });
+	</script>
 </html>
