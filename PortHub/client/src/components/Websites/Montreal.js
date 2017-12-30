@@ -112,56 +112,59 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 
 					<!-- jQuery 1.1.2 -->
 					<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-					<!-- SmoothScroll -->
-					<script type="text/javascript" src="https://rawgit.com/ItsOkayItsOfficial/project3/app/PortHub/client/public/assets/templates/montreal/assets/js/smoothscroll.js"></script>
 					<!-- Chart.js 1.0.1 -->
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
 
 				</head>
 				<body data-spy="scroll" data-offset="0" data-target="#nav">
 
-					<div id="section-topbar">'
-						<div id="topbar-inner">
-							<div class="container">
-								<div class="row">
-									<div class="dropdown">
-										<ul id="nav" class="nav">
-											<li class="menu-item">
-												<a class="smoothScroll" href="#about" title="About">
-													<i class="icon-user"></i>
-												</a>
-											</li>
-											<li class="menu-item">
-												<a class="smoothScroll" href="#resume" title="Resume">
-													<i class="icon-file"></i>
-												</a>
-											</li>
-											<li class="menu-item">
-												<a class="smoothScroll" href="#work" title="Works">
-													<i class="icon-briefcase"></i>
-												</a>
-											</li>
-											<li class="menu-item">
-												<a class="smoothScroll" href="#contact" title="contact">
-													<i class="icon-envelope"></i>
-												</a>
-											</li>
-										</ul>
-										<!--/ uL#nav -->
-									</div>
-									<!-- /.dropdown -->
-
-									<div class="clear"></div>
-								</div>
-								<!--/.row -->
-							</div>
-							<!--/.container -->
-
-							<div class="clear"></div>
-						</div>
-						<!--/ #topbar-inner -->
+	<div id="section-topbar" style='top: 0px;'>
+		<div id="topbar-inner">
+			<div class="container">
+				<div class="row">
+					<div class="dropdown">
+						<ul id="nav" class="nav">
+							<li class="menu-item">
+								<a class="nav-link" href="#about" title="About">
+									<i class="fa fa-user">  About</i>
+								</a>
+							</li>
+							<li class="menu-item">
+								<a class="nav-link" href="#resume" title="Resume">
+									<i class="fa fa-file">  Resume</i>
+								</a>
+							</li>
+							<li class="menu-item">
+								<a class="nav-link" href="#work" title="Works">
+									<i class="fa fa-briefcase">  Work</i>
+								</a>
+              </li>
+							<li class="menu-item">
+								<a class="nav-link" href="#skillswrap" title="skillswrap">
+									<i class="fa fa-certificate">  Skills</i>
+								</a>
+							</li>
+							<li class="menu-item">
+								<a class="nav-link" href="#contact" title="contact">
+									<i class="fa fa-envelope">  Contact</i>
+								</a>
+							</li>
+						</ul>
+						<!--/ uL#nav -->
 					</div>
-					<!--/ #section-topbar -->
+					<!-- /.dropdown -->
+
+					<div class="clear"></div>
+				</div>
+				<!--/.row -->
+			</div>
+			<!--/.container -->
+
+			<div class="clear"></div>
+		</div>
+		<!--/ #topbar-inner -->
+	</div>
+	<!--/ #section-topbar -->
 
 					<div id="headerwrap">
 						<div class="container">
@@ -195,7 +198,6 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 										<a href="#">
 											<i class="icon-file"></i>
 										</a>
-										<sm>DOWNLOAD PDF</sm>
 									</p>
 								</div>
 
@@ -229,7 +231,7 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 					<div class="container desc">
 						<div class="row">
 							<div class="col-lg-2 col-lg-offset-1">
-								<h5>WORK</h5>
+								<h5>Experience</h5>
 							</div>
 						${experienceSection}
 
@@ -307,10 +309,10 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 									</p>
 									<p>
 										<a target="_blank" href="${contact ? contact.linkedin : ''}">
-											<i class="icon-linkedin">${contact ? contact.linkedin : ''}</i>
+											<i class="fa fa-linkedin">   LinkedIn</i>
 										</a>
 										<a target="_blank" href="${contact ? contact.github : ''}">
-											<i class="icon-github">${contact ? contact.github : ''}</i>
+											<i class="fa fa-github">   GitHub</i>
 										</a>
 
 									</p>
@@ -332,7 +334,16 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 					</div>
 					<!-- Bootstrap 3.0.2 -->
 					<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<script>
+    $('.nav-link, .nav-logo').on('click', function (event) {
+      event.preventDefault()
 
+      $('html, body').animate(
+        {scrollTop: $(this.hash).offset().top},
+        {duration: 1000, easing: 'swing'}
+      );
+    });
+	</script>
 
 				</body>
 				</html>`

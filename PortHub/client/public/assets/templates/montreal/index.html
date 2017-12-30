@@ -14,7 +14,7 @@
 	<!-- Bootstrap 3.0.2 CSS -->
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
-	<link href="assets/css/main.css" rel="stylesheet">
+	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/app/PortHub/client/public/assets/templates/montreal/assets/css/main.css" rel="stylesheet">
 
 	<!-- Font Awesome 4.0.3 -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
@@ -33,30 +33,35 @@
 
 <body data-spy="scroll" data-offset="0" data-target="#nav">
 
-	<div id="section-topbar">
+<div id="section-topbar" style='top: 0px;'>
 		<div id="topbar-inner">
 			<div class="container">
 				<div class="row">
 					<div class="dropdown">
 						<ul id="nav" class="nav">
 							<li class="menu-item">
-								<a class="smoothScroll" href="#about" title="About">
-									<i class="icon-user"></i>
+								<a class="nav-link" href="#about" title="About">
+									<i class="fa fa-user">  About</i>
 								</a>
 							</li>
 							<li class="menu-item">
-								<a class="smoothScroll" href="#resume" title="Resume">
-									<i class="icon-file"></i>
+								<a class="nav-link" href="#resume" title="Resume">
+									<i class="fa fa-file">  Resume</i>
 								</a>
 							</li>
 							<li class="menu-item">
-								<a class="smoothScroll" href="#work" title="Works">
-									<i class="icon-briefcase"></i>
+								<a class="nav-link" href="#work" title="Works">
+									<i class="fa fa-briefcase">  Work</i>
+								</a>
+              </li>
+							<li class="menu-item">
+								<a class="nav-link" href="#skillswrap" title="skillswrap">
+									<i class="fa fa-certificate">  Skills</i>
 								</a>
 							</li>
 							<li class="menu-item">
-								<a class="smoothScroll" href="#contact" title="Contact">
-									<i class="icon-envelope"></i>
+								<a class="nav-link" href="#contact" title="contact">
+									<i class="fa fa-envelope">  Contact</i>
 								</a>
 							</li>
 						</ul>
@@ -75,6 +80,7 @@
 		<!--/ #topbar-inner -->
 	</div>
 	<!--/ #section-topbar -->
+
 
 	<div id="headerwrap">
 		<div class="container">
@@ -494,19 +500,10 @@
 					</p>
 					<p>
 						<a href="#">
-							<i class="icon-dribbble"></i>
+							<i class="fa fa-linkedin"></i>
 						</a>
 						<a href="#">
-							<i class="icon-twitter"></i>
-						</a>
-						<a href="#">
-							<i class="icon-facebook"></i>
-						</a>
-						<a href="#">
-							<i class="icon-linkedin"></i>
-						</a>
-						<a href="#">
-							<i class="icon-apple"></i>
+							<i class="fa fa-github"></i>
 						</a>
 
 					</p>
@@ -530,6 +527,15 @@
 
 	<!-- Bootstrap 3.0.2 -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<script>
+    $('.nav-link, .nav-logo').on('click', function (event) {
+      event.preventDefault()
 
+      $('html, body').animate(
+        {scrollTop: $(this.hash).offset().top},
+        {duration: 1000, easing: 'swing'}
+      );
+    });
+	</script>
 </body>
 </html>
