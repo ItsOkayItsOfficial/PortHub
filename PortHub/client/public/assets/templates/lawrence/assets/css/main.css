@@ -129,8 +129,8 @@ a:after {
 /* hello */
 #hello {
 	width: 100%;
-	padding-top: 250px;
-	padding-bottom: 250px;
+	padding-top: 285px;
+	padding-bottom: 285px;
 }
 
 #hello h1 {
@@ -146,19 +146,19 @@ a:after {
 }
 
 /* Green */
-#green {
+.green {
 	background-color: #74cfae;
 	padding-top: 50px;
 	margin-bottom: 0px;
 }
 
-#green h3 {
+.green h3 {
 	color: white;
 	font-weight: 400;
 	margin-bottom: 35px;
 }
 
-#green p {
+.green p {
 	color: white;
 	font-weight: 400;
 	font-size: 20px;
