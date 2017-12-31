@@ -6,7 +6,7 @@ import Education from '../../components/Inputs/Education';
 import Skills from '../../components/Inputs/Skills';
 import Experience from '../../components/Inputs/Experience';
 
-import {Montreal, Lawrence, London} from '../../components/Websites';
+import {Montreal, Lawrence, London, Oslo} from '../../components/Websites';
 import {ResumeLeftRightRTL} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
 import Accordion from '../../components/Accordion/Accordion';
@@ -150,6 +150,9 @@ class InputPage extends Component {
             break;
       case "London":
             selectButton = <London {...props} />
+            break;
+      case "Oslo":
+            selectButton = <Oslo {...props} />
             break;
       case "resume-left-right-rtl":
             selectButton = <ResumeLeftRightRTL {...props} />;
