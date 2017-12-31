@@ -170,7 +170,7 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
 						</a>
 					</div>
 					<div class="col-md-4">
-						<a target="_blank" href="${contact ? contact.email : ''}">
+						<a target="_top" href="mailto:${contact ? contact.email : ''}">
 							<i class="fa fa-envelope"></i>
 						</a>
 					</div>
