@@ -4,7 +4,7 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
   let skillSection = skills.map((skill, i) => {
         const offset = i===3 ? "col-lg-offset-3" : ''; 
           return (
-        `<div class="col-lg-3 centered ${offset}" >
+        `<div class="col-lg-12 centered ${offset}" >
 					<canvas id=${skill.skill} height="130" width="130"></canvas>
 					<p>${skill.skill}</p>
 					<br>
@@ -15,9 +15,9 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
   let experienceSection = experience.map((experience, i) => {
        const offset = i!== 0 ? "col-lg-offset-3" : '';
 			return (
-      `<div class="col-lg-6 ${offset}">
+      `<div class="col-lg-12 ${offset}">
 				<p>
-					<t>${experience.title}</t>
+					<p>${experience.title}</p>
 					<br/>${experience.employer}
 					<br/>
 				</p>
@@ -36,9 +36,9 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
   let educationSection = education.map((education, i) => {
         const offset = i!== 0 ? "col-lg-offset-3" : '';
         return 	(		
-          `<div class="col-lg-6 ${offset}">
+          `<div class="col-lg-12 ${offset}">
             <p>
-              <t>${education.major}</t>
+              <p>${education.major}</p>
               <br/>${education.schoolName}
               <br/>
             </p>
@@ -50,7 +50,8 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
             </p>
           </div>`)
       })
-      educationSection = educationSection.join('');
+	  educationSection = educationSection.join('');
+	  const img = contact.profilePicture ? "<img src='" + contact.profilePicture + "' class='rounded-circle'></img>" : "";
   const html =  `<!DOCTYPE html>
 		<html lang="en">
 			<head>
@@ -64,69 +65,71 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
 			</head>
 		
 			<body>
-			<div class="container-fluid border border-dark">
-				<div class="jumbotron align-content-center" style="background-color:rgba(255, 255, 255, 0); height:2.5in">
-				<div class="text-center border border-dark">${contact ? contact.firstName:""} ${contact ? contact.lastName:""}</div>
-				<div class="text-center">
-					<p>${contact ? contact.bio: ""}</p>
-				</div>
-				<div class="image text-center">
-					<div class="img">img</div>
-				</div>
-				</div>
-		
-				<div class="container bg-info" style="height:8.5in">
-					<div class="row align-items-top h-100">
-					<div class="col text-right">
-							<div class="experience">
-							<h3>Experience</h3>
-							<<div class="experience-block" v-for="experience in contact.experience" :key="experience.company">>
-								<div class="company"> ${experienceSection}</div>
-							</div>
-							</div>
-							<div class="contact">
-							<h3>Contact</h3>
-							<table class="table-sm border-0">
-								<tr>
-								<td><i class="fa fa-envelope" aria-hidden="true"></i></td>
-								<td><a href="'mailto:'+contact.contact.email">${contact ? contact.email:""}</a></td>
-								</tr>
-								<tr>
-								<td><i class="fa fa-phone" aria-hidden="true"></i></td>
-								<td><a href="'tel:'+contact.contact.phone">${contact ? contact.phone:""}</a></td>
-								</tr>
-								<tr>
-								<td><i class="fa fa-home" aria-hidden="true"></i></td>
-								<td>${contact ? contact.address:""}<br> ${contact ? contact.city:""}</td>
-								</tr>
-								<tr v-if="contact.contact.website">
-								<td><i class="fa fa-globe" aria-hidden="true"></i></td>
-								<td><a href="contact.contact.website">${contact ? contact.website:""}</a></td>
-								</tr>
-								<tr v-if="contact.contact.github">
-								<td><i class="fa fa-github" aria-hidden="true"></i></td>
-								<td><a href="https://github.com/'+${contact ? contact.github:""}">https://github.com/${contact ? contact.github:""}</a></td>
-								</tr>
-							</table>
-							</div>
+				<div class="container-fluid border border-dark">
+					<div class="m-4 align-content-center" style="background-color:rgba(255, 255, 255, 0)">
+						<div class="text-center border border-dark p-4 display-4">${contact ? contact.firstName:""} ${contact ? contact.lastName:""}</div>
+						<div class="text-center">
+							<p>${contact ? contact.bio: ""}</p>
+						</div>
+						<div class="image text-center">
+							${img}
+						</div>
 					</div>
-					<div class="col text-right align-items-center">
-							<div class="education">
-							<h3>Education</h3>
-								<div class="degree">${educationSection}</div>
+			
+					<div class="container bg-info">
+						<div class="row align-items-top h-100">
+							<div class="col text-right">
+									<div class="experience">
+										<h3>Experience</h3>
+										<div class="experience-block" v-for="experience in contact.experience" :key="experience.company">
+											<div class="company"> ${experienceSection}</div>
+										</div>
+									</div>
+									<div class="contact">
+										<h3>Contact</h3>
+										<table class="table-sm border-0">
+											<tr>
+											<td><i class="fa fa-envelope" aria-hidden="true"></i></td>
+											<td><a href="'mailto:'+contact.contact.email">${contact ? contact.email:""}</a></td>
+											</tr>
+											<tr>
+											<td><i class="fa fa-phone" aria-hidden="true"></i></td>
+											<td><a href="'tel:'+contact.contact.phone">${contact ? contact.phone:""}</a></td>
+											</tr>
+											<tr>
+											<td><i class="fa fa-home" aria-hidden="true"></i></td>
+											<td>${contact ? contact.address:""}<br> ${contact ? contact.city:""}</td>
+											</tr>
+											<tr v-if="contact.contact.website">
+											<td><i class="fa fa-globe" aria-hidden="true"></i></td>
+											<td><a href="contact.contact.website">${contact ? contact.website:""}</a></td>
+											</tr>
+											<tr v-if="contact.contact.github">
+											<td><i class="fa fa-github" aria-hidden="true"></i></td>
+											<td><a href="https://github.com/'+${contact ? contact.github:""}">https://github.com/${contact ? contact.github:""}</a></td>
+											</tr>
+										</table>
+									</div>
 							</div>
-							<h3>Skills</h3>
-							<div class="skills">
-								<div style="width:100%" class="d-flex flex-row">
-									${skillSection}
-									<label for="slider-range-min">{{skillName}}</label>
-									<div class="slider w-100"></div>                     
-								</div>
+							<div class="col text-right align-items-center">
+									<div class="education">
+										<h3>Education</h3>
+										<div class="degree">${educationSection}</div>
+									</div>
+									<div class="skills">
+										<h3>Skills</h3>
+										<div class="skills">
+											<div style="width:100%" class="d-flex flex-row">
+												${skillSection}
+												<label for="slider-range-min">{{skillName}}</label>
+												<div class="slider w-100"></div>                     
+											</div>
+										</div>
+									</div>
 							</div>
+						</div>
 					</div>
-					</div>
-			</div>
-			</div>
+				</div>
 			</body>
 		
 			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -151,6 +154,9 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
 			height: 11in;
 			width: 8.5in;
 			margin: auto;
+			}
+			jumbtron{
+				margin:0;
 			}
 		
 			.slider {
@@ -181,6 +187,10 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
 				border-radius: 50%;
 				background: #4CAF50;
 				cursor: pointer;
+			}
+			img{
+				height:100px;
+				width:100px;
 			}
 		</style>`;
 
