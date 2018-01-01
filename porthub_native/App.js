@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Login from './Models';
+import Login from './models';
 
 const onLogin = (email, password) => {
   console.log(email, password) // user credentials

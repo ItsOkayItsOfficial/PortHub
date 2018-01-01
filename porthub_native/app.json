@@ -1,5 +1,8 @@
 {
   "expo": {
-    "sdkVersion": "23.0.0"
+    "name": "PortHub",
+    "slug": "porthub",
+    "sdkVersion": "23.0.0",
+    "privacy": "public"
   }
 }
