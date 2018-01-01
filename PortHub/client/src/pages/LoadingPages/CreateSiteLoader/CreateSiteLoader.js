@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router';
 import CreateSiteSuccess from './CreateSiteMessage/CreateSiteSuccess';
 import CreateSiteError from './CreateSiteMessage/CreateSiteError';
-import Aux from '../../../HOCs/Aux';
+import Aux from '../../../components/Aux/Aux';
 import './CreateSiteLoader.css';
 import Alert from 'react-s-alert';
 

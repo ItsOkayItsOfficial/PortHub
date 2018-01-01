@@ -5,7 +5,7 @@ import Resumes from './Resumes.json';
 import {Col} from '../../components/Grid';
 import Websites from './Websites.json';
 import Requirements from './Requirements/Requirements'
-import Aux from '../../HOCs/Aux';
+import Aux from '../../components/Aux/Aux';
 
 
 const TemplatePage = ({ type, children, showModal, closeModal, viewTemplate, selectedTemplate, guestContinueShow, isAuthenticated  }) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Aux from '../../../../HOCs/Aux';
+import Aux from '../../../../components/Aux/Aux';
 import { Link } from 'react-router-dom';
 import './DetailedTemplate.css';
 

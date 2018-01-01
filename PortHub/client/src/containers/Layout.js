@@ -17,7 +17,7 @@ import Modal from '../components/Modal/Modal';
 import ContinueAsGuest from '../components/ContinueAsGuest/ContinueAsGuest';
 import Keys from '../keys/keys';
 import axios from 'axios';
-import Aux from '../HOCs/Aux';
+import Aux from '../components/Aux/Aux';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/bouncyflip.css';
