@@ -289,3 +289,9 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+PortHub/client/public/temp/resume\.html
+
+PortHub/client/public/temp/resume\.pdf
+
+PortHub/client/public/temp/
