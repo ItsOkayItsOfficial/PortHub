@@ -1,0 +1,22 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
+  "scripts": {
+    "test": "node ./node_modules/jest/bin/jest.js --watch"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "@expo/samples": "2.1.1",
+    "expo": "^24.0.0",
+    "prop-types": "^15.6.0",
+    "react": "16.0.0",
+    "react-native": "^0.51.0",
+    "react-navigation": "^1.0.0-beta.21"
+  },
+  "devDependencies": {
+    "babel-core": "^7.0.0-beta.3",
+    "jest-expo": "^24.0.0"
+  }
+}

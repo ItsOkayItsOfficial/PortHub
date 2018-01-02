@@ -1,0 +1,25 @@
+{
+  expo: {
+    name: "PortHub Mobile App",
+    description: "A native mobile tool for PortHub",
+    slug: "porthub-native",
+    privacy: "public",
+    sdkVersion: "UNVERSIONED",
+    version: "1.0.0",
+    orientation: "portrait",
+    primaryColor: "#cccccc",
+    icon: "./assets/images/icon.png",
+    splash: {
+      image: "./assets/images/splash.png",
+      resizeMode: "contain",
+      backgroundColor: "#ffffff"
+    },
+    ios: {
+      supportsTablet: true
+    },
+    packagerOpts: {
+      config: "./_universe/rn-cli.config.js"
+    },
+    entryPoint: "_universe/entry.js"
+  }
+}
