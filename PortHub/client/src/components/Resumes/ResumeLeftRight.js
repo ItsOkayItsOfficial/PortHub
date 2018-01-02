@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-export const ResumeLeftRightRTL = ({contact, experience, education, skills, portfolio, clicked }) => {
+export const ResumeLeftRight = ({contact, experience, education, skills, portfolio, clicked }) => {
   	let skillSection = skills.map((skill) => {
           return (
         	`${skill.skill}</br>`
@@ -72,7 +72,7 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
 										</p>
 									</div>
 							</div>
-							<div class="col-lg-6 text-right align-items-center">
+							<div class="col-lg-6 text-left align-items-center">
 									<div class="education">
 										<h4>Education</h4>
 										<div>${educationSection}</div>
