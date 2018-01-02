@@ -224,8 +224,7 @@ export const Oslo = ({contact, experience, education, skills, portfolio, clicked
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
 	<!-- Bootstrap 3.0.2 -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-	<!-- Smoothscroll -->
-	<script src="assets/js/smoothscroll.js"></script>
+
 	<!-- StellerJS 0.6.2 -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"></script>
 	<!-- FancyBox JS -->
