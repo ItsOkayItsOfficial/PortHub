@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
-import { Login } from '../components'
+import { Login } from '../components';
 
 const onLogin = (email, password) => { console.log(email, password) }
 
@@ -26,7 +26,7 @@ export default class LoginScreen extends Component {
 
         <View style={styles.welcomeContainer}>
             <Image
-              source={require('../assets/images/porthub_logo.png')}
+              source={require('../assets/images/porthub_icon.png')}
               style={styles.welcomeImage}
             />
           </View>

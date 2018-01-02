@@ -34,7 +34,7 @@ export default class App extends Component {
     return Promise.all([
       Asset.loadAsync([
         require('./assets/images/porthub_logo.png'),
-        require('./assets/images/porthub_logo.png'),
+        require('./assets/images/porthub_icon.png'),
       ]),
       Font.loadAsync({
         // This is the font that we are using for our tab bar

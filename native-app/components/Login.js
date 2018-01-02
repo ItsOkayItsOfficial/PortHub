@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { LoginStyles } from '../constants'
 import { LoginForm, ResetPasswordForm } from '../forms'
+import { RootNav } from '../navigation'
 
 class Login extends Component {
   constructor (props) {
@@ -24,7 +25,10 @@ class Login extends Component {
   }
 
   onLogin = (userIdentification, password) => {
-    this.props.onLogin(userIdentification, password)
+    this.props.onLogin(userIdentification, password);
+    return (
+      <RootNav />
+    )
   }
 
   onResetPassword = (userIdentification) => {
