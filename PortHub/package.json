@@ -2,7 +2,7 @@
   "name": "PortHub",
   "version": "1.0.0",
   "description": "Portfolio builder",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/ItsOkayItsOfficial/project3.git",
   "author": "wcrozier12 <wcc8@nau.edu>",
   "license": "MIT",
