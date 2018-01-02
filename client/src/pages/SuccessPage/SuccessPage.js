@@ -7,7 +7,7 @@ const SuccessPage = ({ redirect, currentUser, currentTemplate }) => {
   const html = localStorage.getItem('html');
   let accessToken = localStorage.getItem('accessToken')
                     ? localStorage.getItem('accessToken') : '';
-  if (!accessToken || !currentUser || Object.keys(currentTemplate).length === 0) {
+  if ((!accessToken && !currentUser) || Object.keys(currentTemplate).length === 0) {
     return <Redirect to={'/noMatch'} />
   }
   return (

@@ -2,8 +2,26 @@ import React from 'react';
 import Aux from '../../../../components/Auxiliary/Auxiliary';
 import { Link } from 'react-router-dom';
 import './DetailedTemplate.css';
+import { OsloPreview, LawrencePreview, LondonPreview, MontrealPreview }from '../../../../components/WebsitePreviews/';
 
 const DetailedTemplate = ({ closeModal, img, src, title, type, guestContinueShow, isAuthenticated }) => {
+let iframeSrc = ''; 
+              switch (title){
+                case 'Montreal':
+                  iframeSrc = MontrealPreview();
+                  break;
+                case 'Oslo':
+                  iframeSrc =  OsloPreview();
+                  break;
+                case 'London':
+                  iframeSrc =  LondonPreview();
+                  break;
+                case 'Lawrence':
+                  iframeSrc = LawrencePreview();
+                  break;
+                default:
+                  iframeSrc = '';
+              }
     return (
     <Aux>
       <div className="modalHeader d-flex justify-content-center">
@@ -25,8 +43,9 @@ const DetailedTemplate = ({ closeModal, img, src, title, type, guestContinueShow
       </div>
         <div className='container flex-column' style={{textAlign:'center'}}>
             {type==="resume" ? <img src={img} alt={title}/> : 
-            <iframe src={src} alt={title} title={title} zoom='.4' 
+            <iframe srcDoc={iframeSrc}  alt={title} title={title} zoom='.4' 
                       style={{width:'100%', height:'90vh'}}/>} 
+
         </div>
     </Aux>
     )

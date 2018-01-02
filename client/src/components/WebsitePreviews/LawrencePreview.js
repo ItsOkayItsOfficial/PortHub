@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+import React from 'react';
+export const LawrencePreview = () => `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -286,4 +287,4 @@
 	</script>
 </body>
 
-</html>
+</html>`

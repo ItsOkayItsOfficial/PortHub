@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+export const OsloPreview = () => `<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -8,7 +8,7 @@
 	<meta name="author" content="Carlos Alvarez - Alvarez.is - blacktie.co">
 	<link rel="shortcut icon" href="assets/ico/favicon.png">
 
-	<title>Cody Crozier</title>
+	<title>Daniel Miller</title>
 
 	<!-- Bootstrap 3.0.2 CSS -->
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
@@ -44,10 +44,10 @@
 			<a target='_blank' href="linked.com">
 				<i class="fa fa-linkedin"></i>
 			</a>
-			<a target='_blank' href="https://github.com/wcrozier12">
+			<a target='_blank' href="https://github.com/">
 				<i class="fa fa-github"></i>
 			</a>
-			<a target='_top' href="mailto:wcc8@nau.edu">
+			<a target='_top' href="mailto:Example@gmail.com">
 				<i class="fa fa-envelope"></i>
 			</a>
 		</div>
@@ -63,8 +63,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
-          <h1>Cody Crozier</h1>
-					<h2 style='font-size:24px; color:white;text-shadow: 2px 2px black'><strong>Web Developer | wcc8@nau.edu</strong></h2>
+          <h1>Daniel Miller</h1>
+					<h2 style='font-size:24px; color:white;text-shadow: 2px 2px black'><strong>Web Developer | Example@gmail.com</strong></h2>
 				</div>
 			</div>
 			<!-- /row -->
@@ -78,8 +78,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 name">
-					<img class="img-responsive" src="https://media-exp2.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAtUAAAAJDA1ZWNkNmFmLWE5YmUtNDE2OC1hNDE0LTI3NGVmMDliYTQ4OQ.jpg">
-					<p>Cody Crozier</p>
+					<img class="img-responsive" src="assets/templates/oslo/assets/img/pic.png">
+					<p>Daniel Miller</p>
 					<div class="name-label"></div>
 				</div>
 				<!-- /col-lg-4-->
@@ -115,7 +115,7 @@
               <div class="project">
                 <div class="photo-wrapper">
                   <div class="photo">
-                    <a class="fancybox" href="port.com">
+                    <a class="fancybox" target='_blank' href="port.com">
                       <img class="img-responsive" src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 1">
                     </a>
                   </div>
@@ -132,7 +132,7 @@
               <div class="project">
                 <div class="photo-wrapper">
                   <div class="photo">
-                    <a class="fancybox" href="port.com">
+                    <a class="fancybox" target='_blank' href="port.com">
                       <img class="img-responsive" src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 2">
                     </a>
                   </div>
@@ -149,7 +149,7 @@
               <div class="project">
                 <div class="photo-wrapper">
                   <div class="photo">
-                    <a class="fancybox" href="port.com">
+                    <a class="fancybox" target='_blank' href="port.com">
                       <img class="img-responsive" src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 3">
                     </a>
                   </div>
@@ -166,7 +166,7 @@
               <div class="project">
                 <div class="photo-wrapper">
                   <div class="photo">
-                    <a class="fancybox" href="port.com">
+                    <a class="fancybox" target='_blank' href="port.com">
                       <img class="img-responsive" src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 4">
                     </a>
                   </div>
@@ -183,7 +183,7 @@
               <div class="project">
                 <div class="photo-wrapper">
                   <div class="photo">
-                    <a class="fancybox" href="port.com">
+                    <a class="fancybox" target='_blank' href="port.com">
                       <img class="img-responsive" src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 5">
                     </a>
                   </div>
@@ -200,7 +200,7 @@
               <div class="project">
                 <div class="photo-wrapper">
                   <div class="photo">
-                    <a class="fancybox" href="port.com">
+                    <a class="fancybox" target='_blank' href="port.com">
                       <img class="img-responsive" src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 6">
                     </a>
                   </div>
@@ -378,12 +378,12 @@
 				<div class="col-lg-6">
 
 					<p>
-						<small>685 W. Stottler Pl
+						<small>200 N. Pennsylvania Ave.
 						</small>
 					</p>
 					<p>
 						<small>4802424367
-							<br/> Mail. wcc8@nau.edu
+							<br/> Mail. Example@gmail.com
 					</p>
 
 				</div>
@@ -405,8 +405,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"></script>
 	<!-- FancyBox JS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-	<!-- Custom JS -->
-	<script src="https://raw.githubusercontent.com/ItsOkayItsOfficial/project3/app/client/templates/oslo/assets/js/main.js"></script>
 	<!-- DOM Script -->
 	<script>
 		$(function () {
@@ -445,4 +443,5 @@
 
 </body>
 
-</html>
+</html>`
+

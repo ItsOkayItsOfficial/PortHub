@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+export const LondonPreview = () => `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,15 +12,15 @@
 	<title>London</title>
 
 	<!-- Bootstrap 3.0.2 CSS -->
-	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
-	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/app/templates/london/assets/css/main.css" rel="stylesheet">
+	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/master/templates/london/assets/css/main.css" rel="stylesheet">
 
 	<!-- Font Awesome 4.0.3 -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 	<!-- Google fonts -->
-	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
 
 </head>
 
@@ -89,14 +89,6 @@
 								<br/>
 							</p>
 
-							<h4>
-								<i class="icon-trophy"></i> Awards</h4>
-							<p class="sm">
-								<grey>Best Web Design</grey> | Black Tie Site.
-								<br/>
-								<grey>Designer of the Year</grey> | 2012.
-								<br/>
-							</p>
 						</div>
 						<!-- Tab Profile -->
 
@@ -104,7 +96,7 @@
 						<div class="tab-pane" id="portfolio">
 							<div class="row">
 								<div class="col-xs-6 centered">
-									<img class="img-responsive" src="assets/img/p01.png" alt="">
+									<img class="img-responsive" src="assets/templates/london/assets/img/p01.png" alt="">
 									<a href="#">
 										<h6>
 											<i class="icon-link"></i> Project Name</h6>
@@ -112,7 +104,7 @@
 								</div>
 								<!-- col-xs-6 -->
 								<div class="col-xs-6 centered">
-									<img class="img-responsive" src="assets/img/p02.png" alt="">
+									<img class="img-responsive" src="assets/templates/london/assets/img/p02.png" alt="">
 									<a href="#">
 										<h6>
 											<i class="icon-link"></i> Project Name</h6>
@@ -125,7 +117,7 @@
 							<div class="row">
 								<br>
 								<div class="col-xs-6 centered">
-									<img class="img-responsive" src="assets/img/p03.png" alt="">
+									<img class="img-responsive" src="assets/templates/london/assets/img/p03.png" alt="">
 									<a href="#">
 										<h6>
 											<i class="icon-link"></i> Project Name</h6>
@@ -133,7 +125,7 @@
 								</div>
 								<!-- col-xs-6 -->
 								<div class="col-xs-6 centered">
-									<img class="img-responsive" src="assets/img/p04.png" alt="">
+									<img class="img-responsive" src="assets/templates/london/assets/qimg/p04.png" alt="">
 									<a href="#">
 										<h6>
 											<i class="icon-link"></i> Project Name</h6>
@@ -210,7 +202,7 @@
 	<!-- jQuery 1.1.2 -->
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<!-- Bootstrap 3.0.2 -->
-	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 	<!-- DOM Script -->
 	<script>
 		$('#myTab a').click(function (e) {
@@ -221,4 +213,4 @@
 
 </body>
 
-</html>
+</html>`
