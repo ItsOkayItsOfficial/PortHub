@@ -102,17 +102,23 @@ export const LawrencePreview = () => `<!DOCTYPE html>
 			<div class="col-lg-4">
 				<a id="proj_1" href="#">
 					<img src="assets/templates/lawrence/assets/img/01.jpg" alt="">
-				</a>
+        </a>
+            <h3 style='margin: 10px auto auto auto'>Portfolio 1</h3>
+            <p style='width: 300px; margin:auto'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 			</div>
 			<div class="col-lg-4">
 				<a id="proj_2" href="#">
-					<img src="assets/templates/lawrence/assets/img/02.jpg" alt="">
-				</a>
+          <img src="assets/templates/lawrence/assets/img/02.jpg" alt="">
+        </a>
+            <h3 style='margin: 10px auto auto auto'>Portfolio 2</h3>
+            <p style='width: 300px; margin:auto'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 			</div>
 			<div class="col-lg-4">
 				<a id="proj_3" href="#">
 					<img src="assets/templates/lawrence/assets/img/03.jpg" alt="">
-				</a>
+        </a>
+            <h3 style='margin: 10px auto auto auto'>Portfolio 3</h3>
+            <p style='width: 300px; margin:auto'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 			</div>
 		</div>
 
@@ -121,17 +127,23 @@ export const LawrencePreview = () => `<!DOCTYPE html>
 			<div class="col-lg-4">
 				<a id="proj_4" href="#">
 					<img src="assets/templates/lawrence/assets/img/04.jpg" alt="">
-				</a>
+        </a>
+            <h3 style='margin: 10px auto auto auto'>Portfolio 4</h3>
+            <p style='width: 300px; margin:auto'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 			</div>
 			<div class="col-lg-4">
 				<a id="proj_5" href="#">
 					<img src="assets/templates/lawrence/assets/img/05.jpg" alt="">
-				</a>
+        </a>
+            <h3 style='margin: 10px auto auto auto'>Portfolio 5</h3>
+            <p style='width: 300px; margin:auto'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 			</div>
 			<div class="col-lg-4">
 				<a id="proj_6" href="#">
-					<img src="assets/templates/lawrence/assets/img/06.jpg" alt="">
-				</a>
+          <img src="assets/templates/lawrence/assets/img/06.jpg" alt="">
+        </a>
+            <h3 style='margin: 10px auto auto auto'>Portfolio 6</h3>
+            <p style='width: 300px; margin:auto'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 			</div>
 		</div>
 

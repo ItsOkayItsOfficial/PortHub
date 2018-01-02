@@ -88,7 +88,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
 					<div class="name-zig"></div>
 
 					<div class="col-md-12">
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 					</div>
 
 				</div>
@@ -116,7 +116,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
                 <div class="photo-wrapper">
                   <div class="photo">
                     <a class="fancybox" target='_blank' href="port.com">
-                      <img class="img-responsive" src="https://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 1">
+                      <img class="img-responsive" src="assets/templates/lawrence/assets/img/01.jpg" alt="Port 1">
                     </a>
                   </div>
                   <div class="overlay"></div>
@@ -124,7 +124,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
               </div>
               </div>
               <h3>Port 1</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
             </div>
         
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
@@ -133,7 +133,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
                 <div class="photo-wrapper">
                   <div class="photo">
                     <a class="fancybox" target='_blank' href="port.com">
-                      <img class="img-responsive" src="https://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 2">
+                      <img class="img-responsive" src="assets/templates/lawrence/assets/img/02.jpg" alt="Port 2">
                     </a>
                   </div>
                   <div class="overlay"></div>
@@ -141,7 +141,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
               </div>
               </div>
               <h3>Port 2</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
             </div>
         
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
@@ -150,7 +150,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
                 <div class="photo-wrapper">
                   <div class="photo">
                     <a class="fancybox" target='_blank' href="port.com">
-                      <img class="img-responsive" src="https://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 3">
+                      <img class="img-responsive" src="assets/templates/lawrence/assets/img/03.jpg" alt="Port 3">
                     </a>
                   </div>
                   <div class="overlay"></div>
@@ -158,7 +158,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
               </div>
               </div>
               <h3>Port 3</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
             </div>
         </div><div class='row mt'>
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
@@ -167,7 +167,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
                 <div class="photo-wrapper">
                   <div class="photo">
                     <a class="fancybox" target='_blank' href="port.com">
-                      <img class="img-responsive" src="https://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 4">
+                      <img class="img-responsive" src="assets/templates/lawrence/assets/img/04.jpg" alt="Port 4">
                     </a>
                   </div>
                   <div class="overlay"></div>
@@ -175,7 +175,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
               </div>
               </div>
               <h3>Port 4</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
             </div>
         
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
@@ -184,7 +184,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
                 <div class="photo-wrapper">
                   <div class="photo">
                     <a class="fancybox" target='_blank' href="port.com">
-                      <img class="img-responsive" src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 5">
+                      <img class="img-responsive" src="assets/templates/lawrence/assets/img/05.jpg" alt="Port 5">
                     </a>
                   </div>
                   <div class="overlay"></div>
@@ -192,7 +192,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
               </div>
               </div>
               <h3>Port 5</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
             </div>
         
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
@@ -201,7 +201,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
                 <div class="photo-wrapper">
                   <div class="photo">
                     <a class="fancybox" target='_blank' href="port.com">
-                      <img class="img-responsive" src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 6">
+                      <img class="img-responsive" src="assets/templates/lawrence/assets/img/06.jpg" alt="Port 6">
                     </a>
                   </div>
                   <div class="overlay"></div>
@@ -209,7 +209,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
               </div>
               </div>
               <h3>Port 6</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
             </div>
         </div>
 		</div>

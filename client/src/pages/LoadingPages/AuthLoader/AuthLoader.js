@@ -28,7 +28,7 @@ const AuthLoader = ({ getUserInfo, authenticated }) => {
     return (
         <div className='loadContainer'>
           <div className="ld ld-bounce">
-            <img src="https://rawgit.com/ItsOkayItsOfficial/project3/app/public/assets/images/porthub_icon.png" alt='porthub'className='loadImg'/>
+            <img src="https://raw.githubusercontent.com/ItsOkayItsOfficial/project3/app/client/public/assets/images/ph/porthub_icon.png" alt='porthub'className='loadImg'/>
           </div>
         </div>
     )
