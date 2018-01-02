@@ -68,7 +68,7 @@ export const Oslo = ({contact, experience, education, skills, portfolio, clicked
 	<!-- Bootstrap 3.0.2 CSS -->
 	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
-	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/app/client/templates/oslo/assets/css/style.css" rel="stylesheet">
+	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/app/client/public/assets/templates/oslo/assets/css/style.css" rel="stylesheet">
 
 	<!-- Font Awesome 4.0.3 -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">

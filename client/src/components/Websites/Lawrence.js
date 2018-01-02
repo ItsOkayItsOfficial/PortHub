@@ -125,7 +125,7 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5 centered">
-					<img src="https://rawgit.com/ItsOkayItsOfficial/project3/master/templates/lawrence/assets/img/iphone.png" alt="">
+					<img src="https://rawgit.com/ItsOkayItsOfficial/project3/app/templates/lawrence/assets/img/iphone.png" alt="">
 				</div>
 
 				<div class="col-lg-7 centered">
