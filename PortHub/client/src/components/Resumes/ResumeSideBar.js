@@ -1,11 +1,12 @@
 import React from 'react';
 import moment from 'moment';
 
-export const ResumeLeftRight = ({contact, experience, education, skills, portfolio, clicked }) => {
+export const ResumeSideBar = ({contact, experience, education, skills, portfolio, clicked }) => {
   	let skillSection = skills.map((skill) => {
           return (
-			`${skill.skill}
-			<div class="slider"></div>`
+            `<span class="circle">
+                ${skill.skill}
+            </span>`
           )
         })
 	skillSection = skillSection.join('');
@@ -27,7 +28,7 @@ export const ResumeLeftRight = ({contact, experience, education, skills, portfol
       })
 	  educationSection = educationSection.join('');
 
-	  const img = contact.profilePicture ? "<img src='" + contact.profilePicture + "' class='rounded-circle'></img>" : "";
+	  const img = contact.profilePicture ? "<img src='" + contact.profilePicture + "'></img>" : "";
 
 	const html =  `<!DOCTYPE html>
 		<html lang="en">
@@ -45,35 +46,51 @@ export const ResumeLeftRight = ({contact, experience, education, skills, portfol
 			<body>
 				<div class="container-fluid border border-dark" style="height:11.5in">
 					<div class="m-4 align-content-center" style="background-color:rgba(255, 255, 255, 0)">
-						<div class="text-center border border-dark p-4 display-4">${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""}</div>
+						<div class="text-center p-4 display-4">${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""}</div>
 						<div class="text-center">
 							<p>${contact.bio ? contact.bio: ""}</p>
 						</div>
-						<div class="image text-center">
-							${img}
-						</div>
+
 					</div>
 			
 					<div class="container">
 						<div class="row align-items-top h-100">
-							<div class="col-lg-6 text-right">
-									<div class="experience">
-										<h4>Experience</h4>
-										<div class="company"> ${experienceSection}</div>
-									</div>
-									<div class="contact">
+                            <div class="col-lg-6 text-center">
+                                    <div class="image text-center">
+							            ${img}
+						            </div>                            
+									<div class="contact text-center mt-4">
 										<h4>Contact</h4>
 										<p>
-											${contact.email ? contact.email:""} &nbsp<i class="fa fa-envelope" aria-hidden="true"></i></br>
-											${contact.phone ? contact.phone:""} &nbsp<i class="fa fa-phone" aria-hidden="true"></i></br>
-											${contact ? contact.address:""} &nbsp<i class="fa fa-home" aria-hidden="true"></i></br> 
-											${contact ? contact.site:""} &nbsp<i class="fa fa-globe" aria-hidden="true"></i></br>
-											${contact ? contact.github:""} &nbsp<i class="fa fa-github" aria-hidden="true"></i></br>
-											${contact ? contact.linkedin:""} &nbsp<i class="fa fa-linkedin" aria-hidden="true"></i></br>
+                                            ${contact.email ? contact.email:""}</br>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i></br>
+                                            ${contact.phone ? contact.phone:""}</br>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i></br>                                            
+                                            ${contact ? contact.address:""}</br>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i></br>                                             
+                                            ${contact ? contact.site:""}</br>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i></br>                                            
+                                            ${contact ? contact.github:""}</br>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i></br>                                            
+											${contact ? contact.linkedin:""}</br>
 										</p>
 									</div>
 							</div>
-							<div class="col-lg-6 text-left align-items-center">
+                            <div class="col-lg-6 text-left align-items-center">
+                                    <div class="experience">
+                                        <h4>Experience</h4>
+                                        <div class="company"> ${experienceSection}</div>
+                                    </div>                             
 									<div class="education">
 										<h4>Education</h4>
 										<div>${educationSection}</div>
@@ -83,6 +100,7 @@ export const ResumeLeftRight = ({contact, experience, education, skills, portfol
 										<div class="skills">
 											<p>${skillSection}</p>                    
 										</div>
+										<div class="circle"></div>
 									</div>
 							</div>
 						</div>
@@ -116,9 +134,17 @@ export const ResumeLeftRight = ({contact, experience, education, skills, portfol
 			jumbtron{
 				margin:0;
 			}
-			p{
+			.contact p{
 				line-height:2em;
-			}
+            }
+            .fa{
+                color:#D3D3D3;
+            }
+			img{
+				height:200px;
+				width:200px;
+            }
+                        
 			.slider {
 			-webkit-appearance: none;
 			width: 100%;
@@ -151,11 +177,16 @@ export const ResumeLeftRight = ({contact, experience, education, skills, portfol
 				border-radius: 50%;
 				background: #4CAF50;
 				cursor: pointer;
-			}
-			img{
-				height:100px;
-				width:100px;
-			}
+            }
+            .circle {
+                width: 100px;
+                height: 100px;
+                -moz-border-radius: 50px;
+                -webkit-border-radius: 50px;
+                border-radius: 50px;
+				border-width:thin;
+				border-style:solid;
+            }                        
 		</style>`;
 
   return (

@@ -4,7 +4,8 @@ import moment from 'moment';
 export const ResumeLeftRightRTL = ({contact, experience, education, skills, portfolio, clicked }) => {
   	let skillSection = skills.map((skill) => {
           return (
-        	`${skill.skill}</br>`
+			`${skill.skill}
+			<div class="slider"></div>`
           )
         })
 	skillSection = skillSection.join('');
@@ -42,7 +43,7 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
 			</head>
 		
 			<body>
-				<div class="container-fluid border border-dark">
+				<div class="container-fluid border border-dark" style="height:11.5in">
 					<div class="m-4 align-content-center" style="background-color:rgba(255, 255, 255, 0)">
 						<div class="text-center border border-dark p-4 display-4">${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""}</div>
 						<div class="text-center">
@@ -115,18 +116,24 @@ export const ResumeLeftRightRTL = ({contact, experience, education, skills, port
 			jumbtron{
 				margin:0;
 			}
-		
-			.slider {
-			-webkit-appearance: none;
-			width: 100%;
-			height: 15px;
-			border-radius: 5px;   
-			background: #d3d3d3;
-			outline: none;
-			opacity: 0.7;
-			-webkit-transition: .2s;
-			transition: opacity .2s;
+			p{
+				line-height:2em;
 			}
+			.slider {
+				-webkit-appearance: none;
+				width: 100%;
+				height: 15px;
+				margin-top:2px;
+				margin-right:auto:
+				margin-left:auto;
+				margin-bottom:10px;
+				border-radius: 5px;   
+				background: #d3d3d3;
+				outline: none;
+				opacity: 0.7;
+				-webkit-transition: .2s;
+				transition: opacity .2s;
+				}
 		
 			.slider::-webkit-slider-thumb {
 				-webkit-appearance: none;

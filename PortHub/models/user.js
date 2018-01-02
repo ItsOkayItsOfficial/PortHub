@@ -9,7 +9,8 @@ const userSchema = new Schema({
   experience: [],
   portfolio: [],
   skills: [], 
-  education: []
+  education: [],
+  password:{type:String},
 });
 
 const User = mongoose.model("User", userSchema);

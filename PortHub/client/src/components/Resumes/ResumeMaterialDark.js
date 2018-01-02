@@ -4,7 +4,8 @@ import moment from 'moment';
 export const ResumeMaterialDark = ({contact, experience, education, skills, portfolio, clicked }) => {
   	let skillSection = skills.map((skill) => {
           return (
-        	`${skill.skill}</br>`
+            `${skill.skill}
+            <div class="slider white"></div>`
           )
         })
 	skillSection = skillSection.join('');
@@ -53,7 +54,7 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
                         ${img}
                     </div>
                     <div class="my-auto">
-                        <div class="contact text-muted">
+                        <div class="contact text-muted mb-4">
                             <h4>Contact</h4>
                             <p>
                                 <i class="fa fa-envelope" aria-hidden="true"></i>  ${contact.email ? contact.email:""} </br>
@@ -66,7 +67,7 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
                         </div>
                         <div class="text-muted">
                             <h4>Skills</h4>
-                            <p>${skillSection}</p>   
+                            ${skillSection}   
                         </div>
                     </div>
                 </div>
@@ -93,53 +94,25 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        $( function() {
-        $( ".slider" ).slider({
-            range: "min",
-            value: 10,
-            min: 1,
-            max: 10,
+    $( document ).ready(function() {
+        $(".slider").slider({
+          orientation: "horizontal",
+          range: "min",
+          max: 100,
+          value: 100,
+          animate: 1300
         });
-        } );
+        $(".slider").slider( "value", 100 );
+      });
+      
     </script>
     </html>
             
     <style>
         body{
-        height: 11in;
-        width: 8.5in;
-        margin: auto;
-        }
-    
-    
-        .slider {
-        -webkit-appearance: none;
-        width: 100%;
-        height: 15px;
-        border-radius: 5px;   
-        background: #d3d3d3;
-        outline: none;
-        opacity: 0.7;
-        -webkit-transition: .2s;
-        transition: opacity .2s;
-        }
-    
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%; 
-            background: #4CAF50;
-            cursor: pointer;
-        }
-        
-        .slider::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: #4CAF50;
-            cursor: pointer;
+            height: 11in;
+            width: 8.5in;
+            margin: auto;
         }
         img{
             height:100%;
@@ -147,8 +120,77 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
             line-height: 2em;
         }
         p{
-            line-height:3em;
+            line-height:2em;
         }
+
+        .sliderset {
+            margin-top: 70px; 
+          }
+          
+          .slider {
+            position: relative;
+            margin-top: 5px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom:15px;
+            width: 250px;
+            display: block;
+            background: #565656;
+            height: 7px;
+            box-shadow: 0 1px 0px rgba(255,255,255,0.25),
+              inset 0 0 4px rgba(0,0,0,0.9);
+            @include border-radius(20px);
+            div.ui-slider-range {
+              display: block;
+              height: 7px;
+              @include border-radius(7px);
+              @include transition-property(background-color);
+              @include transition-duration(100ms);
+            }
+
+            &.white div.ui-slider-range {
+               background-color: #e3e3e3;
+               box-shadow: inset 0 0 4px rgba(88, 88, 88, 0.5),
+                inset 0 0 2px rgba(0, 0, 0,0.3);
+               &.hilite, &.dragging {
+                background-color: #f0f0f0;
+               }
+            }
+            
+            a.ui-slider-handle {
+              position: absolute;
+              top: -5px;
+              margin-left: -9px;
+              z-index: 2;
+              height: 16px;
+              width: 16px;
+              @include border-radius(20px);
+              background-color: #d4d4d4;
+              @include background-image($chromeurl);
+              @include background-size(100% 100%);
+              border: 0px solid rgba(0,0,0,0.1);
+              box-shadow: 0 0px 2px rgba(0,0,0,0.4),
+                inset 0 0px 1px rgba(0,0,0,0.3),
+                0 1px 2px rgba(0,0,0,0.6),
+                0 4px 2px rgba(0,0,0,0.2),
+                0 9px 4px rgba(0,0,0,0.1),
+                inset 0 2px 1px rgba(255,255,255,1.0);
+              outline: none;
+            }
+            
+            a.ui-slider-handle:after {
+             content: "";
+              position: absolute;
+              width: 15px;
+              height: 15px;
+              left: -1px;
+              top: -4px;
+              background-color: none;
+              @include border-radius(12px);
+              @include background-image(radial-gradient(rgba(255,255,255,1.0), rgba(255,255,255,0.05) rgba(255,255,255,0.0)));
+            }
+          }
+
     </style>`;
 
   return (
