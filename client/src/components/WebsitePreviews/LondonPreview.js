@@ -125,7 +125,7 @@ export const LondonPreview = () => `<!DOCTYPE html>
 								</div>
 								<!-- col-xs-6 -->
 								<div class="col-xs-6 centered">
-									<img class="img-responsive" src="assets/templates/london/assets/qimg/p04.png" alt="">
+									<img class="img-responsive" src="assets/templates/london/assets/img/p04.png" alt="">
 									<a href="#">
 										<h6>
 											<i class="icon-link"></i> Project Name</h6>
