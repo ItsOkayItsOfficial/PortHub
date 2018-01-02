@@ -21,7 +21,7 @@ const Requirements = (props) => {
         </div>
           <div className='row'>
            <div className='col-lg-12'>
-            <h4 className='ReqHeaders'>Portfolio</h4>
+            <h4 className='ReqHeaders'>Portfolio:</h4>
               <ul className='ReqList'>
                 <li>Title</li>
                 <li>A 300x300 Image - Images not meeting this standard may cause errors on website!</li>
