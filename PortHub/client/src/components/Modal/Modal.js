@@ -1,6 +1,6 @@
 import React from 'react';
 import './Modal.css';
-import Aux from '../Aux/Aux';
+import Aux from '../Auxiliary/Auxiliary';
 import Backdrop from '../Backdrop/Backdrop';
 
 const modal = ({ show, closeModal, selectedTemplate, id, children, className, title, type, zIndex }) => {

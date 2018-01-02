@@ -1,5 +1,5 @@
 import React from 'react';
-import Aux from '../../../../components/Aux/Aux';
+import Aux from '../../../../components/Auxiliary/Auxiliary';
 import { Link } from 'react-router-dom';
 import './DetailedTemplate.css';
 

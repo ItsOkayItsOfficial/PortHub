@@ -3,12 +3,11 @@ import axios from 'axios';
 import { Redirect } from 'react-router';
 import CreateSiteSuccess from './CreateSiteMessage/CreateSiteSuccess';
 import CreateSiteError from './CreateSiteMessage/CreateSiteError';
-import Aux from '../../../components/Aux/Aux';
+import Aux from '../../../components/Auxiliary/Auxiliary';
 import './CreateSiteLoader.css';
 import Alert from 'react-s-alert';
 
 const CreateSiteLoader = ({ login, message, selectedTemplate }) => {
-  // TO DO--- check for when access token = 'ification_code'
   let accessToken = localStorage.getItem('accessToken')
                     ? localStorage.getItem('accessToken') : '';
   let userRepoNum = 0;

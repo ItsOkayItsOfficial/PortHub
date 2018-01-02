@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from '../../../components/Modal/Modal';
 import DetailedTemplate from './DetailedTemplate/DetailedTemplate';
-import Aux from '../../../components/Aux/Aux';
+import Aux from '../../../components/Auxiliary/Auxiliary';
 import './Template.css';
 
 const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, selectedTemplate, inputs, guestContinueShow, isAuthenticated }) => {

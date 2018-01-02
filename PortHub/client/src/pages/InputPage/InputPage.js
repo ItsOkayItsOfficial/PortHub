@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import { Link } from 'react-router-dom';
-import Aux from '../../components/Aux/Aux';
+import Aux from '../../components/Auxiliary/Auxiliary';
 import BaseInput from '../../components/Inputs/BaseInput';
 import Education from '../../components/Inputs/Education';
 import Skills from '../../components/Inputs/Skills';
