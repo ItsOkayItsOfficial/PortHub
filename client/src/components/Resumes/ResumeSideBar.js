@@ -2,12 +2,22 @@ import React from 'react';
 import moment from 'moment';
 
 export const ResumeSideBar = ({contact, experience, education, skills, portfolio, clicked }) => {
-  	let skillSection = skills.map((skill) => {
-          return (
-            `<span class="circle">
-                ${skill.skill}
-            </span>`
-          )
+	let i=0;
+  	let skillSection = skills.map((skill, i) => {
+		  	i++;
+		  	if (i%5 === 0){
+				return (
+					`</tr><tr><td class="containerCircle">
+						<span>${skill.skill}</span></img>
+					</td>`
+				)
+			} else {
+				return (
+					`<td class="containerCircle">
+						<span>${skill.skill}</span></img>
+					</td>`
+				)				
+			}
         })
 	skillSection = skillSection.join('');
   	let experienceSection = experience.map((experience) => {
@@ -98,7 +108,9 @@ export const ResumeSideBar = ({contact, experience, education, skills, portfolio
 									<div class="skills">
 										<h4>Skills</h4>
 										<div class="skills">
-											<p>${skillSection}</p>                    
+	  										<table class="text-center">
+	  											<tr>${skillSection}</tr>
+	  										</table>
 										</div>
 										<div class="circle"></div>
 									</div>
@@ -178,15 +190,18 @@ export const ResumeSideBar = ({contact, experience, education, skills, portfolio
 				background: #4CAF50;
 				cursor: pointer;
             }
-            .circle {
-                width: 100px;
-                height: 100px;
-                -moz-border-radius: 50px;
-                -webkit-border-radius: 50px;
-                border-radius: 50px;
-				border-width:thin;
-				border-style:solid;
-            }                        
+            .containerCircle {
+				background-image: url("http://www.math.com/school/subject3/images/S3U1L6GLcircle.gif");
+				background-size: 100px 100px;
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+			td{
+				height:100px;
+				width:100px;
+				color: gray;
+				font-size: 12px;
+			}                      
 		</style>`;
 
   return (
