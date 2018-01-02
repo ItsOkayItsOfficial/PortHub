@@ -47,10 +47,6 @@ class Login extends BaseForm {
           />
         </View>
 
-        {
-          this.props.haveResetPassword ? this.renderResetPasswordLink() : null
-        }
-
         <Button
           onPress={this.submit}
           style={[

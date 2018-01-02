@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
-import { RootNav } from './navigation';
+// import { RootNav } from './navigation';
+import { LoginScreen } from './screens';
 
 export default class App extends Component {
   state = {
@@ -23,7 +24,7 @@ export default class App extends Component {
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
           {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
-          <RootNav />
+          <LoginScreen />
         </View>
       );
     }
