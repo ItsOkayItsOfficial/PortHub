@@ -33,7 +33,7 @@ export const LondonPreview = () => `<!DOCTYPE html>
 			<!-- ===== vCard Navigation ===== -->
 			<div class="row w">
 				<div class="col-md-4">
-					<img class="img-responsive" src="assets/img/avatar.jpg" alt="">
+					<img class="img-responsive" src="assets/templates/london/assets/img/avatar.jpg" alt="">
 					<ul class="nav nav-tabs nav-stacked" id="myTab">
 						<li class="active">
 							<a href="#about">About</a>

@@ -26,7 +26,7 @@ const BaseInput = ({ changed, contact }) => {
                                 <div className="input-group-addon">F</div>                        
                                 <input type="text" 
                                         name="name"
-                                        value={contact ? contact.firstName : ''} 
+                                        value={contact && contact.firstName ? contact.firstName : ''} 
                                         className="form-control w-50" 
                                         placeholder="First Name *" 
                                         required="required" 
@@ -37,7 +37,7 @@ const BaseInput = ({ changed, contact }) => {
                                 <div className="input-group-addon">L</div>  
                                 <input type="text" 
                                         name="lastName"
-                                        value={contact ? contact.lastName : ''}
+                                        value={contact && contact.lastName ? contact.lastName : ''}
                                         className="form-control w-50" 
                                         placeholder="Last Name *" 
                                         required="required" 
@@ -56,7 +56,7 @@ const BaseInput = ({ changed, contact }) => {
                                 </div>  
                                     <textarea type="text" 
                                             name="address"
-                                            value={contact ? contact.address : ''} 
+                                            value={contact && contact.address ? contact.address : ''} 
                                             className="form-control" 
                                             placeholder="address" 
                                             required="required" 
@@ -75,7 +75,7 @@ const BaseInput = ({ changed, contact }) => {
                                     </div> 
                                     <input type="text" 
                                             name="profilePicture"
-                                            value={contact ? contact.profilePicture : ''}
+                                            value={contact && contact.profilePicture ? contact.profilePicture : ''}
                                             className="form-control" 
                                             placeholder="Profile Picture"
                                             onChange={(event) => changed(event, "_", 'contact', 'profilePicture')} />
@@ -93,7 +93,7 @@ const BaseInput = ({ changed, contact }) => {
                                     </div> 
                                     <input type="tel" 
                                             name="phone"
-                                            value={contact ? contact.phone : ''} 
+                                            value={contact && contact.phone ? contact.phone : ''} 
                                             className="form-control" 
                                             placeholder="phone"
                                             onChange={(event) => changed(event, "_", 'contact', 'phone')} />
@@ -106,7 +106,7 @@ const BaseInput = ({ changed, contact }) => {
                                     <div className="input-group-addon">@</div>
                                     <input type="email" 
                                             name="email"
-                                            value={contact ? contact.email : ''} 
+                                            value={contact && contact.email ? contact.email : ''} 
                                             className="form-control" 
                                             placeholder="email" 
                                             onChange={(event) => changed(event, "_", 'contact', 'email')} />
@@ -120,7 +120,7 @@ const BaseInput = ({ changed, contact }) => {
                             <label>Bio</label>
                             <textarea type="text" 
                                     name="bio"
-                                    value={contact ? contact.bio : ''} 
+                                    value={contact && contact.bio ? contact.bio : ''} 
                                     rows="5"
                                     className="form-control" 
                                     placeholder="Please enter your bio"
@@ -131,7 +131,7 @@ const BaseInput = ({ changed, contact }) => {
                                 <label>Current Job Title</label>
                                 <input type="text" 
                                         name="jobTitle"
-                                        value={contact ? contact.currentTitle : ''} 
+                                        value={contact && contact.currentTitle ? contact.currentTitle : ''} 
                                         className="form-control" 
                                         placeholder="current job title" 
                                         onChange={(event) => changed(event, "_", 'contact', 'currentTitle')} />
@@ -150,7 +150,7 @@ const BaseInput = ({ changed, contact }) => {
                             <input type="text" 
                                     name="phone" 
                                     className="form-control"
-                                    value={contact ? contact.site : ''} 
+                                    value={contact && contact.site ? contact.site : ''} 
                                     placeholder="Please enter personal site URL"
                                     onChange={(event) => changed(event, "_", 'contact', 'site')} />
                         </div>
@@ -166,7 +166,7 @@ const BaseInput = ({ changed, contact }) => {
                             </div>                            
                                 <input type="text" 
                                         name="github"
-                                        value={contact ? contact.github : ''}
+                                        value={contact && contact.github ? contact.github : ''}
                                         className="form-control" 
                                         placeholder="Please enter github URL"
                                         onChange={(event) => changed(event, "_", 'contact', 'github')} />
@@ -183,7 +183,7 @@ const BaseInput = ({ changed, contact }) => {
                             </div>                            
                                 <input type="text" 
                                         name="github"
-                                        value = {contact ? contact.linkedin : ''} 
+                                        value = {contact && contact.linkedin ? contact.linkedin : ''} 
                                         className="form-control" 
                                         placeholder="Please enter LinkedIn URL"
                                         onChange={(event) => changed(event, "_", 'contact', 'linkedin')} />

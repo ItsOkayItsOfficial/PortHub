@@ -1,4 +1,3 @@
-import React from 'react';
 export const LawrencePreview = () => `<!DOCTYPE html>
 <html lang="en">
 
@@ -82,7 +81,7 @@ export const LawrencePreview = () => `<!DOCTYPE html>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5 centered">
-					<img src="assets/img/iphone.png" alt="">
+					<img src="assets/templates/lawrence/assets/img/iphone.png" alt="">
 				</div>
 
 				<div class="col-lg-7 centered">
@@ -102,17 +101,17 @@ export const LawrencePreview = () => `<!DOCTYPE html>
 			<div class="mt"></div>
 			<div class="col-lg-4">
 				<a id="proj_1" href="#">
-					<img src="assets/img/01.jpg" alt="">
+					<img src="assets/templates/lawrence/assets/img/01.jpg" alt="">
 				</a>
 			</div>
 			<div class="col-lg-4">
 				<a id="proj_2" href="#">
-					<img src="assets/img/02.jpg" alt="">
+					<img src="assets/templates/lawrence/assets/img/02.jpg" alt="">
 				</a>
 			</div>
 			<div class="col-lg-4">
 				<a id="proj_3" href="#">
-					<img src="assets/img/03.jpg" alt="">
+					<img src="assets/templates/lawrence/assets/img/03.jpg" alt="">
 				</a>
 			</div>
 		</div>
@@ -121,17 +120,17 @@ export const LawrencePreview = () => `<!DOCTYPE html>
 			<div class="mt"></div>
 			<div class="col-lg-4">
 				<a id="proj_4" href="#">
-					<img src="assets/img/04.jpg" alt="">
+					<img src="assets/templates/lawrence/assets/img/04.jpg" alt="">
 				</a>
 			</div>
 			<div class="col-lg-4">
 				<a id="proj_5" href="#">
-					<img src="assets/img/05.jpg" alt="">
+					<img src="assets/templates/lawrence/assets/img/05.jpg" alt="">
 				</a>
 			</div>
 			<div class="col-lg-4">
 				<a id="proj_6" href="#">
-					<img src="assets/img/06.jpg" alt="">
+					<img src="assets/templates/lawrence/assets/img/06.jpg" alt="">
 				</a>
 			</div>
 		</div>

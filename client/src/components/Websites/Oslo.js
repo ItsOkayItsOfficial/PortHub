@@ -119,7 +119,7 @@ export const Oslo = ({contact, experience, education, skills, portfolio, clicked
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
           <h1>${contact ? contact.firstName + ' ' + contact.lastName : ''}</h1>
-					<h2 style='font-size:24px; color:white;text-shadow: 2px 2px black'><strong>${contact ? contact.currentTitle : ''} | ${contact ? contact.email : ''}</strong></h2>
+					<h2 style='font-size:24px; color:white;text-shadow: 2px 2px black'><strong>${contact && contact.currentTitle ? contact.currentTitle.toUpperCase() : ''} | ${contact ? contact.email : ''}</strong></h2>
 				</div>
 			</div>
 			<!-- /row -->
@@ -139,7 +139,7 @@ export const Oslo = ({contact, experience, education, skills, portfolio, clicked
 				</div>
 				<!-- /col-lg-4-->
 				<div class="col-lg-8 name-desc">
-					<h2>${contact ? contact.currentTitle.toUpperCase() : ''}</h2>
+					<h2>${contact ? contact.currentTitle : ''}</h2>
 					<div class="name-zig"></div>
 
 					<div class="col-md-12">

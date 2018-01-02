@@ -400,7 +400,7 @@ export const MontrealPreview = () => `<!DOCTYPE html>
 			</div>
 			<div class="col-lg-6">
 				<p>
-					<img class="img-responsive" src="assets/img/port01.jpg" alt="">
+					<img class="img-responsive" src="assets/templates/montreal/assets/img/port01.jpg" alt="">
 				</p>
 			</div>
 			<div class="col-lg-3">
@@ -419,7 +419,7 @@ export const MontrealPreview = () => `<!DOCTYPE html>
 
 			<div class="col-lg-6 col-lg-offset-3">
 				<p>
-					<img class="img-responsive" src="assets/img/port02.jpg" alt="">
+					<img class="img-responsive" src="assets/templates/montreal/assets/img/port02.jpg" alt="">
 				</p>
 			</div>
 			<div class="col-lg-3">
@@ -438,7 +438,7 @@ export const MontrealPreview = () => `<!DOCTYPE html>
 
 			<div class="col-lg-6 col-lg-offset-3">
 				<p>
-					<img class="img-responsive" src="assets/img/port03.jpg" alt="">
+					<img class="img-responsive" src="assets/templates/montreal/assets/img/port03.jpg" alt="">
 				</p>
 			</div>
 			<div class="col-lg-3">
