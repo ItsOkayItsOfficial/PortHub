@@ -66,7 +66,7 @@ export const Oslo = ({contact, experience, education, skills, portfolio, clicked
 	<title>${contact ? contact.firstName + ' ' + contact.lastName : ''}</title>
 
 	<!-- Bootstrap 3.0.2 CSS -->
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
 	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/app/client/templates/oslo/assets/css/style.css" rel="stylesheet">
 
@@ -223,7 +223,7 @@ export const Oslo = ({contact, experience, education, skills, portfolio, clicked
 	<!-- Classie 1.0.1 -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
 	<!-- Bootstrap 3.0.2 -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
 	<!-- StellerJS 0.6.2 -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"></script>
