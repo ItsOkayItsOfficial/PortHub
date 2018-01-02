@@ -11,7 +11,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
 	<title>Daniel Miller</title>
 
 	<!-- Bootstrap 3.0.2 CSS -->
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
 	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/app/client/templates/oslo/assets/css/style.css" rel="stylesheet">
 
@@ -116,7 +116,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
                 <div class="photo-wrapper">
                   <div class="photo">
                     <a class="fancybox" target='_blank' href="port.com">
-                      <img class="img-responsive" src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 1">
+                      <img class="img-responsive" src="https://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 1">
                     </a>
                   </div>
                   <div class="overlay"></div>
@@ -133,7 +133,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
                 <div class="photo-wrapper">
                   <div class="photo">
                     <a class="fancybox" target='_blank' href="port.com">
-                      <img class="img-responsive" src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 2">
+                      <img class="img-responsive" src="https://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 2">
                     </a>
                   </div>
                   <div class="overlay"></div>
@@ -150,7 +150,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
                 <div class="photo-wrapper">
                   <div class="photo">
                     <a class="fancybox" target='_blank' href="port.com">
-                      <img class="img-responsive" src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 3">
+                      <img class="img-responsive" src="https://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 3">
                     </a>
                   </div>
                   <div class="overlay"></div>
@@ -167,7 +167,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
                 <div class="photo-wrapper">
                   <div class="photo">
                     <a class="fancybox" target='_blank' href="port.com">
-                      <img class="img-responsive" src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 4">
+                      <img class="img-responsive" src="https://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="Port 4">
                     </a>
                   </div>
                   <div class="overlay"></div>
@@ -398,7 +398,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
 	<!-- Classie 1.0.1 -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
 	<!-- Bootstrap 3.0.2 -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 	<!-- Smoothscroll -->
 	<script src="assets/js/smoothscroll.js"></script>
 	<!-- StellerJS 0.6.2 -->

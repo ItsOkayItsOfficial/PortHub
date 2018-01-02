@@ -13,7 +13,7 @@ export const LawrencePreview = () => `<!DOCTYPE html>
 	<title>Lawrence</title>
 
 	<!-- Bootstrap 3.0.2 CSS -->
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
 	<link href="https://rawgit.com/ItsOkayItsOfficial/project3/app/client/public/assets/templates/lawrence/assets/css/main.css" rel="stylesheet">
 
@@ -274,7 +274,7 @@ export const LawrencePreview = () => `<!DOCTYPE html>
 
 
 	<!-- Bootstrap 3.0.2 -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 	<script>
     $('.nav-link, .nav-logo').on('click', function (event) {
       event.preventDefault()
