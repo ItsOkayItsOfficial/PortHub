@@ -32,7 +32,7 @@ export const OsloPreview = () => `<!DOCTYPE html>
 	<nav class="menu" id="theMenu">
 		<div class="menu-wrap">
 			<h1 class="logo">
-				<a href="index.html#home">Cody Crozier</a>
+				<a href="index.html#home">Daniel Miller</a>
 			</h1>
 			<i class="fa fa-times menu-close"></i>
 			<a href="#home" class="nav-link">Home</a>
