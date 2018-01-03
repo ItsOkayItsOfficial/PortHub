@@ -189,14 +189,14 @@ class InputPage extends Component {
     }
       return (
         <Aux>
-          <BaseInput key={'base'} changed={this.prepareStateHandler} contact={this.state.contact}/>
+          <BaseInput key={'base'} changed={this.prepareStateHandler} contact={this.state.contact} button={selectButton}/>
           <div id="accordion" role="tablist" aria-multiselectable="true">
               { (education[0] && education[0].length>0) ? <Accordion type="education" i='0'>{education}</Accordion> : ''}
               { (experience[0] && experience[0].length>0) ? <Accordion type="experience" i='1'>{experience}</Accordion> : ''}
               { (skills[0] && skills[0].length>0) ? <Accordion type="skills" i='2'>{skills}</Accordion> : ''}
               { (portfolio[0] && portfolio[0].length>0) ? <Accordion type="portfolio" i='3'>{portfolio}</Accordion> : ''}
           </div>
-          <div className="text-center">
+          <div className="text-center mt-3">
             {selectButton}
           </div>
         </Aux>

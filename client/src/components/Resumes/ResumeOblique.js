@@ -3,13 +3,24 @@ import moment from 'moment';
 
 export const ResumeOblique = ({contact, experience, education, skills, portfolio, clicked }) => {
 	let i=0;
-  	let skillSection = skills.map((skill) => {
-        return (
-            `<div class="d-flex justify-content-start m-2 align-items-center" style="width:30%; line-height:.8em">
-            <i class="fa fa-caret-down" aria-hidden="true" style="font-size:8px;">
-                </i>&nbsp&nbsp${skill.skill}
-            </div>`
-        )
+  	let skillSection = skills.map((skill, i) => {
+
+        if (i%4 === 0){
+            return (
+                `</tr><tr><td>
+                    <i class="fa fa-caret-down" aria-hidden="true" style="font-size:8px;">
+                    </i>&nbsp&nbsp${skill.skill}
+                </td>`
+            )
+        } else {
+            return (
+                `<td>
+                    <i class="fa fa-caret-down" aria-hidden="true" style="font-size:8px;">
+                    </i>&nbsp&nbsp${skill.skill}
+                </td>`
+            )
+        }
+        i++;
     })
 	skillSection = skillSection.join('');
   	let experienceSection = experience.map((experience) => {
@@ -70,9 +81,9 @@ export const ResumeOblique = ({contact, experience, education, skills, portfolio
                     </div>
                     <div class="skills w-75 mx-auto">
                         <h3>Skills</h3>
-                        <div class="d-flex flex-row flex-wrap mx-auto" style="width:100%">${skillSection}</div>
+                        <table class="mx-auto" style="width:100%"><tr>${skillSection}</tr></table>
                     </div>   
-                    <div class="contact w-75 mx-auto">
+                    <div class="contact w-75 mx-auto mt-4">
                         <p>
                             <i class="fa fa-envelope" aria-hidden="true"></i> ${contact.email ? contact.email:""} | <i class="fa fa-phone" aria-hidden="true"></i> ${contact.phone ? contact.phone:""}</br>									
                             <i class="fa fa-globe" aria-hidden="true"></i>  ${contact ? contact.site:""} | <i class="fa fa-github" aria-hidden="true"></i>  ${contact ? contact.github:""} | <i class="fa fa-linkedin-square" aria-hidden="true"></i>  ${contact ? contact.linkedin:""}
@@ -91,12 +102,18 @@ export const ResumeOblique = ({contact, experience, education, skills, portfolio
     </html>
     
     <style>
+        html {
+            height: 0;
+            transform-origin: 0 0;
+            -webkit-transform-origin: 0 0;
+            transform: scale(0.74);
+            -webkit-transform: scale(0.745);
+        }
         body{
-        height: 11in;
-        width: 8.5in;
-        margin: auto;
-        font-size: 16px;
-        line-height: 1.0;
+            font-size:16px;
+            margin:auto;
+            width:8in;
+            height:11in;
         }
         .profilePic{
             width:100px;
@@ -105,16 +122,19 @@ export const ResumeOblique = ({contact, experience, education, skills, portfolio
         #rectangle {
             z-index:-1;
             position:fixed;
-            height:13%;
+            top:0;
+            height:150px;
             width:8in;
             background: #006666;
+            border-bottom: solid #006666;
         } 
         #triangle-topright {
             z-index:-1;
             position:fixed;
-            top:13%;
+            top:150px;
             border-top: 300px solid #006666;
             border-left: 8in solid transparent;
+            
         }     
         td {
             padding:5px;
