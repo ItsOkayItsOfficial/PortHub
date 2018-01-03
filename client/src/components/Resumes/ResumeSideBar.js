@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 export const ResumeSideBar = ({contact, experience, education, skills, portfolio, clicked }) => {
-	let i=0;
+
   	let skillSection = skills.map((skill, i) => {
 		  	i++;
 		  	if (i%5 === 0){
@@ -112,7 +112,6 @@ export const ResumeSideBar = ({contact, experience, education, skills, portfolio
 										<tr>${skillSection}</tr>
 									</table>
 								</div>
-								<div class="circle"></div>
 							</div>
 
 							</td>

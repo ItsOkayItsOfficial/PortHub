@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 
 export const ResumeSideBarRTL = ({contact, experience, education, skills, portfolio, clicked }) => {
-	let i=0;
   	let skillSection = skills.map((skill, i) => {
 		  	i++;
 		  	if (i%5 === 0){

@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 export const ResumePurple = ({contact, experience, education, skills, portfolio, clicked }) => {
-	let i=0;
+
   	let skillSection = skills.map((skill, i) => {
         if (i%4 === 0){
             return (`</tr><tr><td style="padding-left:10px; padding-right:10px;"><i class="fa fa-circle" aria-hidden="true" style="font-size:8px;"></i>&nbsp&nbsp${skill.skill}</td>`);

@@ -2,9 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 export const ResumeOblique = ({contact, experience, education, skills, portfolio, clicked }) => {
-	let i=0;
   	let skillSection = skills.map((skill, i) => {
-
         if (i%4 === 0){
             return (
                 `</tr><tr><td>
@@ -20,7 +18,6 @@ export const ResumeOblique = ({contact, experience, education, skills, portfolio
                 </td>`
             )
         }
-        i++;
     })
 	skillSection = skillSection.join('');
   	let experienceSection = experience.map((experience) => {

@@ -11,10 +11,9 @@ const userSchema = new Schema({
   skills: [], 
   education: [],
   password:{type:String},
-  template: [{
+  template:[{
     type:Schema.Types.ObjectId,
-    ref:'Template'
-  }] 
+    ref:'Template'}]
 });
 
 const User = mongoose.model("User", userSchema);
