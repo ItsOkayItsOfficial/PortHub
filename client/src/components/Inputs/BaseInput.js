@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BaseInput = ({ changed, contact }) => {
+const BaseInput = ({ changed, contact, button }) => {
 
     // let contactFirstName = contact.firstName || window.sessionStorage.getItem('contactfirstName') || "";
     // let contactLastName = contact.lastName || window.sessionStorage.getItem('contactlastName') || "";
@@ -16,7 +16,10 @@ const BaseInput = ({ changed, contact }) => {
 
     return(
         <div className="container border border-primary rounded p-5 mt-5 mb-5">
-            <h1 className="text-center"> Please enter your information </h1> 
+            <div className="d-flex flex-row justify-content-center">
+                <h1 className="text-center"> Please enter your information </h1> 
+                <div className="ml-auto">{button}</div>
+            </div>        
             <div className="row">
                 <div className="col-md-6">
                     <label>Name *</label>
@@ -192,6 +195,7 @@ const BaseInput = ({ changed, contact }) => {
                     </div>
                 </div>
             </div>
+
     </div>
     )
 }

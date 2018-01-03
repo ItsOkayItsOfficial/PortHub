@@ -47,15 +47,15 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
     </head>
     
     <body>
-        <div class="border border-dark">
-            <div class="row" style="height:11.5in">
-                <div class="col-lg-4 d-flex align-content-around flex-column h-100 " style="background:darkslategray">
+        <table style="width:9in; height:9.975in;">
+            <tr>
+                <td style="width:3in; height:11in; background:darkslategray; padding:50px;">
                     <div class="image">
                         ${img}
                     </div>
                     <div class="my-auto">
-                        <div class="contact text-muted mb-4">
-                            <h4>Contact</h4>
+                        <div class="contact text-muted mt-4 mb-2">
+                            <h5>Contact</h5>
                             <p>
                                 <i class="fa fa-envelope" aria-hidden="true"></i>  ${contact.email ? contact.email:""} </br>
                                 <i class="fa fa-phone" aria-hidden="true"></i>  ${contact.phone ? contact.phone:""}</br>
@@ -66,15 +66,15 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
                             </p>
                         </div>
                         <div class="text-muted">
-                            <h4>Skills</h4>
+                            <h5>Skills</h5>
                             ${skillSection}   
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-8" style="background:gray">
-                    <div class="text-left mt-4">
-                        <h3>	${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""}</h3>
-                        <p>${contact.bio ? contact.bio: ""}</p>
+                    </div>            
+                </td>
+                <td style="width:5in; height:11in; background:gray; padding:20px;">
+                <div class="text-left mt-4">
+                    <h3>	${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""}</h3>
+                    <p>${contact.bio ? contact.bio: ""}</p>
                     </div>
                     <div>
                         <h4>Experience</h4>
@@ -82,10 +82,11 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
                     </div>
                     <div>
                         <h4>Education</h4>
-                    <div>${educationSection}</div>
-                </div>
-            </div>
-        </div>
+                    <div>${educationSection}</div>            
+                </td>       
+            </tr>
+        </table>
+
     </body>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -109,15 +110,22 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
     </html>
             
     <style>
+        html {
+            height: 0;
+            transform-origin: 0 0;
+            -webkit-transform-origin: 0 0;
+            transform: scale(0.72);
+            -webkit-transform: scale(0.72);
+        }
         body{
-            height: 11in;
-            width: 8.5in;
+            font-size:16px;
             margin: auto;
+            width:9in;
+            height:10in;
         }
         img{
             height:100%;
             width:100%;
-            line-height: 2em;
         }
         p{
             line-height:2em;

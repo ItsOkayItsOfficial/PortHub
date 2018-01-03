@@ -5,7 +5,7 @@ export const ResumeLeftRight = ({contact, experience, education, skills, portfol
   	let skillSection = skills.map((skill) => {
           return (
 			`${skill.skill}
-			<div class="slider"></div>`
+			<div class="slider w-75"></div>`
           )
         })
 	skillSection = skillSection.join('');
@@ -43,7 +43,7 @@ export const ResumeLeftRight = ({contact, experience, education, skills, portfol
 			</head>
 		
 			<body>
-				<div class="container-fluid border border-dark" style="height:11.5in">
+				<div class="container-fluid" style="height:11in">
 					<div class="m-4 align-content-center" style="background-color:rgba(255, 255, 255, 0)">
 						<div class="text-center border border-dark p-4 display-4">${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""}</div>
 						<div class="text-center">
@@ -53,40 +53,41 @@ export const ResumeLeftRight = ({contact, experience, education, skills, portfol
 							${img}
 						</div>
 					</div>
-			
-					<div class="container">
-						<div class="row align-items-top h-100">
-							<div class="col-lg-6 text-right">
-									<div class="experience">
-										<h4>Experience</h4>
-										<div class="company"> ${experienceSection}</div>
-									</div>
-									<div class="contact">
-										<h4>Contact</h4>
-										<p>
-											${contact.email ? contact.email:""} &nbsp<i class="fa fa-envelope" aria-hidden="true"></i></br>
-											${contact.phone ? contact.phone:""} &nbsp<i class="fa fa-phone" aria-hidden="true"></i></br>
-											${contact ? contact.address:""} &nbsp<i class="fa fa-home" aria-hidden="true"></i></br> 
-											${contact ? contact.site:""} &nbsp<i class="fa fa-globe" aria-hidden="true"></i></br>
-											${contact ? contact.github:""} &nbsp<i class="fa fa-github" aria-hidden="true"></i></br>
-											${contact ? contact.linkedin:""} &nbsp<i class="fa fa-linkedin" aria-hidden="true"></i></br>
-										</p>
-									</div>
-							</div>
-							<div class="col-lg-6 text-left align-items-center">
-									<div class="education">
-										<h4>Education</h4>
-										<div>${educationSection}</div>
-									</div>
+					  
+					<table style="width:100%">
+						<tr>
+							<td valign="top" align="right" style="width:40%; padding:20px; margin-left:10%">
+								<div class="experience">
+									<h4>Experience</h4>
+									<div class="company"> ${experienceSection}</div>
+								</div>
+								<div class="contact">
+									<h4>Contact</h4>
+									<p>
+										${contact.email ? contact.email:""} &nbsp<i class="fa fa-envelope" aria-hidden="true"></i></br></br>
+										${contact.phone ? contact.phone:""} &nbsp<i class="fa fa-phone" aria-hidden="true"></i></br></br>
+										${contact ? contact.address:""} &nbsp<i class="fa fa-home" aria-hidden="true"></i></br></br> 
+										${contact ? contact.site:""} &nbsp<i class="fa fa-globe" aria-hidden="true"></i></br></br>
+										${contact ? contact.github:""} &nbsp<i class="fa fa-github" aria-hidden="true"></i></br></br>
+										${contact ? contact.linkedin:""} &nbsp<i class="fa fa-linkedin" aria-hidden="true"></i></br></br>
+									</p>
+								</div>							
+							</td>
+							<td style="width:40%; padding:20px; margin-right:10%">
+								<div class="education">
+									<h4>Education</h4>
+									<div>${educationSection}</div>
+								</div>
+								<div class="skills">
+									<h4>Skills</h4>
 									<div class="skills">
-										<h4>Skills</h4>
-										<div class="skills">
-											<p>${skillSection}</p>                    
-										</div>
+										<p>${skillSection}</p>                    
 									</div>
-							</div>
-						</div>
-					</div>
+								</div>							
+							</td>
+						</tr>
+					</table>
+
 				</div>
 			</body>
 		
@@ -108,32 +109,44 @@ export const ResumeLeftRight = ({contact, experience, education, skills, portfol
 		</html>
 		
 		<style>
-			body{
-			height: 11in;
-			width: 8.5in;
-			margin: auto;
-			}
+        html {
+            height: 0;
+            transform-origin: 0 0;
+            -webkit-transform-origin: 0 0;
+            transform: scale(0.72);
+            -webkit-transform: scale(0.72);
+        }
+        body{
+            font-size:16px;
+            margin: auto;
+            width:9in;
+			height:10in;
+			margin:auto;
+        }
 			jumbtron{
 				margin:0;
 			}
 			p{
-				line-height:2em;
+				line-height:1.5em;
+			}
+			.skills p{
+				line-height:.75em;
 			}
 			.slider {
-			-webkit-appearance: none;
-			width: 100%;
-			height: 15px;
-			margin-top:2px;
-			margin-right:auto:
-			margin-left:auto;
-			margin-bottom:10px;
-			border-radius: 5px;   
-			background: #d3d3d3;
-			outline: none;
-			opacity: 0.7;
-			-webkit-transition: .2s;
-			transition: opacity .2s;
-			}
+				-webkit-appearance: none;
+				width: 100%;
+				height: 15px;
+				margin-top:2px;
+				margin-right:auto:
+				margin-left:auto;
+				margin-bottom:10px;
+				border-radius: 5px;   
+				background: #d3d3d3;
+				outline: none;
+				opacity: 0.7;
+				-webkit-transition: .2s;
+				transition: opacity .2s;
+				}
 		
 			.slider::-webkit-slider-thumb {
 				-webkit-appearance: none;

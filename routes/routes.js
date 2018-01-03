@@ -36,8 +36,16 @@ router.post('/api/createpdf', ((req, res) =>{
     var pdf = require('html-pdf');
  
     var htmlFile = fs.readFileSync(__dirname + '/../client/public/temp/resume.html', 'utf8');   
-    var options = { format: 'Letter'};    
-
+    // var options = { "format":"Letter", "margin":"0" };    
+    var options = { 
+      "format": "Letter",
+      "border": {
+      "top": "0",
+      "bottom":"0",
+      "left": "0",
+      "right":"0"            
+      },
+  };
     pdf.create(htmlFile, options).toFile(__dirname + '/../client/public/temp/resume.pdf', function(err, res) {
         if (err) return console.log(err);
       });

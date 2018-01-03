@@ -7,7 +7,7 @@ import Skills from '../../components/Inputs/Skills';
 import Experience from '../../components/Inputs/Experience';
 
 import {Montreal, Lawrence, London, Oslo} from '../../components/Websites';
-import {ResumeLeftRightRTL, ResumeLeftRight, ResumeMaterialDark, ResumeSideBar, ResumeSideBarRTL, ResumePurple} from '../../components/Resumes';
+import {ResumeLeftRightRTL, ResumeLeftRight, ResumeMaterialDark, ResumeSideBar, ResumeSideBarRTL, ResumePurple, ResumeOblique} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
 import Accordion from '../../components/Accordion/Accordion';
 import axios from 'axios';
@@ -170,7 +170,10 @@ class InputPage extends Component {
             break; 
       case "resume-purple":
             selectButton = <ResumePurple {...props} />;
-            break;                                                               
+            break; 
+      case "resume-oblique":
+            selectButton = <ResumeOblique {...props} />;
+            break;                                                                           
       default:
             break;
     }
@@ -186,14 +189,14 @@ class InputPage extends Component {
     }
       return (
         <Aux>
-          <BaseInput key={'base'} changed={this.prepareStateHandler} contact={this.state.contact}/>
+          <BaseInput key={'base'} changed={this.prepareStateHandler} contact={this.state.contact} button={selectButton}/>
           <div id="accordion" role="tablist" aria-multiselectable="true">
               { (education[0] && education[0].length>0) ? <Accordion type="education" i='0'>{education}</Accordion> : ''}
               { (experience[0] && experience[0].length>0) ? <Accordion type="experience" i='1'>{experience}</Accordion> : ''}
               { (skills[0] && skills[0].length>0) ? <Accordion type="skills" i='2'>{skills}</Accordion> : ''}
               { (portfolio[0] && portfolio[0].length>0) ? <Accordion type="portfolio" i='3'>{portfolio}</Accordion> : ''}
           </div>
-          <div className="text-center">
+          <div className="text-center mt-3">
             {selectButton}
           </div>
         </Aux>

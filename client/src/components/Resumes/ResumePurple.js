@@ -3,13 +3,12 @@ import moment from 'moment';
 
 export const ResumePurple = ({contact, experience, education, skills, portfolio, clicked }) => {
 	let i=0;
-  	let skillSection = skills.map((skill) => {
-        return (
-            `<div class="d-flex justify-content-start m-2 align-items-center" style="width:30%; line-height:.8em">
-            <i class="fa fa-circle" aria-hidden="true" style="font-size:8px;">
-                </i>&nbsp&nbsp${skill.skill}
-            </div>`
-        )
+  	let skillSection = skills.map((skill, i) => {
+        if (i%4 === 0){
+            return (`</tr><tr><td style="padding-left:10px; padding-right:10px;"><i class="fa fa-circle" aria-hidden="true" style="font-size:8px;"></i>&nbsp&nbsp${skill.skill}</td>`);
+        } else {
+            return (`<td style="padding-left:10px; padding-right:10px;"><i class="fa fa-circle" aria-hidden="true" style="font-size:8px;"></i>&nbsp&nbsp${skill.skill}</td>`);
+        }
     })
 	skillSection = skillSection.join('');
   	let experienceSection = experience.map((experience) => {
@@ -30,8 +29,6 @@ export const ResumePurple = ({contact, experience, education, skills, portfolio,
       })
 	  educationSection = educationSection.join('');
 
-	  const img = contact.profilePicture ? "<img src='" + contact.profilePicture + "'></img>" : "";
-
 	const html =  `<!DOCTYPE html>
     <html lang="en">
         <head>
@@ -46,7 +43,7 @@ export const ResumePurple = ({contact, experience, education, skills, portfolio,
         </head>
     
         <body>
-            <div class="container-fluid" style="height:11in">
+            <div class="container-fluid" style="height:11.3in; width:8.7in">
                     <div class="row flex-row mb-4" style="background-color:rgb(150, 0, 150); color:white; height:13%">
                         <div class="display-4 ml-4 mb-0">${contact.firstName.toUpperCase()} ${contact.lastName.toUpperCase()}</div>
                         <div class="contact ml-4">
@@ -67,11 +64,15 @@ export const ResumePurple = ({contact, experience, education, skills, portfolio,
                         </div>
                         <div class="skills w-75 mx-auto">
                             <h3>Skills</h3> <hr>
-                            <div class="d-flex flex-row flex-wrap mx-auto" style="width:100%">${skillSection}</div>
+                            <table>
+                                <tr>
+                                    ${skillSection}
+                                </tr>
+                            </table>
                         </div>                           
                     </div>
                     <div class="row flex-row" style=" height:8%; background-color:rgb(150, 0, 150); color:white;">
-                        <div class="text-left p-4 mt-2">
+                        <div class="text-left p-4">
                             <span>About me: ${contact.bio ? contact.bio: ""}</span>
                         </div>
                     </div> 
@@ -83,25 +84,21 @@ export const ResumePurple = ({contact, experience, education, skills, portfolio,
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script>
-            $( function() {
-            $( ".slider" ).slider({
-                range: "min",
-                value: 10,
-                min: 1,
-                max: 10,
-            });
-            } );
-        </script>
     </html>
     
     <style>
+        html {
+            height: 0;
+            transform-origin: 0 0;
+            -webkit-transform-origin: 0 0;
+            transform: scale(0.75);
+            -webkit-transform: scale(0.785);
+        }
         body{
-        height: 11in;
-        width: 8.5in;
-        margin: auto;
-        font-size: 16px;
-        line-height: 1.0;
+            font-size:16px;
+            margin: auto;
+            width:8.7in;
+            height:11.3in;
         }
     </style>`;
 
