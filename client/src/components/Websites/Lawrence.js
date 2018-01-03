@@ -10,11 +10,11 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
 					<br>
 					<script>
 						var doughnutData = [{
-								value: 70,
+								value: ${skill.rating},
 								color: "#74cfae"
 							},
 							{
-								value: 30,
+								value: ${100-skill.rating},
 								color: "#3c3c3c"
 							}
 						];

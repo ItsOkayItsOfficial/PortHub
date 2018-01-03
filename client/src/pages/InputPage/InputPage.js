@@ -49,12 +49,12 @@ class InputPage extends Component {
         ...this.state[field][inputIndex]
       } : {id};
 
-      fieldObj[subfield] = event.target.value;
+      subfield === 'rating' ? fieldObj[subfield] = event : fieldObj[subfield] = event.target.value;
 
       !fieldState[inputIndex] ? fieldState.push(fieldObj) : fieldState[inputIndex]=fieldObj;
       this.setState({[field]: fieldState})
 
-      window.sessionStorage.setItem(id+subfield,event.target.value);
+      subfield === 'rating' ? window.sessionStorage.setItem(id+subfield,event) : window.sessionStorage.setItem(id+subfield,event.target.value);
     }
 
   }
