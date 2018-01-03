@@ -39,11 +39,11 @@ export const Oslo = ({contact, experience, education, skills, portfolio, clicked
 					<br>
 					<script>
 						var doughnutData = [{
-								value: 70,
+								value: ${skill.rating},
 								color: "#74cfae"
 							},
 							{
-								value: 30,
+								value: ${100-skill.rating},
 								color: "#3c3c3c"
 							}
 						];

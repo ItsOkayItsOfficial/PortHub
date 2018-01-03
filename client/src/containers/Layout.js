@@ -21,7 +21,7 @@ import Aux from '../components/Auxiliary/Auxiliary';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/bouncyflip.css';
-require('default-passive-events');
+
 
 class Layout extends Component{
 
@@ -73,7 +73,7 @@ class Layout extends Component{
   redirectToGitHubHandler = () => {
     console.log("clientid:", Keys.clientId);
     window.location.replace('https://github.com/login/oauth/authorize?client_id='+ 
-    Keys.clientId + '&redirect_uri=https://realporthub.herokuapp.com/authLoader&state=1234&scope=user,public_repo');
+    Keys.clientId + '&redirect_uri=http://localhost:3000/authLoader&state=1234&scope=user,public_repo');
   }
 
   getUserInfoHandler = (token) => {

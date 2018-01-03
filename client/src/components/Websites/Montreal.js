@@ -12,11 +12,11 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 					<br>
 					<script>
 						var doughnutData = [{
-								value: 100,
+								value: ${skill.rating},
 								color: "#1abc9c"
 							},
 							{
-								value: 0,
+								value: ${100-skill.rating},
 								color: "#ecf0f1"
 							}
 						];
