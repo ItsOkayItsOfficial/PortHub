@@ -5,6 +5,7 @@ import CreateSiteSuccess from './CreateSiteMessage/CreateSiteSuccess';
 import CreateSiteError from './CreateSiteMessage/CreateSiteError';
 import Aux from '../../../components/Auxiliary/Auxiliary';
 import './CreateSiteLoader.css';
+import '../loading.css'
 import Alert from 'react-s-alert';
 
 const CreateSiteLoader = ({ login, message, selectedTemplate }) => {

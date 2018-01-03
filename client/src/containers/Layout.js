@@ -15,6 +15,7 @@ import CreateSiteLoader from '../pages/LoadingPages/CreateSiteLoader/CreateSiteL
 import AuthLoader from '../pages/LoadingPages/AuthLoader/AuthLoader';
 import Modal from '../components/Modal/Modal';
 import ContinueAsGuest from '../components/ContinueAsGuest/ContinueAsGuest';
+import Dashboard from '../pages/Dashboard/Dashboard';
 import Keys from '../keys/keys';
 import axios from 'axios';
 import Aux from '../components/Auxiliary/Auxiliary';
@@ -168,6 +169,7 @@ class Layout extends Component{
               <Route exact path="/createUser" component={CreateUserPage} />
               <Route exact path="/Login" render={() => <LoginPage 
                                                         ghRedirect={this.redirectToGitHubHandler}/>} />
+              <Route exact Path='/dashboard' render={() => <Dashboard />} />
               <Route component={NoMatch} />
             </Switch>
             <Alert stack={{limit: 3}} />
