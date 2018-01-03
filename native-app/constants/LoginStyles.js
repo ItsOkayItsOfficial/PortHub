@@ -48,7 +48,7 @@ export default StyleSheet.create({
     alignSelf: 'center',
     fontSize: 20
   },
-  formWrappper: {
+  formWrapper: {
     justifyContent: 'center',
     flex: 1,
     paddingHorizontal: 15,

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, TextInput, Image } from 'react-native'
+import { LoginStyles } from '../constants'
 
 const Input = (props) => {
   const renderIcon = () => {
@@ -8,12 +9,14 @@ const Input = (props) => {
   }
 
   return (
-    <View style={props.wrapperStyle}>
+    <View style={LoginStyles.inputWrapper}>
       {props.icon ? renderIcon() : null}
 
       <TextInput
         {...props}
+        style={LoginStyles.input}
         placeholder={props.label}
+        secureTextEntry={true}
         underlineColorAndroid='transparent'
       />
     </View>

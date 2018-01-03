@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { AppLoading, Asset, Font } from 'expo';
+import { AppLoading, Asset, Font, ScreenOrientation } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
-// import { RootNav } from './navigation';
-import { LoginScreen } from './screens';
+import { RootNav } from './navigation';
+
+ScreenOrientation.allow(ScreenOrientation.Orientation.ALL);
 
 export default class App extends Component {
   state = {
@@ -24,7 +25,7 @@ export default class App extends Component {
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
           {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
-          <LoginScreen />
+          <RootNav />
         </View>
       );
     }

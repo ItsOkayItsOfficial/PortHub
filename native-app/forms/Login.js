@@ -1,68 +1,74 @@
-import React from 'react'
-import { View } from 'react-native'
-import BaseForm from './BaseForm'
-import { Input, Button } from '../components'
+import React, { Component } from 'react'
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Alert,
+  StyleSheet,
+  StatusBar,
+  StackNavigator
+} from 'react-native'
 
-class Login extends BaseForm {
-  submit = () => {
-    this.props.onLogin(this.state.userIdentification, this.state.password)
-  }
+class LoginForm extends Component {
 
-  renderResetPasswordLink = () => {
+  render() {
     return (
-      <Button
-        onPress={this.props.onResetPasswordClick}
-        style={this.props.loginResetPasswordLinkStyle}
-        textStyle={this.props.loginResetPasswordLinkTextStyle}
-        text={this.props.labels.forgotPassword}
-      />
-    )
-  }
 
-  render () {
-    return (
-      <View style={this.props.loginFormWrapperStyle}>
-        { this.renderLogo() }
+      <View style={styles.container}>
+        <StatusBar barStyle="light-content" />
 
-        <View style={this.props.fieldsetWrapperStyle}>
-          <Input
-            icon={this.props.userIdentificationInputIcon}
-            iconStyle={this.props.inputIconStyle}
-            onChangeText={this.handleInputChange('userIdentification')}
-            label={this.props.labels.userIdentification}
-            wrapperStyle={this.props.inputWrapperStyle}
-            style={this.props.inputStyle}
-            placeholderTextColor={this.props.inputPlaceholderTextColor}
-          />
-
-          <Input
-            icon={this.props.passwordInputIcon}
-            iconStyle={this.props.inputIconStyle}
-            onChangeText={this.handleInputChange('password')}
-            secureTextEntry
-            label={this.props.labels.password}
-            wrapperStyle={this.props.inputWrapperStyle}
-            style={this.props.inputStyle}
-            placeholderTextColor={this.props.inputPlaceholderTextColor}
-          />
-        </View>
-
-        <Button
-          onPress={this.submit}
-          style={[
-            this.props.baseButtonStyle,
-            this.props.loginFormSubmitButtonStyle
-          ]}
-          textStyle={[
-            this.props.baseButtonTextStyle,
-            this.props.loginFormSubmitButtonTextStyle
-          ]}
-          text={this.props.labels.loginFormButton}
+        <TextInput
+          style={styles.input}
+          autoCapitalize="none"
+          onSubmitEditing={() => this.passwordInput.focus()}
+          autoCorrect={false}
+          keyboardType="email-address"
+          returnKeyType="next"
+          placeholder="Email or Mobile Num"
+          placeholderTextColor="rgba(225,225,225,0.7)"
         />
 
+        <TextInput
+          style={styles.input}
+          returnKeyType="go"
+          ref={input => (this.passwordInput = input)}
+          placeholder="Password"
+          placeholderTextColor="rgba(225,225,225,0.7)"
+          secureTextEntry
+        />
+
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={()=> this.props.navigation.navigate("Profile")}>
+          <Text style={styles.buttonText}>LOGIN</Text>
+        </TouchableOpacity>
       </View>
-    )
+    );
   }
 }
 
-export default Login
+// define your styles
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+  },
+  input: {
+    height: 40,
+    backgroundColor: 'rgba(225,225,225,0.2)',
+    marginBottom: 10,
+    padding: 10,
+    color: '#fff',
+  },
+  buttonContainer: {
+    backgroundColor: '#2980b6',
+    paddingVertical: 15,
+  },
+  buttonText: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: '700',
+  },
+});
+
+export default LoginForm;

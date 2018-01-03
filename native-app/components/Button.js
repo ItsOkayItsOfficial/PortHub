@@ -3,11 +3,14 @@ import PropTypes from 'prop-types'
 import { Text, TouchableOpacity } from 'react-native'
 
 const Button = (props) => {
+
+  getContent = () => {
+    (props.children) ? props.children : <Text style={props.styles.label}>{props.label}</Text>
+  }
+
   return (
-    <TouchableOpacity onPress={props.onPress} style={props.style}>
-      <Text style={props.textStyle}>
-        Login In
-      </Text>
+    <TouchableOpacity onPress={onPress} style={props.style}>
+      getContent()
     </TouchableOpacity>
   )
 }
