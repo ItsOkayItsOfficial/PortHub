@@ -65,16 +65,16 @@ class InputPage extends Component {
     // if resume, write state to db. write html to resume.html file then create resume.pdf for optional download
     if (this.props.type === "resume") {
         // write whatever state to user db profile
-        axios.post('/api/create', this.state)
+        axios.post('/create', this.state)
         .then((response) => {
           response.data === 'success' ? console.log("user info saved to db") : console.log("error writing to db");         
         })
         .then((response) => {
-          axios.post('/api/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser.login})
+          axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser.login})
           .then((response) => {
             response.data === "success" ? console.log("html created"): console.log("error creating html");
           }).then((response) => {
-              axios.post('/api/createpdf')
+              axios.post('/createpdf')
               .then((response) => {
                 response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
               })

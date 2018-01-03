@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // update/create User collections with inputs from InputPage
-router.post('/api/create', ((req, res) => {
+router.post('/create', ((req, res) => {
   db.User.findOneAndUpdate({
       login: req.body.currentUser.login
     },
@@ -24,7 +24,7 @@ router.post('/api/create', ((req, res) => {
   }))
 
 // create html page from input page and update Template collection
-router.post('/api/resume', ((req, res) => {
+router.post('/resume', ((req, res) => {
     var fs = require('fs');
     fs.writeFile(__dirname + '/../client/public/temp/resume.html', req.body.html);
     //fs.writeFile('./resume.html', req.body.html);    
@@ -44,7 +44,7 @@ router.post('/api/resume', ((req, res) => {
 }))
 
 // create pdf from html
-router.post('/api/createpdf', ((req, res) =>{
+router.post('/createpdf', ((req, res) =>{
     var fs = require('fs');     
     var pdf = require('html-pdf');
  
@@ -82,11 +82,15 @@ router.post('/api/user', (req, res) => {
   })
 })
 
+// publi
 router.get('/api/templates/:login', (req, res) => {
   db.Template.find({login:req.params.login})
-  .then ((response) =>{
-      return response.json;
-  });
+  .populate('template')
+  .sort({_id: -1})
+  .then((data) => {
+    console.log(data);
+    res.json(data);
+  })
 })
 
 module.exports = router;
