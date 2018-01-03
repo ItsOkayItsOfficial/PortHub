@@ -47,15 +47,15 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
     </head>
     
     <body>
-        <table style="width:8.7in; height:11in;">
+        <table style="width:9in; height:9.975in;">
             <tr>
-                <td style="width:3in; height:11in; background:darkslategray; padding:5px;">
+                <td style="width:3in; height:11in; background:darkslategray; padding:50px;">
                     <div class="image">
                         ${img}
                     </div>
                     <div class="my-auto">
-                        <div class="contact text-muted mb-4">
-                            <h4>Contact</h4>
+                        <div class="contact text-muted mt-4 mb-2">
+                            <h5>Contact</h5>
                             <p>
                                 <i class="fa fa-envelope" aria-hidden="true"></i>  ${contact.email ? contact.email:""} </br>
                                 <i class="fa fa-phone" aria-hidden="true"></i>  ${contact.phone ? contact.phone:""}</br>
@@ -66,12 +66,12 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
                             </p>
                         </div>
                         <div class="text-muted">
-                            <h4>Skills</h4>
+                            <h5>Skills</h5>
                             ${skillSection}   
                         </div>
                     </div>            
                 </td>
-                <td style="width:5in; height:11in; background:gray; padding:5px;">
+                <td style="width:5in; height:11in; background:gray; padding:20px;">
                 <div class="text-left mt-4">
                     <h3>	${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""}</h3>
                     <p>${contact.bio ? contact.bio: ""}</p>
@@ -114,14 +114,14 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
             height: 0;
             transform-origin: 0 0;
             -webkit-transform-origin: 0 0;
-            transform: scale(0.74);
-            -webkit-transform: scale(0.745);
+            transform: scale(0.72);
+            -webkit-transform: scale(0.72);
         }
         body{
             font-size:16px;
             margin: auto;
-            width:8.7in;
-            height:11in;
+            width:9in;
+            height:10in;
         }
         img{
             height:100%;
