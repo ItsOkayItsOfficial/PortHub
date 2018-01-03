@@ -2,41 +2,40 @@ var db = require("../models");
 const express = require('express');
 const router = express.Router();
 
+// update/create User collections with inputs from InputPage
 router.post('/api/create', ((req, res) => {
   db.User.findOneAndUpdate({
-    login: req.body.currentUser.login
-  },
-  {
-    education: req.body.education,
-    experience: req.body.experience,
-    skills: req.body.skills,
-    portfolio: req.body.portfolio,
-    contact: req.body.contact
-  })
-  .then((response)=>{
-//    console.log('response',response);
-      res.json('success');
-  })
-  .catch((err) => {
-      console.log(err)
-    });     
-}))
+      login: req.body.currentUser.login
+    },
+    {
+      education: req.body.education,
+      experience: req.body.experience,
+      skills: req.body.skills,
+      portfolio: req.body.portfolio,
+      contact: req.body.contact
+    })
+    .then((response)=>{
+    //  console.log('response',response);
+        res.json('success');
+    })
+    .catch((err) => {
+        console.log(err)
+      });     
+  }))
 
+// create html page from input page and update Template collection
 router.post('/api/resume', ((req, res) => {
     var fs = require('fs');
     fs.writeFile(__dirname + '/../client/public/temp/resume.html', req.body.html);
     //fs.writeFile('./resume.html', req.body.html);    
     console.log("html created");
-    db.Template.findOneAndUpdate({
-      login: req.body.login,
-      currentTemplate: req.body.currentTemplate},
-      {
-        type: req.body.type,
-        lastEdited: Date.now(),
-      },{upsert:true}
-    )
+    db.Template
+    .create({templateName:req.body.currentTemplate, type: req.body.type, lastEdited:Date.now()})
     .then((response) =>{
-      console.log("template added")
+        return db.User.findOneAndUpdate({login:req.body.login}, { $push:{template:response}}, {new:true})
+    })
+    .then(() => {
+      console.log("template added");
       res.json("success");
     })
     .catch((err) => {
@@ -44,6 +43,7 @@ router.post('/api/resume', ((req, res) => {
       });
 }))
 
+// create pdf from html
 router.post('/api/createpdf', ((req, res) =>{
     var fs = require('fs');     
     var pdf = require('html-pdf');
@@ -65,10 +65,7 @@ router.post('/api/createpdf', ((req, res) =>{
     res.json("success");
 }))
 
-
-
-
-//user routes
+// search users, if found then do nothing else create one. 
 router.post('/api/user', (req, res) => {
   db.User.find({login:req.body.login})
   .then((user) => {
@@ -83,6 +80,13 @@ router.post('/api/user', (req, res) => {
     console.log('User sent to client');
     res.json(response);
   })
+})
+
+router.get('/api/templates/:login', (req, res) => {
+  db.Template.find({login:req.params.login})
+  .then ((response) =>{
+      return response.json;
+  });
 })
 
 module.exports = router;
