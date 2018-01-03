@@ -63,7 +63,7 @@ export const ResumeSideBar = ({contact, experience, education, skills, portfolio
 
 					</div>
 					  
-					<table style="width:100%">
+					<table style="width:100%; margin-top:100px;">
 						<tr>
 							<td valign="top" text-align="right">
 								<div class="image text-center">
@@ -126,16 +126,6 @@ export const ResumeSideBar = ({contact, experience, education, skills, portfolio
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
 			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-			<script>
-				$( function() {
-				$( ".slider" ).slider({
-					range: "min",
-					value: 10,
-					min: 1,
-					max: 10,
-				});
-				} );
-			</script>
 		</html>
 		
 		<style>
