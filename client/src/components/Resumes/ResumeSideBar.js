@@ -54,7 +54,7 @@ export const ResumeSideBar = ({contact, experience, education, skills, portfolio
 			</head>
 		
 			<body>
-				<div class="container-fluid border border-dark" style="height:11.5in">
+				<div class="container-fluid border border-dark" style="height:11in; width:8.7in">
 					<div class="m-4 align-content-center" style="background-color:rgba(255, 255, 255, 0)">
 						<div class="text-center p-4 display-4">${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""}</div>
 						<div class="text-center">
@@ -62,61 +62,62 @@ export const ResumeSideBar = ({contact, experience, education, skills, portfolio
 						</div>
 
 					</div>
-			
-					<div class="container">
-						<div class="row align-items-top h-100">
-                            <div class="col-lg-6 text-center">
-                                    <div class="image text-center">
-							            ${img}
-						            </div>                            
-									<div class="contact text-center mt-4">
-										<h4>Contact</h4>
-										<p>
-                                            ${contact.email ? contact.email:""}</br>
-                                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                            <i class="fa fa-circle" aria-hidden="true"></i></br>
-                                            ${contact.phone ? contact.phone:""}</br>
-                                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                            <i class="fa fa-circle" aria-hidden="true"></i></br>                                            
-                                            ${contact ? contact.address:""}</br>
-                                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                            <i class="fa fa-circle" aria-hidden="true"></i></br>                                             
-                                            ${contact ? contact.site:""}</br>
-                                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                            <i class="fa fa-circle" aria-hidden="true"></i></br>                                            
-                                            ${contact ? contact.github:""}</br>
-                                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                            <i class="fa fa-circle" aria-hidden="true"></i></br>                                            
-											${contact ? contact.linkedin:""}</br>
-										</p>
-									</div>
+					  
+					<table style="width:100%">
+						<tr>
+							<td valign="top" text-align="right">
+								<div class="image text-center">
+									${img}
+								</div>                            
+								<div class="contact text-center mt-4">
+									<h4>Contact</h4>
+									<p>
+										${contact.email ? contact.email:""}</br>
+										<i class="fa fa-circle" aria-hidden="true"></i>
+										<i class="fa fa-circle" aria-hidden="true"></i>
+										<i class="fa fa-circle" aria-hidden="true"></i></br>
+										${contact.phone ? contact.phone:""}</br>
+										<i class="fa fa-circle" aria-hidden="true"></i>
+										<i class="fa fa-circle" aria-hidden="true"></i>
+										<i class="fa fa-circle" aria-hidden="true"></i></br>                                            
+										${contact ? contact.address:""}</br>
+										<i class="fa fa-circle" aria-hidden="true"></i>
+										<i class="fa fa-circle" aria-hidden="true"></i>
+										<i class="fa fa-circle" aria-hidden="true"></i></br>                                             
+										${contact ? contact.site:""}</br>
+										<i class="fa fa-circle" aria-hidden="true"></i>
+										<i class="fa fa-circle" aria-hidden="true"></i>
+										<i class="fa fa-circle" aria-hidden="true"></i></br>                                            
+										${contact ? contact.github:""}</br>
+										<i class="fa fa-circle" aria-hidden="true"></i>
+										<i class="fa fa-circle" aria-hidden="true"></i>
+										<i class="fa fa-circle" aria-hidden="true"></i></br>                                            
+										${contact ? contact.linkedin:""}</br>
+									</p>
+								</div>								
+							</td>
+							<td style="padding-left:50px;">
+							<div class="experience">
+								<h4>Experience</h4>
+							<div class="company"> ${experienceSection}</div>
+							</div>                             
+							<div class="education">
+								<h4>Education</h4>
+								<div>${educationSection}</div>
 							</div>
-                            <div class="col-lg-6 text-left align-items-center">
-                                    <div class="experience">
-                                        <h4>Experience</h4>
-                                        <div class="company"> ${experienceSection}</div>
-                                    </div>                             
-									<div class="education">
-										<h4>Education</h4>
-										<div>${educationSection}</div>
-									</div>
-									<div class="skills">
-										<h4>Skills</h4>
-										<div class="skills">
-	  										<table class="text-center">
-	  											<tr>${skillSection}</tr>
-	  										</table>
-										</div>
-										<div class="circle"></div>
-									</div>
+							<div class="skills">
+								<h4>Skills</h4>
+								<div class="skills">
+									<table class="text-center">
+										<tr>${skillSection}</tr>
+									</table>
+								</div>
+								<div class="circle"></div>
 							</div>
-						</div>
-					</div>
+
+							</td>
+						</tr>
+					</table>
 				</div>
 			</body>
 		
@@ -138,11 +139,19 @@ export const ResumeSideBar = ({contact, experience, education, skills, portfolio
 		</html>
 		
 		<style>
-			body{
-			height: 11in;
-			width: 8.5in;
-			margin: auto;
-			}
+        html {
+            height: 0;
+            transform-origin: 0 0;
+            -webkit-transform-origin: 0 0;
+            transform: scale(0.74);
+            -webkit-transform: scale(0.745);
+        }
+        body{
+            font-size:16px;
+            margin: auto;
+            width:8.7in;
+            height:11in;
+        }
 			jumbtron{
 				margin:0;
 			}
