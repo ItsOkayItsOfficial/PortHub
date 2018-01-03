@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const templateSchema = new Schema({
-  
-  templateName: {type:String},
+  login:{type:String},
+  currentTemplate: {type:String},
   type:{type:String},
   lastEdited:{type:Date},
   url:{type:String},

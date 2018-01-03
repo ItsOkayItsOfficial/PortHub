@@ -2,7 +2,6 @@ var db = require("../models");
 const express = require('express');
 const router = express.Router();
 
-
 router.post('/api/create', ((req, res) => {
   db.User.findOneAndUpdate({
     login: req.body.currentUser.login
@@ -24,11 +23,25 @@ router.post('/api/create', ((req, res) => {
 }))
 
 router.post('/api/resume', ((req, res) => {
-    var fs = require('fs'); 
+    var fs = require('fs');
     fs.writeFile(__dirname + '/../client/public/temp/resume.html', req.body.html);
     //fs.writeFile('./resume.html', req.body.html);    
     console.log("html created");
-    res.json("success");
+    db.Template.findOneAndUpdate({
+      login: req.body.login,
+      currentTemplate: req.body.currentTemplate},
+      {
+        type: req.body.type,
+        lastEdited: Date.now(),
+      },{upsert:true}
+    )
+    .then((response) =>{
+      console.log("template added")
+      res.json("success");
+    })
+    .catch((err) => {
+        console.log(err)
+      });
 }))
 
 router.post('/api/createpdf', ((req, res) =>{
@@ -53,10 +66,6 @@ router.post('/api/createpdf', ((req, res) =>{
 }))
 
 
-router.get('/api/download', (req, res) => {
-    res.download(__dirname + "/../temp/resume.html");
-    res.json("pdf downloaded");
-})
 
 
 //user routes
@@ -76,15 +85,4 @@ router.post('/api/user', (req, res) => {
   })
 })
 
-// router.post('/api/create', (req, res) => {
-//   db.User.findOneAndUpdate({
-//     login: req.body.currentUser.login
-//   },
-//   {
-//     contact: req.body.contact
-//   })
-//   .then((response) => {
-//     console.log(response);
-//   })
-// })
 module.exports = router;

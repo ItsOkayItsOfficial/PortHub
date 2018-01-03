@@ -70,7 +70,7 @@ class InputPage extends Component {
           response.data === 'success' ? console.log("user info saved to db") : console.log("error writing to db");         
         })
         .then((response) => {
-          axios.post('/api/resume', {html:html})
+          axios.post('/api/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser.login})
           .then((response) => {
             response.data === "success" ? console.log("html created"): console.log("error creating html");
           }).then((response) => {
