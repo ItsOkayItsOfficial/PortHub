@@ -7,7 +7,7 @@ import Skills from '../../components/Inputs/Skills';
 import Experience from '../../components/Inputs/Experience';
 
 import {Montreal, Lawrence, London, Oslo} from '../../components/Websites';
-import {ResumeLeftRightRTL, ResumeLeftRight, ResumeMaterialDark, ResumeSideBar, ResumeSideBarRTL, ResumePurple} from '../../components/Resumes';
+import {ResumeLeftRightRTL, ResumeLeftRight, ResumeMaterialDark, ResumeSideBar, ResumeSideBarRTL, ResumePurple, ResumeOblique} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
 import Accordion from '../../components/Accordion/Accordion';
 import axios from 'axios';
@@ -170,7 +170,10 @@ class InputPage extends Component {
             break; 
       case "resume-purple":
             selectButton = <ResumePurple {...props} />;
-            break;                                                               
+            break; 
+      case "resume-oblique":
+            selectButton = <ResumeOblique {...props} />;
+            break;                                                                           
       default:
             break;
     }
