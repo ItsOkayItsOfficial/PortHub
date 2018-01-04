@@ -4,6 +4,11 @@
 
 <iframe src="https://cdn.rawgit.com/ItsOkayItsOfficial/project3/devops/concepts/monaco-editor.html" scrolling="no" style="height: 100%; width: 100%; boarder: none;"></iframe>
 
+<div class="iframe_container">
+  <iframe src="http://cdn.rawgit.com/ItsOkayItsOfficial/project3/devops/concepts/monaco-editor.html0" frameborder="0" allowfullscreen="allowfullscreen" scrolling="no" style="height: 100%; width: 100%;"> </iframe>
+</div>
+
+
 |      | Table of Contents |
 | ---- | ----------------- |
 | I.   | [Proposal](#proposal) |
