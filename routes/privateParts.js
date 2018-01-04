@@ -23,20 +23,27 @@ router.post('/create', ((req, res) => {
       });     
 }))
 
+
+// router.post('/templateURL', ((req, res) => {
+//   db.Template.findOneAndUpdate({
+    
+//   })
+  
+// }))
 //Creates template model associated with user when the user makes a website
 router.post('/site', ((req, res) => {
     db.Template
-    .create({templateName:req.body.currentTemplate, type: req.body.type, lastEdited:Date.now()})
+    .create({templateName:req.body.currentTemplate, html: req.body.html, type: req.body.type, lastEdited:Date.now()})
     .then((response) =>{
-        return db.User.findOneAndUpdate({login:req.body.login}, { $push:{template:response}}, {new:true})
+       return db.User.findOneAndUpdate({login:req.body.login}, { $push:{template:response}}, {new:true})
     })
-    .then(() => {
+    .then((response) => {
       console.log("template added");
       res.json("success");
     })
     .catch((err) => {
-        console.log(err)
-      });
+        console.log('error')
+    });
 }))
 
 // create html page from input page and update Template collection
@@ -47,7 +54,7 @@ router.post('/resume', ((req, res) => {
      console.log('html added');
     })
 
-    db.Template.create({templateName:req.body.currentTemplate, type: req.body.type, lastEdited:Date.now()})
+    db.Template.create({templateName:req.body.currentTemplate, html:req.body.html, type: req.body.type, lastEdited:Date.now()})
     .then((response) => {
       return db.User.findOneAndUpdate({login:req.body.login}, { $push:{template:response}}, {new:true})
     })
@@ -74,7 +81,6 @@ router.post('/createpdf', ((req, res) => {
       },
   };
       const htmlFile = fs.readFileSync(__dirname + '/../client/public/temp/resume.html', 'utf8');   
-      console.log(htmlFile)
       pdf.create(htmlFile, options).toFile(__dirname + '/../client/public/temp/resume.pdf', (err, res1) => {
         if (err) return console.log(err);
         console.log('success from pdfcreate')

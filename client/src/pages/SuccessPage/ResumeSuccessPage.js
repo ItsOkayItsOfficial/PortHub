@@ -11,6 +11,7 @@ componentWillMount(){
 }
 
   render(){
+    console.log('rerender')
       return (
       <div className='successWrapper'>
         <h1 style={{margin: '10px'}}>Success!</h1> 

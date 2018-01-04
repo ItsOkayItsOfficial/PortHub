@@ -16,22 +16,22 @@ import { Redirect } from 'react-router';
 // import moment from 'moment';
 
 class InputPage extends Component {
-    state = {
-      contact: this.props.currentUser.contact,
-      education:this.props.currentUser.education,
-      experience: this.props.currentUser.experience,
-      skills: this.props.currentUser.skills,
-      portfolio: this.props.currentUser.portfolio,
-      success: false,
-      resumeSuccess: false,
-      html: '',
-      selectButton:'',
-      currentTemplate: this.props.selectedTemplate,
-      currentUser: this.props.currentUser,
-      type: this.props.type
+  state = {
+    contact: this.props.currentUser.contact,
+    education:this.props.currentUser.education,
+    experience: this.props.currentUser.experience,
+    skills: this.props.currentUser.skills,
+    portfolio: this.props.currentUser.portfolio,
+    success: false,
+    resumeSuccess: false,
+    html: '',
+    selectButton:'',
+    currentTemplate: this.props.selectedTemplate,
+    currentUser: this.props.currentUser,
+    type: this.props.type
   }
 
-
+  //Creates user input state with two way binding from input components
   prepareStateHandler = (event, id, field, subfield) => {
     if (field === 'contact') {
       const contact = {...this.state.contact};
@@ -59,11 +59,10 @@ class InputPage extends Component {
   }
   
   submitFormHandler = (html) => {   
-    //console.log(html);
     localStorage.setItem('html', html);
-    // if resume, write state to db. write html to resume.html file then create resume.pdf for optional download
+    // if resume, update users inputs in database write html to resume.html file then create resume.pdf for optional download
     if (this.props.type === "resume") {
-        // write whatever state to user db profile
+    //if user is a guest do not create template in Database
       if (this.state.currentUser.login === 'guest') {
         console.log('guest')
           return axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser.login})
@@ -80,6 +79,7 @@ class InputPage extends Component {
           })     
       }
       else {
+        //User is not a guest, create template in Database
         axios.post('/create', this.state)
           .then((response) => {
             return response.data === 'success' ? "user info saved to db" : "error writing to db";         
@@ -103,21 +103,26 @@ class InputPage extends Component {
           }); 
       }
     } 
+    //if User is creating a website
     else {
-        // write whatever state to user db profile
-        return this.state.currentUser.login === 'guest' ? this.setState({success:true}) :
-        axios.post('/site', this.state)
-        .then((response) => {
-          console.log("axios: ", response)
-          response.data==='success' ? this.setState({success:true}): console.log('failed')
-        })
-        .catch((err) => {
-          console.log(err)
-        });   
+      //if user is a guest, send them to success page. If not a guest, update users inputs and create template in DB
+      return this.state.currentUser.login === 'guest' ? this.setState({success:true}) :
+      axios.post('/create', this.state)
+      .then((response) => {
+      return axios.post('/site', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser.login})
+      })
+      .then((response) => {
+        console.log("axios: ", response)
+        response.data==='success' ? this.setState({success:true}): console.log('failed')
+      })
+      .catch((err) => {
+        console.log(err)
+      });   
     };  
   }
 
   render() {
+    //Redirects user if they successfully created a site or resume, respectively.
     if (this.state.success) {
       return (
         <Redirect to={'/success'}/>
@@ -127,13 +132,13 @@ class InputPage extends Component {
           <Redirect to={'/resumeSuccess'}/>
         )
     }
+    //If there is no accessToken and no current user, or if no template is chosen, redirects to 404 page
     let accessToken = localStorage.getItem('accessToken')
                       ? localStorage.getItem('accessToken') : '';
-    console.log(this.state.currentUser);
     if ((!accessToken && !this.state.currentUser) || Object.keys(this.state.currentTemplate).length === 0) {
       return <Redirect to={'/noMatch'} />
     }
-    //Logic to render input fields
+    //Logic to dynamically render input fields based on chosen template
     const inputs = 
         this.props.selectedTemplate && this.props.selectedTemplate.inputs ? Object.keys(this.props.selectedTemplate.inputs).map((inputType, i) => {
           return [...Array(this.props.selectedTemplate.inputs[inputType])].map((_, i) => {
@@ -152,7 +157,7 @@ class InputPage extends Component {
           })
           
       }) : [];
-
+    
     const education = inputs.slice(1,2);
     const skills = inputs.slice(2,3);
     const portfolio = inputs.slice(3,4);
