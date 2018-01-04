@@ -80,8 +80,8 @@ router.post('/createpdf', ((req, res) => {
       "right":"0"            
       },
   };
-      const htmlFile = fs.readFileSync(__dirname + '/../client/public/temp/resume.html', 'utf8');   
-      pdf.create(htmlFile, options).toFile(__dirname + '/../client/public/temp/resume.pdf', (err, res1) => {
+      const htmlFile = fs.readFileSync(__dirname + '/temp/resume.html', 'utf8');   
+      pdf.create(htmlFile, options).toFile(__dirname + '/temp/resume.pdf', (err, res1) => {
         if (err) return console.log(err);
         console.log('success from pdfcreate')
       });  
