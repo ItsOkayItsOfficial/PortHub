@@ -1,0 +1,13 @@
+{
+  "name": "PortHub",
+  "version": "1.0.0",
+  "description": "PortHub DevOps development repository",
+  "main": "index.js",
+  "repository": "https://github.com/ItsOkayItsOfficial/project3.git",
+  "author": "Project3",
+  "license": "MIT",
+  "private": null,
+  "dependencies": {
+    "monaco-editor": "^0.10.1"
+  }
+}
