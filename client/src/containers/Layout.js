@@ -169,7 +169,7 @@ class Layout extends Component{
               <Route exact path="/createUser" component={CreateUserPage} />
               <Route exact path="/Login" render={() => <LoginPage 
                                                         ghRedirect={this.redirectToGitHubHandler}/>} />
-              <Route exact Path='/dashboard' render={() => <Dashboard />} />
+              <Route exact path='/dashboard' render={() => <Dashboard />} />
               <Route component={NoMatch} />
             </Switch>
             <Alert stack={{limit: 3}} />
