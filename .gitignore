@@ -11,6 +11,7 @@
 .DS_Store
 desktop.ini
 PortHub_old/
+native-app/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
