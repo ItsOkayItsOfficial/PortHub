@@ -80,7 +80,7 @@ class Layout extends Component{
   getUserInfoHandler = (token) => {
    axios.get('https://api.github.com/user?access_token=' + token)
     .then((response) => {
-    return axios.post('/api/user', response.data) 
+    return axios.post('/user', response.data) 
     })
     .then((user) => {
       console.log("logged in user: ", user.data[0].login);
@@ -169,7 +169,7 @@ class Layout extends Component{
               <Route exact path="/createUser" component={CreateUserPage} />
               <Route exact path="/Login" render={() => <LoginPage 
                                                         ghRedirect={this.redirectToGitHubHandler}/>} />
-              <Route exact Path='/dashboard' render={() => <Dashboard />} />
+              <Route exact path='/dashboard' render={() => <Dashboard />} />
               <Route component={NoMatch} />
             </Switch>
             <Alert stack={{limit: 3}} />

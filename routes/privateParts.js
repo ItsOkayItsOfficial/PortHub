@@ -66,7 +66,7 @@ router.post('/createpdf', ((req, res) =>{
 }))
 
 // search users, if found then do nothing else create one. 
-router.post('/api/user', (req, res) => {
+router.post('/user', (req, res) => {
   db.User.find({login:req.body.login})
   .then((user) => {
   return user.length === 0 ? 
@@ -82,15 +82,5 @@ router.post('/api/user', (req, res) => {
   })
 })
 
-// publi
-router.get('/api/templates/:login', (req, res) => {
-  db.Template.find({login:req.params.login})
-  .populate('template')
-  .sort({_id: -1})
-  .then((data) => {
-    console.log(data);
-    res.json(data);
-  })
-})
 
 module.exports = router;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './WelcomeMessage.css';
 
 const WelcomeMessage = ({user, logout}) => {
@@ -11,7 +12,7 @@ const WelcomeMessage = ({user, logout}) => {
             <img src={user ? user.avatar_url : ''} alt='user' />
         </a>
         <div className="dropdown-menu pull-left" style={{left:'-126%'}}>
-          <a className="dropdown-item" href='#dropdown'>Dashboard</a>
+          <Link to='/dashboard' className="dropdown-item" >Dashboard</Link>
           <a className="dropdown-item" href='#dropdown' onClick={logout}>Logout</a>
         </div>
       </li>
