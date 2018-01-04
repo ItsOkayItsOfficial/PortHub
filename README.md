@@ -2,6 +2,8 @@
 ### Developer Portfolio Builder
 “You're not a designer”
 
+<iframe src="./concepts/monaco-editor.html" scrolling="no" style="height: 100%; width: 100%; boarder: none;"></iframe>
+
 |      | Table of Contents |
 | ---- | ----------------- |
 | I.   | [Proposal](#proposal) |
@@ -21,7 +23,7 @@ As budding web developers applying for jobs in the field, sometimes creating an 
 
 
 ### Fix
-PortHub lets you build static portfolio sites quickly and with your information and data. 
+PortHub lets you build static portfolio sites quickly and with your information and data.
 
 <br>
 <hr>
