@@ -14,7 +14,10 @@
     "html-pdf": "^2.2.0",
     "mongojs": "^2.4.1",
     "mongoose": "^4.13.6",
-    "nodemon": "^1.12.5"
+    "nodemon": "^1.12.5",
+    "react-responsive-sidebar": "^0.1.16",
+    "react-sidenav": "^2.1.2",
+    "semantic-ui-react": "^0.77.1"
   },
   "scripts": {
     "client": "node scripts/start-client.js",

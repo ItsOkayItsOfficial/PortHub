@@ -9,7 +9,7 @@ const AuthLoader = ({ getUserInfo, authenticated }) => {
   let accessToken = '';
   const getAuthCode = () => {
     accessToken === 'ification_code' ? localStorage.clear() : '';
-    return window.location.href.match(/[&\?]code=([\w\/\-]+)/) ? window.location.href.match(/[&\?]code=([\w\/\-]+)/)[1] 
+    return window.location.href.match(/[&?]code=([\w/-]+)/) ? window.location.href.match(/[&?]code=([\w/-]+)/)[1] 
     : '';
   }
   const authenticateUser = () => {

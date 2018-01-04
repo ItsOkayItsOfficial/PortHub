@@ -1,11 +1,11 @@
 import React from 'react';
-import {Navbar, Nav, NavItem, Button, Glyphicon} from 'react-bootstrap';
-
+import './Dashboard.css';
+import DashboardItem from './DashboardItem/DashboardItem';
 
 const Dashboard = (props) => {
-
   return (
-<div> </div> 
+    <div className='container sideBarContainer'>
+    </div>
   )
 }
 

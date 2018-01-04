@@ -1,8 +1,7 @@
 import React from 'react';
-import Slider, { Range } from 'rc-slider';
+import Slider from 'rc-slider';
 import Tooltip from 'rc-tooltip';
 import 'rc-slider/assets/index.css';
-const createSliderWithTooltip = Slider.createSliderWithTooltip;
 
 const Skills = ({index, changed, id, skills}) => {
   const Handle = Slider.Handle;
