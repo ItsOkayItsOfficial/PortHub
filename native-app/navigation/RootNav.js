@@ -1,34 +1,37 @@
 import { Notifications } from 'expo'
 import React, { Component } from 'react'
-import MainTabNavigator from './MainTabNavigator'
-import { LoginScreen } from './screens'
+import { TabNav } from '../navigation'
+import { LoginScreen } from '../screens'
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync'
 
 export default class RootNavigator extends Component {
+  state = {
+    isLoggedIn: false
+  };
 
   componentDidMount() {
-    this._notificationSubscription = this._registerForPushNotifications();
+    this._notificationSubscription = this._registerForPushNotifications()
   }
 
   componentWillUnmount() {
-    this._notificationSubscription && this._notificationSubscription.remove();
+    this._notificationSubscription && this._notificationSubscription.remove()
   }
 
+  onLoginPress = () => this.setState({ isLoggedIn: true })
+
+  onLogoutPress = () => this.setState({ isLoggedIn: false })
+
+
   render() {
-        if (this.state.isLoggedIn) {
-        return (
-          <MainTabNavigator
-            onLogoutPress={() => this.setState({isLoggedIn: false})}
-          />
-        );
-        } else {
-        return (
-          <LoginScreen
-            onLoginPress={() => this.setState({isLoggedIn: true})}
-          />
-        );
-      }
-    }
+    if (this.state.isLoggedIn)
+      return <TabNav
+          screenProps={ this.onLogoutPress }
+        />;
+    else
+      return <LoginScreen
+          onLoginPress={ this.onLoginPress }
+        />;
+  }
 
   _registerForPushNotifications() {
     // Send our push token over to our backend so we can receive notifications

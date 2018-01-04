@@ -1,16 +1,7 @@
 import React, { Component } from 'react'
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  Alert,
-  StyleSheet,
-  StatusBar,
-  StackNavigator
-} from 'react-native'
+import { View, Text, TextInput, Button, Alert, StyleSheet, StatusBar } from 'react-native'
 
-class LoginForm extends Component {
+export default class LoginForm extends Component {
 
   render() {
     return (
@@ -38,17 +29,17 @@ class LoginForm extends Component {
           secureTextEntry
         />
 
-        <TouchableOpacity
-          style={styles.buttonContainer}
-          onPress={this.props.onLoginPress}>
-          <Text style={styles.buttonText}>LOGIN</Text>
-        </TouchableOpacity>
+        <Button
+          style={ styles.buttonContainer }
+          onPress={ this.props.onLoginPress }
+          title="Login"
+          />
+
       </View>
     );
   }
 }
 
-// define your styles
 const styles = StyleSheet.create({
   container: {
     padding: 20,
@@ -70,5 +61,3 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 });
-
-export default LoginForm;

@@ -1,6 +1,38 @@
-import { StyleSheet, Platform } from 'react-native'
+import React, { Component } from 'react'
+import { Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
+import { WebBrowser } from 'expo'
+import { MonoText } from '../components/StyledText'
 
-export default StyleSheet.create({
+export class ProfileScreen extends Component {
+  static navigationOptions = {
+    Title: 'ProfileScreen',
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        <View style={styles.welcomeContainer}>
+
+            <Image
+              source={require('../assets/images/porthub_logo.png')}
+              style={styles.welcomeImage}
+            />
+            <Button
+            style={ styles.buttonContainer }
+            onPress={ this.props.screenProps }
+            title="Log Out"
+            />
+
+          </View>
+        </ScrollView>
+      </View>
+    );
+  }
+
+}
+
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -87,4 +119,4 @@ export default StyleSheet.create({
     fontSize: 14,
     color: '#2e78b7',
   },
-})
+});

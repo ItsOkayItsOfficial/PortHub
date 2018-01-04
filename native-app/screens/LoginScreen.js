@@ -1,15 +1,5 @@
 import React, { Component } from 'react'
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Label,
-  TextInput,
-  Image,
-  KeyboardAvoidingView
-} from 'react-native';
+import { Platform, StyleSheet, Text, View, Label, TextInput, Image, KeyboardAvoidingView } from 'react-native';
 import { WebBrowser } from 'expo';
 import { LoginForm } from '../forms'
 
@@ -28,7 +18,9 @@ export default class LoginScreen extends Component {
         </View>
 
         <View style={styles.formContainer}>
-          <LoginForm />
+          <LoginForm
+            onLoginPress={ this.props.onLoginPress }
+          />
         </View>
 
       </KeyboardAvoidingView>
