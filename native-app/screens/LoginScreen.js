@@ -1,21 +1,20 @@
 import React, { Component } from 'react'
-import { Platform, StyleSheet, Text, View, Label, TextInput, Image, KeyboardAvoidingView } from 'react-native';
-import { WebBrowser } from 'expo';
-import Video from 'react-native-video'
+import { Platform, StyleSheet, Text, View, Label, TextInput, Image, KeyboardAvoidingView } from 'react-native'
+import { WebBrowser } from 'expo'
+import { Video } from 'react-native-video'
 import { LoginForm } from '../forms'
 
 export default class LoginScreen extends Component {
 
   render() {
     return (
-      <KeyboardAvoidingView behavior="padding" style={styles.container}>
-
       <Video
-        repeat
-        resizeMode='cover'
-        source={require('../assets/images/cinemagraph.mp4')}
-        style={styles.backgroundVideo}
-       />
+      resizeMode='cover'
+      source={require('../assets/images/cinemagraph.mp4')}
+      style={styles.backgroundVideo}
+      >
+      <KeyboardAvoidingView behavior='padding' style={styles.container}>
+
 
         <View style={styles.loginContainer}>
           <Image
@@ -25,13 +24,12 @@ export default class LoginScreen extends Component {
           />
         </View>
 
-        <View style={styles.formContainer}>
-          <LoginForm
-            onLoginPress={ this.props.onLoginPress }
-          />
-        </View>
+        <LoginForm
+          onLoginPress={ this.props.onLoginPress }
+        />
 
       </KeyboardAvoidingView>
+      </Video>
     );
   }
 }

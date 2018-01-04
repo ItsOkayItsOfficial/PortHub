@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ExpoConfigView } from '@expo/samples';
 
-export class ResumesScreen extends Component {
+export default class ResumesScreen extends Component {
   static navigationOptions = {
     title: 'app.json',
   };

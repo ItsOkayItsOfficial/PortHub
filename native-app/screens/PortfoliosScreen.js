@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
-export class PortfoliosScreen extends Component {
+export default class PortfoliosScreen extends Component {
   static navigationOptions = {
     title: 'Portfolios',
   };

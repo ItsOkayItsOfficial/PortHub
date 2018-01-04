@@ -3,10 +3,9 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { TabNav } from '../navigation'
 import { LoginScreen } from '../screens'
-
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync'
 
-export default class RootNavigator extends Component {
+export default class RootNav extends Component {
   state = {
     currentUser: {},
     isLoggedIn: false,
@@ -48,13 +47,15 @@ export default class RootNavigator extends Component {
 
   render() {
     if (this.state.isLoggedIn)
-      return <TabNav
+      return ( <TabNav
           screenProps={ this.onLogoutPress }
-        />;
+        />
+      )
     else
-      return <LoginScreen
+      return ( <LoginScreen
           onLoginPress={ this.onLoginPress }
-        />;
+        />
+      )
   }
 
   _registerForPushNotifications() {

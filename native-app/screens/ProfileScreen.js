@@ -3,7 +3,7 @@ import { Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View, 
 import { WebBrowser } from 'expo'
 import { MonoText } from '../components/StyledText'
 
-export class ProfileScreen extends Component {
+export default class ProfileScreen extends Component {
   static navigationOptions = {
     Title: 'ProfileScreen',
   };

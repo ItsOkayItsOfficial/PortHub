@@ -1,2 +1,3 @@
-export * from './LoginForm'
+import Login from './LoginForm'
 
+export const LoginForm = Login
