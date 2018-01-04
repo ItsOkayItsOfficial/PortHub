@@ -3,7 +3,7 @@
 <br>
 <hr>
 
-##What is it?
+<h1>What is it?</h1>
 
 <p> As a burgeoning develoepr it's critical to get a resume' and portfolio online almost immediately. The 
 problem is, this is a difficult task as you are learning to code. PortHub eliminates the need to be a designer.
@@ -34,8 +34,9 @@ to leave YOUR mark on the world! </p>
 
 ### User Flow
 
-<img height="500px" src="./assets/images/user_flow(UML).png">
+<img height="500px" src="C:\Users\jcsum\Desktop\project3\proposal\userstory.md">
 
 <br>
 <hr>
+
 
