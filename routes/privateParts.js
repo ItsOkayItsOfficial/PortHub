@@ -21,7 +21,23 @@ router.post('/create', ((req, res) => {
     .catch((err) => {
         console.log(err)
       });     
-  }))
+}))
+
+//Creates template model associated with user when the user makes a website
+router.post('/site', ((req, res) => {
+    db.Template
+    .create({templateName:req.body.currentTemplate, type: req.body.type, lastEdited:Date.now()})
+    .then((response) =>{
+        return db.User.findOneAndUpdate({login:req.body.login}, { $push:{template:response}}, {new:true})
+    })
+    .then(() => {
+      console.log("template added");
+      res.json("success");
+    })
+    .catch((err) => {
+        console.log(err)
+      });
+}))
 
 // create html page from input page and update Template collection
 router.post('/resume', ((req, res) => {

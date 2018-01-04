@@ -5,7 +5,6 @@ import BaseInput from '../../components/Inputs/BaseInput';
 import Education from '../../components/Inputs/Education';
 import Skills from '../../components/Inputs/Skills';
 import Experience from '../../components/Inputs/Experience';
-
 import {Montreal, Lawrence, London, Oslo} from '../../components/Websites';
 import {ResumeLeftRightRTL, ResumeLeftRight, ResumeMaterialDark, ResumeSideBar, ResumeSideBarRTL, ResumePurple, ResumeOblique} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
@@ -84,10 +83,9 @@ class InputPage extends Component {
           console.log(err)
         }); 
     } else {
-        console.log("site");
         // write whatever state to user db profile
         return this.state.currentUser.login === 'guest' ? this.setState({success:true}) :
-        axios.post('/create', this.state)
+        axios.post('/site', this.state)
         .then((response) => {
           console.log("axios: ", response)
           response.data==='success' ? this.setState({success:true}): console.log('failed')
