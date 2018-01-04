@@ -12,20 +12,22 @@ export default class ProfileScreen extends Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
 
+          <View style={styles.welcomeContainer}>
             <Image
               source={require('../assets/images/porthub_logo.png')}
               style={styles.welcomeImage}
             />
-            <Button
-            style={ styles.buttonContainer }
-            onPress={ this.props.screenProps }
-            title="Log Out"
-            />
-
           </View>
+
         </ScrollView>
+
+        <Button
+        style={ styles.buttonContainer }
+          onPress={ this.props.screenProps }
+          title="Log Out"
+        />
+
       </View>
     );
   }
@@ -35,7 +37,11 @@ export default class ProfileScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginBottom: 0,
     backgroundColor: '#fff',
+  },
+  buttonContainer: {
+    marginBottom: 0,
   },
   developmentModeText: {
     marginBottom: 20,

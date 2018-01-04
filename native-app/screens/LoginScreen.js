@@ -1,41 +1,44 @@
 import React, { Component } from 'react'
 import { Platform, StyleSheet, Text, View, Label, TextInput, Image, KeyboardAvoidingView } from 'react-native'
-import { WebBrowser } from 'expo'
-import Video from 'react-native-video'
+import { WebBrowser, Video } from 'expo'
 import { LoginForm } from '../forms'
+import { FadeInView } from '../constants'
 
 export default class LoginScreen extends Component {
 
   render() {
     return (
       <View style={styles.container}>
+      <FadeInView style={{flex: 1, backgroundColor: 'transparent'}}>
 
       <Video
-      source={{uri: "../assets/images/cinemagraph.mp4"}}
+      source={require('../assets/images/cinemagraph.mp4')}
       style={styles.backgroundVideo}
       rate={1}
+      shouldPlay={true}
+      isLooping={true}
       volume={1}
       muted={true}
       resizeMode="cover"
-      repeat={true}
-      key="video1" />
+      />
 
       <KeyboardAvoidingView behavior='padding' style={styles.container}>
 
 
-        <View style={styles.loginContainer}>
+        <View style={styles.logoContainer}>
           <Image
             resizeMode="contain"
             style={styles.logo}
             source={require('../assets/images/porthub_logo.png')}
           />
-
-          <LoginForm
-            onLoginPress={ this.props.onLoginPress }
-          />
         </View>
 
+        <LoginForm
+        onLoginPress={ this.props.onLoginPress }
+        />
+
       </KeyboardAvoidingView>
+      </FadeInView>
       </View>
     );
   }
@@ -46,7 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'transparent',
   },
-  loginContainer: {
+  logoContainer: {
     alignItems: 'center',
     flexGrow: 1,
     justifyContent: 'center',

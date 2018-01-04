@@ -18,7 +18,7 @@ export default class LoginForm extends Component {
           keyboardType="email-address"
           returnKeyType="next"
           placeholder="Email"
-          placeholderTextColor="rgba(225,225,225,0.7)"
+          placeholderTextColor="rgba(0, 0, 0, 0.7)"
         />
 
         <TextInput
@@ -26,7 +26,7 @@ export default class LoginForm extends Component {
           returnKeyType="go"
           ref={input => (this.passwordInput = input)}
           placeholder="Password"
-          placeholderTextColor="rgba(225,225,225,0.7)"
+          placeholderTextColor="rgba(0, 0, 0, 0.7)"
           secureTextEntry
         />
 
@@ -43,14 +43,14 @@ export default class LoginForm extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    padding: 30,
   },
   input: {
     height: 40,
-    backgroundColor: 'rgba(225,225,225,0.2)',
+    backgroundColor: 'rgba(225,225,225,0.5)',
     marginBottom: 10,
     padding: 10,
-    color: '#fff',
+    color: '#000',
   },
   buttonContainer: {
     backgroundColor: '#2980b6',
