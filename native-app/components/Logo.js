@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Image } from 'react-native'
 
-const Logo = (props) => {
+export default Logo = (props) => {
   return (
     <Image
       resizeMode='contain'
@@ -11,10 +10,3 @@ const Logo = (props) => {
     />
   )
 }
-
-Logo.propTypes = {
-  style: PropTypes.any,
-  image: PropTypes.any
-}
-
-export default Logo

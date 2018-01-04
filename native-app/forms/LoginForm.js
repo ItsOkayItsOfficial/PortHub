@@ -7,6 +7,7 @@ export default class LoginForm extends Component {
     return (
 
       <View style={styles.container}>
+
         <StatusBar barStyle="light-content" />
 
         <TextInput
@@ -16,7 +17,7 @@ export default class LoginForm extends Component {
           autoCorrect={false}
           keyboardType="email-address"
           returnKeyType="next"
-          placeholder="Email or Mobile Num"
+          placeholder="Email"
           placeholderTextColor="rgba(225,225,225,0.7)"
         />
 

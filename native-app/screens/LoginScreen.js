@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Platform, StyleSheet, Text, View, Label, TextInput, Image, KeyboardAvoidingView } from 'react-native';
 import { WebBrowser } from 'expo';
+import Video from 'react-native-video'
 import { LoginForm } from '../forms'
 
 export default class LoginScreen extends Component {
@@ -9,11 +10,18 @@ export default class LoginScreen extends Component {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
 
+      <Video
+        repeat
+        resizeMode='cover'
+        source={require('../assets/images/cinemagraph.mp4')}
+        style={styles.backgroundVideo}
+       />
+
         <View style={styles.loginContainer}>
           <Image
             resizeMode="contain"
             style={styles.logo}
-            source={require('../assets/images/porthub_icon.png')}
+            source={require('../assets/images/porthub_logo.png')}
           />
         </View>
 
@@ -42,5 +50,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 300,
     height: 100,
+  },
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
   },
 });

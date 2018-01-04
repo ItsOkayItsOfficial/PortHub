@@ -1,12 +1,16 @@
 import { Notifications } from 'expo'
 import React, { Component } from 'react'
+import axios from 'axios'
 import { TabNav } from '../navigation'
 import { LoginScreen } from '../screens'
+
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync'
 
 export default class RootNavigator extends Component {
   state = {
-    isLoggedIn: false
+    currentUser: {},
+    isLoggedIn: false,
+    isAuthenticated: false,
   };
 
   componentDidMount() {
@@ -19,7 +23,27 @@ export default class RootNavigator extends Component {
 
   onLoginPress = () => this.setState({ isLoggedIn: true })
 
-  onLogoutPress = () => this.setState({ isLoggedIn: false })
+  onLogoutPress = () => this.setState({ currentUser: {}, isLoggedIn: false, isAuthenticated: false })
+
+  redirectToGitHubHandler = () => {
+    console.log("clientid:", Keys.clientId);
+    window.location.replace('https://github.com/login/oauth/authorize?client_id='+
+    Keys.clientId + '&redirect_uri=https://realporthub.herokuapp.com/authLoader&state=1234&scope=user,public_repo');
+  }
+
+  getUserInfoHandler = (token) => {
+   axios.get('https://api.github.com/user?access_token=' + token)
+    .then((response) => {
+    return axios.post('/user', response.data)
+    })
+    .then((user) => {
+      console.log("logged in user: ", user.data[0].login);
+      user.data.length===1 ? this.setState({currentUser:user.data[0]}) : this.setState({currentUser:user.data})
+    })
+    .catch(error => {
+      console.log('Error getting user info: ', error.response)
+    })
+  }
 
 
   render() {
