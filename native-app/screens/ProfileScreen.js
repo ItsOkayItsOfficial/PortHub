@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
 import { WebBrowser } from 'expo'
 import { MonoText } from '../components/StyledText'
+import { Anchor } from '../components'
 
 export default class ProfileScreen extends Component {
   static navigationOptions = {
@@ -18,6 +19,10 @@ export default class ProfileScreen extends Component {
               source={require('../assets/images/porthub_logo.png')}
               style={styles.welcomeImage}
             />
+          </View>
+
+          <View style={ styles.getStartedContainer}>
+            <Anchor style={ styles.getStartedText } href="mailto: ''">Email</Anchor>
           </View>
 
         </ScrollView>

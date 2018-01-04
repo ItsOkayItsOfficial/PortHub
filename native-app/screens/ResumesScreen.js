@@ -7,6 +7,8 @@ export default class ResumesScreen extends Component {
   };
 
   render() {
-    return <ExpoConfigView />;
+    return (
+      <ExpoConfigView />
+    )
   }
 }

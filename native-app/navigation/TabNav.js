@@ -18,18 +18,14 @@ export default TabNavigator(
         let iconName;
         switch (routeName) {
           case 'Profile':
-            iconName =
-              Platform.OS === 'ios'
-                ? `ios-information-circle${focused ? '' : '-outline'}`
-                : 'md-information-circle';
+            iconName = Platform.OS === 'ios' ? `ios-contact${focused ? '' : '-outline'}` : 'md-contact';
             break;
           case 'Portfolios':
-            iconName = Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link';
+            iconName = Platform.OS === 'ios' ? `ios-book${focused ? '' : '-outline'}` : 'md-book';
             break;
           case 'Resumes':
-            iconName =
-              Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options';
-        }
+            iconName = Platform.OS === 'ios' ? `ios-copy${focused ? '' : '-outline'}` : 'md-copy';
+          }
         return (
           <Ionicons
             name={iconName}
