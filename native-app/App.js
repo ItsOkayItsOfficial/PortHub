@@ -8,7 +8,7 @@ ScreenOrientation.allow(ScreenOrientation.Orientation.ALL);
 
 export default class App extends Component {
   state = {
-    isLoadingComplete: false
+    isLoadingComplete: false,
   };
 
   render() {

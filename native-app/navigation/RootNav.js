@@ -9,7 +9,7 @@ export default class RootNav extends Component {
   state = {
     currentUser: {},
     isLoggedIn: false,
-    isAuthenticated: false,
+    isAuthenticated: false
   };
 
   componentDidMount() {
@@ -22,7 +22,7 @@ export default class RootNav extends Component {
 
   onLoginPress = () => this.setState({ isLoggedIn: true })
 
-  onLogoutPress = () => this.setState({ currentUser: {}, isLoggedIn: false, isAuthenticated: false })
+  onLogoutPress = () => this.setState({ currentUser: {}, isLoggedIn: false, isAuthenticated: false, })
 
   redirectToGitHubHandler = () => {
     console.log("clientid:", Keys.clientId);
@@ -46,16 +46,11 @@ export default class RootNav extends Component {
 
 
   render() {
-    if (this.state.isLoggedIn)
-      return ( <TabNav
-          screenProps={ this.onLogoutPress }
-        />
-      )
-    else
-      return ( <LoginScreen
-          onLoginPress={ this.onLoginPress }
-        />
-      )
+    if (this.state.isLoggedIn) {
+      return ( <TabNav screenProps={ this.onLogoutPress } /> )
+    } else {
+      return ( <LoginScreen onLoginPress={ this.onLoginPress } /> )
+    }
   }
 
   _registerForPushNotifications() {
