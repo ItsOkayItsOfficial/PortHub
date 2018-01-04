@@ -49,7 +49,7 @@ router.post('/site', ((req, res) => {
 // create html page from input page and update Template collection
 router.post('/resume', ((req, res) => {
     var fs = require('fs');
-    fs.writeFile(__dirname + '/../client/public/temp/resume.html', req.body.html, (err) => {
+    fs.writeFile(__dirname + '/temp/resume.html', req.body.html, (err) => {
      if (err) throw err;
      console.log('html added');
     })
