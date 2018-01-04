@@ -65,35 +65,45 @@ class InputPage extends Component {
     if (this.props.type === "resume") {
         // write whatever state to user db profile
       if (this.state.currentUser.login === 'guest') {
-        return axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser.login})
+        console.log('guest')
+          return axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser.login})
           .then((response) => {
-            response.data === "success" ? console.log("html created"): console.log("error creating html");
-          }).then((response) => {
-              axios.post('/createpdf')
-              .then((response) => {
-                response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
-              })
-            })      
+            console.log('resume response', response);
+          return axios.post('/createpdf')
+          })
+          .then((response) => {
+            console.log('createpdf response', response);
+            return response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
+          })
+          .catch((err) => {
+            console.log(err);
+          })     
       }
+      else {
         axios.post('/create', this.state)
-        .then((response) => {
-          response.data === 'success' ? console.log("user info saved to db") : console.log("error writing to db");         
-        })
-        .then((response) => {
-          axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser.login})
           .then((response) => {
-            response.data === "success" ? console.log("html created"): console.log("error creating html");
-          }).then((response) => {
-              axios.post('/createpdf')
-              .then((response) => {
-                response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
-              })
-            }) 
-        })
-        .catch((err) => {
-          console.log(err)
-        }); 
-    } else {
+            return response.data === 'success' ? "user info saved to db" : "error writing to db";         
+          })
+          .then((response) => {
+            return response === 'error writing to db' ? console.log('error saving user info')
+            :
+            axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser.login})
+          })
+          .then((response) => {
+            return response.data === "success" ? console.log("html created"): console.log("error creating html");
+          })
+          .then((response) => {
+            return axios.post('/createpdf')
+          }) 
+          .then((response) => {
+            return response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
+          })
+          .catch((err) => {
+            console.log(err)
+          }); 
+      }
+    } 
+    else {
         // write whatever state to user db profile
         return this.state.currentUser.login === 'guest' ? this.setState({success:true}) :
         axios.post('/site', this.state)
@@ -108,8 +118,18 @@ class InputPage extends Component {
   }
 
   render() {
+    if (this.state.success) {
+      return (
+        <Redirect to={'/success'}/>
+      )
+    } else if (this.state.resumeSuccess) {
+      return (
+          <Redirect to={'/resumeSuccess'}/>
+        )
+    }
     let accessToken = localStorage.getItem('accessToken')
                       ? localStorage.getItem('accessToken') : '';
+    console.log(this.state.currentUser);
     if ((!accessToken && !this.state.currentUser) || Object.keys(this.state.currentTemplate).length === 0) {
       return <Redirect to={'/noMatch'} />
     }
@@ -187,15 +207,6 @@ class InputPage extends Component {
             break;
     }
 
-    if (this.state.success) {
-      return (
-        <Redirect to={'/success'}/>
-      )
-    } else if (this.state.resumeSuccess) {
-        return (
-          <Redirect to={'/resumeSuccess'}/>
-        )
-    }
       return (
         <Aux>
           <BaseInput key={'base'} changed={this.prepareStateHandler} contact={this.state.contact} button={selectButton}/>
