@@ -80,7 +80,7 @@ class Layout extends Component{
   getUserInfoHandler = (token) => {
    axios.get('https://api.github.com/user?access_token=' + token)
     .then((response) => {
-    return axios.post('/api/user', response.data) 
+    return axios.post('/user', response.data) 
     })
     .then((user) => {
       console.log("logged in user: ", user.data[0].login);
