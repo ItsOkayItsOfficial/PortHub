@@ -38,7 +38,7 @@ export const ResumeSideBar = ({contact, experience, education, skills, portfolio
       })
 	  educationSection = educationSection.join('');
 
-	  const img = contact.profilePicture ? "<img src='" + contact.profilePicture + "'></img>" : "";
+	  const img = contact ? "<img src='" + contact.profilePicture + "'></img>" : "";
 
 	const html =  `<!DOCTYPE html>
 		<html lang="en">
@@ -50,15 +50,15 @@ export const ResumeSideBar = ({contact, experience, education, skills, portfolio
 			<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> 
 			<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    
 		
-			<title>${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""} Resume</title>
+			<title>${contact ? contact.firstName:""} ${contact ? contact.lastName:""} Resume</title>
 			</head>
 		
 			<body>
 				<div class="container-fluid border border-dark" style="height:11in; width:8.7in">
 					<div class="m-4 align-content-center" style="background-color:rgba(255, 255, 255, 0)">
-						<div class="text-center p-4 display-4">${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""}</div>
+						<div class="text-center p-4 display-4">${contact ? contact.firstName:""} ${contact ? contact.lastName:""}</div>
 						<div class="text-center">
-							<p>${contact.bio ? contact.bio: ""}</p>
+							<p>${contact ? contact.bio: ""}</p>
 						</div>
 
 					</div>
@@ -72,11 +72,11 @@ export const ResumeSideBar = ({contact, experience, education, skills, portfolio
 								<div class="contact text-center mt-4">
 									<h4>Contact</h4>
 									<p>
-										${contact.email ? contact.email:""}</br>
+										${contact ? contact.email:""}</br>
 										<i class="fa fa-circle" aria-hidden="true"></i>
 										<i class="fa fa-circle" aria-hidden="true"></i>
 										<i class="fa fa-circle" aria-hidden="true"></i></br>
-										${contact.phone ? contact.phone:""}</br>
+										${contact ? contact.phone:""}</br>
 										<i class="fa fa-circle" aria-hidden="true"></i>
 										<i class="fa fa-circle" aria-hidden="true"></i>
 										<i class="fa fa-circle" aria-hidden="true"></i></br>                                            

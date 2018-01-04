@@ -39,16 +39,16 @@ export const ResumePurple = ({contact, experience, education, skills, portfolio,
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> 
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    
     
-        <title>${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""} Resume</title>
+        <title>${contact ? contact.firstName:""} ${contact ? contact.lastName:""} Resume</title>
         </head>
     
         <body>
             <div class="container-fluid" style="height:11.3in; width:8.7in">
                     <div class="row flex-row mb-4" style="background-color:rgb(150, 0, 150); color:white; height:13%">
-                        <div class="display-4 ml-4 mb-0">${contact.firstName.toUpperCase()} ${contact.lastName.toUpperCase()}</div>
+                        <div class="display-4 ml-4 mb-0">${contact ? contact.firstName.toUpperCase() : ''} ${contact ? contact.lastName.toUpperCase() : ''}</div>
                         <div class="contact ml-4">
                             <p>
-                                <i class="fa fa-envelope" aria-hidden="true"></i> ${contact.email ? contact.email:""} | <i class="fa fa-phone" aria-hidden="true"></i> ${contact.phone ? contact.phone:""}</br>									
+                                <i class="fa fa-envelope" aria-hidden="true"></i> ${contact ? contact.email:""} | <i class="fa fa-phone" aria-hidden="true"></i> ${contact ? contact.phone:""}</br>									
                                 <i class="fa fa-globe" aria-hidden="true"></i>  ${contact ? contact.site:""} | <i class="fa fa-github" aria-hidden="true"></i>  ${contact ? contact.github:""} | <i class="fa fa-linkedin-square" aria-hidden="true"></i>  ${contact ? contact.linkedin:""}
                             </p>
                         </div>
@@ -73,7 +73,7 @@ export const ResumePurple = ({contact, experience, education, skills, portfolio,
                     </div>
                     <div class="row flex-row" style=" height:8%; background-color:rgb(150, 0, 150); color:white;">
                         <div class="text-left p-4">
-                            <span>About me: ${contact.bio ? contact.bio: ""}</span>
+                            <span>About me: ${contact ? contact.bio: ""}</span>
                         </div>
                     </div> 
             </div>

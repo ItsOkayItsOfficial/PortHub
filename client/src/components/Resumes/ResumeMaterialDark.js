@@ -31,7 +31,7 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
       })
 	  educationSection = educationSection.join('');
 
-	  const img = contact.profilePicture ? "<img src='" + contact.profilePicture + "' class='rounded-circle'></img>" : "";
+	  const img = contact ? "<img src='" + contact.profilePicture + "' class='rounded-circle'></img>" : "";
 
 	const html =  `<!DOCTYPE html>
     <html lang="en">
@@ -43,7 +43,7 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> 
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    
     
-        <title>${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""} Resume</title>
+        <title>${contact ? contact.firstName:""} ${contact ? contact.lastName:""} Resume</title>
     </head>
     
     <body>
@@ -57,8 +57,8 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
                         <div class="contact text-muted mt-4 mb-2">
                             <h5>Contact</h5>
                             <p>
-                                <i class="fa fa-envelope" aria-hidden="true"></i>  ${contact.email ? contact.email:""} </br>
-                                <i class="fa fa-phone" aria-hidden="true"></i>  ${contact.phone ? contact.phone:""}</br>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>  ${contact ? contact.email:""} </br>
+                                <i class="fa fa-phone" aria-hidden="true"></i>  ${contact ? contact.phone:""}</br>
                                 <i class="fa fa-home" aria-hidden="true"></i>  ${contact ? contact.address:""}</br> 
                                 <i class="fa fa-globe" aria-hidden="true"></i>  ${contact ? contact.site:""}</br>
                                 <i class="fa fa-github" aria-hidden="true"></i>  ${contact ? contact.github:""}</br>
@@ -73,8 +73,8 @@ export const ResumeMaterialDark = ({contact, experience, education, skills, port
                 </td>
                 <td style="width:5in; height:11in; background:gray; padding:20px;">
                 <div class="text-left mt-4">
-                    <h3>	${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""}</h3>
-                    <p>${contact.bio ? contact.bio: ""}</p>
+                    <h3>	${contact ? contact.firstName:""} ${contact ? contact.lastName:""}</h3>
+                    <p>${contact ? contact.bio: ""}</p>
                     </div>
                     <div>
                         <h4>Experience</h4>

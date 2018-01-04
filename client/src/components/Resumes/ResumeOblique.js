@@ -38,7 +38,7 @@ export const ResumeOblique = ({contact, experience, education, skills, portfolio
       })
 	  educationSection = educationSection.join('');
 
-	  const img = contact.profilePicture ? "<img class='profilePic' src='" + contact.profilePicture + "'></img>" : "";
+	  const img = contact ? "<img class='profilePic' src='" + contact.profilePicture + "'></img>" : "";
 
 	const html =  `<!DOCTYPE html>
     <html lang="en">
@@ -50,7 +50,7 @@ export const ResumeOblique = ({contact, experience, education, skills, portfolio
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> 
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    
     
-        <title>${contact.firstName ? contact.firstName:""} ${contact.lastName ? contact.lastName:""} Resume</title>
+        <title>${contact ? contact.firstName:""} ${contact ? contact.lastName:""} Resume</title>
         </head>
     
         <body>
@@ -58,13 +58,13 @@ export const ResumeOblique = ({contact, experience, education, skills, portfolio
                 <div id="rectangle"></div>    
                 <div id="triangle-topright"></div>
                 <table class="w-100 text-white" style="position: relative;top: 150px;">
-                    <tr style="top:200px;"><td class="text-right" style="width:6in"><h2>${contact.firstName.toUpperCase()}</h2></td>
+                    <tr style="top:200px;"><td class="text-right" style="width:6in"><h2>${contact ? contact.firstName.toUpperCase() : ''}</h2></td>
                         <td rowspan="2">
                             ${img}
                         </td>
                     </tr>
                     <tr>
-                        <td class="text-right" style="width:6in"><h2>${contact.lastName.toUpperCase()}</h2></td></tr>
+                        <td class="text-right" style="width:6in"><h2>${contact ? contact.lastName.toUpperCase() : ''}</h2></td></tr>
                     </tr>
                 </table>
                 <div class="row flex-row flex-wrap" style="height:70%; color:#006666; margin-top:150px">
@@ -82,7 +82,7 @@ export const ResumeOblique = ({contact, experience, education, skills, portfolio
                     </div>   
                     <div class="contact w-75 mx-auto mt-4">
                         <p>
-                            <i class="fa fa-envelope" aria-hidden="true"></i> ${contact.email ? contact.email:""} | <i class="fa fa-phone" aria-hidden="true"></i> ${contact.phone ? contact.phone:""}</br>									
+                            <i class="fa fa-envelope" aria-hidden="true"></i> ${contact ? contact.email:""} | <i class="fa fa-phone" aria-hidden="true"></i> ${contact ? contact.phone:""}</br>									
                             <i class="fa fa-globe" aria-hidden="true"></i>  ${contact ? contact.site:""} | <i class="fa fa-github" aria-hidden="true"></i>  ${contact ? contact.github:""} | <i class="fa fa-linkedin-square" aria-hidden="true"></i>  ${contact ? contact.linkedin:""}
                         </p>
                     </div>                                                
