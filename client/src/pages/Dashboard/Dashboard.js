@@ -1,11 +1,9 @@
 import React from 'react';
-import './Dashboard.css';
-import DashboardItem from './DashboardItem/DashboardItem';
+import Sidebar from './Sidebar/Sidebar';
 
 const Dashboard = (props) => {
   return (
-    <div className='container sideBarContainer'>
-    </div>
+      <Sidebar />
   )
 }
 
