@@ -1,16 +1,11 @@
-import { Notifications } from 'expo';
-import React, { Component } from 'react';
-import { StackNavigator } from 'react-navigation';
-import MainTabNavigator from './MainTabNavigator';
-import { LoginScreen, HomeScreen } from '../screens'
-import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
-
-const RootStackNavigator = StackNavigator({
-    Main: { screen: MainTabNavigator },
-    Profile: { screen: HomeScreen },
-  });
+import { Notifications } from 'expo'
+import React, { Component } from 'react'
+import MainTabNavigator from './MainTabNavigator'
+import { LoginScreen } from './screens'
+import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync'
 
 export default class RootNavigator extends Component {
+
   componentDidMount() {
     this._notificationSubscription = this._registerForPushNotifications();
   }
@@ -20,10 +15,20 @@ export default class RootNavigator extends Component {
   }
 
   render() {
-    return(
-      <RootStackNavigator />
-    );
-  }
+        if (this.state.isLoggedIn) {
+        return (
+          <MainTabNavigator
+            onLogoutPress={() => this.setState({isLoggedIn: false})}
+          />
+        );
+        } else {
+        return (
+          <LoginScreen
+            onLoginPress={() => this.setState({isLoggedIn: true})}
+          />
+        );
+      }
+    }
 
   _registerForPushNotifications() {
     // Send our push token over to our backend so we can receive notifications

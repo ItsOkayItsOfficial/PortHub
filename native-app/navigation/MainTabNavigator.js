@@ -42,7 +42,12 @@ export default TabNavigator(
             size={28}
             style={{ marginBottom: -3 }}
             color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
-          />
+          />,
+          <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={this.props.onLogoutPress}>
+          <Text style={styles.buttonText}>LOG OUT</Text>
+          </TouchableOpacity>
         );
       },
     }),

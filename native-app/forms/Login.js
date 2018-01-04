@@ -40,7 +40,7 @@ class LoginForm extends Component {
 
         <TouchableOpacity
           style={styles.buttonContainer}
-          onPress={()=> this.props.navigation.navigate("Profile")}>
+          onPress={this.props.onLoginPress}>
           <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
       </View>

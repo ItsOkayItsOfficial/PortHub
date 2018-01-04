@@ -6,9 +6,15 @@ import { RootNav } from './navigation';
 
 ScreenOrientation.allow(ScreenOrientation.Orientation.ALL);
 
+const RootStackNavigator = StackNavigator({
+  Main: { screen: LoginScreen },
+  Profile: { screen: Maintab },
+});
+
 export default class App extends Component {
   state = {
     isLoadingComplete: false,
+    isLoggedIn: false
   };
 
   render() {
@@ -21,13 +27,14 @@ export default class App extends Component {
         />
       );
     } else {
-      return (
-        <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
-          <RootNav />
-        </View>
-      );
+      if (this.state.isLoggedIn)
+      return <Secured
+          onLogoutPress={() => this.setState({isLoggedIn: false})}
+        />;
+    else
+      return <Login
+          onLoginPress={() => this.setState({isLoggedIn: true})}
+        />;
     }
   }
 
