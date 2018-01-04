@@ -2,7 +2,7 @@
 ### Developer Portfolio Builder
 “You're not a designer”
 
-<iframe src="./concepts/monaco-editor.html" scrolling="no" style="height: 100%; width: 100%; boarder: none;"></iframe>
+<iframe src="https://cdn.rawgit.com/ItsOkayItsOfficial/project3/devops/concepts/monaco-editor.html" scrolling="no" style="height: 100%; width: 100%; boarder: none;"></iframe>
 
 |      | Table of Contents |
 | ---- | ----------------- |
