@@ -68,6 +68,7 @@ router.post('/createpdf', ((req, res) =>{
 // search users, if found then do nothing else create one. 
 router.post('/user', (req, res) => {
   db.User.find({login:req.body.login})
+  .populate('template')
   .then((user) => {
   return user.length === 0 ? 
     db.User.create({

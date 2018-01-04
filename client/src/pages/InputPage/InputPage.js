@@ -87,7 +87,7 @@ class InputPage extends Component {
         console.log("site");
         // write whatever state to user db profile
         return this.state.currentUser.login === 'guest' ? this.setState({success:true}) :
-        axios.post('/api/create', this.state)
+        axios.post('/create', this.state)
         .then((response) => {
           console.log("axios: ", response)
           response.data==='success' ? this.setState({success:true}): console.log('failed')

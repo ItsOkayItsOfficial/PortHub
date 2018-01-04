@@ -93,12 +93,15 @@ const CreateSiteLoader = ({ login, message, selectedTemplate }) => {
           url: url
         })
         .then((response) => {
-        return Alert.success(<CreateSiteSuccess login={login} file={filename}/>, {
-          timeout: 'none',
-          position: 'top',
-          effect: 'bouncyflip',
-          offset: 80
+          return axios.post('/template', {filename})
         })
+        .then((response) => {
+          return Alert.success(<CreateSiteSuccess login={login} file={filename}/>, {
+            timeout: 'none',
+            position: 'top',
+            effect: 'bouncyflip',
+            offset: 80
+          })
         })
         .catch((error) => {
           console.log('Create file error: ', error.response)
