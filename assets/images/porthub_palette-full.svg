@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+  <svg version="1.1" id="Level_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  width="1024px" height="768px" viewBox="0 0 1024 768" enable-background="new 0 0 1024 768" xml:space="preserve">
+  <rect x="46"  y="44" fill="#056682" width="180" height="631"/>
+  <rect x="238" y="44" fill="#faa916" width="180" height="631"/>
+  <rect x="430" y="44" fill="#679436" width="180" height="631"/>
+  <rect x="622" y="44" fill="#65a8c5" width="180" height="631"/>
+  <rect x="814" y="44" fill="#2a2d34" width="180" height="631"/>
+  <text transform="matrix(1 0 0 1 46 730)"  fill="#056682" font-family="'Helvetica'" font-size="25">DBLUE: 056682</text>
+  <text transform="matrix(1 0 0 1 238 730)" fill="#faa916" font-family="'Helvetica'" font-size="25">ORANGE: faa916</text>
+  <text transform="matrix(1 0 0 1 430 730)" fill="#679436" font-family="'Helvetica'" font-size="25">GREEN: 679436</text>
+  <text transform="matrix(1 0 0 1 622 730)" fill="#65a8c5" font-family="'Helvetica'" font-size="25">BLUE: 65a8c5</text>
+  <text transform="matrix(1 0 0 1 814 730)" fill="#2a2d34" font-family="'Helvetica'" font-size="25">GREY: 2a2d34</text>
+  </svg>
