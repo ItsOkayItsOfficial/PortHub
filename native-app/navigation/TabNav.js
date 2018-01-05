@@ -39,8 +39,13 @@ export default TabNavigator(
 
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
-    animationEnabled: false,
+    animationEnabled: true,
     swipeEnabled: false,
+    tabBarOptions: {
+      activeTintColor: '#fff',
+      inactiveBackgroundColor: '#2a2d34',
+      activeBackgroundColor: '#2a2d34',
+    },
   }
 );
 
@@ -56,7 +61,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   buttonContainer: {
-    backgroundColor: '#2980b6',
+    backgroundColor: '#2a2d34',
     paddingVertical: 15,
   },
   buttonText: {

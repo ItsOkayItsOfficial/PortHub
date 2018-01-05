@@ -3,6 +3,10 @@ import { View, Text, TextInput, Button, Alert, StyleSheet, StatusBar } from 'rea
 
 export default class LoginForm extends Component {
 
+  onFocus = () => this.setState({ backgroundColor: 'rgba(42,45,52,1.0)'})
+  onBlur = () => this.setState({ backgroundColor: 'rgba(42,45,52,0.5)' })
+
+
   render() {
     return (
 
@@ -11,14 +15,16 @@ export default class LoginForm extends Component {
         <StatusBar barStyle="light-content" />
 
         <TextInput
-          style={styles.input}
+          style={ styles.input }
           autoCapitalize="none"
           onSubmitEditing={() => this.passwordInput.focus()}
           autoCorrect={false}
           keyboardType="email-address"
           returnKeyType="next"
           placeholder="Email"
-          placeholderTextColor="rgba(0, 0, 0, 0.7)"
+          selectionColor= 'white'
+          keyboardAppearance= 'dark'
+          placeholderTextColor="rgba(250, 250, 250, 0.7)"
         />
 
         <TextInput
@@ -26,7 +32,12 @@ export default class LoginForm extends Component {
           returnKeyType="go"
           ref={input => (this.passwordInput = input)}
           placeholder="Password"
-          placeholderTextColor="rgba(0, 0, 0, 0.7)"
+          placeholderTextColor="rgba(250, 250, 250, 0.7)"
+          onFocus= { () => this.onFocus() }
+          onBlur= { () => this.onBlur() }
+          selectionColor= 'white'
+          keyboardAppearance= 'dark'
+
           secureTextEntry
         />
 
@@ -47,10 +58,11 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    backgroundColor: 'rgba(225,225,225,0.5)',
     marginBottom: 10,
+    backgroundColor: 'rgba(42,45,52,.5)',
     padding: 10,
-    color: '#000',
+    color: '#fff',
+    fontWeight: '700'
   },
   buttonContainer: {
     backgroundColor: '#2980b6',
