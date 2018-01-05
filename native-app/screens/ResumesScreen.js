@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ExpoConfigView } from '@expo/samples';
+import { View, StyleSheet } from 'react-native'
+import { DarkBar } from '../components'
 
 export default class ResumesScreen extends Component {
   static navigationOptions = {
@@ -8,7 +9,15 @@ export default class ResumesScreen extends Component {
 
   render() {
     return (
-      <ExpoConfigView />
+      <View style={styles.container}>
+      <DarkBar />
+      </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+})

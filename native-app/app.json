@@ -11,8 +11,8 @@
     "icon": "./assets/images/porthub_icon.png",
     "splash": {
       "image": "./assets/images/porthub_splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#2a2d34"
+      "resizeMode": "cover",
+      "backgroundColor": "#08222d"
     },
     "ios": {
       "supportsTablet": true

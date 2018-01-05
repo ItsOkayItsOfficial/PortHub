@@ -31,7 +31,7 @@ export default TabNavigator(
             name={iconName}
             size={28}
             style={{ marginBottom: -3 }}
-            color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+            color={focused ? Colors.mainBlue : Colors.tintColor}
           />
         );
       },
@@ -42,31 +42,13 @@ export default TabNavigator(
     animationEnabled: true,
     swipeEnabled: false,
     tabBarOptions: {
-      activeTintColor: '#fff',
-      inactiveBackgroundColor: '#2a2d34',
-      activeBackgroundColor: '#2a2d34',
+      activeTintColor: Colors.mainBlue,
+      inactiveBackgroundColor: Colors.darkBlue,
+      activeBackgroundColor: Colors.darkBlue,
+      style: {
+        borderTopColor: Colors.tintColor,
+        borderTopWidth: 3,
+      },
     },
   }
 );
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-  },
-  input: {
-    height: 40,
-    backgroundColor: 'rgba(225,225,225,0.2)',
-    marginBottom: 10,
-    padding: 10,
-    color: '#fff',
-  },
-  buttonContainer: {
-    backgroundColor: '#2a2d34',
-    paddingVertical: 15,
-  },
-  buttonText: {
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: '700',
-  },
-});

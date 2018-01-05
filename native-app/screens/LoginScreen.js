@@ -8,10 +8,10 @@ export default class LoginScreen extends Component {
 
   render() {
     return (
-
       <View style={styles.container}>
+
       <StatusBar barStyle="dark-content" />
-      <FadeInView style={{flex: 1, backgroundColor: 'transparent'}}>
+      <FadeInView style={{flex: 1, backgroundColor: '#08222d'}}>
 
       <Video
       source={require('../assets/images/cinemagraph.mp4')}
@@ -41,6 +41,7 @@ export default class LoginScreen extends Component {
 
       </KeyboardAvoidingView>
       </FadeInView>
+
       </View>
     );
   }

@@ -1,25 +1,28 @@
-import React, { Component} from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import React, { Component } from 'react';
+import { View, StyleSheet, ScrollView } from 'react-native'
+import { DarkBar } from '../components'
 
-export default class PortfoliosScreen extends Component {
+export default class ResumesScreen extends Component {
   static navigationOptions = {
     title: 'Portfolios',
   };
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <ExpoLinksView />
+      <View style={styles.container}>
+      <DarkBar />
+      <ScrollView style={styles.scrollContainer}>
       </ScrollView>
-    );
+      </View>
+    )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+  scrollContainer: {
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',

@@ -46,7 +46,7 @@ export default class App extends Component {
   };
 
   _handleFinishLoading = () => {
-    setTimeout(() => { this.setState({ isLoadingComplete: true }) }, 2500);
+    this.setState({ isLoadingComplete: true });
   };
 }
 

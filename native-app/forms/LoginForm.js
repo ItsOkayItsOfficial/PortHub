@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native'
+import { View, Text, TextInput, Alert, StyleSheet } from 'react-native'
+import { Colors } from '../constants'
+import { Ionicons } from '@expo/vector-icons'
+import { Button } from 'react-native-elements'
 
 export default class LoginForm extends Component {
 
@@ -12,7 +15,7 @@ export default class LoginForm extends Component {
       <View style={styles.container}>
 
       <View style={styles.inputContainer}>
-
+        <Ionicons style={styles.inputIcon} name="md-mail" size={25} color={Colors.mainBlue} />
         <TextInput
           style={ styles.input }
           autoCapitalize="none"
@@ -23,31 +26,32 @@ export default class LoginForm extends Component {
           placeholder="Email"
           selectionColor= 'white'
           keyboardAppearance= 'dark'
-          placeholderTextColor="rgba(250, 250, 250, 0.7)"
+          placeholderTextColor={Colors.tintColor}
         />
+      </View>
 
+      <View style={styles.inputContainer}>
+        <Ionicons style={styles.inputIcon} name="md-lock" size={25} color={Colors.mainBlue} />
         <TextInput
           style={styles.input}
           returnKeyType="go"
           ref={input => (this.passwordInput = input)}
           placeholder="Password"
-          placeholderTextColor="rgba(250, 250, 250, 0.7)"
+          placeholderTextColor={Colors.tintColor}
           selectionColor= 'white'
           keyboardAppearance= 'dark'
           secureTextEntry
         />
-
-        </View>
-
-        <View style={ styles.buttonContainer }>
+      </View>
 
           <Button
-            style={ styles.button }
+            backgroundColor={Colors.darkBlue}
+            color={Colors.tintColor}
             onPress={ this.props.onLoginPress }
-            title="Login"
+            title="LOGIN"
+            fontWeight="700"
+            fontFamily="Helvetica"
           />
-
-        </View>
 
       </View>
     );
@@ -56,28 +60,26 @@ export default class LoginForm extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    flex: 1,
+    padding: 50,
   },
   inputContainer: {
-    justifyContent: 'center',
-    marginBottom: 85,
-    paddingLeft: 20,
-    paddingRight: 20
-  },
-  input: {
-    height: 50,
+    marginBottom: 30,
+    flexDirection: 'row',
+    backgroundColor: 'transparent',
     borderBottomWidth: 3,
-    borderBottomColor: "rgba(250, 250, 250, 0.5)",
-    padding: 10,
-    margin: 10,
+    borderBottomColor: Colors.tintColor,
+    alignItems: 'baseline',
+  },
+  inputIcon: {
+    paddingRight: 10,
+    bottom: 0,
+},
+  input: {
+    fontSize: 20,
+    flex: 1,
     color: '#fff',
-    fontWeight: '700'
-  },
-  buttonContainer: {
-    height: 40,
-    marginBottom: 10,
-  },
-  button: {
-    backgroundColor: '#fff',
+    fontWeight: '700',
+    bottom: 0,
   },
 });
