@@ -58,15 +58,15 @@ router.post('/site', ((req, res) => {
 // create html page from input page and update Template collection
 router.post('/resume', ((req, res) => {
   var fs = require('fs');
-
-  console.log('expected root of app:', '../client/public/temp/resume.html');
-  fs.appendFile('/app/client/public/tmp/newResume.html', req.body.html, (err) => {
+  console.log('at /resume')
+  // console.log('expected root of app:', '../client/public/temp/resume.html');
+  fs.writeFileSync('../client/public/tmp/newResume.html', req.body.html, (err) => {
 
     if (err) throw err;
     console.log('html added');
   })
 
-  db.Template.create({templateName:req.body.currentTemplate, html:req.body.html, type: req.body.type, lastEdited:Date.now()})
+  db.Template.create({templateName:req.body.currentTemplate, type: req.body.type, lastEdited:Date.now()})
   .then((response) => {
     return db.User.findOneAndUpdate(
       {login:req.body.login}, 
@@ -96,8 +96,10 @@ router.post('/createpdf', ((req, res) => {
       "right":"0"            
       },
   };
-    const htmlFile = fs.readFileSync('/app/client/public/tmp/newResume.html', 'utf8');   
-    pdf.create(htmlFile, options).toFile('/app/client/public/tmp/newResume.pdf', (err, res1) => {
+      console.log('at /createpdf')
+
+    const htmlFile = fs.readFileSync('../client/public/tmp/newResume.html', 'utf8'); 
+    pdf.create(req.body.html, options).toFile('../client/public/tmp/newResume.pdf', (err, res1) => {
       if (err) return console.log(err);
       console.log('success from pdfcreate')
     });  

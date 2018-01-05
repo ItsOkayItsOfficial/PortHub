@@ -27,7 +27,7 @@ class InputPage extends Component {
     html: '',
     selectButton:'',
     currentTemplate: this.props.selectedTemplate,
-    currentUser: this.props.currentUser,
+    currentUser: this.props.currentUser.login,
     type: this.props.type
   }
 
