@@ -18,7 +18,7 @@ componentWillMount(){
         <div className='row v-100 '>
           <div className='col-lg-6 d-flex flex-column align-items-center justify-content-center' style={{borderLeft:'0', borderStyle:'solid', borderTop:'0', borderBottom:'0'}}>
               <h4>Access your brand new resume as a PDF:</h4>
-              <a href="/temp/resume.pdf" download="your-resume.pdf" className="btn btn-primary" target="blank">download</a>
+              <a href="/assets/tmp/newResume.pdf" download="your-resume.pdf" className="btn btn-primary" target="blank">download</a>
           </div>
           <div className='col-lg-6 p-3'>
             <h4>Publish your Resume Page to GitHub Pages</h4>
