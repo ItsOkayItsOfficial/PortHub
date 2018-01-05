@@ -63,9 +63,9 @@ class InputPage extends Component {
     // if resume, update users inputs in database write html to resume.html file then create resume.pdf for optional download
     if (this.props.type === "resume") {
     //if user is a guest do not create template in Database
-      if (this.state.currentUser.login === 'guest') {
+      if (this.state.currentUser === 'guest') {
         console.log('guest')
-          return axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser.login})
+          return axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
           .then((response) => {
             console.log('resume response', response);
           return axios.post('/createpdf')
@@ -87,7 +87,7 @@ class InputPage extends Component {
           .then((response) => {
             return response === 'error writing to db' ? console.log('error saving user info')
             :
-            axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser.login})
+            axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
           })
           // .then((response) => {
           //   return response.data === "success" ? console.log("html created"): console.log("error creating html");
@@ -106,10 +106,10 @@ class InputPage extends Component {
     //if User is creating a website
     else {
       //if user is a guest, send them to success page. If not a guest, update users inputs and create template in DB
-      return this.state.currentUser.login === 'guest' ? this.setState({success:true}) :
+      return this.state.currentUser === 'guest' ? this.setState({success:true}) :
       axios.post('/create', this.state)
       .then((response) => {
-      return axios.post('/site', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser.login})
+      return axios.post('/site', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
       })
       .then((response) => {
         console.log("axios: ", response)

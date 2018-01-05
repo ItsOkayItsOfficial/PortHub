@@ -24,14 +24,15 @@ router.post('/create', ((req, res) => {
 }))
 
 
-// router.post('/templateURL', ((req, res) => {
-//   db.Template.findOneAndUpdate({
+router.post('/templateURL', ((req, res) => {
+  db.Template.findOneAndUpdate({
     
-//   })
+  })
   
-// }))
+}))
 //Creates template model associated with user when the user makes a website
 router.post('/site', ((req, res) => {
+  console.log(req.body.login)
   db.Template
   .create(
     {templateName:req.body.currentTemplate, 
@@ -40,13 +41,14 @@ router.post('/site', ((req, res) => {
       lastEdited:Date.now()}
     )
   .then((response) =>{
-      return db.User.findOneAndUpdate(
-        {login:req.body.login}, 
-        { $push:{template:response}}, 
-        {new:true}
-      )
+    return db.User.findOneAndUpdate(
+      {login:req.body.login}, 
+      { $push:{template:response}}, 
+      {new:true}
+    )
   })
   .then((response) => {
+    console.log(response);
     console.log("template added");
     res.json("success");
   })
@@ -58,11 +60,6 @@ router.post('/site', ((req, res) => {
 // create html page from input page and update Template collection
 router.post('/resume', ((req, res) => {
     var fs = require('fs');
-
-    if (err) throw err;
-    console.log('html added');
-  })
-
   db.Template.create({templateName:req.body.currentTemplate, type: req.body.type, lastEdited:Date.now()})
   .then((response) => {
     return db.User.findOneAndUpdate(
