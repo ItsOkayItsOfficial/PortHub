@@ -59,8 +59,8 @@ router.post('/site', ((req, res) => {
 router.post('/resume', ((req, res) => {
   var fs = require('fs');
 
-  console.log('expected root of app:', './client/public/resume/resume.html');
-  fs.writeFile('./client/public/resume/resume.html', req.body.html, (err) => {
+  console.log('expected root of app:', '../client/public/temp/resume.html');
+  fs.writeFile('../client/public/temp/resume.html', req.body.html, (err) => {
 
     if (err) throw err;
     console.log('html added');
@@ -96,8 +96,8 @@ router.post('/createpdf', ((req, res) => {
       "right":"0"            
       },
   };
-    const htmlFile = fs.readFileSync('./client/public/resume/resume.html', 'utf8');   
-    pdf.create(htmlFile, options).toFile('./client/public/resume/resume.pdf', (err, res1) => {
+    const htmlFile = fs.readFileSync('../client/public/temp/resume.html', 'utf8');   
+    pdf.create(htmlFile, options).toFile('../client/public/temp/resume.pdf', (err, res1) => {
       if (err) return console.log(err);
       console.log('success from pdfcreate')
     });  
