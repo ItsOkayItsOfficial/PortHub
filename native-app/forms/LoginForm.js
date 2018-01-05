@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, Button, Alert, StyleSheet, StatusBar } from 'react-native'
+import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native'
 
 export default class LoginForm extends Component {
 
@@ -9,10 +9,9 @@ export default class LoginForm extends Component {
 
   render() {
     return (
-
       <View style={styles.container}>
 
-        <StatusBar barStyle="light-content" />
+      <View style={styles.inputContainer}>
 
         <TextInput
           style={ styles.input }
@@ -33,19 +32,22 @@ export default class LoginForm extends Component {
           ref={input => (this.passwordInput = input)}
           placeholder="Password"
           placeholderTextColor="rgba(250, 250, 250, 0.7)"
-          onFocus= { () => this.onFocus() }
-          onBlur= { () => this.onBlur() }
           selectionColor= 'white'
           keyboardAppearance= 'dark'
-
           secureTextEntry
         />
 
-        <Button
-          style={ styles.buttonContainer }
-          onPress={ this.props.onLoginPress }
-          title="Login"
+        </View>
+
+        <View style={ styles.buttonContainer }>
+
+          <Button
+            style={ styles.button }
+            onPress={ this.props.onLoginPress }
+            title="Login"
           />
+
+        </View>
 
       </View>
     );
@@ -54,23 +56,28 @@ export default class LoginForm extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 30,
+    padding: 20,
+  },
+  inputContainer: {
+    justifyContent: 'center',
+    marginBottom: 85,
+    paddingLeft: 20,
+    paddingRight: 20
   },
   input: {
-    height: 40,
-    marginBottom: 10,
-    backgroundColor: 'rgba(42,45,52,.5)',
+    height: 50,
+    borderBottomWidth: 3,
+    borderBottomColor: "rgba(250, 250, 250, 0.5)",
     padding: 10,
+    margin: 10,
     color: '#fff',
     fontWeight: '700'
   },
   buttonContainer: {
-    backgroundColor: '#2980b6',
-    paddingVertical: 15,
+    height: 40,
+    marginBottom: 10,
   },
-  buttonText: {
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: '700',
+  button: {
+    backgroundColor: '#fff',
   },
 });
