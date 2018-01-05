@@ -32,42 +32,55 @@ router.post('/create', ((req, res) => {
 // }))
 //Creates template model associated with user when the user makes a website
 router.post('/site', ((req, res) => {
-    db.Template
-    .create({templateName:req.body.currentTemplate, html: req.body.html, type: req.body.type, lastEdited:Date.now()})
-    .then((response) =>{
-       return db.User.findOneAndUpdate({login:req.body.login}, { $push:{template:response}}, {new:true})
-    })
-    .then((response) => {
-      console.log("template added");
-      res.json("success");
-    })
-    .catch((err) => {
-        console.log('error')
-    });
+  db.Template
+  .create(
+    {templateName:req.body.currentTemplate, 
+      html: req.body.html, 
+      type: req.body.type, 
+      lastEdited:Date.now()}
+    )
+  .then((response) =>{
+      return db.User.findOneAndUpdate(
+        {login:req.body.login}, 
+        { $push:{template:response}}, 
+        {new:true}
+      )
+  })
+  .then((response) => {
+    console.log("template added");
+    res.json("success");
+  })
+  .catch((err) => {
+      console.log('error')
+  });
 }))
 
 // create html page from input page and update Template collection
 router.post('/resume', ((req, res) => {
-    var fs = require('fs');
+  var fs = require('fs');
 
-    console.log('expected root of app:', './client/public/resume/resume.html');
-    fs.writeFile('./client/public/resume/resume.html', req.body.html, (err) => {
+  console.log('expected root of app:', './client/public/resume/resume.html');
+  fs.writeFile('./client/public/resume/resume.html', req.body.html, (err) => {
 
-     if (err) throw err;
-     console.log('html added');
-    })
+    if (err) throw err;
+    console.log('html added');
+  })
 
-    db.Template.create({templateName:req.body.currentTemplate, html:req.body.html, type: req.body.type, lastEdited:Date.now()})
-    .then((response) => {
-      return db.User.findOneAndUpdate({login:req.body.login}, { $push:{template:response}}, {new:true})
-    })
-    .then((response) => {
-      console.log("template added");
-      res.json("success");
-    })
-    .catch((err) => {
-      console.log(err)
-    });
+  db.Template.create({templateName:req.body.currentTemplate, html:req.body.html, type: req.body.type, lastEdited:Date.now()})
+  .then((response) => {
+    return db.User.findOneAndUpdate(
+      {login:req.body.login}, 
+      { $push:{template:response}}, 
+      {new:true}
+    )
+  })
+  .then((response) => {
+    console.log("template added");
+    res.json("success");
+  })
+  .catch((err) => {
+    console.log(err)
+  });
 }))
 
 // create pdf from html
@@ -83,11 +96,11 @@ router.post('/createpdf', ((req, res) => {
       "right":"0"            
       },
   };
-      const htmlFile = fs.readFileSync('./client/public/resume/resume.html', 'utf8');   
-      pdf.create(htmlFile, options).toFile('./client/public/resume/resume.pdf', (err, res1) => {
-        if (err) return console.log(err);
-        console.log('success from pdfcreate')
-      });  
+    const htmlFile = fs.readFileSync('./client/public/resume/resume.html', 'utf8');   
+    pdf.create(htmlFile, options).toFile('./client/public/resume/resume.pdf', (err, res1) => {
+      if (err) return console.log(err);
+      console.log('success from pdfcreate')
+    });  
   return res.json('success');
     // var options = { "format":"Letter", "margin":"0" };    
 }));
