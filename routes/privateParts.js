@@ -60,7 +60,7 @@ router.post('/resume', ((req, res) => {
   var fs = require('fs');
 
   console.log('expected root of app:', '../client/public/temp/resume.html');
-  fs.writeFile('/app/client/public/tmp/newResume.html', req.body.html, (err) => {
+  fs.appendFile('/app/client/public/tmp/newResume.html', req.body.html, (err) => {
 
     if (err) throw err;
     console.log('html added');
