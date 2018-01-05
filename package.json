@@ -14,7 +14,8 @@
     "html-pdf": "^2.2.0",
     "mongojs": "^2.4.1",
     "mongoose": "^4.13.6",
-    "nodemon": "^1.12.5"
+    "nodemon": "^1.12.5",
+    "utf8": "^3.0.0"
   },
   "scripts": {
     "client": "node scripts/start-client.js",

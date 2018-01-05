@@ -57,10 +57,7 @@ router.post('/site', ((req, res) => {
 
 // create html page from input page and update Template collection
 router.post('/resume', ((req, res) => {
-  var fs = require('fs');
-  console.log('at /resume')
-  // console.log('expected root of app:', '../client/public/temp/resume.html');
-  fs.writeFileSync('../client/public/tmp/newResume.html', req.body.html, (err) => {
+    var fs = require('fs');
 
     if (err) throw err;
     console.log('html added');
@@ -87,6 +84,9 @@ router.post('/resume', ((req, res) => {
 router.post('/createpdf', ((req, res) => {
     const fs = require('fs');     
     const pdf = require('html-pdf');
+    const utf8 = require('utf8');
+    var html = utf8.encode(req.body.html);
+
     const options = { 
       "format": "Letter",
       "border": {
@@ -96,13 +96,15 @@ router.post('/createpdf', ((req, res) => {
       "right":"0"            
       },
   };
-      console.log('at /createpdf')
-
-    const htmlFile = fs.readFileSync('../client/public/tmp/newResume.html', 'utf8'); 
-    pdf.create(req.body.html, options).toFile('../client/public/tmp/newResume.pdf', (err, res1) => {
-      if (err) return console.log(err);
-      console.log('success from pdfcreate')
-    });  
+      // const htmlFile = fs.readFileSync(__dirname + '/../client/public/resume.html', 'utf8');   
+      // pdf.create(htmlFile, options).toFile(__dirname + '/../client/public/resume.pdf', (err, res1) => {
+      //   if (err) return console.log(err);
+      //   console.log('success from pdfcreate')
+      // });  
+    
+      pdf.create(html, options).toStream(function(err, stream){
+        stream.pipe(res);
+      });      
   return res.json('success');
     // var options = { "format":"Letter", "margin":"0" };    
 }));
