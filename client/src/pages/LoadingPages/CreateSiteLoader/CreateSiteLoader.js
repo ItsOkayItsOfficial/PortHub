@@ -93,7 +93,11 @@ const CreateSiteLoader = ({ login, message, selectedTemplate }) => {
           url: url
         })
         .then((response) => {
-          return axios.post('/templateURL', {filename})
+          const data = {
+            filename: `${login}.github.io/${filename}`,
+            filecontent
+          }
+          return axios.post('/templateURL', data)
         })
         .then((response) => {
           return Alert.success(<CreateSiteSuccess login={login} file={filename}/>, {

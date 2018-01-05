@@ -26,13 +26,22 @@ router.post('/create', ((req, res) => {
 
 router.post('/templateURL', ((req, res) => {
   db.Template.findOneAndUpdate({
-    
+    html: req.body.filecontent
+  },
+  {
+    url: req.body.filename
+  })
+  .then((response) => {
+    res.json('success');
+    console.log(response)
+  })
+  .catch((err) => {
+    console.log(err)
   })
   
 }))
 //Creates template model associated with user when the user makes a website
 router.post('/site', ((req, res) => {
-  console.log(req.body.login)
   db.Template
   .create(
     {templateName:req.body.currentTemplate, 
@@ -48,7 +57,6 @@ router.post('/site', ((req, res) => {
     )
   })
   .then((response) => {
-    console.log(response);
     console.log("template added");
     res.json("success");
   })
