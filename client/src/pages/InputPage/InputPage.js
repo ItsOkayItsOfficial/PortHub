@@ -71,7 +71,6 @@ class InputPage extends Component {
           return axios.post('/createpdf')
           })
           .then((response) => {
-            console.log('createpdf response', response);
             return response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
           })
           .catch((err) => {
@@ -79,7 +78,7 @@ class InputPage extends Component {
           })     
       }
       else {
-        //User is not a guest, create template in Database
+        // Create template for valid user in Database
         axios.post('/create', this.state)
           .then((response) => {
             return response.data === 'success' ? "user info saved to db" : "error writing to db";         
@@ -95,9 +94,9 @@ class InputPage extends Component {
           .then((response) => {
             return axios.post('/createpdf', {html:html})
           }) 
-          // .then((response) => {
-          //   return response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
-          // })
+          .then((response) => {
+            return response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
+          })
           .catch((err) => {
             console.log(err)
           }); 

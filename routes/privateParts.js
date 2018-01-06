@@ -41,7 +41,8 @@ router.post('/templateURL', ((req, res) => {
   })
   
 }))
-//Creates template model associated with user when the user makes a website
+
+//Adds website template into Template db and associates website to user profile
 router.post('/site', ((req, res) => {
   db.Template
   .create(
@@ -59,7 +60,7 @@ router.post('/site', ((req, res) => {
     )
   })
   .then((response) => {
-    console.log("template added");
+    console.log("website template added to db");
     res.json("success");
   })
   .catch((err) => {
@@ -67,7 +68,7 @@ router.post('/site', ((req, res) => {
   });
 }))
 
-// create html page from input page and update Template collection
+//Adds resume template into Template db and associates resume to user profile
 router.post('/resume', ((req, res) => {
     var fs = require('fs');
   db.Template.create({templateName:req.body.currentTemplate, type: req.body.type, lastEdited:Date.now(), img: req.body.img})
@@ -79,7 +80,7 @@ router.post('/resume', ((req, res) => {
     )
   })
   .then((response) => {
-    console.log("template added");
+    console.log("resume template added to db");
     res.json("success");
   })
   .catch((err) => {
@@ -89,10 +90,13 @@ router.post('/resume', ((req, res) => {
 
 // create pdf from html
 router.post('/createpdf', ((req, res) => {
+
+
     const fs = require('fs');     
     const pdf = require('html-pdf');
     const utf8 = require('utf8');
-    var html = utf8.encode(req.body.html);
+    //var html = utf8.encode(req.body.html);
+    var html = req.body.html;
 
     const options = { 
       "format": "Letter",
@@ -102,18 +106,13 @@ router.post('/createpdf', ((req, res) => {
       "left": "0",
       "right":"0"            
       },
-  };
-      // const htmlFile = fs.readFileSync(__dirname + '/../client/public/resume.html', 'utf8');   
-      // pdf.create(htmlFile, options).toFile(__dirname + '/../client/public/resume.pdf', (err, res1) => {
-      //   if (err) return console.log(err);
-      //   console.log('success from pdfcreate')
-      // });  
-    
-      pdf.create(html, options).toStream(function(err, stream){
-        stream.pipe(res);
-      });      
-  return res.json('success');
-    // var options = { "format":"Letter", "margin":"0" };    
+    };
+    pdf.create(html).toStream(function(err, stream){
+      stream.pipe(fs.createWriteStream('./client/public/assets/tmp/newResume.pdf'));
+    });
+
+    return res.json('success'); 
+     
 }));
 
 // search users, if found then do nothing else create one. 
@@ -133,6 +132,5 @@ router.post('/user', (req, res) => {
     res.json(response);
   })
 })
-
 
 module.exports = router;
