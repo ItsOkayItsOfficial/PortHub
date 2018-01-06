@@ -18,6 +18,7 @@ export default class DarkBar extends Component {
       <View>
 
         <Header
+          backgroundColor={Colors.darkBlue}
           statusBarProps={{barStyle: 'light-content'}}
           leftComponent={<View><Icon style={styles.icon}/></View>}
           outerContainerStyles={{borderBottomColor: Colors.tintColor}}
@@ -30,6 +31,9 @@ export default class DarkBar extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   icon: {
     width: 30
   }
