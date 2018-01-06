@@ -9,14 +9,13 @@ export default class ResumesScreen extends Component {
   };
 
   render() {
-    // const source = {uri:'http://samples.leanpub.com/thereactnativebook-sample.pdf', cache: true};
-
     return (
       <View style={styles.container}>
+
         <DarkBar/>
 
         <Card title='HELLO WORLD' image={require('../assets/images/porthub_icon.png')}>
-          <PDFViwer source={{uri:'http://samples.leanpub.com/thereactnativebook-sample.pdf', cache: true}} />
+          <PDFViwer/>
         </Card>
       </View>
     )

@@ -4,9 +4,9 @@ import { StyleSheet, Dimensions, View } from 'react-native'
 
 export default class PDFView extends Component {
   render() {
+    const source = {uri:'http://samples.leanpub.com/thereactnativebook-sample.pdf', cache: true};
         return (
             <View style={styles.container}>
-
                 <Pdf
                     source={source}
                     onLoadComplete={(numberOfPages,filePath)=>{
