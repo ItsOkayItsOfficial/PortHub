@@ -9,6 +9,8 @@ const Skills = ({index, changed, id, skills}) => {
     skills[index] ? Skills = skills[index] : Skills={};
 
     let skillTitle = Skills.skill || window.sessionStorage.getItem(id+"skill") || "";
+    let skillRating = Skills.rating || "";
+    console.log(skills)
 const handle = (props) => {
   const { value, dragging, index, ...restProps } = props;
   return (
@@ -46,6 +48,7 @@ const handle = (props) => {
           min={0}
           max={100}
           step={10}
+          value={skillRating}
           handle={handle}
           onChange={(value) => changed(value, id, 'skills', 'rating')} 
         />

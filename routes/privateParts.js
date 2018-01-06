@@ -4,8 +4,10 @@ const router = express.Router();
 
 // update/create User collections with inputs from InputPage
 router.post('/create', ((req, res) => {
+  console.log(req.body.skills)
+  console.log(req.body.currentUser)
   db.User.findOneAndUpdate({
-      login: req.body.currentUser.login
+      login: req.body.currentUser
     },
     {
       education: req.body.education,

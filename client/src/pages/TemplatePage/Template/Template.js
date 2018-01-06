@@ -7,8 +7,12 @@ import './Template.css';
 const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, selectedTemplate, inputs, guestContinueShow, isAuthenticated, dashboard, createdAt, dashboardTemplate }) => {
 let dashboardList = '';
 
-  dashboard ? dashboardList = [<li key={`firstListItem`}>Created at: {dashboardTemplate.lastEdited}</li>, <li  key={`second list item`}>{dashboardTemplate.url}</li>] : '';
-
+  if (dashboard && !dashboardTemplate.url) {
+    dashboardList = [<li key={`firstListItem`}>Created at: {dashboardTemplate.lastEdited}</li>, <li  key={`second list item`}>Not published to GitHub</li>]
+  }
+  else if (dashboard && dashboardTemplate.url) {
+    dashboardList = [<li key={`firstListItem`}>Created at: {dashboardTemplate.lastEdited}</li>, <li  key={`second list item`}>{dashboardTemplate.url}</li>]
+  }
   return (
     <Aux>
       <Modal selectedTemplate={selectedTemplate ? selectedTemplate.title : ''} id={title} show={showModal} closeModal={closeModal} className='detailModal' title={title} type='templateSelect'>
