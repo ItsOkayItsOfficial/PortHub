@@ -11,7 +11,7 @@ const WelcomeMessage = ({user, logout}) => {
         <a className="nav-link dropdown-toggle" id="navBarDropdown" href='#dropdown' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img src={user ? user.avatar_url : ''} alt='user' />
         </a>
-        <div className="dropdown-menu pull-left" style={{left:'-126%'}}>
+        <div className="dropdown-menu pull-left" style={{left:'-126%', zIndex:'1001'}}>
           <Link to='/dashboard' className="dropdown-item" >Dashboard</Link>
           <a className="dropdown-item" href='#dropdown' onClick={logout}>Logout</a>
         </div>

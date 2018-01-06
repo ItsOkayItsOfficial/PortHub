@@ -87,7 +87,7 @@ class InputPage extends Component {
           .then((response) => {
             return response === 'error writing to db' ? console.log('error saving user info')
             :
-            axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
+            axios.post('/resume', {html:html, img:this.state.currentTemplate.img, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
           })
           // .then((response) => {
           //   return response.data === "success" ? console.log("html created"): console.log("error creating html");
@@ -109,7 +109,7 @@ class InputPage extends Component {
       return this.state.currentUser === 'guest' ? this.setState({success:true}) :
       axios.post('/create', this.state)
       .then((response) => {
-      return axios.post('/site', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
+      return axios.post('/site', {html:html, img:this.state.currentTemplate.img, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
       })
       .then((response) => {
         console.log("axios: ", response)

@@ -33,7 +33,6 @@ router.post('/templateURL', ((req, res) => {
   })
   .then((response) => {
     res.json('success');
-    console.log(response)
   })
   .catch((err) => {
     console.log(err)
@@ -46,7 +45,8 @@ router.post('/site', ((req, res) => {
   .create(
     {templateName:req.body.currentTemplate, 
       html: req.body.html, 
-      type: req.body.type, 
+      type: req.body.type,
+      img: req.body.img, 
       lastEdited:Date.now()}
     )
   .then((response) =>{
@@ -68,7 +68,7 @@ router.post('/site', ((req, res) => {
 // create html page from input page and update Template collection
 router.post('/resume', ((req, res) => {
     var fs = require('fs');
-  db.Template.create({templateName:req.body.currentTemplate, type: req.body.type, lastEdited:Date.now()})
+  db.Template.create({templateName:req.body.currentTemplate, type: req.body.type, lastEdited:Date.now(), img: req.body.img})
   .then((response) => {
     return db.User.findOneAndUpdate(
       {login:req.body.login}, 

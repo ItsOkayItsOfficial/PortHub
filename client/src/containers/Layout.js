@@ -74,7 +74,7 @@ class Layout extends Component{
   redirectToGitHubHandler = () => {
     console.log("clientid:", Keys.clientId);
     window.location.replace('https://github.com/login/oauth/authorize?client_id='+ 
-    Keys.clientId + '&redirect_uri=https://realporthub.herokuapp.com/authLoader&state=1234&scope=user,public_repo');
+    Keys.clientId + '&redirect_uri=http://localhost:3000/authLoader&state=1234&scope=user,public_repo');
   }
 
   getUserInfoHandler = (token) => {
@@ -111,6 +111,7 @@ class Layout extends Component{
   }
 
   render(){
+
 
     return(
       <Router>
@@ -169,7 +170,15 @@ class Layout extends Component{
               <Route exact path="/createUser" component={CreateUserPage} />
               <Route exact path="/Login" render={() => <LoginPage 
                                                         ghRedirect={this.redirectToGitHubHandler}/>} />
-              <Route exact path='/dashboard' render={() => <Dashboard />} />
+              <Route exact path='/dashboard' render={() => <Dashboard                                           
+                                                            currentUser={this.state.currentUser}
+                                                            showModal={this.state.viewingTemplate}
+                                                            closeModal={this.closeDetailedTemplateHandler}
+                                                            viewTemplate={this.detailedTemplateHandler}
+                                                            selectedTemplate={this.state.selectedTemplate}
+                                                            guestContinueShow={this.guestContinueModalHander}
+                                                            viewingContinueAsGuest={this.state.viewingGuestContinueModal}
+                                                            isAuthenticated={this.state.isAuthenticated}/>} />
               <Route component={NoMatch} />
             </Switch>
             <Alert stack={{limit: 3}} />

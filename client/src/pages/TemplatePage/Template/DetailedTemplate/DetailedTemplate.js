@@ -4,24 +4,34 @@ import { Link } from 'react-router-dom';
 import './DetailedTemplate.css';
 import { OsloPreview, LawrencePreview, LondonPreview, MontrealPreview }from '../../../../components/WebsitePreviews/';
 
-const DetailedTemplate = ({ closeModal, img, src, title, type, guestContinueShow, isAuthenticated }) => {
+const DetailedTemplate = ({ closeModal, img, src, title, type, guestContinueShow, isAuthenticated, dashboard, dashboardTemplate }) => {
 let iframeSrc = ''; 
-              switch (title){
-                case 'Montreal':
-                  iframeSrc = MontrealPreview();
-                  break;
-                case 'Oslo':
-                  iframeSrc =  OsloPreview();
-                  break;
-                case 'London':
-                  iframeSrc =  LondonPreview();
-                  break;
-                case 'Lawrence':
-                  iframeSrc = LawrencePreview();
-                  break;
-                default:
-                  iframeSrc = '';
-              }
+let selectButton = '';
+   switch (title){
+    case 'Montreal':
+      iframeSrc = MontrealPreview();
+      break;
+    case 'Oslo':
+      iframeSrc =  OsloPreview();
+      break;
+    case 'London':
+      iframeSrc =  LondonPreview();
+      break;
+    case 'Lawrence':
+      iframeSrc = LawrencePreview();
+      break;
+    default:
+      iframeSrc = '';
+  } 
+  dashboard ? iframeSrc = dashboardTemplate.html : '';
+  isAuthenticated  ? 
+  selectButton = <Link to='/inputPage' className="btn btn-success mr-4 btn-sm" title={title}> 
+    Select
+  </Link>        
+  : selectButton = <a onClick={guestContinueShow} className="btn btn-success mr-4 btn-sm" title={title}> 
+      Select
+    </a>
+  dashboard ? selectButton = '' : '';
     return (
     <Aux>
       <div className="modalHeader d-flex justify-content-center">
@@ -29,13 +39,7 @@ let iframeSrc = '';
           <p className='align-self-center'>{title}</p>
         </div>
         <div className='ml-auto'>
-            {isAuthenticated ? 
-            <Link to='/inputPage' className="btn btn-success mr-4 btn-sm" title={title}> 
-              Select
-            </Link>        
-            : <a onClick={guestContinueShow} className="btn btn-success mr-4 btn-sm" title={title}> 
-                Select
-              </a>}      
+            {selectButton}
             <a onClick={closeModal} className="btn btn-danger">
                 <i className="fa fa-times"></i>          
             </a>
