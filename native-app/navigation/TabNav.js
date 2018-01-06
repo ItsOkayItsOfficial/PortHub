@@ -1,9 +1,9 @@
-import React from 'react';
-import { Platform, Button, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { TabNavigator, TabBarBottom } from 'react-navigation';
-import { Colors } from '../constants';
-import { ProfileScreen, PortfoliosScreen, ResumesScreen } from '../screens';
+import React from 'react'
+import { Colors } from '../constants'
+import { Ionicons } from '@expo/vector-icons'
+import { Platform, Button, StyleSheet } from 'react-native'
+import { TabNavigator, TabBarBottom } from 'react-navigation'
+import { ProfileScreen, PortfoliosScreen, ResumesScreen } from '../screens'
 
 export default TabNavigator(
   {
