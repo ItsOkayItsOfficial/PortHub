@@ -1,48 +1,62 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import './SuccessPage.css';
 
-class ResumeSuccessScreen extends Component {
-  state = {
-     html : localStorage.getItem('html')
-  }
-componentWillMount(){
-  this.setState({html:window.localStorage.getItem("html")});
-}
+const ResumeSuccessPage = ({ redirect, currentUser, currentTemplate, retrieveResume }) => {
 
-  render(){
-    console.log('rerender')
-      return (
-      <div className='successWrapper'>
-        <h1 style={{margin: '10px'}}>Success!</h1> 
-        <div className='row v-100 '>
-          <div className='col-lg-6 d-flex flex-column align-items-center justify-content-center' style={{borderLeft:'0', borderStyle:'solid', borderTop:'0', borderBottom:'0'}}>
-              <h4>Access your brand new resume as a PDF:</h4>
-              <a href="/assets/tmp/newResume.pdf" download="newResume.pdf" className="btn btn-primary" target="blank">download</a>
+  return (
+  <div className='container successWrapper'>
+    <h1 style={{margin: '10px'}}>Success!</h1> 
+    <div className='row'>
+      <div className='col-lg-6'>
+        <h4>Access your brand new resume as a PDF:</h4>
+        <button className="btn btn-success" type="button" onClick={retrieveResume} data-toggle="modal" data-target="#viewPDFModal"> Download PDF </button>
+        <button className="btn btn-warning" type="button"  data-toggle="modal" data-target="#viewPDFModal"> Open Modal </button>        
+      </div>
+      {currentUser.login === 'guest' ? null : 
+      <div className='col-lg-6'>
+        <h4>Publish your site to GitHub Pages</h4>
+          <ul>
+            <li>Host your site on GitHub to get a free, fully functional portfolio site. </li>
+            <li>Customize your site further and add those changes to GitHub to see your site change in real time.</li>
+            <li>What we'll do:
+                <ol>
+                    <li><small>Create a GitHub repository named yourAccountName.github.io. (if you don't already have one) </small></li>
+                    <li><small>Insert your new portfolio into the repository. </small></li>
+                    <li><small>?????</small></li>
+                    <li><small>And that's it, your portfolio will be up and running for future employers to marvel over.</small></li>
+                </ol>
+            </li>
+          </ul>
+        <div className='row' style={{textAlign:'center'}} >
+          <Link to={'/siteLoader'} style={{margin: 'auto'}}><button className='btn btn-success'> Publish to GitHub </button></Link>
+        </div>
+      </div>}
+    </div>
+
+    <div className="modal fade" id="viewPDFModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal-dialog" role="document">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div className='col-lg-6 p-3'>
-            <h4>Publish your Resume Page to GitHub Pages</h4>
-              <ul>
-                <li>Host your resume on GitHub to get a free, fully functional 1 page web site. </li>
-                <li>Customize your site further and add those changes to GitHub to see your site change in real time.</li>
-                <li>What we'll do:
-                    <ol>
-                        <li><small>Create a GitHub repository named yourAccountName.github.io. (if you don't already have one) </small></li>
-                        <li><small>Insert your new portfolio into the repository. </small></li>
-                        <li><small>?????</small></li>
-                        <li><small>And that's it, your resume will be up and running for future employers to marvel over.</small></li>
-                    </ol>
-                </li>
-                <li> Don't have a Github account? Create one <a href='https://github.com/' rel="noopener noreferrer" target='_blank'> here </a></li>
-              </ul>
-            <div className='row justify-content-center mt-3'>
-              <Link to={'/siteLoader'}><button style={{margin: 'auto'}} className='btn btn-success'> Publish to GitHub </button></Link>
-            </div>
+          <div className="modal-body">
+            ...
+          </div>
+          <div className="modal-footer">
+            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" className="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
-      )
-  }
+    </div>
+
+  </div>
+  )
 }
 
-export default ResumeSuccessScreen;
+export default ResumeSuccessPage;

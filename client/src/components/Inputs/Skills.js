@@ -10,7 +10,7 @@ const Skills = ({index, changed, id, skills}) => {
 
     let skillTitle = Skills.skill || window.sessionStorage.getItem(id+"skill") || "";
     let skillRating = Skills.rating || "";
-    console.log(skills)
+    //console.log(skills)
 const handle = (props) => {
   const { value, dragging, index, ...restProps } = props;
   return (
