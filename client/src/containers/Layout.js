@@ -110,6 +110,10 @@ class Layout extends Component{
       }
   }
 
+  retrieveResume = () =>{
+    console.log("update layout.js");
+  }
+
   render(){
 
 
@@ -161,7 +165,9 @@ class Layout extends Component{
                                                             currentUser={this.state.currentUser}
                                                             currentTemplate={this.state.selectedTemplate}/>} />
               <Route exact path='/resumeSuccess' render={() => <ResumeSuccessPage
-                                                            />} />                                                            
+                                                            currentUser={this.state.currentUser}
+                                                            currentTemplate={this.state.selectedTemplate}
+                                                            retrieveResume={this.retrieveResume}/>} />} />                                                            
               <Route exact path='/siteLoader' render={() => <CreateSiteLoader
                                                             selectedTemplate={this.state.selectedTemplate}
                                                             login={this.state.currentUser.login} />} />
