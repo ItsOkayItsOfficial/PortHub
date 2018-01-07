@@ -133,7 +133,7 @@ export const Oslo = ({contact, experience, education, skills, portfolio, clicked
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 name">
-					<img class="img-responsive" src="https://media-exp2.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAtUAAAAJDA1ZWNkNmFmLWE5YmUtNDE2OC1hNDE0LTI3NGVmMDliYTQ4OQ.jpg">
+					<img class="img-responsive" src="${contact ? contact.profilePicture : ''}">
 					<p>${contact ? contact.firstName + ' ' + contact.lastName : ''}</p>
 					<div class="name-label"></div>
 				</div>
