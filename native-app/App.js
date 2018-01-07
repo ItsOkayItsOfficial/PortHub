@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { Animated, Platform, StatusBar, StyleSheet, View } from 'react-native'
-import { AppLoading, Asset, Font, ScreenOrientation } from 'expo'
-import { Ionicons } from '@expo/vector-icons'
 import { RootNav } from './navigation'
+import React, { Component } from 'react'
+import { Ionicons } from '@expo/vector-icons'
+import { AppLoading, Asset, Font, ScreenOrientation } from 'expo'
+import { Animated, Platform, StatusBar, StyleSheet, View } from 'react-native'
 
 ScreenOrientation.allow(ScreenOrientation.Orientation.ALL);
 

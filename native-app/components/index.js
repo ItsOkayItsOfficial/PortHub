@@ -1,17 +1,17 @@
 import LogoComp from './Logo'
 import IconComp from './Icon'
 import InputComp from './Input'
+import HeaderComp from './Header'
 import AnchorComp from './Anchor'
 import ButtonComp from './Button'
-import PDFViewerComp from './PDFViewer'
-import DarkBarComp from './AppStatusBar'
+import DarkBarComp from './RootStatusBar'
 import StyledTextComp from './StyledText'
 
 export const Logo = LogoComp
 export const Icon = IconComp
 export const Input = InputComp
+export const Header = HeaderComp
 export const Anchor = AnchorComp
 export const Button = ButtonComp
 export const DarkBar = DarkBarComp
-export const PDFViewer = PDFViewerComp
 export const StyledText = StyledTextComp

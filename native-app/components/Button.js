@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import { View, TouchableOpacity, StyleSheet, Button } from 'react-native'
 import { Colors } from '../constants'
+import React, { Component } from 'react'
+import { Button } from 'react-native-elements'
+import { View, StyleSheet } from 'react-native'
 
 export default class AppButton extends Component {
 
@@ -9,12 +10,14 @@ render () {
 
     <View style={styles.buttonContainer}>
 
-    <TouchableOpacity
-      style={styles.button}
-      onPress={this.onPress}
-    >
-    <Button title={this.props.title} onPress={this.props.onPress} />
-    </TouchableOpacity>
+    <Button
+    style={styles.button}
+    backgroundColor={Colors.darkBlue}
+    color={Colors.tintColor}
+    onPress={this.onPress}
+    title={this.title}
+    fontWeight="700"
+    fontFamily="Helvetica"/>
 
    </View>
       );

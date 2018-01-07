@@ -11,7 +11,7 @@ import {Colors} from '../constants'
 import React, {Component} from 'react'
 import {Header} from 'react-native-elements'
 
-export default class DarkBar extends Component {
+export default class AppHeader extends Component {
 
   render() {
     return (

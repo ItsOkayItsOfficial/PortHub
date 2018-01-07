@@ -10,7 +10,6 @@ import {
 import {WebBrowser} from 'expo'
 import {Colors} from '../constants'
 import React, {Component} from 'react'
-import {MonoText} from '../components/StyledText'
 import {Button, Avatar} from 'react-native-elements'
 import {Anchor, Logo, Icon, DarkBar} from '../components'
 
@@ -46,16 +45,17 @@ export default class ProfileScreen extends Component {
             <Anchor style={styles.getStartedText} href="mailto: ''">Email</Anchor>
           </View>
 
-          <Button
-            style={styles.button}
-            backgroundColor={Colors.darkBlue}
-            color={Colors.tintColor}
-            onPress={this.props.screenProps}
-            title="LOG OUT"
-            fontWeight="700"
-            fontFamily="Helvetica"/>
-
         </ScrollView>
+
+        <Button
+        style={styles.button}
+        backgroundColor={Colors.darkBlue}
+        color={Colors.tintColor}
+        onPress={this.props.screenProps}
+        title="LOG OUT"
+        fontWeight="700"
+        fontFamily="Helvetica"/>
+
       </View>
     );
   }

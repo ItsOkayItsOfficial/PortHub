@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { Platform, StyleSheet, Text, View, Label, TextInput, Image, KeyboardAvoidingView, StatusBar } from 'react-native'
-import { WebBrowser, Video } from 'expo'
 import { LoginForm } from '../forms'
+import React, { Component } from 'react'
+import { WebBrowser, Video } from 'expo'
 import { FadeInView } from '../constants'
+import { Platform, StyleSheet, Text, View, Label, TextInput, Image, KeyboardAvoidingView, StatusBar } from 'react-native'
 
 export default class LoginScreen extends Component {
 

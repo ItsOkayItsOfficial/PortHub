@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import {DarkBar} from '../components'
+import React, {Component} from 'react'
 import {View, StyleSheet} from 'react-native'
-import {DarkBar, PDFViewer} from '../components'
 import {Card, Text, Button} from 'react-native-elements'
 
 export default class ResumesScreen extends Component {
@@ -15,8 +15,8 @@ export default class ResumesScreen extends Component {
         <DarkBar/>
 
         <Card title='HELLO WORLD' image={require('../assets/images/porthub_icon.png')}>
-          <PDFViwer/>
         </Card>
+
       </View>
     )
   }

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native'
 import { DarkBar } from '../components'
+import React, { Component } from 'react'
+import { View, StyleSheet, ScrollView } from 'react-native'
 
 export default class ResumesScreen extends Component {
   static navigationOptions = {
@@ -11,8 +11,11 @@ export default class ResumesScreen extends Component {
     return (
       <View style={styles.container}>
       <DarkBar />
+
       <ScrollView style={styles.scrollContainer}>
+
       </ScrollView>
+
       </View>
     )
   }

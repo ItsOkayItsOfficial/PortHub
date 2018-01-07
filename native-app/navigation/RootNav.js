@@ -1,7 +1,7 @@
-import { Notifications, Linking } from 'expo'
-import React, { Component } from 'react'
 import { TabNav } from '../navigation'
+import React, { Component } from 'react'
 import { LoginScreen } from '../screens'
+import { Notifications, Linking } from 'expo'
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync'
 
 
@@ -36,7 +36,6 @@ export default class RootNav extends Component {
 
   _registerForPushNotifications() {
     registerForPushNotificationsAsync();
-
     // Watch for incoming notifications
     this._notificationSubscription = Notifications.addListener(this._handleNotification)
   }

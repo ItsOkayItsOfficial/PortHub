@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { View, Text, TextInput, Alert, StyleSheet } from 'react-native'
 import { Colors } from '../constants'
+import { Button } from '../components'
+import React, { Component } from 'react'
 import { Ionicons } from '@expo/vector-icons'
-import { Button } from 'react-native-elements'
+import { View, Text, TextInput, Alert, StyleSheet } from 'react-native'
 
 export default class LoginForm extends Component {
 
@@ -45,12 +45,8 @@ export default class LoginForm extends Component {
       </View>
 
           <Button
-            backgroundColor={Colors.darkBlue}
-            color={Colors.tintColor}
             onPress={ this.props.onLoginPress }
             title="LOGIN"
-            fontWeight="700"
-            fontFamily="Helvetica"
           />
 
       </View>
