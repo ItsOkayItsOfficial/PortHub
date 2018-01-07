@@ -8,7 +8,7 @@
     padding: 16px;
     top: 15px;
     box-sizing: border-box;
-    /* transition: all 0.3s ease-out; */
+     transition: all 0.3s ease-out; 
     animation: zoomIn .4s;
     overflow: scroll;
     height: 90vh;
