@@ -8,7 +8,7 @@ import Requirements from './Requirements/Requirements'
 import Aux from '../../components/Auxiliary/Auxiliary';
 
 
-const TemplatePage = ({ type, children, showModal, closeModal, viewTemplate, selectedTemplate, guestContinueShow, isAuthenticated  }) => {
+const TemplatePage = ({ type, children, showModal, closeModal, viewTemplate, selectedTemplate, guestContinueShow, isAuthenticated }) => {
 
   return(
     <Aux>
@@ -26,6 +26,7 @@ const TemplatePage = ({ type, children, showModal, closeModal, viewTemplate, sel
                               title={resume.title}
                               inputs={resume.inputs}
                               type = {type}
+                              id={resume.title}
                               showModal={showModal}
                               viewTemplate={viewTemplate}
                               closeModal={closeModal}

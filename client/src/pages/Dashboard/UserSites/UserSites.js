@@ -3,7 +3,6 @@ import Template from '../../../pages/TemplatePage/Template/Template';
 import './UserSites.css';
 
 const UserSites = (props) => {
-  console.log(props)
   const sites = props.userSites ? props.userSites.map((site, i) => {
     return <Template
             dashboardTemplate={site}
@@ -11,13 +10,15 @@ const UserSites = (props) => {
             key={site._id}
             img={site.img}
             title={site.templateName}
-            type={site.type}
+            id={site._id}
+            type={'dashboard'}
             showModal={props.showModal}
             viewTemplate={props.viewTemplate}
             closeModal={props.closeModal}
             selectedTemplate={props.selectedTemplate}
             guestContinueShow={props.guestContinueShow}
-            isAuthenticated={props.isAuthenticated} />
+            isAuthenticated={props.isAuthenticated}
+            selectedDashboardID={props.selectedDashboardID} />
   })
   : '';
 

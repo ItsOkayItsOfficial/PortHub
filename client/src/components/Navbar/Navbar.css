@@ -4,7 +4,7 @@ nav ul li i{
 }
 
 nav {
-  z-index: 100;
+  z-index: 250;
   border-bottom: 1px solid white;
 
 }

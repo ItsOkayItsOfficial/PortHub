@@ -59,6 +59,7 @@ class InputPage extends Component {
   }
   
   submitFormHandler = (html) => {   
+
     localStorage.setItem('html', html);
     // if resume, update users inputs in database write html to resume.html file then create resume.pdf for optional download
     if (this.props.type === "resume") {
@@ -85,7 +86,7 @@ class InputPage extends Component {
             axios.post('/resume', {html:html, img:this.state.currentTemplate.img, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
           })
           .then((response) => {
-            return response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
+            return response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");    
           })
           .catch((err) => {
             console.log(err)
