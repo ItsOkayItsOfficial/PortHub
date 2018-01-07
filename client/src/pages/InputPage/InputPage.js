@@ -84,12 +84,6 @@ class InputPage extends Component {
             :
             axios.post('/resume', {html:html, img:this.state.currentTemplate.img, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
           })
-          // .then((response) => {
-          //   return response.data === "success" ? console.log("html created"): console.log("error creating html");
-          // })
-          // .then((response) => {
-          //   return axios.post('/createpdf', {html:html})
-          // }) 
           .then((response) => {
             return response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
           })

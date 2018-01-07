@@ -11,8 +11,8 @@ const ResumeSuccessPage = ({ redirect, currentUser, currentTemplate, retrieveRes
     <div className='row'>
       <div className='col-lg-6'>
         <h4>Access your brand new resume as a PDF:</h4>
-        <a href="/assets/tmp/newResume.pdf" download="newResume.pdf" className="btn btn-primary" target="blank">download</a>
-        <button className="btn btn-success" type="button" onClick={retrieveResume}> Download PDF </button>
+        <button className="btn btn-success" type="button" onClick={retrieveResume} data-toggle="modal" data-target="#viewPDFModal"> Download PDF </button>
+        <button className="btn btn-warning" type="button"  data-toggle="modal" data-target="#viewPDFModal"> Open Modal </button>        
       </div>
       {currentUser.login === 'guest' ? null : 
       <div className='col-lg-6'>
@@ -34,6 +34,27 @@ const ResumeSuccessPage = ({ redirect, currentUser, currentTemplate, retrieveRes
         </div>
       </div>}
     </div>
+
+    <div className="modal fade" id="viewPDFModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal-dialog" role="document">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            ...
+          </div>
+          <div className="modal-footer">
+            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" className="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
   )
 }
