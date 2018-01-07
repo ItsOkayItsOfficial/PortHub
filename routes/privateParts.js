@@ -70,7 +70,7 @@ router.post('/site', ((req, res) => {
 
 //Adds resume template into Template db and associates resume to user profile
 router.post('/resume', ((req, res) => {
-  db.Template.create({templateName:req.body.currentTemplate, type: req.body.type, lastEdited:Date.now(), img: req.body.img})
+  db.Template.create({templateName:req.body.currentTemplate, type: req.body.type, lastEdited:Date.now(), img: req.body.img, html:req.body.html, login:req.body.login})
   .then((response) => {
     return db.User.findOneAndUpdate(
       {login:req.body.login}, 
@@ -87,32 +87,38 @@ router.post('/resume', ((req, res) => {
   });
 }))
 
+// retrieve the TemplateID given login and template name. sort by lastEdited
+// and send back the ID
+router.post('/getTemplateID', ((req, res) => {
+  db.Template.find({templateName:req.body.templateName, login:req.body.login})
+  .sort({lastEdited:-1})
+  .then((data) =>{
+    return res.send(data[0]._id);  
+  })  
+}))
+
 // create pdf from html
-router.post('/createpdf', ((req, res) => {
+// router.get('/createpdf', ((req, res) => {
+//     const fs = require('fs');     
+//     const pdf = require('html-pdf');
 
+//     var html = req.body.html;
 
-    const fs = require('fs');     
-    const pdf = require('html-pdf');
-    const utf8 = require('utf8');
-    //var html = utf8.encode(req.body.html);
-    var html = req.body.html;
+//     const options = { 
+//       "format": "Letter",
+//       "border": {
+//       "top": "0",
+//       "bottom":"0",
+//       "left": "0",
+//       "right":"0"            
+//       },
+//     };
+//     pdf.create(html).toStream(function(err, stream){
+//       stream.pipe(fs.createWriteStream('./client/public/assets/tmp/newResume.pdf'));
+//     });
+//     return res.json('success'); 
+// }))
 
-    const options = { 
-      "format": "Letter",
-      "border": {
-      "top": "0",
-      "bottom":"0",
-      "left": "0",
-      "right":"0"            
-      },
-    };
-    pdf.create(html).toStream(function(err, stream){
-      stream.pipe(fs.createWriteStream('./client/public/assets/tmp/newResume.pdf'));
-    });
-
-    return res.json('success'); 
-     
-}));
 
 // search users, if found then do nothing else create one. 
 router.post('/user', (req, res) => {

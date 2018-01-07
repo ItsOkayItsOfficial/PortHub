@@ -4,12 +4,7 @@ import { Redirect } from 'react-router';
 import './SuccessPage.css';
 
 const ResumeSuccessPage = ({ redirect, currentUser, currentTemplate, retrieveResume }) => {
-  // const html = localStorage.getItem('html');
-  // let accessToken = localStorage.getItem('accessToken')
-  //                   ? localStorage.getItem('accessToken') : '';
-  // if ((!accessToken && !currentUser) || Object.keys(currentTemplate).length === 0) {
-  //   return <Redirect to={'/noMatch'} />
-  // }
+
   return (
   <div className='container successWrapper'>
     <h1 style={{margin: '10px'}}>Success!</h1> 

@@ -7,7 +7,8 @@ const templateSchema = new Schema({
   lastEdited:{type:Date},
   url:{type:String},
   img: {type:String},
-  html: {type: String}
+  html: {type: String},
+  login: {type:String}
 });
 
 const Template = mongoose.model("Template", templateSchema);

@@ -87,9 +87,9 @@ class InputPage extends Component {
           // .then((response) => {
           //   return response.data === "success" ? console.log("html created"): console.log("error creating html");
           // })
-          .then((response) => {
-            return axios.post('/createpdf', {html:html})
-          }) 
+          // .then((response) => {
+          //   return axios.post('/createpdf', {html:html})
+          // }) 
           .then((response) => {
             return response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
           })

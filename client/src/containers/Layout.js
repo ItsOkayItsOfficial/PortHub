@@ -111,12 +111,21 @@ class Layout extends Component{
   }
 
   retrieveResume = () =>{
-    console.log("update layout.js");
+    console.log("here");
+    let fetchURL = '';
+    axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})
+    .then((templateID) =>{
+      console.log("templateID=", templateID.data);
+      // fetchURL = `http://porthubserver.herokuapp.com/api/retrieveResume/${templateID.data}`;
+      fetchURL = `http://localhost:3003/api/retrievePDF/${templateID.data}`;
+      window.open(fetchURL); 
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   render(){
-
-
     return(
       <Router>
         <Aux>
