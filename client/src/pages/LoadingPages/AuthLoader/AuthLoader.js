@@ -14,7 +14,7 @@ const AuthLoader = ({ getUserInfo, authenticated }) => {
   }
   const authenticateUser = () => {
    axios.post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token?&client_id=' 
-      + Keys.herokuClientId + '&client_secret=' + Keys.herokuClientSecret + '&code=' + getAuthCode())
+      + Keys.localClientId + '&client_secret=' + Keys.localClientSecret + '&code=' + getAuthCode())
       .then(response => {
         console.log('finished authenticating')
         accessToken = response.data.slice(13, response.data.indexOf('&'));
