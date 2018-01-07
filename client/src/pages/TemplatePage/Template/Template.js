@@ -4,7 +4,7 @@ import DetailedTemplate from './DetailedTemplate/DetailedTemplate';
 import Aux from '../../../components/Auxiliary/Auxiliary';
 import './Template.css';
 
-const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, selectedTemplate, inputs, guestContinueShow, isAuthenticated, dashboard, createdAt, dashboardTemplate }) => {
+const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, selectedTemplate, inputs, guestContinueShow, isAuthenticated, dashboard, createdAt, dashboardTemplate, selectedDashboardID, id }) => {
 let dashboardList = '';
 
   if (dashboard && !dashboardTemplate.url) {
@@ -15,7 +15,7 @@ let dashboardList = '';
   }
   return (
     <Aux>
-      <Modal selectedTemplate={selectedTemplate ? selectedTemplate.title : ''} id={title} show={showModal} closeModal={closeModal} className='detailModal' title={title} type='templateSelect'>
+      <Modal selectedTemplate={selectedTemplate ? selectedTemplate.title : ''} dashboardID={dashboardTemplate ? dashboardTemplate._id : ''} selectedDashboardID={selectedDashboardID} id={title} show={showModal} closeModal={closeModal} className='detailModal' title={title} type='templateSelect'>
         <DetailedTemplate
           img={img}
           src={src}
@@ -28,7 +28,7 @@ let dashboardList = '';
           dashboardTemplate={dashboardTemplate}
           dashboard={dashboard} />
       </Modal>
-      <button onClick={() => viewTemplate(title, type)} >
+      <button onClick={() => viewTemplate(id, title, type)} >
           <div className="card m-4 " style={{width: "25vw"}}>
             <img className="card-img-top" src={img} alt={title}/>
             <div className="card-footer d-flex flex-column">

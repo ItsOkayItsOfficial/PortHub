@@ -5,26 +5,27 @@ import UserResumes from './UserResumes/UserResumes';
 import Aux from '../../components/Auxiliary/Auxiliary';
 
 const Dashboard = (props) => {
-  console.log(props.currentUser)
     const userSites = props.currentUser.template ? props.currentUser.template.filter(template => template.type === 'site') : '';
     const userResumes = props.currentUser.template ? props.currentUser.template.filter(template => template.type === 'resume') : ''
   return (
     <Aux>
-      <Sidebar visible={true} style={{top:'80px', backgroundColor:'black'}}>
+      <Sidebar visible={true} style={{backgroundColor:'black'}}>
       </Sidebar>
         <UserSites userSites={userSites}
                   showModal={props.showModal}
                   viewTemplate={props.viewTemplate}
                   closeModal={props.closeModal}
                   selectedTemplate={props.selectedTemplate}
-                  guestContinueShow={props.guestContinueShow} />
+                  guestContinueShow={props.guestContinueShow}
+                  selectedDashboardID={props.selectedDashboardID} />
         <UserResumes userSites={userResumes}
                   showModal={props.showModal}
                   viewTemplate={props.viewTemplate}
                   closeModal={props.closeModal}
                   selectedTemplate={props.selectedTemplate}
                   guestContinueShow={props.guestContinueShow}
-                  isAuthenticated={props.isAuthenticated} />
+                  isAuthenticated={props.isAuthenticated}
+                  selectedDashboardID={props.selectedDashboardID} />
     </Aux>
 
   )

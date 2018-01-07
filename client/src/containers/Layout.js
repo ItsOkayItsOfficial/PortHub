@@ -33,21 +33,25 @@ class Layout extends Component{
     isAuthenticated: false,
     viewingGuestContinueModal: false,
     redirectToInput: false,
+    selectedDashboardID: '',
     type:''
   }
 
-  detailedTemplateHandler = (title, type, event) => {
-    this.setState({type:type});
+  detailedTemplateHandler = (id, title, type, event) => {
     let selectedTemplate = '';
+    let selectedDashboardID = '';
       if (type === "resume"){
         selectedTemplate = Resumes.filter(resume => resume.title === title);
+      } else if (type==='dashboard') {
+         selectedDashboardID = id
       } else {
-
         selectedTemplate = Websites.filter(website => website.title === title);
       }
-      selectedTemplate = selectedTemplate.shift();
+      selectedTemplate ? selectedTemplate = selectedTemplate.shift() : '';
       this.setState({viewingTemplate: true,
-                    selectedTemplate})
+                    selectedTemplate,
+                    type,
+                    selectedDashboardID})
   }
 
   closeDetailedTemplateHandler = () => {
@@ -71,6 +75,9 @@ class Layout extends Component{
     this.setState({currentUser, viewingGuestContinueModal:false })
   }
 
+  addTemplateToStateHandler = (template) => {
+    console.log('addtemplatehandler')
+  }
   redirectToGitHubHandler = () => {
     console.log("clientid:", Keys.clientId);
     window.location.replace('https://github.com/login/oauth/authorize?client_id='+ 
@@ -178,7 +185,8 @@ class Layout extends Component{
                                                             selectedTemplate={this.state.selectedTemplate}
                                                             guestContinueShow={this.guestContinueModalHander}
                                                             viewingContinueAsGuest={this.state.viewingGuestContinueModal}
-                                                            isAuthenticated={this.state.isAuthenticated}/>} />
+                                                            isAuthenticated={this.state.isAuthenticated}
+                                                            selectedDashboardID={this.state.selectedDashboardID}/>} />
               <Route component={NoMatch} />
             </Switch>
             <Alert stack={{limit: 3}} />

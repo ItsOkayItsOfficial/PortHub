@@ -3,7 +3,7 @@ import './Modal.css';
 import Aux from '../Auxiliary/Auxiliary';
 import Backdrop from '../Backdrop/Backdrop';
 
-const modal = ({ show, closeModal, selectedTemplate, id, children, className, title, type, zIndex }) => {
+const modal = ({ show, closeModal, selectedTemplate, id, children, className, title, type, zIndex, dashboardID, selectedDashboardID }) => {
   const continueAsGuestStyle = {
     transform: show ? 'translateY(0)' : 'translateY(-100vh)',
     opacity: show ? '1' : '0',
@@ -14,7 +14,7 @@ const modal = ({ show, closeModal, selectedTemplate, id, children, className, ti
     zIndex: 5000
   }
   return (
-  selectedTemplate===id || className==='continueAsGuest' ?
+  selectedTemplate===id || className==='continueAsGuest' || dashboardID === selectedDashboardID ?
   <Aux>
     <Backdrop show={show} clicked={closeModal} className={className} />
     <div 
