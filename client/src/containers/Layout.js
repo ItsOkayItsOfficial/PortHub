@@ -25,7 +25,6 @@ import 'react-s-alert/dist/s-alert-css-effects/bouncyflip.css';
 
 
 class Layout extends Component{
-
   state = {
     viewingTemplate: false,
     selectedTemplate: {},
@@ -35,7 +34,70 @@ class Layout extends Component{
     redirectToInput: false,
     selectedDashboardID: '',
     type:'',
-    viewingDashboardSites: true
+    viewingDashboardSites: true,
+    loggedIn: false
+  }
+
+  //-----------------USER METHODS-------------//
+  authenticateUser = () => {
+    localStorage.clear('accessToken');
+    let accessToken = '';
+    const getAuthCode = () => {
+      return window.location.href.match(/[&?]code=([\w/-]+)/) ? window.location.href.match(/[&?]code=([\w/-]+)/)[1] 
+      : '';
+    }
+   axios.post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token?&client_id=' 
+      + Keys.localClientId + '&client_secret=' + Keys.localClientSecret + '&code=' + getAuthCode())
+      .then(response => {
+        console.log('finished authenticating')
+        accessToken = response.data.slice(13, response.data.indexOf('&'));
+        localStorage.setItem('accessToken', accessToken);
+        this.getUserInfoHandler(accessToken)
+      })
+      .catch(error => {
+        return 'error';
+      })
+  }
+
+  getUserInfoHandler = (token) => {
+   axios.get('https://api.github.com/user?access_token=' + token)
+    .then((response) => {
+    return axios.post('/user', response.data) 
+    })
+    .then((user) => {
+      user.data.length===1 ? this.setState({currentUser:user.data[0], isAuthenticated:true, loggedIn: true}) : this.setState({currentUser:user.data, isAuthenticated: true, loggedIn:true})
+    })
+    .catch(error => {
+      console.log('Error getting user info: ', error.response)
+    })
+  }
+
+  redirectToGitHubHandler = () => {
+    window.location.replace('https://github.com/login/oauth/authorize?client_id='+ 
+    Keys.localClientId + '&redirect_uri=http://localhost:3000/authLoader&state=1234&scope=user,public_repo');
+  }
+
+  guestUserHandler =() => {
+    const currentUser = {};
+    currentUser.login = 'guest';
+    currentUser.education = [];
+    currentUser.experience = [];
+    currentUser.skills = [];
+    currentUser.portfolio = []
+    this.setState({currentUser, viewingGuestContinueModal:false, loggedIn: true })
+  }
+
+
+  logoutHandler = () => {
+    localStorage.clear('accessToken');
+    this.setState({currentUser: {}, isAuthenticated:false, loggedIn: false});
+  }
+  //-------------------------------------------//
+  //-----------------VIEW METHODS-------------//
+  guestContinueModalHander = () => {
+    this.state.viewingGuestContinueModal ?
+      this.setState({viewingGuestContinueModal:false})
+      : this.setState({viewingGuestContinueModal:true})
   }
 
   detailedTemplateHandler = (id, title, type, event) => {
@@ -48,7 +110,9 @@ class Layout extends Component{
       } else {
         selectedTemplate = Websites.filter(website => website.title === title);
       }
-      selectedTemplate ? selectedTemplate = selectedTemplate.shift() : '';
+      if (selectedTemplate) {
+        selectedTemplate = selectedTemplate.shift()
+       }
       this.setState({viewingTemplate: true,
                     selectedTemplate,
                     type,
@@ -60,69 +124,18 @@ class Layout extends Component{
                    selectedTemplate: ''})
   }
 
-  guestContinueModalHander = () => {
-    this.state.viewingGuestContinueModal ?
-      this.setState({viewingGuestContinueModal:false})
-      : this.setState({viewingGuestContinueModal:true})
-  }
-
-  guestUserHandler =() => {
-    const currentUser = {};
-    currentUser.login = 'guest';
-    currentUser.education = [];
-    currentUser.experience = [];
-    currentUser.skills = [];
-    currentUser.portfolio = []
-    this.setState({currentUser, viewingGuestContinueModal:false })
-  }
-
-  addTemplateToStateHandler = (template) => {
-    console.log('addtemplatehandler')
-  }
-  redirectToGitHubHandler = () => {
-    console.log("clientid:", Keys.clientId);
-    window.location.replace('https://github.com/login/oauth/authorize?client_id='+ 
-    Keys.localClientId + '&redirect_uri=http://localhost:3000/authLoader&state=1234&scope=user,public_repo');
-  }
-
-  getUserInfoHandler = (token) => {
-   axios.get('https://api.github.com/user?access_token=' + token)
-    .then((response) => {
-    return axios.post('/user', response.data) 
-    })
-    .then((user) => {
-      console.log("logged in user: ", user.data[0].login);
-      user.data.length===1 ? this.setState({currentUser:user.data[0]}) : this.setState({currentUser:user.data})
-    })
-    .catch(error => {
-      console.log('Error getting user info: ', error.response)
-    })
-  }
-
-  logoutHandler = () => {
-    localStorage.clear('accessToken');
-    this.setState({currentUser: {}, isAuthenticated:false});
-    window.location.replace('/')
-  }
-
   closeAlertsAndResetTemplateHandler = () => {
     Alert.closeAll()
     this.setState({selectedTemplate:{}})
   }
-  componentWillMount() {
-      const accessToken = localStorage.getItem('accessToken') === 'ification_code' ? localStorage.clear()
-                    : localStorage.getItem('accessToken');
-      if (accessToken) {
-        this.setState({isAuthenticated: true})
-        this.getUserInfoHandler(accessToken)
-      }
-  }
-  
+
   dashboardViewToggleHandler = () => {
     this.state.viewingDashboardSites ?
-  this.setState({viewingDashboardSites:false})
-  : this.setState({viewingDashboardSites:true})
+    this.setState({viewingDashboardSites:false})
+    : this.setState({viewingDashboardSites:true})
   }
+  //-----------------------------------------//
+  //----------------RESUME METHODS----------//
   retrieveResume = () =>{
     console.log("here");
     let fetchURL = '';
@@ -137,8 +150,17 @@ class Layout extends Component{
       console.log(err);
     });
   }
+//-----------------------------------------//
+//------------LIFECYCLE METHODS-----------//
+  componentDidMount() {
+      const accessToken = localStorage.getItem('accessToken');
+      if (accessToken) {
+        this.getUserInfoHandler(accessToken)
+      }
+  }
 
   render(){
+    console.log('at render')
     return(
       <Router>
         <Aux>
@@ -150,9 +172,9 @@ class Layout extends Component{
           <Nav className='navbar-fixed-top' ghRedirect={this.redirectToGitHubHandler}
               title={this.state.type} isAuthenticated={this.state.isAuthenticated}
               user={this.state.currentUser}
-              getUserInfo={this.getUserInfoHandler}
               logoutHandler={this.logoutHandler}
-              reset={this.closeAlertsAndResetTemplateHandler} />    
+              reset={this.closeAlertsAndResetTemplateHandler}
+              loggedIn={this.state.loggedIn} />  
             <Switch>
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/createSite" 
@@ -194,7 +216,9 @@ class Layout extends Component{
                                                             selectedTemplate={this.state.selectedTemplate}
                                                             login={this.state.currentUser.login} />} />
               <Route exact path='/authLoader' render={() => <AuthLoader
-                                                            selectedTemplate={this.state.selectedTemplate} />} />
+                                                            authHandler={this.authenticateUser}
+                                                            authenticated={this.state.isAuthenticated}
+                                                            currentUser={this.state.currentUser}/>} />
               <Route exact path="/createUser" component={CreateUserPage} />
               <Route exact path="/Login" render={() => <LoginPage 
                                                         ghRedirect={this.redirectToGitHubHandler}/>} />
@@ -215,9 +239,7 @@ class Layout extends Component{
             <Alert stack={{limit: 3}} />
         </Aux>
       </Router>
-
-    )
-      
+   ) 
   }
 }
 

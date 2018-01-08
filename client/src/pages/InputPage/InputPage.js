@@ -16,20 +16,24 @@ import { Redirect } from 'react-router';
 // import moment from 'moment';
 
 class InputPage extends Component {
-  state = {
-    contact: this.props.currentUser.contact,
-    education:this.props.currentUser.education,
-    experience: this.props.currentUser.experience,
-    skills: this.props.currentUser.skills,
-    portfolio: this.props.currentUser.portfolio,
-    success: false,
-    resumeSuccess: false,
-    html: '',
-    selectButton:'',
-    currentTemplate: this.props.selectedTemplate,
-    currentUser: this.props.currentUser.login,
-    type: this.props.type
+  constructor(props) {
+    super(props);
+    this.state = {
+      contact: this.props.currentUser.contact,
+      education:this.props.currentUser.education,
+      experience: this.props.currentUser.experience,
+      skills: this.props.currentUser.skills,
+      portfolio: this.props.currentUser.portfolio,
+      success: false,
+      resumeSuccess: false,
+      html: '',
+      selectButton:'',
+      currentTemplate: this.props.selectedTemplate,
+      currentUser: this.props.currentUser.login,
+      type: this.props.type
+    }
   }
+  
 
   //Creates user input state with two way binding from input components
   prepareStateHandler = (event, id, field, subfield) => {
@@ -55,11 +59,9 @@ class InputPage extends Component {
 
       subfield === 'rating' ? window.sessionStorage.setItem(id+subfield,event) : window.sessionStorage.setItem(id+subfield,event.target.value);
     }
-
   }
   
   submitFormHandler = (html) => {   
-
     localStorage.setItem('html', html);
     // if resume, update users inputs in database write html to resume.html file then create resume.pdf for optional download
     if (this.props.type === "resume") {

@@ -5,7 +5,7 @@ import LoginButton from './NavLinks/LoginButton';
 import "./Navbar.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-const Navbar = ({ title, ghRedirect, isAuthenticated, user, logoutHandler, loginHandler, reset }) => {
+const Navbar = ({ title, ghRedirect, isAuthenticated, user, logoutHandler, reset, loggedIn }) => {
   return (
   <nav className="navbar navbar-expand bg-dark text-white">
       <div className="navbar-header">
@@ -18,10 +18,12 @@ const Navbar = ({ title, ghRedirect, isAuthenticated, user, logoutHandler, login
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
-            {isAuthenticated ? <WelcomeMessage user={user}
-                                              logout={logoutHandler} /> 
-                                              : <LoginButton
-                                                  login={loginHandler} />}
+            {loggedIn ? <WelcomeMessage 
+                                user={user}
+                                logout={logoutHandler}
+                                loggedIn={loggedIn}
+                                reset={reset} /> 
+                                : <LoginButton />}
         </ul>
       </div>
   </nav>

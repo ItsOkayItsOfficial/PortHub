@@ -1,22 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './WelcomeMessage.css';
+import { Redirect } from 'react-router';
 
-const WelcomeMessage = ({user, logout}) => {
-// To DO- Redirect on click to user dashboard
+const WelcomeMessage = ({user, logout, loggedIn, reset}) => {
+  const dropdownStyle = user.login === 'guest' ? {left: '-500%', zIndex:'1001'} : {left: '-126%', zIndex:'1001'};
   return (
-    <div className='welcomeContainer'>
+    loggedIn ? <div className='welcomeContainer'>
       <p className='welcomeText'> Welcome, {user ? user.login : ''} </p>
       <li className="nav-item dropdown"> 
         <a className="nav-link dropdown-toggle" id="navBarDropdown" href='#dropdown' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src={user ? user.avatar_url : ''} alt='user' />
+            {user.login === 'guest' ? '' : <img src={user ? user.avatar_url : ''} alt='user' />}
         </a>
-        <div className="dropdown-menu pull-left" style={{left:'-126%', zIndex:'1001'}}>
-          <Link to='/dashboard' className="dropdown-item" >Dashboard</Link>
-          <a className="dropdown-item" href='#dropdown' onClick={logout}>Logout</a>
+        <div className="dropdown-menu pull-left" style={dropdownStyle}>
+          {user.login === 'guest' ? '' : <Link to='/dashboard' onClick={reset} className="dropdown-item" >Dashboard</Link>}
+          <Link to='/' className="dropdown-item" onClick={logout}>Logout</Link>
         </div>
       </li>
-    </div>
+    </div> : <Redirect to='/' />
   )
 }
 

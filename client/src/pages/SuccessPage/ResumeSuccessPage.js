@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router';
 import './SuccessPage.css';
 
 const ResumeSuccessPage = ({ redirect, currentUser, currentTemplate, retrieveResume }) => {

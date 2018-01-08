@@ -23,7 +23,6 @@ let selectButton = '';
     default:
       iframeSrc = '';
   } 
-  dashboard ? iframeSrc = dashboardTemplate.html : '';
   isAuthenticated  ? 
   selectButton = <Link to='/inputPage' className="btn btn-success mr-4 btn-sm" title={title}> 
     Select
@@ -31,7 +30,10 @@ let selectButton = '';
   : selectButton = <a onClick={guestContinueShow} className="btn btn-success mr-4 btn-sm" title={title}> 
       Select
     </a>
-  dashboard ? selectButton = '' : '';
+  if (dashboard)  {
+    iframeSrc = dashboardTemplate.html
+    selectButton = null;
+  }
     return (
     <Aux>
       <div className="modalHeader d-flex justify-content-center">

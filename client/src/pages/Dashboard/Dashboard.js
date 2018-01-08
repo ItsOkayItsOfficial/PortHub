@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react'
+import { Sidebar, Icon} from 'semantic-ui-react'
 import UserSites from './UserSites/UserSites';
 import UserResumes from './UserResumes/UserResumes';
 import Aux from '../../components/Auxiliary/Auxiliary';
