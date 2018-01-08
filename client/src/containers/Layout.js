@@ -40,6 +40,7 @@ class Layout extends Component{
     resumeSuccess: false,
     html: '',
     selectButton:'',
+    currentTemplateID:''
   }
   //-----------------USER METHODS-------------//
   authenticateUser = () => {
@@ -140,7 +141,6 @@ class Layout extends Component{
   //-----------------------------------------//
   //----------------RESUME METHODS----------//
   retrieveResume = () =>{
-    console.log("*** *** here");
     axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})
     .then((templateID) =>{
       console.log("templateID=", templateID.data);
@@ -180,14 +180,17 @@ class Layout extends Component{
 
   submitFormHandler = (html) => {   
     localStorage.setItem('html', html);
-    // if resume, update users inputs in database write html to resume.html file then create resume.pdf for optional download
+    // if resume, update users inputs in database write html to resume.html file then retrieve templateID for download
     if (this.state.type === "resume") {
-    //if user is a guest do not create template in Database
+    //if user is a guest no need to create template in Database
       if (this.state.currentUser.login === 'guest') {
         console.log('guest')
-          return axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
+          return axios.post('/insertResumeIntoDb', {html:html, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
           .then((response) => {
-            return response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
+            return axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})              
+          })
+          .then((templateID) => {
+            this.setState({currentTemplateID: templateID.data, resumeSuccess:true});
           })
           .catch((err) => {
             console.log(err);
@@ -196,15 +199,12 @@ class Layout extends Component{
       else {
         // Create template for valid user in Database
         axios.post('/create', this.state.currentUser)
+        .then((response) => {
+          return axios.post('/insertResumeIntoDb', {html:html, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
           .then((response) => {
-            return response.data === 'success' ? "user info saved to db" : "error writing to db";         
+            return axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})              
           })
-          .then((response) => {
-            return response === 'error writing to db' ? console.log('error saving user info')
-            :
-            axios.post('/insertResumeIntoDb', {html:html, img:this.state.selectedTemplate.img, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
-          })
-          .then((response) =>{
+          .then((templateID) =>{
               const tempResume = {
                 _id: Math.floor(Math.random() * 10),
                 html:html,
@@ -214,12 +214,12 @@ class Layout extends Component{
               }
               const currentUser = {...this.state.currentUser}
               currentUser.template.push(tempResume);
-              this.setState({resumeSuccess:true, currentUser});
+              this.setState({currentTemplateID: templateID.data,resumeSuccess:true, currentUser});
           })
-
           .catch((err) => {
-            console.log(err)
-          }); 
+            console.log(err);
+          }) 
+        })
       }
     } 
     //if User is creating a website
