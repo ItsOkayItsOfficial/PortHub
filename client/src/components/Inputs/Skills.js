@@ -9,7 +9,7 @@ const Skills = ({index, changed, id, skills}) => {
     skills[index] ? Skills = skills[index] : Skills={};
 
     let skillTitle = Skills.skill || window.sessionStorage.getItem(id+"skill") || "";
-    let skillRating = Skills.rating || "";
+    let skillRating = Skills.rating || 0;
     //console.log(skills)
 const handle = (props) => {
   const { value, dragging, index, ...restProps } = props;

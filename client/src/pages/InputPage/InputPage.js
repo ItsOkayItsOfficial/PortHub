@@ -15,113 +15,13 @@ import { Redirect } from 'react-router';
 
 // import moment from 'moment';
 
-class InputPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      contact: this.props.currentUser.contact,
-      education:this.props.currentUser.education,
-      experience: this.props.currentUser.experience,
-      skills: this.props.currentUser.skills,
-      portfolio: this.props.currentUser.portfolio,
-      success: false,
-      resumeSuccess: false,
-      html: '',
-      selectButton:'',
-      currentTemplate: this.props.selectedTemplate,
-      currentUser: this.props.currentUser.login,
-      type: this.props.type
-    }
-  }
-  
-
-  //Creates user input state with two way binding from input components
-  prepareStateHandler = (event, id, field, subfield) => {
-    if (field === 'contact') {
-      const contact = {...this.state.contact};
-      contact[subfield] = event.target.value;
-      this.setState({contact});
-      window.sessionStorage.setItem('contact'+subfield,event.target.value);
-    }
-    else {
-      const fieldState = [...this.state[field]] ? [...this.state[field]] : [];
-      const inputIndex = this.state[field].findIndex(input => {
-        return input.id === id;
-      });
-      const fieldObj = this.state[field][inputIndex] ? {
-        ...this.state[field][inputIndex]
-      } : {id};
-
-      subfield === 'rating' ? fieldObj[subfield] = event : fieldObj[subfield] = event.target.value;
-
-      !fieldState[inputIndex] ? fieldState.push(fieldObj) : fieldState[inputIndex]=fieldObj;
-      this.setState({[field]: fieldState})
-
-      subfield === 'rating' ? window.sessionStorage.setItem(id+subfield,event) : window.sessionStorage.setItem(id+subfield,event.target.value);
-    }
-  }
-
-  submitFormHandler = (html) => {   
-    localStorage.setItem('html', html);
-    // if resume, update users inputs in database write html to resume.html file then create resume.pdf for optional download
-    if (this.props.type === "resume") {
-    //if user is a guest do not create template in Database
-      if (this.state.currentUser === 'guest') {
-        console.log('guest')
-          return axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
-          .then((response) => {
-            return response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
-          })
-          .catch((err) => {
-            console.log(err);
-          })     
-      }
-      else {
-        // Create template for valid user in Database
-        axios.post('/create', this.state)
-          .then((response) => {
-            return response.data === 'success' ? "user info saved to db" : "error writing to db";         
-          })
-          .then((response) => {
-            return response === 'error writing to db' ? console.log('error saving user info')
-            :
-            axios.post('/insertResumeIntoDb', {html:html, img:this.state.currentTemplate.img, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
-          })
-          .then((response) =>{
-              this.retrievePDF();
-              this.setState({resumeSuccess:true});
-          })
-
-          .catch((err) => {
-            console.log(err)
-          }); 
-      }
-    } 
-    //if User is creating a website
-    else {
-      //if user is a guest, send them to success page. If not a guest, update users inputs and create template in DB
-      return this.state.currentUser === 'guest' ? this.setState({success:true}) :
-      axios.post('/create', this.state)
-      .then((response) => {
-      return axios.post('/site', {html:html, img:this.state.currentTemplate.img, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
-      })
-      .then((response) => {
-        console.log("axios: ", response)
-        response.data==='success' ? this.setState({success:true}): console.log('failed')
-      })
-      .catch((err) => {
-        console.log(err)
-      });   
-    };  
-  }
-
-  render() {
+const InputPage = (props) => {
     //Redirects user if they successfully created a site or resume, respectively.
-    if (this.state.success) {
+    if (props.success) {
       return (
         <Redirect to={'/success'}/>
       )
-    } else if (this.state.resumeSuccess) {
+    } else if (props.resumeSuccess) {
       return (
           <Redirect to={'/resumeSuccess'}/>
         )
@@ -129,22 +29,22 @@ class InputPage extends Component {
     //If there is no accessToken and no current user, or if no template is chosen, redirects to 404 page
     let accessToken = localStorage.getItem('accessToken')
                       ? localStorage.getItem('accessToken') : '';
-    if ((!accessToken && !this.state.currentUser) || Object.keys(this.state.currentTemplate).length === 0) {
+    if ((!accessToken && !props.currentUser) || Object.keys(props.currentTemplate).length === 0) {
       return <Redirect to={'/noMatch'} />
     }
     //Logic to dynamically render input fields based on chosen template
     const inputs = 
-        this.props.selectedTemplate && this.props.selectedTemplate.inputs ? Object.keys(this.props.selectedTemplate.inputs).map((inputType, i) => {
-          return [...Array(this.props.selectedTemplate.inputs[inputType])].map((_, i) => {
+        props.currentTemplate && props.currentTemplate.inputs ? Object.keys(props.currentTemplate.inputs).map((inputType, i) => {
+          return [...Array(props.currentTemplate.inputs[inputType])].map((_, i) => {
             switch (inputType) {
               case ('education'):
-                return <Education key={inputType + i} index={i} id={inputType+i} changed={this.prepareStateHandler} education={this.state.education}/>
+                return <Education key={inputType + i} index={i} id={inputType+i} changed={props.prepareStateHandler} education={props.currentUser.education}/>
               case ('skills'):
-                return <Skills key={inputType + i} index={i} id={inputType+i} changed={this.prepareStateHandler} skills={this.state.skills}/>
+                return <Skills key={inputType + i} index={i} id={inputType+i} changed={props.prepareStateHandler} skills={props.currentUser.skills}/>
               case ('experience'):
-                return <Experience key={inputType + i} index= {i} id={inputType+i} changed={this.prepareStateHandler} experience={this.state.experience}/>
+                return <Experience key={inputType + i} index= {i} id={inputType+i} changed={props.prepareStateHandler} experience={props.currentUser.experience}/>
               case ('portfolio'):
-                return <Portfolio key={inputType + i} index= {i} id={inputType+i} changed={this.prepareStateHandler} portfolio={this.state.portfolio} />
+                return <Portfolio key={inputType + i} index= {i} id={inputType+i} changed={props.prepareStateHandler} portfolio={props.currentUser.portfolio} />
               default:
                 return '';
             }
@@ -157,50 +57,50 @@ class InputPage extends Component {
     const portfolio = inputs.slice(3,4);
     const experience = inputs.slice(0,1);
 
-    const currentTemplate = this.props.selectedTemplate.title;
+    const currentTemplate = props.currentTemplate.title;
 
     let selectButton = '';
-    const props = {};
-    props.education = this.state.education;
-    props.experience= this.state.experience;
-    props.skills= this.state.skills;
-    props.contact= this.state.contact;
-    props.portfolio= this.state.portfolio;
-    props.clicked= this.submitFormHandler; 
+    const templateProps = {};
+    templateProps.education = props.currentUser.education;
+    templateProps.experience=props.currentUser.experience;
+    templateProps.skills= props.currentUser.skills;
+    templateProps.contact= props.currentUser.contact;
+    templateProps.portfolio= props.currentUser.portfolio;
+    templateProps.clicked= props.submitFormHandler; 
 
     switch (currentTemplate){
       case "Montreal":
-            selectButton = <Montreal {...props }/>;
+            selectButton = <Montreal {...templateProps }/>;
             break;
       case "Lawrence":
-            selectButton = <Lawrence {...props} />
+            selectButton = <Lawrence {...templateProps} />
             break;
       case "London":
-            selectButton = <London {...props} />
+            selectButton = <London {...templateProps} />
             break;
       case "Oslo":
-            selectButton = <Oslo {...props} />
+            selectButton = <Oslo {...templateProps} />
             break;
       case "resume-left-right-rtl":
-            selectButton = <ResumeLeftRightRTL {...props} />;
+            selectButton = <ResumeLeftRightRTL {...templateProps} />;
             break; 
       case "resume-left-right":
-            selectButton = <ResumeLeftRight {...props} />;
+            selectButton = <ResumeLeftRight {...templateProps} />;
             break; 
       case "resume-material-dark":
-            selectButton = <ResumeMaterialDark {...props} />;
+            selectButton = <ResumeMaterialDark {...templateProps} />;
             break; 
       case "resume-side-bar":
-            selectButton = <ResumeSideBar {...props} />;
+            selectButton = <ResumeSideBar {...templateProps} />;
             break; 
       case "resume-side-bar-rtl":
-            selectButton = <ResumeSideBarRTL {...props} />;
+            selectButton = <ResumeSideBarRTL {...templateProps} />;
             break; 
       case "resume-purple":
-            selectButton = <ResumePurple {...props} />;
+            selectButton = <ResumePurple {...templateProps} />;
             break; 
       case "resume-oblique":
-            selectButton = <ResumeOblique {...props} />;
+            selectButton = <ResumeOblique {...templateProps} />;
             break;                                                                           
       default:
             break;
@@ -208,7 +108,7 @@ class InputPage extends Component {
 
       return (
         <Aux>
-          <BaseInput key={'base'} changed={this.prepareStateHandler} contact={this.state.contact} button={selectButton}/>
+          <BaseInput key={'base'} changed={props.prepareStateHandler} contact={props.currentUser.contact} button={selectButton}/>
           <div id="accordion" role="tablist" aria-multiselectable="true">
               { (education[0] && education[0].length>0) ? <Accordion type="education" i='0'>{education}</Accordion> : ''}
               { (experience[0] && experience[0].length>0) ? <Accordion type="experience" i='1'>{experience}</Accordion> : ''}
@@ -220,7 +120,6 @@ class InputPage extends Component {
           </div>
         </Aux>
       )
-    }
-  }
+}
 
 export default InputPage;

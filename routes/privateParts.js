@@ -7,7 +7,7 @@ router.post('/create', ((req, res) => {
   console.log(req.body.skills)
   console.log(req.body.currentUser)
   db.User.findOneAndUpdate({
-      login: req.body.currentUser
+      login: req.body.login
     },
     {
       education: req.body.education,

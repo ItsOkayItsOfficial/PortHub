@@ -35,7 +35,90 @@ class Layout extends Component{
     selectedDashboardID: '',
     type:'',
     viewingDashboardSites: true,
-    loggedIn: false
+    loggedIn: false,
+    success: false,
+    resumeSuccess: false,
+    html: '',
+    selectButton:'',
+  }
+//-------------------INPUT METHODS--------------------//
+  prepareStateHandler = (event, id, field, subfield) => {
+      const currentUser = {...this.state.currentUser};
+    if (field === 'contact') {
+      currentUser.contact[subfield] = event.target.value;
+      this.setState({currentUser});
+      window.sessionStorage.setItem('contact'+subfield,event.target.value);
+    }
+    else {
+      const userFieldState = [...this.state.currentUser[field]] ? [...this.state.currentUser[field]] : [];
+      const inputIndex = this.state.currentUser[field].findIndex(input => {
+        return input.id === id;
+      });
+      const fieldObj = this.state.currentUser[field][inputIndex] ? {
+        ...this.state.currentUser[field][inputIndex]
+      } : {id};
+
+      subfield === 'rating' ? fieldObj[subfield] = event : fieldObj[subfield] = event.target.value;
+
+      !userFieldState[inputIndex] ? userFieldState.push(fieldObj) : userFieldState[inputIndex]=fieldObj;
+      currentUser[field] = userFieldState
+      this.setState({currentUser})
+
+      subfield === 'rating' ? window.sessionStorage.setItem(id+subfield,event) : window.sessionStorage.setItem(id+subfield,event.target.value);
+    }
+  }
+
+  submitFormHandler = (html) => {   
+    localStorage.setItem('html', html);
+    // if resume, update users inputs in database write html to resume.html file then create resume.pdf for optional download
+    if (this.state.type === "resume") {
+    //if user is a guest do not create template in Database
+      if (this.state.currentUser.login === 'guest') {
+        console.log('guest')
+          return axios.post('/resume', {html:html, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
+          .then((response) => {
+            return response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");
+          })
+          .catch((err) => {
+            console.log(err);
+          })     
+      }
+      else {
+        // Create template for valid user in Database
+        axios.post('/create', this.state.currentUser)
+          .then((response) => {
+            return response.data === 'success' ? "user info saved to db" : "error writing to db";         
+          })
+          .then((response) => {
+            return response === 'error writing to db' ? console.log('error saving user info')
+            :
+            axios.post('/insertResumeIntoDb', {html:html, img:this.state.selectedTemplate.img, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
+          })
+          .then((response) =>{
+              this.setState({resumeSuccess:true});
+          })
+
+          .catch((err) => {
+            console.log(err)
+          }); 
+      }
+    } 
+    //if User is creating a website
+    else {
+      //if user is a guest, send them to success page. If not a guest, update users inputs and create template in DB
+      return this.state.currentUser === 'guest' ? this.setState({success:true}) :
+      axios.post('/create', this.state.currentUser)
+      .then((response) => {
+      return axios.post('/site', {html:html, img:this.state.selectedTemplate.img, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
+      })
+      .then((response) => {
+        console.log("axios: ", response)
+        response.data==='success' ? this.setState({success:true}): console.log('failed')
+      })
+      .catch((err) => {
+        console.log(err)
+      });   
+    };  
   }
 
   //-----------------USER METHODS-------------//
@@ -157,7 +240,7 @@ class Layout extends Component{
   }
 
   render(){
-    console.log('at render')
+
     return(
       <Router>
         <Aux>
@@ -200,9 +283,13 @@ class Layout extends Component{
               />
               <Route exact path='/inputPage' render={() => <InputPage
                                                             type = {this.state.type}
-                                                            selectedTemplate={this.state.selectedTemplate} 
+                                                            currentTemplate={this.state.selectedTemplate} 
                                                             currentUser = {this.state.currentUser}
-                                                            retrieveResume = {this.state.retrieveResume} />} />
+                                                            retrieveResume = {this.state.retrieveResume}
+                                                            success={this.state.success}
+                                                            resumeSuccess={this.state.resumeSuccess}
+                                                            prepareStateHandler={this.prepareStateHandler}
+                                                            submitFormHandler={this.submitFormHandler} />} />
               <Route exact path='/success' render={() => <SuccessPage
                                                             currentUser={this.state.currentUser}
                                                             currentTemplate={this.state.selectedTemplate}/>} />
