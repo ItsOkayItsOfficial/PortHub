@@ -70,6 +70,7 @@ router.post('/site', ((req, res) => {
 
 //Adds resume template into Template db and associates resume to user profile
 router.post('/resume', ((req, res) => {
+  console.log(req.body.html)
   db.Template.create({templateName:req.body.currentTemplate, type: req.body.type, lastEdited:Date.now(), img: req.body.img, html:req.body.html, login:req.body.login})
   .then((response) => {
     return db.User.findOneAndUpdate(

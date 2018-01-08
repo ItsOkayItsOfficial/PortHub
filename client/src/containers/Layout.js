@@ -34,7 +34,8 @@ class Layout extends Component{
     viewingGuestContinueModal: false,
     redirectToInput: false,
     selectedDashboardID: '',
-    type:''
+    type:'',
+    viewingDashboardSites: true
   }
 
   detailedTemplateHandler = (id, title, type, event) => {
@@ -116,7 +117,12 @@ class Layout extends Component{
         this.getUserInfoHandler(accessToken)
       }
   }
-
+  
+  dashboardViewToggleHandler = () => {
+    this.state.viewingDashboardSites ?
+  this.setState({viewingDashboardSites:false})
+  : this.setState({viewingDashboardSites:true})
+  }
   retrieveResume = () =>{
     console.log("here");
     let fetchURL = '';
@@ -201,7 +207,9 @@ class Layout extends Component{
                                                             guestContinueShow={this.guestContinueModalHander}
                                                             viewingContinueAsGuest={this.state.viewingGuestContinueModal}
                                                             isAuthenticated={this.state.isAuthenticated}
-                                                            selectedDashboardID={this.state.selectedDashboardID}/>} />
+                                                            selectedDashboardID={this.state.selectedDashboardID}
+                                                            dashboardToggle={this.dashboardViewToggleHandler}
+                                                            viewingSites={this.state.viewingDashboardSites}/>} />
               <Route component={NoMatch} />
             </Switch>
             <Alert stack={{limit: 3}} />

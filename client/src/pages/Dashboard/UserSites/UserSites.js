@@ -23,7 +23,7 @@ const UserSites = (props) => {
   : '';
 
   return (
-    <div className='userSites'> 
+    <div className='d-flex flex-row flex-wrap justify-content-center userSites'>
     {sites}
     </div>
   )
