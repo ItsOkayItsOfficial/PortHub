@@ -137,14 +137,11 @@ class Layout extends Component{
   //-----------------------------------------//
   //----------------RESUME METHODS----------//
   retrieveResume = () =>{
-    console.log("here");
-    let fetchURL = '';
+    console.log("*** *** here");
     axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})
     .then((templateID) =>{
       console.log("templateID=", templateID.data);
-      // fetchURL = `http://porthubserver.herokuapp.com/api/retrieveResume/${templateID.data}`;
-      fetchURL = `http://localhost:3003/api/retrievePDF/${templateID.data}`;
-      window.open(fetchURL); 
+      this.setState({currentTemplateID: templateID.data});
     })
     .catch((err) => {
       console.log(err);
@@ -204,14 +201,16 @@ class Layout extends Component{
               <Route exact path='/inputPage' render={() => <InputPage
                                                             type = {this.state.type}
                                                             selectedTemplate={this.state.selectedTemplate} 
-                                                            currentUser = {this.state.currentUser} />} />
+                                                            currentUser = {this.state.currentUser}
+                                                            retrieveResume = {this.state.retrieveResume} />} />
               <Route exact path='/success' render={() => <SuccessPage
                                                             currentUser={this.state.currentUser}
                                                             currentTemplate={this.state.selectedTemplate}/>} />
               <Route exact path='/resumeSuccess' render={() => <ResumeSuccessPage
                                                             currentUser={this.state.currentUser}
                                                             currentTemplate={this.state.selectedTemplate}
-                                                            retrieveResume={this.retrieveResume}/>} />} />                                                            
+                                                            retrieveResume={this.retrieveResume} 
+                                                            currentTemplateID={this.state.currentTemplateID} />} />} />                                                            
               <Route exact path='/siteLoader' render={() => <CreateSiteLoader
                                                             selectedTemplate={this.state.selectedTemplate}
                                                             login={this.state.currentUser.login} />} />

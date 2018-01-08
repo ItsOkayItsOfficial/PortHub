@@ -60,7 +60,7 @@ class InputPage extends Component {
       subfield === 'rating' ? window.sessionStorage.setItem(id+subfield,event) : window.sessionStorage.setItem(id+subfield,event.target.value);
     }
   }
-  
+
   submitFormHandler = (html) => {   
     localStorage.setItem('html', html);
     // if resume, update users inputs in database write html to resume.html file then create resume.pdf for optional download
@@ -85,11 +85,13 @@ class InputPage extends Component {
           .then((response) => {
             return response === 'error writing to db' ? console.log('error saving user info')
             :
-            axios.post('/resume', {html:html, img:this.state.currentTemplate.img, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
+            axios.post('/insertResumeIntoDb', {html:html, img:this.state.currentTemplate.img, type:this.state.type, currentTemplate:this.state.currentTemplate.title, login:this.state.currentUser})
           })
-          .then((response) => {
-            return response.data === "success" ? this.setState({resumeSuccess:true}) : console.log("error creating pdf");    
+          .then((response) =>{
+              this.retrievePDF();
+              this.setState({resumeSuccess:true});
           })
+
           .catch((err) => {
             console.log(err)
           }); 
