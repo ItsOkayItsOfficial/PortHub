@@ -205,7 +205,16 @@ class Layout extends Component{
             axios.post('/insertResumeIntoDb', {html:html, img:this.state.selectedTemplate.img, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
           })
           .then((response) =>{
-              this.setState({resumeSuccess:true});
+              const tempResume = {
+                _id: Math.floor(Math.random() * 10),
+                html:html,
+                img:this.state.selectedTemplate.img,
+                templateName: this.state.selectedTemplate.title,
+                type:this.state.type
+              }
+              const currentUser = {...this.state.currentUser}
+              currentUser.template.push(tempResume);
+              this.setState({resumeSuccess:true, currentUser});
           })
 
           .catch((err) => {
@@ -222,8 +231,16 @@ class Layout extends Component{
       return axios.post('/site', {html:html, img:this.state.selectedTemplate.img, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
       })
       .then((response) => {
-        console.log("axios: ", response)
-        response.data==='success' ? this.setState({success:true}): console.log('failed')
+        const tempSite = {
+          _id: Math.floor(Math.random() * 10),
+          html:html,
+          img:this.state.selectedTemplate.img,
+          templateName: this.state.selectedTemplate.title,
+          type:this.state.type
+        }
+        const currentUser = {...this.state.currentUser}
+        currentUser.template.push(tempSite);
+        response.data==='success' ? this.setState({success:true, currentUser}): console.log('failed')
       })
       .catch((err) => {
         console.log(err)
@@ -238,7 +255,15 @@ class Layout extends Component{
         this.getUserInfoHandler(accessToken)
       }
   }
+  componentDidUpdate () {
+    if (this.state.success) {
+      return this.setState({success: false})
+    }
+    if (this.state.resumeSuccess) {
+      return this.setState({resumeSuccess: false})
+    }
 
+  }
   render(){
 
     return(
