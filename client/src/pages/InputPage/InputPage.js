@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 //import { Link } from 'react-router-dom';
 import Aux from '../../components/Auxiliary/Auxiliary';
 import BaseInput from '../../components/Inputs/BaseInput';
@@ -9,7 +9,6 @@ import {Montreal, Lawrence, London, Oslo} from '../../components/Websites';
 import {ResumeLeftRightRTL, ResumeLeftRight, ResumeMaterialDark, ResumeSideBar, ResumeSideBarRTL, ResumePurple, ResumeOblique} from '../../components/Resumes';
 import Portfolio from '../../components/Inputs/Portfolio';
 import Accordion from '../../components/Accordion/Accordion';
-import axios from 'axios';
 import { Redirect } from 'react-router';
 
 
