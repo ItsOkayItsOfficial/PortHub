@@ -206,7 +206,7 @@ class Layout extends Component{
           })
           .then((templateID) =>{
               const tempResume = {
-                _id: Math.floor(Math.random() * 10),
+                _id: templateID.data,
                 html:html,
                 img:this.state.selectedTemplate.img,
                 templateName: this.state.selectedTemplate.title,
