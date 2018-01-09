@@ -22,6 +22,8 @@ import Aux from '../components/Auxiliary/Auxiliary';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/bouncyflip.css';
+import 'react-s-alert/dist/s-alert-css-effects/stackslide.css';
+import 'react-s-alert/dist/s-alert-css-effects/jelly.css';
 
 
 class Layout extends Component{
@@ -40,7 +42,8 @@ class Layout extends Component{
     resumeSuccess: false,
     html: '',
     selectButton:'',
-    currentTemplateID:''
+    currentTemplateID:'',
+    currentDashboardPage: ''
   }
   //-----------------USER METHODS-------------//
   authenticateUser = () => {
@@ -96,6 +99,21 @@ class Layout extends Component{
     localStorage.clear('accessToken');
     this.setState({currentUser: {}, isAuthenticated:false, loggedIn: false});
   }
+
+  updateUserInputs = () => {
+    axios.post('/updateUserInputs', this.state.currentUser)
+    .then((response) => {
+      Alert.success('Your information has been saved', {
+        position:'top-right',
+        effect: 'jelly',
+        timeout: 3000,
+        offset: 55
+      })
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
   //-------------------------------------------//
   //-----------------VIEW METHODS-------------//
   guestContinueModalHander = () => {
@@ -133,10 +151,8 @@ class Layout extends Component{
     this.setState({selectedTemplate:{}})
   }
 
-  dashboardViewToggleHandler = () => {
-    this.state.viewingDashboardSites ?
-    this.setState({viewingDashboardSites:false})
-    : this.setState({viewingDashboardSites:true})
+  dashboardInputViewer = (field) => {
+      this.setState({currentDashboardPage: field})
   }
   //-----------------------------------------//
   //----------------RESUME METHODS----------//
@@ -153,8 +169,9 @@ class Layout extends Component{
 //-----------------------------------------------------//
 //-------------------INPUT METHODS--------------------//
   prepareStateHandler = (event, id, field, subfield) => {
-      const currentUser = {...this.state.currentUser};
+    const currentUser = {...this.state.currentUser};
     if (field === 'contact') {
+      currentUser.contact ? currentUser.contact={...this.state.currentUser.contact} : currentUser.contact={};
       currentUser.contact[subfield] = event.target.value;
       this.setState({currentUser});
       window.sessionStorage.setItem('contact'+subfield,event.target.value);
@@ -173,8 +190,6 @@ class Layout extends Component{
       !userFieldState[inputIndex] ? userFieldState.push(fieldObj) : userFieldState[inputIndex]=fieldObj;
       currentUser[field] = userFieldState
       this.setState({currentUser})
-
-      subfield === 'rating' ? window.sessionStorage.setItem(id+subfield,event) : window.sessionStorage.setItem(id+subfield,event.target.value);
     }
   }
 
@@ -198,9 +213,9 @@ class Layout extends Component{
       }
       else {
         // Create template for valid user in Database
-        axios.post('/create', this.state.currentUser)
+        axios.post('/updateUserInputs', this.state.currentUser)
         .then((response) => {
-          return axios.post('/insertResumeIntoDb', {html:html, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
+          return axios.post('/insertResumeIntoDb', {html:html, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login, img:this.state.selectedTemplate.img})
           .then((response) => {
             return axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})              
           })
@@ -210,8 +225,10 @@ class Layout extends Component{
                 html:html,
                 img:this.state.selectedTemplate.img,
                 templateName: this.state.selectedTemplate.title,
-                type:this.state.type
+                type:this.state.type,
+                lastEdited: Date.now()
               }
+              console.log(tempResume)
               const currentUser = {...this.state.currentUser}
               currentUser.template.push(tempResume);
               this.setState({currentTemplateID: templateID.data,resumeSuccess:true, currentUser});
@@ -226,7 +243,7 @@ class Layout extends Component{
     else {
       //if user is a guest, send them to success page. If not a guest, update users inputs and create template in DB
       return this.state.currentUser === 'guest' ? this.setState({success:true}) :
-      axios.post('/create', this.state.currentUser)
+      axios.post('/updateUserInputs', this.state.currentUser)
       .then((response) => {
       return axios.post('/site', {html:html, img:this.state.selectedTemplate.img, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
       })
@@ -236,7 +253,8 @@ class Layout extends Component{
           html:html,
           img:this.state.selectedTemplate.img,
           templateName: this.state.selectedTemplate.title,
-          type:this.state.type
+          type:this.state.type,
+          lastEdited: Date.now()
         }
         const currentUser = {...this.state.currentUser}
         currentUser.template.push(tempSite);
@@ -344,7 +362,12 @@ class Layout extends Component{
                                                             isAuthenticated={this.state.isAuthenticated}
                                                             selectedDashboardID={this.state.selectedDashboardID}
                                                             dashboardToggle={this.dashboardViewToggleHandler}
-                                                            viewingSites={this.state.viewingDashboardSites}/>} />
+                                                            viewingSites={this.state.viewingDashboardSites}
+                                                            dashboardInputViewer={this.dashboardInputViewer}
+                                                            currentDashboardPage={this.state.currentDashboardPage}
+                                                            prepareStateHandler={this.prepareStateHandler}
+                                                            updateUserInputs={this.updateUserInputs}/>}
+                                                             />
               <Route component={NoMatch} />
             </Switch>
             <Alert stack={{limit: 3}} />

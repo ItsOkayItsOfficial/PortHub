@@ -1,24 +1,11 @@
 import React from 'react';
 
-const BaseInput = ({ changed, contact, button }) => {
-
-    // let contactFirstName = contact.firstName || window.sessionStorage.getItem('contactfirstName') || "";
-    // let contactLastName = contact.lastName || window.sessionStorage.getItem('contactlastName') || "";
-    // let contactAddress = contact.address || window.sessionStorage.getItem('contactaddress') || "";
-    // let contactPhone = contact.phone || window.sessionStorage.getItem('contactphone') || "";
-    // let contactEmail = contact.email || window.sessionStorage.getItem('contactemail') || "";
-    // let contactBio = contact.bio || window.sessionStorage.getItem('contactbio') || "";
-    // let contactCurrentTitle = contact.currentTitle|| window.sessionStorage.getItem('contactcurrentTitle') || "";
-    // let contactSite = contact.site || window.sessionStorage.getItem('contactsite') || "";
-    // let contactGitHub = contact.github || window.sessionStorage.getItem('contactgithub') || ""; 
-    // let contactLinkedIn = contact.linkedin || window.sessionStorage.getItem('contactlinkedin') || "";        
-    // let contactProfilePicture = contact.profilePicture || window.sessionStorage.getItem('contactProfilePicture') || "";        
-
+const BaseInput = ({ changed, contact, button, dashboard  }) => {
     return(
         <div className="container border border-primary rounded p-5 mt-5 mb-5">
             <div className="d-flex flex-row justify-content-center">
                 <h1 className="text-center"> Please enter your information </h1> 
-                <div className="ml-auto">{button}</div>
+                {dashboard ? <div className="ml-auto">{button}</div> : ''}
             </div>        
             <div className="row">
                 <div className="col-md-6">

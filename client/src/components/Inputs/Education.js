@@ -14,7 +14,7 @@ const Education = ({id, index, changed, education}) => {
     let educationDegreeType = Education.degreeType || window.sessionStorage.getItem(id+"degreeType") || "";     
 
     return (
-        <div className='m-5 p-5 border border-primary rounded'>
+        <div className='m-4 p-4 border border-primary rounded'>
             <h3> Education {index+1} </h3>
             <div className="row">
                 <div className="col-md-6">

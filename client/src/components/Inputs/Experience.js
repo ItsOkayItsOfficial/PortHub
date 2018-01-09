@@ -13,7 +13,7 @@ const Experience = ({index, id, changed, experience}) => {
     let experienceEndDate = Experience.endDate || window.sessionStorage.getItem(id+"endDate") || ""; 
 
     return (
-  <div className='m-5 p-5 border border-primary rounded'>
+  <div className='m-4 p-4 border border-primary rounded'>
   <h3> Employer {index+1} </h3>
     <div className="row">
           <div className="col-md-4">

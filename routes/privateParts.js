@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // update/create User collections with inputs from InputPage
-router.post('/create', ((req, res) => {
+router.post('/updateUserInputs', ((req, res) => {
   console.log(req.body.skills)
   console.log(req.body.currentUser)
   db.User.findOneAndUpdate({
@@ -106,6 +106,7 @@ router.post('/user', (req, res) => {
   return user.length === 0 ? 
     db.User.create({
       login:req.body.login,
+      pin: (Math.floor(Math.random() * 10000) + 10000).toString().substring(1),
       avatar_url: req.body.avatar_url
     })
     : user

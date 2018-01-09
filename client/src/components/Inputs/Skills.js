@@ -28,7 +28,7 @@ const handle = (props) => {
     // let skillLevel = window.sessionStorage.getItem(id+"description") || "";  
   return (<div className='container'>
     <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-12">
               <span className="form-group d-inline-flex flex-row align-items-baseline">
                   <h5 className="mr-1">Skill</h5>
                   <input type="text" 

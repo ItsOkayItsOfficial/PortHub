@@ -10,7 +10,7 @@ const Portfolio = ({ id, index, changed , portfolio}) => {
     let portfolioDescription = Portfolio.description || window.sessionStorage.getItem(id+"description") || "";    
     
   return (
-      <div className='w-75 m-2 border border-primary rounded'>
+      <div className='m-4 p-4 border border-primary rounded'>
         <h3> Portfolio {index+1} </h3>
           <div className="row border-1 rounded">
             <div className="col-md-4">

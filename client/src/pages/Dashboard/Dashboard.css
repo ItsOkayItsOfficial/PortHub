@@ -1,4 +1,5 @@
 .menuItem:hover {
   background-color:#343a40;
   color: white;
+  cursor: pointer;
 }

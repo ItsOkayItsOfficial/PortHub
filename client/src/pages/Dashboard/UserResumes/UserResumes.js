@@ -1,9 +1,10 @@
 import React from 'react';
 import Template from '../../../pages/TemplatePage/Template/Template';
+
 import './UserResumes.css';
 
 const UserResumes = (props) => {
-
+  console.log(props.userResumes)
   const resumes = props.userResumes ? props.userResumes.map((resume, i) => {
     return <Template
             dashboardTemplate={resume}
@@ -22,10 +23,10 @@ const UserResumes = (props) => {
             selectedDashboardID={props.selectedDashboardID} />
   })
   : '';
-
   return (
-    <div className='d-flex flex-row flex-wrap justify-content-center userResumes'>
-    {resumes}
+    <div style={{textAlign:'center'}}>
+    {resumes.length !== 0 ? resumes : 
+      <h2> It looks like you don't have any resumes yet.. make one, I dare you. </h2>}
     </div>
   )
 }

@@ -23,8 +23,9 @@ const UserSites = (props) => {
   : '';
 
   return (
-    <div className='d-flex flex-row flex-wrap justify-content-center userSites'>
-    {sites}
+    <div style={{textAlign:'center'}}>
+    {sites.length !== 0 ? sites : 
+      <h2> It looks like you don't have any personal sites yet.. make one, I dare you. </h2>}
     </div>
   )
 }
