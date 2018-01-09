@@ -1,35 +1,23 @@
+import axios from 'axios'
 import {Colors} from '../constants'
-import {Button} from '../components'
 import React, {Component} from 'react'
 import {Ionicons} from '@expo/vector-icons'
-import axios from 'axios'
+import { GitHubAuth } from '../api'
 import {View, Text, TextInput, Alert, StyleSheet} from 'react-native'
 
 export default class LoginForm extends Component {
   state = {
     error: null,
+    result: null,
     username: '',
-    pin: ''
-  };
-
-_userLogin = (username) => {
-    axios.get(`http://porthubserver.herokuapp.com/api/users?login=${this.username}`)
-     .then((response) => {
-     return axios.post('/user', response.data)
-     })
-     .then((user) => {
-       console.log("logged in user: ", user.data[0].login);
-       user.data.length===1 ? this.setState({currentUser:user.data[0]}) : this.setState({currentUser:user.data})
-     })
-     .catch(error => {
-       console.log('Error getting user info: ', error.response)
-     })
-   }
-
-
+    pin: '',
+    userAuth: false,
+  }
 
     render() {
+
       return (
+
         <View style={styles.container}>
 
           <View style={styles.inputContainer}>
@@ -45,13 +33,13 @@ _userLogin = (username) => {
               onSubmitEditing={() => this.passwordInput.focus()}
               refs={input => (this.state.password= input)}
               autoCorrect={false}
-              keyboardType="email-address"
+              keyboardType="default"
               returnKeyType="next"
               placeholder="Username"
               selectionColor='white'
               keyboardAppearance='dark'
               placeholderTextColor={Colors.tintColor}
-              onChangeText={input => this.setState({username})}
+              onChangeText={(text) => this.setState({ username:text })}
               />
           </View>
 
@@ -71,10 +59,11 @@ _userLogin = (username) => {
               selectionColor='white'
               keyboardAppearance='dark'
               secureTextEntry
+              onChangeText={(text) => this.setState({ pin:text })}
               />
           </View>
 
-          <Button onPress={this._userLogin} title="LOGIN"/>
+        <GitHubAuth />
 
         </View>
       );

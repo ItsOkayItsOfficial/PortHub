@@ -4,14 +4,14 @@ import { LoginScreen } from '../screens'
 import { Notifications, Linking } from 'expo'
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync'
 
-
-
 export default class RootNav extends Component {
   state = {
-    currentUser: {},
+    currentUser: null,
     isLoggedIn: false,
     isAuthenticated: false,
   };
+
+
 
   componentDidMount() {
     this._notificationSubscription = this._registerForPushNotifications()
@@ -21,9 +21,9 @@ export default class RootNav extends Component {
     this._notificationSubscription && this._notificationSubscription.remove()
   }
 
-  onLoginPress = () => this.setState({ isLoggedIn: true, sendMail: true })
+  onLoginPress = () => this.setState({ isLoggedIn: true })
 
-  onLogoutPress = () => this.setState({ currentUser: {}, isLoggedIn: false, isAuthenticated: false, })
+  onLogoutPres = () => this.setState({ currentUser: null, isLoggedIn: false, isAuthenticated: false, })
 
 
   render() {

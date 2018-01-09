@@ -1,40 +1,18 @@
-import React, { Component } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import { AuthSession } from 'expo';
+import React from 'react'
+import axios from 'axios'
 
-const CLIENT_ID = '2c38b12764233cb81da1';
-const CLIENT_SECRET = 'GH_BASIC_SECRET_ID';
+export default userAuthAPI = () => {
 
-export default class App extends Component {
-  state = {
-    result: null,
-  };
+const BASE_API = 'http://porthubserver.herokuapp.com/api/'
+const USER_API = 'http://porthubserver.herokuapp.com/api/user/'
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <Button title="Open GitHub Auth" onPress={this._handlePressAsync} />
-        {this.state.result ? (
-          <Text>{JSON.stringify(this.state.result)}</Text>
-        ) : null}
-        </View>
-    );
-  }
+const getUser = (username) => axios.get(USER_API + username).then( response => {console.log(response)}).catch( error => {console.log(error)})
+const getPin = () => axios.get(USER_API + this.state.pin)
 
-  _handlePressAsync = async () => {
-    let redirectUrl = AuthSession.getRedirectUrl();
-    let result = await AuthSession.startAsync({
-      authUrl:
-        `https://github.com/login/oauth/authorize?scope=user:email&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUrl)}`,
-    });
-    this.setState({ result });
-  };
+// getUser = () => axios.get(USER_API + this.state.username)
+// .then( response => (
+//   (this.state.username === response.data[0].login && this.state.pin === response.data[0].pin) ? Alert.alert('Login Success', '' + response.data[0].login, [{text:'Go', onPress: () => this.setState({userAuth: true})}], { cancelable: false })
+//   : Alert.alert('Login Failed', '' + response.data[0].pin) ))
+// .catch( error => Alert.alert('Login Failed', '' + error))
+
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
