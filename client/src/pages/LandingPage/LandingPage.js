@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom'
 import   './LandingPage.css';
 
 const LandingPage = ({ children }) =>
-  <div>
+  <div className="d-relative">
       <div className="row">
         <div className="col text-center landingJumbo" style={{position:"relative", marginTop:"15vh", width:"100vw"}}>
           <img className="img-fluid rounded" src='/assets/images/ph/porthub_logo.png' alt="logo"/>       
           <p className=".display-4"> Create a portfolio website and a resume in minutes!<br/>Stay a step ahead of your competitors in the job market and get that job your deserve.</p>      
         </div>
       </div>
-      <div className="row mx-auto" style={{position:"fixed", top:"80vh", width:"100%"}}>
-            <div className="col-md-4 col-sm-12 offset-sm-0 offset-md-2 text-center">
-              <Link to='createsite' className="btn btn-warning landingButton">Create a Portfolio Website</Link>
+      <div className="row mx-auto" style={{position:"absolute", top:"80vh", width:"100%"}}>
+            <div className="col-lg-4 col-sm-10 offset-lg-2 offset-sm-1 d-flex p-0 text-center">
+              <Link to='createsite' className="btn btn-warning mx-4 w-100 landingButton">Create a Portfolio Website</Link>
             </div>
-            <div className="col-md-4 col-sm-12 text-center">     
-              <Link to='createresume'className="btn btn-info  landingButton">Create a Resume</Link>
+            <div className="col-lg-4 col-sm-10  offset-sm-1 p-0 d-flex text-center p-0">     
+              <Link to='createresume'className="btn btn-info mx-4 w-100 landingButton">Create a Resume</Link>
             </div>
       </div>
     <div className='fullscreen-bg'>
