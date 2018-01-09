@@ -101,7 +101,7 @@ const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, vi
         </div>
       </div>
       </Sidebar>
-      <div className='userSites'>
+      <div className='dashboardContent'>
       {currentPage}
       </div>
     </Aux>

@@ -12,7 +12,7 @@ const TemplatePage = ({ type, children, showModal, closeModal, viewTemplate, sel
 
   return(
     <Aux>
-      <div className='d-flex'>
+      <div className='d-flex templatePage'>
         <div className='d-flex flex-row'>
           <Requirements />
           <Col size='lg-9' className='d-flex flex-col flex-wrap justify-content-center'>

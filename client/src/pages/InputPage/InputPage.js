@@ -1,5 +1,5 @@
 import React from 'react';
-//import { Link } from 'react-router-dom';
+import './InputPage.css';
 import Aux from '../../components/Auxiliary/Auxiliary';
 import BaseInput from '../../components/Inputs/BaseInput';
 import Education from '../../components/Inputs/Education';
@@ -106,7 +106,7 @@ const InputPage = (props) => {
     }
 
       return (
-        <Aux>
+        <div className='inputPage'>
           <BaseInput key={'base'} changed={props.prepareStateHandler} contact={props.currentUser.contact} button={selectButton}/>
           <div id="accordion" role="tablist" aria-multiselectable="true">
               { (education[0] && education[0].length>0) ? <Accordion type="education" i='0'>{education}</Accordion> : ''}
@@ -117,7 +117,7 @@ const InputPage = (props) => {
           <div className="text-center mt-3">
             {selectButton}
           </div>
-        </Aux>
+        </div>
       )
 }
 
