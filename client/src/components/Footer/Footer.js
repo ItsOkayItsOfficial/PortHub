@@ -7,13 +7,13 @@ const Footer = () => {
     <div className="footer w-100 bg-dark text-white">
       <ul className="nav justify-content-center">
         <li className="nav-item">
-            <Link to="/" >  Our Story | </Link>
+            <Link to="/ourStory" >  Our Story | </Link>
         </li>
         <li className="nav-item">
-            <Link to="/" > Meet the Team  | </Link>
+            <Link to="/aboutUs" > Meet the Team  | </Link>
         </li>
         <li className="nav-item">
-            <Link to="/" > Repository</Link>
+            <Link to="/repository" > Repository</Link>
         </li>
       </ul>
     </div>

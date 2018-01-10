@@ -9,21 +9,25 @@ const Carousel = ({ children, numCards }) =>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+
   </ol>
   <div className="carousel-inner" role="listbox">
-    <div className="carousel-item active">
-      <img className="d-block img-fluid" src="http://www.powerenergyusa.com/wp-content/themes/power-energy-usa/images/road_map/slide2.gif" alt="First slide"></img>
+    <div className="carousel-item active text-center">
+      <img className="d-block img-fluid" src="/assets/images/ph/team.jpg" alt="the team"></img>
     </div>
     <div className="carousel-item">
-      <img className="d-block img-fluid" src="http://cdn.mysitemyway.com/icons-watermarks/flat-rounded-square-white-on-black/social-media/social-media_github/social-media_github_flat-rounded-square-white-on-black_512x512.png" alt="Second slide"></img>
+      <img className="d-block img-fluid rounded-circle" src="/assets/images/ph/alex.jpg" alt="Alex"></img>
     </div>
     <div className="carousel-item">
-      <img className="d-block img-fluid" src="/assets/images/resumeTemplates/resume-oblique.png" alt="resume"></img>
-      <img className="d-block img-fluid" src="/assets/templates/websitepeeks/oslo.png" alt="resume"></img>
+      <img className="d-block img-fluid rounded-circle" src="/assets/images/ph/jason.jpg" alt="Jason"></img>
     </div>
     <div className="carousel-item">
-      <img className="d-block img-fluid" src="https://www.tenstickers.com/wall-stickers/img/preview/enjoy-smile-wall-sticker-9457.png" alt="Second slide"></img>
-    </div>    
+      <img className="d-block img-fluid rounded-circle" src="/assets/images/ph/cody.jpg" alt="Cody"></img>
+    </div> 
+    <div className="carousel-item">
+      <img className="d-block img-fluid rounded-circle" src="/assets/images/ph/kui2.jpg" alt="Kui"></img>
+    </div>        
   </div>
   <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
