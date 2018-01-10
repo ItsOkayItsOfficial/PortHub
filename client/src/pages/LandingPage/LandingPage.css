@@ -5,18 +5,6 @@ video {
     overflow: hidden;
 }
 
-.landingButton{
-    font-size: 1.5rem;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-.smLandingButton{
-    font-size: 1rem;
-    padding: 10px;
-    margin-top: 10px;
-}
-
 /* .fullscreen-bg {
     position: fixed;
     width: 100%;
@@ -37,11 +25,24 @@ video {
     z-index: -100;
 }
 
-.landingJumbo p{
+#buttons {
+    position: absolute;
+    top: 80vh;
+    width: 100%;
+}
+
+#buttons Link {
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#jumbo p{
     color: rgb(255, 255, 255);
-    text-shadow: 1px 3px 2px rgba(26, 25, 25, 0.822);
     margin-top:50px;
-    margin-left:5%;
+    margin-left: 0;
+    width: 100vw;
+    font-size: 1.5em;
 }
 
 .triangleSpacer{
@@ -85,6 +86,9 @@ video {
     video {
         height: 100%;
         width: auto;
+    }
+    #buttons Link {
+        font-size: 1rem;
     }
 }
 
