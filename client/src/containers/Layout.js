@@ -13,6 +13,11 @@ import SuccessPage from '../pages/SuccessPage/SuccessPage';
 import ResumeSuccessPage from '../pages/SuccessPage/ResumeSuccessPage';
 import CreateSiteLoader from '../pages/LoadingPages/CreateSiteLoader/CreateSiteLoader';
 import AuthLoader from '../pages/LoadingPages/AuthLoader/AuthLoader';
+
+import OurStory from '../pages/MoreInfo/OurStory';
+import AboutUs from '../pages/MoreInfo/AboutUs';
+import Repository from '../pages/MoreInfo/Repository';
+
 import Modal from '../components/Modal/Modal';
 import ContinueAsGuest from '../components/ContinueAsGuest/ContinueAsGuest';
 import Dashboard from '../pages/Dashboard/Dashboard';
@@ -369,6 +374,9 @@ class Layout extends Component{
                                                             prepareStateHandler={this.prepareStateHandler}
                                                             updateUserInputs={this.updateUserInputs}/>}
                                                              />
+              <Route exact path="/ourStory" component={OurStory} />
+              <Route exact path="/aboutUs" component={AboutUs} />
+              <Route exact path="/repository" component={Repository} />
               <Route component={NoMatch} />
             </Switch>
             <Alert stack={{limit: 3}} />
