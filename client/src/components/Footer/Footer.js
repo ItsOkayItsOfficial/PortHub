@@ -4,18 +4,18 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="footer w-100 bg-dark text-white">
-      <ul className="nav justify-content-center">
-        <li className="nav-item">
-            <Link to="/ourStory" >  Our Story | </Link>
-        </li>
-        <li className="nav-item">
-            <Link to="/aboutUs" > Meet the Team  | </Link>
-        </li>
-        <li className="nav-item">
-            <Link to="/repository" > Repository</Link>
-        </li>
-      </ul>
+    <div className="footer w-100 bg-dark text-white align-content-around">
+          <ul className="nav justify-content-center">
+            <li className="nav-item">
+              <a className="nav-link" href="/ourStory">Our Story</a>
+            </li>
+            <li className="nav-item active">
+              <a className="nav-link" href="/aboutUs">Meet the Team</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/repository">Repository</a>
+            </li>
+          </ul>    
     </div>
   )
 }
