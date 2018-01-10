@@ -185,15 +185,16 @@ class Layout extends Component{
     else {
       const userFieldState = [...this.state.currentUser[field]] ? [...this.state.currentUser[field]] : [];
       const inputIndex = this.state.currentUser[field].findIndex(input => {
-        return input.id === id;
+        console.log(input)
+        return input ? input.id === id : '';
       });
       const fieldObj = this.state.currentUser[field][inputIndex] ? {
         ...this.state.currentUser[field][inputIndex]
       } : {id};
 
       subfield === 'rating' ? fieldObj[subfield] = event : fieldObj[subfield] = event.target.value;
-
-      !userFieldState[inputIndex] ? userFieldState.push(fieldObj) : userFieldState[inputIndex]=fieldObj;
+      console.log(id[parseInt(id.length-1)])
+      !userFieldState[inputIndex] ? userFieldState[id[parseInt(id.length-1)]] = fieldObj  : userFieldState[inputIndex]=fieldObj;
       currentUser[field] = userFieldState
       this.setState({currentUser})
     }
