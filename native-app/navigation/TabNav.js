@@ -7,9 +7,24 @@ import { ProfileScreen, PortfoliosScreen, ResumesScreen } from '../screens'
 
 export default TabNavigator(
   {
-    Profile: { screen: ProfileScreen },
-    Portfolios: { screen: PortfoliosScreen },
-    Resumes: { screen: ResumesScreen }
+    Profile: {
+      screen: ProfileScreen,
+      navigationOptions: {
+        title: "Profile"
+      }
+    },
+    Portfolios: {
+      screen: PortfoliosScreen,
+      navigationOptions: {
+        title: "Porfolios"
+      }
+    },
+    Resumes: {
+      screen: ResumesScreen,
+      navigationOptions: {
+        title: "Resumes"
+      }
+    }
   },
   {
     navigationOptions: ({ navigation, screenProps }) => ({

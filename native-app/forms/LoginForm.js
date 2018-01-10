@@ -1,16 +1,13 @@
-import axios from 'axios'
 import {Colors} from '../constants'
 import React, {Component} from 'react'
 import {Ionicons} from '@expo/vector-icons'
-import { GitHubAuth } from '../api'
-import {View, Text, TextInput, Alert, StyleSheet} from 'react-native'
+import { SocialIcon } from 'react-native-elements'
+import {View, StyleSheet} from 'react-native'
 
 export default class LoginForm extends Component {
   state = {
     error: null,
     result: null,
-    username: '',
-    pin: '',
     userAuth: false,
   }
 
@@ -23,47 +20,17 @@ export default class LoginForm extends Component {
           <View style={styles.inputContainer}>
             <Ionicons
               style={styles.inputIcon}
-              name="md-mail"
-              size={20}
+              name="logo-github"
+              size={125}
               color={Colors.mainBlue}/>
-
-            <TextInput
-              style={styles.input}
-              autoCapitalize="none"
-              onSubmitEditing={() => this.passwordInput.focus()}
-              refs={input => (this.state.password= input)}
-              autoCorrect={false}
-              keyboardType="default"
-              returnKeyType="next"
-              placeholder="Username"
-              selectionColor='white'
-              keyboardAppearance='dark'
-              placeholderTextColor={Colors.tintColor}
-              onChangeText={(text) => this.setState({ username:text })}
-              />
           </View>
 
-          <View style={styles.inputContainer}>
-            <Ionicons
-              style={styles.inputIcon}
-              name="md-lock"
-              size={20}
-              color={Colors.mainBlue}/>
-
-            <TextInput
-              style={styles.input}
-              returnKeyType="go"
-              ref={input => (this.passwordInput = input)}
-              placeholder="PIN"
-              placeholderTextColor={Colors.tintColor}
-              selectionColor='white'
-              keyboardAppearance='dark'
-              secureTextEntry
-              onChangeText={(text) => this.setState({ pin:text })}
-              />
-          </View>
-
-        <GitHubAuth />
+          <SocialIcon
+            title='Sign In With GitHub'
+            button
+            type='github'
+            onPress={this.props._handlePressAsync}
+          />
 
         </View>
       );
@@ -76,15 +43,11 @@ const styles = StyleSheet.create({
     padding: 50
   },
   inputContainer: {
-    marginBottom: 30,
-    flexDirection: 'row',
     backgroundColor: 'transparent',
-    borderBottomWidth: 3,
-    borderBottomColor: Colors.tintColor,
-    alignItems: 'baseline'
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   inputIcon: {
-    paddingRight: 10,
     bottom: 0
   },
   input: {

@@ -1,17 +1,18 @@
+import axios from 'axios'
 import { TabNav } from '../navigation'
+import { GitHubAuth, UserAuth } from '../api'
 import React, { Component } from 'react'
 import { LoginScreen } from '../screens'
-import { Notifications, Linking } from 'expo'
+import { View, AsyncStorage } from 'react-native'
+import { Notifications, Linking, AuthSession } from 'expo'
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync'
 
 export default class RootNav extends Component {
   state = {
+    result: null,
     currentUser: null,
-    isLoggedIn: false,
-    isAuthenticated: false,
+    isAuthenticated: null,
   };
-
-
 
   componentDidMount() {
     this._notificationSubscription = this._registerForPushNotifications()
@@ -21,18 +22,21 @@ export default class RootNav extends Component {
     this._notificationSubscription && this._notificationSubscription.remove()
   }
 
-  onLoginPress = () => this.setState({ isLoggedIn: true })
-
-  onLogoutPres = () => this.setState({ currentUser: null, isLoggedIn: false, isAuthenticated: false, })
-
 
   render() {
-    if (this.state.isLoggedIn) {
-      return ( <TabNav screenProps={ this.onLogoutPress } /> )
-    } else {
-      return ( <LoginScreen onLoginPress={ this.onLoginPress } /> )
-    }
+    return (
+    <View style={{flex: 1}}>
+    {!this.state.result ? (<LoginScreen _handlePressAsync={this._handlePressAsync} />) : (this._renderProfile())}
+    </View>
+    )
   }
+
+  _renderProfile = () => {
+      return (
+        <TabNav />
+        )
+      }
+
 
   _registerForPushNotifications() {
     registerForPushNotificationsAsync();
@@ -43,5 +47,24 @@ export default class RootNav extends Component {
   _handleNotification = ({ origin, data }) => {
     console.log(`Push notification ${origin} with data: ${JSON.stringify(data)}`)
   };
+
+  _handlePressAsync = async () => {
+    let redirectUrl = AuthSession.getRedirectUrl();
+    let result = await AuthSession.startAsync({
+      authUrl:
+        `${GitHubAuth.GH_URL}` +
+        `&client_id=${GitHubAuth.CLIENT_ID}` +
+        `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
+    });
+    try {
+      await AsyncStorage.setItem({ response });
+    } catch (error) {
+      console.log(error);
+    }
+    this.setState({ result })
+    console.log(this.state.result)
+  };
+
+  _getUser = (username) => (axios.get(USER_API + username)).then( response => {console.log(response)}).catch( error => {console.log(error)})
 
 }

@@ -1,8 +1,10 @@
-import { LoginForm } from '../forms'
+import {Colors} from '../constants'
 import React, { Component } from 'react'
 import { WebBrowser, Video } from 'expo'
 import { FadeInView } from '../constants'
-import { Platform, StyleSheet, Text, View, Label, TextInput, Image, KeyboardAvoidingView, StatusBar } from 'react-native'
+import {Ionicons} from '@expo/vector-icons'
+import { SocialIcon } from 'react-native-elements'
+import { StyleSheet, View, Image, KeyboardAvoidingView, StatusBar } from 'react-native'
 
 export default class LoginScreen extends Component {
 
@@ -35,9 +37,24 @@ export default class LoginScreen extends Component {
           />
         </View>
 
-        <LoginForm
-        onLoginPress={ this.props.onLoginPress }
-        />
+        <View style={styles.loginContainer}>
+
+          <View style={styles.inputContainer}>
+            <Ionicons
+              style={styles.inputIcon}
+              name="logo-github"
+              size={125}
+              color={Colors.mainBlue}/>
+          </View>
+
+          <SocialIcon
+            title='Sign In With GitHub'
+            button
+            type='github'
+            onPress={this.props._handlePressAsync}
+          />
+
+          </View>
 
       </KeyboardAvoidingView>
       </FadeInView>
@@ -67,5 +84,17 @@ const styles = StyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0,
+  },
+  loginContainer: {
+    flex: 1,
+    padding: 50
+  },
+  inputContainer: {
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputIcon: {
+    bottom: 0
   },
 });
