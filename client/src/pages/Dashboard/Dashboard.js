@@ -84,25 +84,25 @@ const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, vi
               <p> Member Since: {joined}</p>
             </div>
         </div>
-        <div style={{marginTop:'25px'}}className={`${currentDashboardPage === 'sites' ? `activeMenuItem`: ''} menuItem d-flex`} onClick={() => dashboardInputViewer('sites')}>  
+        <div style={{marginTop:'25px'}}className={`${currentDashboardPage === 'sites' ? `activeMenuItem`: 'menuItem'} d-flex`} onClick={() => dashboardInputViewer('sites')}>  
           <h3 className='menuItemHeader'><Icon name='laptop' size='big' />View Sites </h3>
           <div className='templateCount'>{userSites.length}</div>
         </div>
-        <div style={{marginBottom:'25px'}} className={`${currentDashboardPage === 'resumes' ? `activeMenuItem`: ''} menuItem d-flex`} onClick={() => dashboardInputViewer('resumes')}>
+        <div style={{marginBottom:'25px'}} className={`${currentDashboardPage === 'resumes' ? `activeMenuItem`: 'menuItem'} d-flex`} onClick={() => dashboardInputViewer('resumes')}>
           <h3 className='menuItemHeader'><Icon name='browser' size='big' />View Resumes</h3>
           <div className='templateCount'>{userResumes.length}</div>
         </div>
-        <div className={`${currentDashboardPage === 'contact' ? `activeMenuItem`: ''} menuItem`} onClick={() => dashboardInputViewer('contact')}>          <h3 className='menuItemHeader'><Icon name='user circle outline' size='big' />Contact</h3>
+        <div className={`${currentDashboardPage === 'contact' ? `activeMenuItem`: 'menuItem'}`} onClick={() => dashboardInputViewer('contact')}>          <h3 className='menuItemHeader'><Icon name='user circle outline' size='big' />Contact</h3>
         </div>
-        <div className={`${currentDashboardPage === 'education' ? `activeMenuItem`: ''} menuItem`} onClick={() => dashboardInputViewer('education')}>
+        <div className={`${currentDashboardPage === 'education' ? `activeMenuItem`: 'menuItem'}`} onClick={() => dashboardInputViewer('education')}>
           <h3 className='menuItemHeader'><Icon name='student' size='big' />Education</h3>
         </div>
-        <div  className={`${currentDashboardPage === 'experience' ? `activeMenuItem`: ''} menuItem`} onClick={() => dashboardInputViewer('experience')}>          <h3 className='menuItemHeader'> <Icon name='briefcase' size='big' />Experience</h3>
+        <div  className={`${currentDashboardPage === 'experience' ? `activeMenuItem`: 'menuItem'}`} onClick={() => dashboardInputViewer('experience')}>          <h3 className='menuItemHeader'> <Icon name='briefcase' size='big' />Experience</h3>
         </div>
-        <div  className={`${currentDashboardPage === 'portfolio' ? `activeMenuItem`: ''} menuItem`} onClick={() => dashboardInputViewer('portfolio')}>
+        <div  className={`${currentDashboardPage === 'portfolio' ? `activeMenuItem`: 'menuItem'}`} onClick={() => dashboardInputViewer('portfolio')}>
           <h3 className='menuItemHeader'><Icon name='folder open' size='big' />Portfolio</h3>
         </div>
-        <div  className={`${currentDashboardPage === 'skills' ? `activeMenuItem`: ''} menuItem`} onClick={() => dashboardInputViewer('skills')}>
+        <div  className={`${currentDashboardPage === 'skills' ? `activeMenuItem`: 'menuItem'}`} onClick={() => dashboardInputViewer('skills')}>
           <h3 className='menuItemHeader'><Icon name='tasks' size='big' />Skills</h3>
         </div>
       </div>
