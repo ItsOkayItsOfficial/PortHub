@@ -15,7 +15,6 @@
     "mongojs": "^2.4.1",
     "mongoose": "^4.13.6",
     "nodemon": "^1.12.5",
-    "react-tooltip": "^3.4.0",
     "utf8": "^3.0.0"
   },
   "scripts": {
