@@ -48,7 +48,7 @@ let dashboardList = '';
         <button className='htmlButton' data-toggle="modal" data-target="#viewHTML"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button>
         <div className="modal fade bd-example-modal-lg" id="viewHTML" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg">
-            <div className="modal-content" style={{textAlign:'left'}}>  
+            <div className="modal-content" style={{textAlign:'left', overflow:'scroll'}}>  
             {dashboardTemplate.html}
             </div>
           </div>
