@@ -27,11 +27,12 @@ router.post('/updateUserInputs', ((req, res) => {
 
 
 router.post('/templateURL', ((req, res) => {
+  console.log(req.body)
   db.Template.findOneAndUpdate({
     html: req.body.filecontent
   },
   {
-    url: req.body.filename
+    url: req.body.url
   })
   .then((response) => {
     res.json('success');
@@ -106,7 +107,7 @@ router.post('/user', (req, res) => {
   return user.length === 0 ? 
     db.User.create({
       login:req.body.login,
-      pin: (Math.floor(Math.random() * 10000) + 10000).toString().substring(1),
+      name:req.body.name,
       avatar_url: req.body.avatar_url
     })
     : user

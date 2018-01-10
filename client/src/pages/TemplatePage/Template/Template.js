@@ -6,15 +6,12 @@ import './Template.css';
 
 const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, selectedTemplate, inputs, guestContinueShow, isAuthenticated, dashboard, createdAt, dashboardTemplate, selectedDashboardID, id }) => {
 let dashboardList = '';
-
-  if (dashboard && !dashboardTemplate.url) {
-    dashboardList = [<li key={`firstListItem`}>Created at: {dashboardTemplate.lastEdited}</li>, <li  key={`second list item`}>Not published to GitHub</li>]
-  }
-  else if (dashboard && dashboardTemplate.url) {
-    dashboardList = [<li key={`firstListItem`}>Created at: {dashboardTemplate.lastEdited}</li>, <li  key={`second list item`}>{dashboardTemplate.url}</li>]
-  }
+      const dateFromObjectId = function (objectId) {
+        return new Date(parseInt(objectId.substring(0, 8), 16) * 1000);
+      };
+      const createdOn = dashboard && dashboardTemplate._id.length > 5 ? dateFromObjectId(dashboardTemplate._id).toDateString() : '';
   return (
-    <Aux>
+    <div style={{margin:'5px'}}>
       <Modal selectedTemplate={selectedTemplate ? selectedTemplate.title : ''} dashboardID={dashboardTemplate ? dashboardTemplate._id : ''} selectedDashboardID={selectedDashboardID} id={title} show={showModal} closeModal={closeModal} className='detailModal' title={title} type='templateSelect'>
         <DetailedTemplate
           img={img}
@@ -40,12 +37,24 @@ let dashboardList = '';
                   <li key={title + inputType}>{`${inputs[inputType]} x ${inputType}`}</li> 
                   : null;
                 }) : ''}
-                {dashboardList}
               </ul>
             </div>
           </div>
       </button>
-    </Aux>
+      {dashboard && dashboardTemplate.type === 'site' ?
+      <div className='dashboardFooter'>
+        <p> Created On: {createdOn ? createdOn : dashboardTemplate.lastEdited} </p>
+        {dashboardTemplate.url ? <a  className='htmlButton' href={`https://${dashboardTemplate.url}`} target='_blank'><i className="fa fa-github fa-2x" aria-hidden="true"></i></a> : ''}
+        <button className='htmlButton' data-toggle="modal" data-target="#viewHTML"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button>
+        <div className="modal fade bd-example-modal-lg" id="viewHTML" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div className="modal-dialog modal-lg">
+            <div className="modal-content" style={{textAlign:'left'}}>  
+            {dashboardTemplate.html}
+            </div>
+          </div>
+        </div>
+      </div> : ''}
+    </div>
   )
 
 }

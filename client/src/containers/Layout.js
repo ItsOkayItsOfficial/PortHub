@@ -43,7 +43,7 @@ class Layout extends Component{
     html: '',
     selectButton:'',
     currentTemplateID:'',
-    currentDashboardPage: ''
+    currentDashboardPage: 'sites'
   }
   //-----------------USER METHODS-------------//
   authenticateUser = () => {
@@ -69,6 +69,7 @@ class Layout extends Component{
   getUserInfoHandler = (token) => {
    axios.get('https://api.github.com/user?access_token=' + token)
     .then((response) => {
+      console.log(response.data)
     return axios.post('/user', response.data) 
     })
     .then((user) => {
@@ -249,7 +250,7 @@ class Layout extends Component{
       })
       .then((response) => {
         const tempSite = {
-          _id: Math.floor(Math.random() * 10),
+          _id: Math.floor(Math.random() * 5),
           html:html,
           img:this.state.selectedTemplate.img,
           templateName: this.state.selectedTemplate.title,

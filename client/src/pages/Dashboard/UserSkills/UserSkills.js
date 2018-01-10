@@ -1,10 +1,12 @@
 import React from 'react';
 import Skills from '../../../components/Inputs/Skills';
+import Aux from '../../../components/Auxiliary/Auxiliary';
 
 const UserSkills = ({changed, skills, updateUserInputs}) => {
 
   return (
-  <div style={{textAlign:'center'}}>
+    <Aux>
+  <div style={{textAlign:'center', display:'flex'}}>
     <div>
         <Skills
         changed={changed}
@@ -53,10 +55,11 @@ const UserSkills = ({changed, skills, updateUserInputs}) => {
         id={'skills7'}
         skills={skills} />
     </div>
-      <div>
-        <button className="btn btn-success sitebtn" onClick={updateUserInputs}>Update</button>
-      </div>
   </div>
+  <div style={{textAlign:'center'}}>
+    <button className="btn btn-success sitebtn" onClick={updateUserInputs}>Update</button>
+  </div>
+  </Aux>
   )
 }
 
