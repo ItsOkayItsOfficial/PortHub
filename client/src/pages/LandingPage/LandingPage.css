@@ -1,8 +1,3 @@
-video {
-	position: fixed;
-	height: 100%;
-    width: auto;
-}
 #container {
     height: 100vh;
     width: 100vw;
@@ -14,9 +9,15 @@ video {
 #background-video {
     position: absolute;
     width: 100vw;
+    height: 100vh;
     top: 0;
-    left: 0;
     z-index: -1;
+}
+
+#background-video > video {
+    position: fixed;
+    width: 120vw;
+    height: 120vh;
 }
 
 #buttons {
@@ -92,12 +93,15 @@ display: inline-block;
     #buttons Link {
         font-size: 1rem;
     }
+    #background-video > video {
+        width: auto;
+        height: 100vh;
+    }
 }
 
 @media screen and (min-width: 1000px) {
-    video {
-        margin-top: -40px;
-        height: auto;
-        width: 100%;
-    }
+    /* #background-video > video {
+        height: 150%;
+        width: 100vw;
+    } */
 }
