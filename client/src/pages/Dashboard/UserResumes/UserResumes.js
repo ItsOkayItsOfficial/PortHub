@@ -1,6 +1,6 @@
 import React from 'react';
 import Template from '../../../pages/TemplatePage/Template/Template';
-
+import { Link } from 'react-router-dom';
 import './UserResumes.css';
 
 const UserResumes = (props) => {
@@ -26,7 +26,12 @@ const UserResumes = (props) => {
   return (
     <div style={{textAlign:'center'}}>
     {resumes.length !== 0 ? resumes : 
-      <h2> It looks like you don't have any resumes yet.. make one, I dare you. </h2>}
+      <div> 
+        <h2> It looks like you don't have any resumes yet..</h2>
+        <img src='http://images6.fanpop.com/image/photos/36800000/Mr-T-mrt-36834265-320-254.png' alt='mr T' />
+        <h2> Go make one </h2>
+        <Link to='createresume'className="btn btn-info m-auto landingButton">Create a Resume</Link>
+      </div>}
     </div>
   )
 }
