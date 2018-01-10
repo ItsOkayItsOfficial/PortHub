@@ -56,7 +56,7 @@ video {
     bottom:-1px;
     height:25px;
     position: absolute;
-    width: 100%;
+    width: 100vw;
 }
 
 .moreInfo-title{
@@ -86,5 +86,12 @@ video {
 @media only screen and (max-width: 800px) {
     #buttons Link {
         font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    video {
+        height: auto;
+        width: 100%;
     }
 }
