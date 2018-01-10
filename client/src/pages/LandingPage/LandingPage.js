@@ -6,8 +6,9 @@ import Footer from '../../components/Footer/Footer';
 const LandingPage = ({ children }) =>
   <div id='landing'>
 
+    <div className='container'>
       {/* Logo */}
-      <div id='jumbo' className="text-center p-4 mx-auto"style={{marginTop:"15vh"}}>
+      <div id='jumbo' className="text-center p-4 mx-auto">
           <img className="img-fluid rounded mx-auto" src='/assets/images/ph/porthub_logo.png' alt="logo"/>
           <p className="d-md-block">Create a portfolio site or resume in minutes!</p>
       </div>
@@ -23,7 +24,7 @@ const LandingPage = ({ children }) =>
       </div>
 
       {/* Landing Background */}
-      <div className='background-video'>
+      <div id='background-video'>
         <video autoPlay muted loop>
           <source src="https://s3-eu-west-1.amazonaws.com/video.gallereplay.com/artistarea/Lighthouse%20stands%20in%20Istanbul%E2%80%99s%20harbour_0554659b-5dc1-43d6-8a93-b31ec6b67f63/Cinemagraph_plain/1920x1080/cinemagraph.mp4"
           type="video/mp4"></source>
@@ -31,12 +32,13 @@ const LandingPage = ({ children }) =>
       </div>
 
       {/* Scroll Triangle */}
-      <div className="d-flex justify-content-center triangleSpacer">
+      <div id='spacer' className="d-flex justify-content-center">
         <img className="img-fluid" src="/assets/images/triangle-spacer.png"></img>
       </div>
+    </div>
 
       {/* Info */}
-      <div className="row d-flex moreInfo p-4 m-0 bg-white" style={{width:"100%"}}>
+      <div id='info' className="row d-flex moreInfo p-4 m-0 bg-white">
           <div className="col-12 w-100 d-flex justify-content-center moreInfo-title">How It Works</div>
           <div className="col-lg-4 w-100 d-flex flex-column justify-content-start align-items-center moreInfo-item">
                 <p className="m-0 mb-2"><i className="fa fa-github fa-3x"></i></p>
