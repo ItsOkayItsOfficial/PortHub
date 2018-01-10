@@ -26,11 +26,7 @@ const LandingPage = ({ children }) =>
       </video>
     </div>
     <div className="d-flex justify-content-center triangleSpacer">
-      <div className="row bg-white w-100">
-      </div>
       <img className="img-fluid" src="/assets/images/triangle-spacer.png"></img>
-      <div className="row bg-white w-100">
-      </div>
     </div>
     <div className="row d-flex moreInfo p-4 m-0 bg-white" style={{width:"105%"}}>
         <div className="col-12 w-100 d-flex justify-content-center moreInfo-title">How It Works</div>
