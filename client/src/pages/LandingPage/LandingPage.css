@@ -1,8 +1,14 @@
+video {
+    width: 100%;
+    height: 100%;
+}
+
 .landingButton{
     font-size: 1.5rem;
     padding: 10px;
     margin-top: 10px;
 }
+
 .smLandingButton{
     font-size: 1rem;
     padding: 10px;
@@ -20,23 +26,35 @@
     z-index: -100;
 }
 
+.background-video {
+    position: fixed;
+    width: 100vw;
+    z-index: -100;
+    top: 0;
+    left: 0;
+    background-size: cover;
+}
+
 .landingJumbo p{
     color: rgb(255, 255, 255);
-    text-shadow: 1px 3px 2px rgba(26, 25, 25, 0.822);    
+    text-shadow: 1px 3px 2px rgba(26, 25, 25, 0.822);
     margin-top:50px;
-    margin-left:5%; 
+    margin-left:5%;
 }
+
 .triangleSpacer{
     position: absolute;
     height:25px;
     width:103%;
     bottom:0px;
 }
+
 .moreInfo{
     position:absolute;
     top:100vh;
     background:rgb(255, 255, 255);
 }
+
 .moreInfo-title{
     font-size: 30px;
     font-weight: bold;
@@ -44,27 +62,15 @@
     font-family: 'Ubuntu', sans-serif;
 
 }
+
 .moreInfo-item{
     font-size: 24px;
     margin-top: 50px;
     font-weight: lighter;
     font-family: 'PT Sans Narrow', sans-serif;
-    padding: 40px;    
+    padding: 40px;
 }
 
- video { 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    transform: translateX(-50%) translateY(-50%);
-  background-size: cover;
-  transition: 1s opacity;
-} 
 .ph_logo {
     position: absolute;
     top: 0;
