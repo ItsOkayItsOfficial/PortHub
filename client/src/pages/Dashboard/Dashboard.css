@@ -4,11 +4,12 @@
 .menuItem {
   font-weight: 100;
   padding: 12px 0 12px 0;
+  color: rgba(255, 255, 255, 0.5)
 }
 .menuItem:hover {
   background-color:#343a40;
-  color: white;
   cursor: pointer;
+  color: white;
 }
 
 .templateCount {
@@ -20,6 +21,7 @@
   border-radius: 50%;
   border: 1px solid white;
   padding: 6px;
+  color: white;
 }
 /* .menuItem:hover > .templateCount {
   background-color: rgb(79, 87, 94);
@@ -44,8 +46,10 @@
 }
 .activeMenuItem {
   background-color:#343a40;
-  color: white;
+  color: #65a8c5;
+  padding: 12px 0 12px 0;
 }
+
 .activeMenuItem > .templateCount {
   background-color: #65a8c5;
 }
