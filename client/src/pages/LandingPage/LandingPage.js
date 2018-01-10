@@ -6,10 +6,10 @@ import Footer from '../../components/Footer/Footer';
 const LandingPage = ({ children }) =>
   <div id='landing'>
 
-    <div className='container'>
+    <div id='container'>
       {/* Logo */}
-      <div id='jumbo' className="text-center p-4 mx-auto">
-          <img className="img-fluid rounded mx-auto" src='/assets/images/ph/porthub_logo.png' alt="logo"/>
+      <div id='jumbo' className="row text-center p-4 mx-auto">
+          <img className="rounded" src='/assets/images/ph/porthub_logo.png' alt="logo"/>
           <p className="d-md-block">Create a portfolio site or resume in minutes!</p>
       </div>
 
@@ -33,7 +33,7 @@ const LandingPage = ({ children }) =>
 
       {/* Scroll Triangle */}
       <div id='spacer' className="d-flex justify-content-center">
-        <img className="img-fluid" src="/assets/images/triangle-spacer.png"></img>
+        <img src="/assets/images/triangle-spacer.png"></img>
       </div>
     </div>
 
