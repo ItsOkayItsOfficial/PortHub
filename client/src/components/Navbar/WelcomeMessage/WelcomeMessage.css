@@ -1,7 +1,9 @@
 .welcomeText {
   margin: 10px;
   font-size: 18px;
+  vertical-align: bottom;
 }
 .welcomeContainer {
   display:inherit;
 }
+
