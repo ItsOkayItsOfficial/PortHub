@@ -19,7 +19,7 @@ const TemplatePage = ({ type, children, showModal, closeModal, viewTemplate, sel
             <div className='d-flex flex-row'>
               <h3>Create your {type}</h3>
             </div>
-            <div className='d-flex flex-row flex-wrap justify-content-center'>
+            <div className='d-flex flex-row flex-wrap justify-content-center align-items-stretch'>
             { type==='resume' ? Resumes.map((resume) => {
               return <Template key={resume.title} 
                               img={resume.img}

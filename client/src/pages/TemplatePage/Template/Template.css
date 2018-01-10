@@ -12,13 +12,13 @@
 .htmlButton {
   border: none;
   outline: none;
-  color: black;
+  color: black !important;
   margin: 0 10px 0 10px;
 }
 
 .htmlButton:hover {
   cursor: pointer;
-  color: #65a8c5;
+  color: #65a8c5 !important;
 }
 
 .htmlButton:focus {

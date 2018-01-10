@@ -1,6 +1,7 @@
 .requirementBanner {
   background-color: #4F575E;
   color: white;
+  height: 100vh;
 }
 .requirementContent {
   position: fixed;

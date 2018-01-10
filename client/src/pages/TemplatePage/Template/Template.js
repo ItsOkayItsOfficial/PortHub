@@ -25,7 +25,7 @@ let dashboardList = '';
           dashboardTemplate={dashboardTemplate}
           dashboard={dashboard} />
       </Modal>
-      <button onClick={() => viewTemplate(id, title, type)} >
+      <button style={{height: !dashboard ? '100%' : ''}} onClick={() => viewTemplate(id, title, type)} >
           <div className="card m-4 " style={{width: "25vw"}}>
             <img className="card-img-top" src={img} alt={title}/>
             <div className="card-footer d-flex flex-column">

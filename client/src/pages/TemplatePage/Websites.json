@@ -42,16 +42,5 @@
       "skills": 6,
       "portfolio": 3
     }
-  },
-  {
-    "src": "/assets/templates/portland/index.html",
-    "img": "/assets/templates/websitepeeks/portland.png",
-    "title":"Portland",
-    "inputs": {
-      "experience": 0,
-      "education": 0,
-      "skills": 4,
-      "portfolio": 6
-    }
-  } 
+  }
 ]
