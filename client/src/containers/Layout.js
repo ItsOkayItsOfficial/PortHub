@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import LandingPage from "../pages/LandingPage";
 import TemplatePage from "../pages/TemplatePage";
 import CreateUserPage from "../pages/CreateUserPage";
@@ -291,8 +291,7 @@ class Layout extends Component{
   render(){
 
     return(
-      <BrowserRouter
-      basename='/app'>
+      <HashRouter>
         <div>
           <Modal show={this.state.viewingGuestContinueModal} closeModal={this.guestContinueModalHander} className='continueAsGuest'>
             <ContinueAsGuest
@@ -382,7 +381,7 @@ class Layout extends Component{
             </Switch>
             <Alert stack={{limit: 3}} />
         </div>
-      </BrowserRouter>
+      </HashRouter>
    )
   }
 }
