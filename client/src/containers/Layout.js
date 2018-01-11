@@ -88,7 +88,7 @@ class Layout extends Component{
 
   redirectToGitHubHandler = () => {
     window.location.replace('https://github.com/login/oauth/authorize?client_id='+
-    Keys.localClientId + '&redirect_uri=http://localhost:3000/authLoader&state=1234&scope=user,public_repo');
+    Keys.localClientId + '&redirect_uri=http://localhost:3000/#/authLoader&state=1234&scope=user,public_repo');
   }
 
   guestUserHandler =() => {
@@ -292,7 +292,7 @@ class Layout extends Component{
   render(){
 
     return(
-      <Router history={createHistory}>
+      <HashRouter>
         <div>
           <Modal show={this.state.viewingGuestContinueModal} closeModal={this.guestContinueModalHander} className='continueAsGuest'>
             <ContinueAsGuest
@@ -382,7 +382,7 @@ class Layout extends Component{
             </Switch>
             <Alert stack={{limit: 3}} />
         </div>
-      </Router>
+      </HashRouter>
    )
   }
 }
