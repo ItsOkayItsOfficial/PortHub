@@ -15,28 +15,10 @@ const SuccessPage = ({ redirect, currentUser, currentTemplate }) => {
   return (
   <div className='container successWrapper'>
     <h1 style={{margin: '10px'}}>Success!</h1> 
-    <div className='row'>
-      <div className='col-lg-12'>
-      <h4>Here's the HTML of your brand new site:</h4>
-        <ul>
-          <li> All CSS is loaded for you, no external stylesheet is necessary! (but feel free to customize) </li>
-          <li> Follow the href in the link tag labeled "Custom CSS" to find the raw CSS. </li>
-        </ul>
-        <CopyToClipboard text={html}
-          onCopy={() => Alert.success('Copied to clipboard', {
-                          position:'top-left',
-                          effect: 'jelly',
-                          timeout: 3000,
-                          offset: 55
-                  })}>
-          <button className='copyButton btn btn-success'><i className="fa fa-clipboard 2x" aria-hidden="true">Copy to Clipboard</i></button>
-        </CopyToClipboard>
-      <textarea className='htmlField' defaultValue={html}></textarea>
-      </div>
       {currentUser.login === 'guest' ? null : 
       <div className='col-lg-12'>
         <h4>Publish your site to GitHub Pages</h4>
-          <ul>
+          <ul style={{marginLeft: '15%'}}>
             <li>Host your site on GitHub to get a free, fully functional portfolio site. </li>
             <li>Customize your site further and add those changes to GitHub to see your site change in real time.</li>
             <li>What we'll do:
@@ -49,9 +31,27 @@ const SuccessPage = ({ redirect, currentUser, currentTemplate }) => {
             </li>
           </ul>
         <div className='row' style={{textAlign:'center'}} >
-          <Link to={'/siteLoader'} style={{margin: 'auto'}}><button className='btn btn-success'> Publish to GitHub </button></Link>
+          <Link to={'/siteLoader'} style={{margin: 'auto'}}><button className='btn btn-success' style={{margin:'10px'}}> Publish to GitHub </button></Link>
         </div>
       </div>}
+    <div className='row'>
+      <div className='col-lg-12'>
+      <h4>Here's the HTML of your brand new site:</h4>
+        <ul style={{marginLeft: '15%'}}>
+          <li> All CSS is loaded for you, no external stylesheet is necessary! (but feel free to customize) </li>
+          <li> Follow the href in the link tag labeled "Custom CSS" to find the raw CSS. </li>
+        </ul>
+        <CopyToClipboard text={html}
+          onCopy={() => Alert.success('Copied to clipboard', {
+                          position:'top-left',
+                          effect: 'jelly',
+                          timeout: 3000,
+                          offset: 55
+                  })}>
+          <button className='copyButton btn btn-success'><i className="fa fa-clipboard 2x" aria-hidden="true">Copy to Clipboard</i></button>
+        </CopyToClipboard>
+      <textarea id='htmlText' className='htmlField' defaultValue={html}></textarea>
+      </div>
     </div>
   </div>
   )
