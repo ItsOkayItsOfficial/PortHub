@@ -16,10 +16,10 @@ const LandingPage = ({ children }) =>
       {/* Buttons */}
       <div id='buttons' className="row mx-auto">
             <div className="col-lg-3 col-sm-8 offset-lg-2 offset-md-2 offset-sm-1 d-flex text-center">
-              <Link to='createsite' className="btn btn-warning mx-4 w-100 d-md-block">Create a Portfolio Website</Link>
+              <Link to='createsite' style={{padding:'15px'}} className="btn btn-warning mx-4 w-100 d-md-block">Create a Portfolio Website</Link>
             </div>
             <div className="col-lg-3 col-sm-8 offset-lg-2 offset-md-2 offset-sm-1 d-flex text-center">
-              <Link to='createresume'className="btn btn-info mx-4 w-100 d-md-block">Create a Resume</Link>
+              <Link to='createresume' style={{padding:'15px'}} className="btn btn-info mx-4 w-100 d-md-block">Create a Resume</Link>
             </div>
       </div>
 

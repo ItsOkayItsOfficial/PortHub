@@ -22,8 +22,9 @@
 
 #buttons {
     position: absolute;
-    top: 80vh;
+    top: 75vh;
     width: 100%;
+    padding: 10px;
 }
 
 #buttons Link {
