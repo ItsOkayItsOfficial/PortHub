@@ -292,7 +292,7 @@ class Layout extends Component{
 
     return(
       <Router>
-        <Aux>
+        <div>
           <Modal show={this.state.viewingGuestContinueModal} closeModal={this.guestContinueModalHander} className='continueAsGuest'>
             <ContinueAsGuest 
             ghRedirect={this.redirectToGitHubHandler}
@@ -380,7 +380,7 @@ class Layout extends Component{
               <Route component={NoMatch} />
             </Switch>
             <Alert stack={{limit: 3}} />
-        </Aux>
+        </div>
       </Router>
    ) 
   }

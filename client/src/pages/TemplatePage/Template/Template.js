@@ -50,7 +50,7 @@ let dashboardList = '';
         <button className='htmlButton' data-toggle="modal" data-target="#viewHTML" data-for='htmlTooltip' data-tip="React-tooltip"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button><ReactTooltip id='htmlTooltip' effect="solid">View HTML </ReactTooltip>
         <div className="modal fade bd-example-modal-lg" id="viewHTML" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg">
-            <div className="modal-content" style={{textAlign:'left', overflow:'scroll'}}>  
+            <div className="modal-content" style={{textAlign:'left', wordWrap: 'break-word'}}>  
             {dashboardTemplate.html}
             </div>
           </div>
