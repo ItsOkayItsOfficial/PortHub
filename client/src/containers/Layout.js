@@ -247,7 +247,7 @@ class Layout extends Component{
     //if User is creating a website
     else {
       //if user is a guest, send them to success page. If not a guest, update users inputs and create template in DB
-      return this.state.currentUser === 'guest' ? this.setState({success:true}) :
+      return this.state.currentUser.login === 'guest' ? this.setState({success:true}) :
       axios.post('/updateUserInputs', this.state.currentUser)
       .then((response) => {
       return axios.post('/site', {html:html, img:this.state.selectedTemplate.img, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})

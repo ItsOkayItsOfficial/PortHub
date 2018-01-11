@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
+import Alert from 'react-s-alert'
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import './SuccessPage.css';
 
 const SuccessPage = ({ redirect, currentUser, currentTemplate }) => {
@@ -14,16 +16,25 @@ const SuccessPage = ({ redirect, currentUser, currentTemplate }) => {
   <div className='container successWrapper'>
     <h1 style={{margin: '10px'}}>Success!</h1> 
     <div className='row'>
-      <div className='col-lg-6'>
+      <div className='col-lg-12'>
       <h4>Here's the HTML of your brand new site:</h4>
         <ul>
           <li> All CSS is loaded for you, no external stylesheet is necessary! (but feel free to customize) </li>
           <li> Follow the href in the link tag labeled "Custom CSS" to find the raw CSS. </li>
         </ul>
+        <CopyToClipboard text={html}
+          onCopy={() => Alert.success('Copied to clipboard', {
+                          position:'top-left',
+                          effect: 'jelly',
+                          timeout: 3000,
+                          offset: 55
+                  })}>
+          <button className='copyButton btn btn-success'><i className="fa fa-clipboard 2x" aria-hidden="true">Copy to Clipboard</i></button>
+        </CopyToClipboard>
       <textarea className='htmlField' defaultValue={html}></textarea>
       </div>
       {currentUser.login === 'guest' ? null : 
-      <div className='col-lg-6'>
+      <div className='col-lg-12'>
         <h4>Publish your site to GitHub Pages</h4>
           <ul>
             <li>Host your site on GitHub to get a free, fully functional portfolio site. </li>
