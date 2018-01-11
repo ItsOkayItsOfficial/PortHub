@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { HashRouter } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory'
 import LandingPage from "../pages/LandingPage";
 import TemplatePage from "../pages/TemplatePage";

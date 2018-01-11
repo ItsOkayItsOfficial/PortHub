@@ -4,9 +4,7 @@ import DetailedTemplate from './DetailedTemplate/DetailedTemplate';
 import Aux from '../../../components/Auxiliary/Auxiliary';
 import './Template.css';
 import ReactTooltip from 'react-tooltip'
-import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, selectedTemplate, inputs, guestContinueShow, isAuthenticated, dashboard, createdAt, dashboardTemplate, selectedDashboardID, id}) => {
       const dateFromObjectId = function (objectId) {
