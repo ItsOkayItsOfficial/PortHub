@@ -87,7 +87,7 @@ class Layout extends Component{
 
   redirectToGitHubHandler = () => {
     window.location.replace('https://github.com/login/oauth/authorize?client_id='+
-    Keys.herokuClientId + '&redirect_uri=https://realporthub.herokuapp.com/authLoader&state=1234&scope=user,public_repo');
+    Keys.herokuClientId + '&redirect_uri=https://realporthub.herokuapp.com/#/authLoader&state=1234&scope=user,public_repo');
   }
 
   guestUserHandler =() => {
