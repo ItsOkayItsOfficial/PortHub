@@ -1,11 +1,10 @@
 import axios from 'axios'
 import { TabNav } from '../navigation'
-import { GitHubAuth, UserAuth } from '../api'
+import { GitHubAuth, UserAuth, registerForPushNotificationsAsync } from '../api'
 import React, { Component } from 'react'
 import { LoginScreen } from '../screens'
 import { View, AsyncStorage } from 'react-native'
 import { Notifications, Linking, AuthSession } from 'expo'
-import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync'
 
 export default class RootNav extends Component {
   state = {
