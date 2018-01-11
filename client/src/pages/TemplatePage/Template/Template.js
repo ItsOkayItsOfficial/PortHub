@@ -49,17 +49,18 @@ const createdOn = dashboard && dashboardTemplate._id.length > 5 ? dateFromObject
       <div className='dashboardFooter'>
         <p> Created On: {createdOn ? createdOn : dashboardTemplate.lastEdited} </p>
         {dashboardTemplate.url ? <Aux><a  className='htmlButton' href={`https://${dashboardTemplate.url}`} target='_blank' data-tip="React-tooltip" data-for={dashboardTemplate._id}><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
-        <ReactTooltip id={dashboardTemplate._id} effect="solid">Go to {dashboardTemplate.url} </ReactTooltip></Aux> 
-        : 
-        <Link to="/siteLoader" onClick={this.loadHTML}>Publish your site</Link>}
-        <button className='htmlButton' data-toggle="modal" data-target="#viewModal" data-for='htmlTooltip' data-tip="React-tooltip"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button><ReactTooltip id='htmlTooltip' effect="solid">View HTML </ReactTooltip>
+        <ReactTooltip id={dashboardTemplate._id} effect="solid">Go to {dashboardTemplate.url} </ReactTooltip></Aux> : 
+        <Aux><Link className='htmlButton' to='/siteLoader' onClick={localStorage.setItem('html', dashboardTemplate.html)} data-tip="React-tooltip" data-for={`${dashboardTemplate._id}publish`}><i className="fa fa-floppy-o fa-2x" aria-hidden="true"></i></Link>
+        <ReactTooltip id={`${dashboardTemplate._id}publish`} effect="solid">Publish this site to GitHub</ReactTooltip></Aux>
+        }
+        <button className='htmlButton' data-toggle="modal" data-target={`#${dashboardTemplate._id}`} data-for='htmlTooltip' data-tip="React-tooltip"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button><ReactTooltip id='htmlTooltip' effect="solid">View HTML </ReactTooltip>
       </div> 
       : 
       dashboard && dashboardTemplate.type=== 'resume' ? <div className='dashboardFooter d-flex justify-content-center p-4'>
         <a href={`http://localhost:3003/api/retrievePDF/${dashboardTemplate._id}`} className="btn btn-success" data-toggle="modal" data-target={`#${dashboardTemplate._id}`}>Regenerate PDF</a>
       </div> : ''
     }
-        <div className="modal fade bd-example-modal-lg" id="viewModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div className="modal fade bd-example-modal-lg" id={dashboardTemplate._id} role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg">
             <div className="modal-content" style={{textAlign:'left', wordWrap: 'break-word'}}>  
             {dashboard ? dashboardTemplate.html:''}
