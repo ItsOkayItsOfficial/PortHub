@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './DetailedTemplate.css';
 import { OsloPreview, LawrencePreview, LondonPreview, MontrealPreview }from '../../../../components/WebsitePreviews/';
 
-const DetailedTemplate = ({ closeModal, img, src, title, type, guestContinueShow, isAuthenticated, dashboard, dashboardTemplate }) => {
+const DetailedTemplate = ({ closeModal, img, src, title, type, guestContinueShow, isAuthenticated, dashboard, dashboardTemplate, retrieveResume }) => {
 let iframeSrc = ''; 
 let selectButton = '';
    switch (title){
@@ -31,12 +31,13 @@ let selectButton = '';
       Select
     </a>
   if (dashboard)  {
-    iframeSrc = dashboardTemplate.html
+    iframeSrc = dashboardTemplate.html;
+    localStorage.setItem("html", dashboardTemplate.html);
     selectButton = null;
   }
     return (
     <Aux>
-      <div className="modalHeader d-flex justify-content-center">
+      <div id="templateViewerModal" className="modalHeader d-flex justify-content-center">
         <div className="modalTitle">
           <p className='align-self-center'>{title}</p>
         </div>

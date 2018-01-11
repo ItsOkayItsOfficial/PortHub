@@ -31,7 +31,6 @@ const InputPage = (props) => {
       return <Redirect to={'/noMatch'} />
     }
     //Logic to dynamically render input fields based on chosen template
-    const inputs = 
     const inputs =
         props.currentTemplate && props.currentTemplate.inputs ? Object.keys(props.currentTemplate.inputs).map((inputType, i) => {
           return [...Array(props.currentTemplate.inputs[inputType])].map((_, i) => {
@@ -48,10 +47,8 @@ const InputPage = (props) => {
                 return '';
             }
           })
-          
 
       }) : [];
-    
 
     const education = inputs.slice(1,2);
     const skills = inputs.slice(2,3);
@@ -67,7 +64,6 @@ const InputPage = (props) => {
     templateProps.skills= props.currentUser.skills;
     templateProps.contact= props.currentUser.contact;
     templateProps.portfolio= props.currentUser.portfolio;
-    templateProps.clicked= props.submitFormHandler; 
     templateProps.clicked= props.submitFormHandler;
 
     switch (currentTemplate){
@@ -85,42 +81,33 @@ const InputPage = (props) => {
             break;
       case "resume-left-right-rtl":
             selectButton = <ResumeLeftRightRTL {...templateProps} />;
-            break; 
             break;
       case "resume-left-right":
             selectButton = <ResumeLeftRight {...templateProps} />;
-            break; 
             break;
       case "resume-material-dark":
             selectButton = <ResumeMaterialDark {...templateProps} />;
-            break; 
             break;
       case "resume-side-bar":
             selectButton = <ResumeSideBar {...templateProps} />;
-            break; 
             break;
       case "resume-side-bar-rtl":
             selectButton = <ResumeSideBarRTL {...templateProps} />;
-            break; 
             break;
       case "resume-purple":
             selectButton = <ResumePurple {...templateProps} />;
-            break; 
             break;
       case "resume-oblique":
             selectButton = <ResumeOblique {...templateProps} />;
-            break;                                                                           
             break;
       default:
             break;
     }
 
       return (
-        <div className='inputPage'>
         <div className='row p-5 inputPage'>
           <div className="col-md-7">
           <BaseInput key={'base'} changed={props.prepareStateHandler} contact={props.currentUser.contact} button={selectButton}/>
-          <div id="accordion" role="tablist" aria-multiselectable="true">
           <div className="row text-center mt-3">
             {selectButton}
         </div>
@@ -130,9 +117,6 @@ const InputPage = (props) => {
               { (experience[0] && experience[0].length>0) ? <Accordion type="experience" i='1'>{experience}</Accordion> : ''}
               { (skills[0] && skills[0].length>0) ? <Accordion type="skills" i='2'>{skills}</Accordion> : ''}
               { (portfolio[0] && portfolio[0].length>0) ? <Accordion type="portfolio" i='3'>{portfolio}</Accordion> : ''}
-          </div>
-          <div className="text-center mt-3">
-            {selectButton}
           </div>
         </div>
       )

@@ -327,7 +327,8 @@ class Layout extends Component{
                                     selectedTemplate={this.state.selectedTemplate}
                                     guestContinueShow={this.guestContinueModalHander}
                                     viewingContinueAsGuest={this.state.viewingGuestContinueModal}
-                                    isAuthenticated={this.state.isAuthenticated}/>}
+                                    isAuthenticated={this.state.isAuthenticated}
+                                    retrieveResume={this.retrieveResume}/>}
               />
               <Route exact path='/inputPage' render={() => <InputPage
                                                             type = {this.state.type}

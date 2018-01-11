@@ -15,9 +15,6 @@
 }
 
 #background-video > video {
-    position: fixed;
-    width: 100vw;
-    height: 120vh;
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -107,16 +104,5 @@
 @media screen and (max-width: 800px) {
     #buttons Link {
         font-size: 1rem;
-    }
-    #background-video > video {
-        width: auto;
-        height: 100vh;
-    }
-}
-
-@media (min-width: 1000px) and (max-width: 1440px) {
-    #background-video > video {
-        height: 100vh;
-        width: auto;
     }
 }

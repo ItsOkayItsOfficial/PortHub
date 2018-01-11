@@ -15,6 +15,10 @@ const createdOn = dashboard && dashboardTemplate._id.length > 5 ? dateFromObject
 const loadHTML=()=>{
   localStorage.setItem("html", dashboard.html);
 }
+
+let retrievePDF_URL="http://localhost:3003/api/retrievePDF/" + dashboardTemplate._id;
+//let retrievePDF_URL="http://porthubserver.herokuapp.com/api/retrievePDF/" + dashboardTemplate._id;  
+
   return (
     <div style={{margin:'5px'}}>
       <Modal selectedTemplate={selectedTemplate ? selectedTemplate.title : ''} dashboardID={dashboardTemplate ? dashboardTemplate._id : ''} selectedDashboardID={selectedDashboardID} id={title} show={showModal} closeModal={closeModal} className='detailModal' title={title} type='templateSelect'>
@@ -52,15 +56,29 @@ const loadHTML=()=>{
         {dashboardTemplate.url ? <Aux><a  className='htmlButton' href={`https://${dashboardTemplate.url}`} target='_blank' data-tip="React-tooltip" data-for={dashboardTemplate._id}><i className="fa fa-github fa-2x" aria-hidden="true"></i></a> :
         <ReactTooltip id={dashboardTemplate._id} effect="solid">Go to {dashboardTemplate.url} </ReactTooltip></Aux> : 
         <Link to="/siteLoader" onClick={this.loadHTML}>Publish your site</Link>}
-        <button className='htmlButton' data-toggle="modal" data-target="#viewHTML" data-for='htmlTooltip' data-tip="React-tooltip"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button><ReactTooltip id='htmlTooltip' effect="solid">View HTML </ReactTooltip>
-        <div className="modal fade bd-example-modal-lg" id="viewHTML" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <button className='htmlButton' data-toggle="modal" data-target="#viewModal" data-for='htmlTooltip' data-tip="React-tooltip"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button><ReactTooltip id='htmlTooltip' effect="solid">View HTML </ReactTooltip>
+        
+
+      </div> 
+      : 
+      <div className='dashboardFooter'>
+        <button className="btn btn-success" data-toggle="modal" data-target="#viewPDF">Regenerate PDF</button>
+      </div>
+    }
+        <div className="modal fade bd-example-modal-lg" id="viewModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg">
             <div className="modal-content" style={{textAlign:'left', wordWrap: 'break-word'}}>  
             {dashboardTemplate.html}
             </div>
           </div>
         </div>
-      </div> : ''}
+        <div className="modal fade bd-example-modal-lg" id="viewPDF" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div className="modal-dialog modal-lg">
+            <div className="modal-content" style={{textAlign:'left', wordWrap: 'break-word'}}>  
+            bob
+            </div>
+          </div>
+        </div>            
     </div>
   )
 
