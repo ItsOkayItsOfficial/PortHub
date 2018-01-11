@@ -9,7 +9,6 @@ import { Notifications, Linking, AuthSession } from 'expo'
 export default class RootNav extends Component {
   state = {
     error: null,
-    githubToken: null,
     isAuthenticated: null,
   };
 
@@ -50,8 +49,6 @@ export default class RootNav extends Component {
   _handlePressAsync = async () => {
   try {
       let result = await GitHubAuth();
-      this.setState({githubToken: result});
-      console.log('GitHub Token: ' + this.state.githubToken)
     } catch(error) {
       this.setState({error: JSON.stringify(error)});
     }

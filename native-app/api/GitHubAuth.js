@@ -29,8 +29,6 @@ export default async function authenticateWithGithubAsync() {
 
     let result = await _createTokenWithCode(code);
     AsyncStorage.setItem('GitHubToken', result.access_token)
-    return result.access_token;
-
 
   } catch (error) {
     console.error(error);
