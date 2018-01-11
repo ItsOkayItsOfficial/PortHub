@@ -54,10 +54,10 @@ class Layout extends Component{
     localStorage.clear('accessToken');
     let accessToken = '';
     const getAuthCode = () => {
-      return window.location.href.match(/[&?]code=([\w/-]+)/) ? window.location.href.match(/[&?]code=([\w/-]+)/)[1] 
+      return window.location.href.match(/[&?]code=([\w/-]+)/) ? window.location.href.match(/[&?]code=([\w/-]+)/)[1]
       : '';
     }
-   axios.post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token?&client_id=' 
+   axios.post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token?&client_id='
       + Keys.localClientId + '&client_secret=' + Keys.localClientSecret + '&code=' + getAuthCode())
       .then(response => {
         console.log('finished authenticating')
@@ -74,7 +74,7 @@ class Layout extends Component{
    axios.get('https://api.github.com/user?access_token=' + token)
     .then((response) => {
       console.log(response.data)
-    return axios.post('/user', response.data) 
+    return axios.post('/user', response.data)
     })
     .then((user) => {
       user.data.length===1 ? this.setState({currentUser:user.data[0], isAuthenticated:true, loggedIn: true}) : this.setState({currentUser:user.data, isAuthenticated: true, loggedIn:true})
@@ -85,7 +85,7 @@ class Layout extends Component{
   }
 
   redirectToGitHubHandler = () => {
-    window.location.replace('https://github.com/login/oauth/authorize?client_id='+ 
+    window.location.replace('https://github.com/login/oauth/authorize?client_id='+
     Keys.localClientId + '&redirect_uri=http://localhost:3000/authLoader&state=1234&scope=user,public_repo');
   }
 
@@ -198,7 +198,7 @@ class Layout extends Component{
     }
   }
 
-  submitFormHandler = (html) => {   
+  submitFormHandler = (html) => {
     localStorage.setItem('html', html);
     // if resume, update users inputs in database write html to resume.html file then retrieve templateID for download
     if (this.state.type === "resume") {
@@ -207,14 +207,14 @@ class Layout extends Component{
         console.log('guest')
           return axios.post('/insertResumeIntoDb', {html:html, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
           .then((response) => {
-            return axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})              
+            return axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})
           })
           .then((templateID) => {
             this.setState({currentTemplateID: templateID.data, resumeSuccess:true});
           })
           .catch((err) => {
             console.log(err);
-          })     
+          })
       }
       else {
         // Create template for valid user in Database
@@ -222,7 +222,7 @@ class Layout extends Component{
         .then((response) => {
           return axios.post('/insertResumeIntoDb', {html:html, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login, img:this.state.selectedTemplate.img})
           .then((response) => {
-            return axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})              
+            return axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})
           })
           .then((templateID) =>{
               const tempResume = {
@@ -240,14 +240,14 @@ class Layout extends Component{
           })
           .catch((err) => {
             console.log(err);
-          }) 
+          })
         })
       }
-    } 
+    }
     //if User is creating a website
     else {
       //if user is a guest, send them to success page. If not a guest, update users inputs and create template in DB
-      return this.state.currentUser === 'guest' ? this.setState({success:true}) :
+      return this.state.currentUser.login === 'guest' ? this.setState({success:true}) :
       axios.post('/updateUserInputs', this.state.currentUser)
       .then((response) => {
       return axios.post('/site', {html:html, img:this.state.selectedTemplate.img, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
@@ -267,8 +267,8 @@ class Layout extends Component{
       })
       .catch((err) => {
         console.log(err)
-      });   
-    };  
+      });
+    };
   }
 //-----------------------------------------//
 //------------LIFECYCLE METHODS-----------//
@@ -293,7 +293,7 @@ class Layout extends Component{
       <Router>
         <div>
           <Modal show={this.state.viewingGuestContinueModal} closeModal={this.guestContinueModalHander} className='continueAsGuest'>
-            <ContinueAsGuest 
+            <ContinueAsGuest
             ghRedirect={this.redirectToGitHubHandler}
             guestUser={this.guestUserHandler} />
           </Modal>
@@ -302,12 +302,12 @@ class Layout extends Component{
               user={this.state.currentUser}
               logoutHandler={this.logoutHandler}
               reset={this.closeAlertsAndResetTemplateHandler}
-              loggedIn={this.state.loggedIn} />  
+              loggedIn={this.state.loggedIn} />
             <Switch>
               <Route exact path="/" component={LandingPage} />
-              <Route exact path="/createSite" 
-                    //  onChange={this.handleTemplate('site')} 
-                    render={()=> <TemplatePage 
+              <Route exact path="/createSite"
+                    //  onChange={this.handleTemplate('site')}
+                    render={()=> <TemplatePage
                                   type='site'
                                   showModal={this.state.viewingTemplate}
                                   closeModal={this.closeDetailedTemplateHandler}
@@ -317,9 +317,9 @@ class Layout extends Component{
                                   viewingContinueAsGuest={this.state.viewingGuestContinueModal}
                                   isAuthenticated={this.state.isAuthenticated} />}
               />
-              <Route exact path="/createResume" 
-                    //  onChange={this.handleTemplate('resume')} 
-                    render={()=> <TemplatePage 
+              <Route exact path="/createResume"
+                    //  onChange={this.handleTemplate('resume')}
+                    render={()=> <TemplatePage
                                     type='resume'
                                     showModal={this.state.viewingTemplate}
                                     closeModal={this.closeDetailedTemplateHandler}
@@ -331,7 +331,7 @@ class Layout extends Component{
               />
               <Route exact path='/inputPage' render={() => <InputPage
                                                             type = {this.state.type}
-                                                            currentTemplate={this.state.selectedTemplate} 
+                                                            currentTemplate={this.state.selectedTemplate}
                                                             currentUser = {this.state.currentUser}
                                                             retrieveResume = {this.state.retrieveResume}
                                                             success={this.state.success}
@@ -344,8 +344,8 @@ class Layout extends Component{
               <Route exact path='/resumeSuccess' render={() => <ResumeSuccessPage
                                                             currentUser={this.state.currentUser}
                                                             currentTemplate={this.state.selectedTemplate}
-                                                            retrieveResume={this.retrieveResume} 
-                                                            currentTemplateID={this.state.currentTemplateID} />} />} />                                                            
+                                                            retrieveResume={this.retrieveResume}
+                                                            currentTemplateID={this.state.currentTemplateID} />} />} />
               <Route exact path='/siteLoader' render={() => <CreateSiteLoader
                                                             selectedTemplate={this.state.selectedTemplate}
                                                             login={this.state.currentUser.login} />} />
@@ -354,9 +354,9 @@ class Layout extends Component{
                                                             authenticated={this.state.isAuthenticated}
                                                             currentUser={this.state.currentUser}/>} />
               <Route exact path="/createUser" component={CreateUserPage} />
-              <Route exact path="/Login" render={() => <LoginPage 
+              <Route exact path="/Login" render={() => <LoginPage
                                                         ghRedirect={this.redirectToGitHubHandler}/>} />
-              <Route exact path='/dashboard' render={() => <Dashboard                                           
+              <Route exact path='/dashboard' render={() => <Dashboard
                                                             currentUser={this.state.currentUser}
                                                             showModal={this.state.viewingTemplate}
                                                             closeModal={this.closeDetailedTemplateHandler}
@@ -381,7 +381,7 @@ class Layout extends Component{
             <Alert stack={{limit: 3}} />
         </div>
       </Router>
-   ) 
+   )
   }
 }
 
