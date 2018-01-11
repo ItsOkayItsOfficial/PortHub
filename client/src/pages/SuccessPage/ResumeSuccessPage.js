@@ -48,7 +48,7 @@ const ResumeSuccessPage = ({ redirect, currentUser, currentTemplate, retrieveRes
     <div className="modal fade bd-example-modal-lg" id="viewPDFModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-lg">
         <div className="modal-content" style={{backgroundImage:"url('/assets/images/ph/porthub_breath.gif')", backgroundColor:"#333444", backgroundRepeat:"no-repeat", backgroundPosition:"50% 50%"}}> 
-            <iframe alt={currentTemplate.title} src={retrievePDF_URL}title={currentTemplate.title} 
+            <iframe alt={currentTemplate.title} src={retrievePDF_URL} title={currentTemplate.title} 
                       style={{width:'100%', height:'90vh'}} name="iframeForPDF">
 
         </iframe>   

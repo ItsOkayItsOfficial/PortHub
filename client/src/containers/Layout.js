@@ -171,8 +171,8 @@ class Layout extends Component{
     })
     .catch((err) => {
       console.log(err);
-    });
-  }
+    });    
+  } 
 //-----------------------------------------------------//
 //-----------------SITE METHODS------------------------//
   postHTMLToLocal = (html) => {
@@ -334,9 +334,7 @@ class Layout extends Component{
                                     selectedTemplate={this.state.selectedTemplate}
                                     guestContinueShow={this.guestContinueModalHander}
                                     viewingContinueAsGuest={this.state.viewingGuestContinueModal}
-                                    isAuthenticated={this.state.isAuthenticated}
-                                    retrieveResume={this.retrieveResume}/>}
-              />
+                                    isAuthenticated={this.state.isAuthenticated} /> } />
               <Route exact path='/inputPage' render={() => <InputPage
                                                             type = {this.state.type}
                                                             currentTemplate={this.state.selectedTemplate}
@@ -379,9 +377,7 @@ class Layout extends Component{
                                                             dashboardInputViewer={this.dashboardInputViewer}
                                                             currentDashboardPage={this.state.currentDashboardPage}
                                                             prepareStateHandler={this.prepareStateHandler}
-                                                            updateUserInputs={this.updateUserInputs}
-                                                            setHTMLToLocal={this.postHTMLToLocal}/>}
-                                                             />
+                                                            updateUserInputs={this.updateUserInputs}/> }/>
               <Route exact path="/ourStory" component={OurStory} />
               <Route exact path="/aboutUs" component={AboutUs} />
               <Route exact path="/repository" component={Repository} />

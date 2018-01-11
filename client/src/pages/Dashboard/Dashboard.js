@@ -32,7 +32,8 @@ const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, vi
                   selectedTemplate={selectedTemplate}
                   guestContinueShow={guestContinueShow}
                   isAuthenticated={isAuthenticated}
-                  selectedDashboardID={selectedDashboardID} />;
+                  selectedDashboardID={selectedDashboardID} 
+                  />;
             break;
       case 'contact':
               currentPage = <UserContact
