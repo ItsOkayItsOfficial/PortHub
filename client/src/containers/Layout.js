@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory'
 import LandingPage from "../pages/LandingPage";
 import TemplatePage from "../pages/TemplatePage";
 import CreateUserPage from "../pages/CreateUserPage";
@@ -58,7 +60,7 @@ class Layout extends Component{
       : '';
     }
    axios.post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token?&client_id='
-      + Keys.herokuClientId + '&client_secret=' + Keys.herokuClientSecret + '&code=' + getAuthCode())
+      + Keys.localClientId + '&client_secret=' + Keys.localClientSecret + '&code=' + getAuthCode())
       .then(response => {
         console.log('finished authenticating')
         accessToken = response.data.slice(13, response.data.indexOf('&'));
@@ -86,7 +88,7 @@ class Layout extends Component{
 
   redirectToGitHubHandler = () => {
     window.location.replace('https://github.com/login/oauth/authorize?client_id='+
-    Keys.herokuClientId + '&redirect_uri=https://realporthub.herokuapp.com/authLoader&state=1234&scope=user,public_repo');
+    Keys.localClientId + '&redirect_uri=http://localhost:3000/authLoader&state=1234&scope=user,public_repo');
   }
 
   guestUserHandler =() => {
@@ -290,7 +292,7 @@ class Layout extends Component{
   render(){
 
     return(
-      <Router>
+      <Router history={createHistory}>
         <div>
           <Modal show={this.state.viewingGuestContinueModal} closeModal={this.guestContinueModalHander} className='continueAsGuest'>
             <ContinueAsGuest
