@@ -1,7 +1,12 @@
 import React, { Component } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+<<<<<<< HEAD
 import { HashRouter } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory'
+=======
+import { BrowserRouter, HashRouter } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
+>>>>>>> app
 import LandingPage from "../pages/LandingPage";
 import TemplatePage from "../pages/TemplatePage";
 import CreateUserPage from "../pages/CreateUserPage";
@@ -297,7 +302,7 @@ class Layout extends Component{
   render(){
 
     return(
-      <Router>
+      <Router history={createHistory()}>
         <div>
           <Modal show={this.state.viewingGuestContinueModal} closeModal={this.guestContinueModalHander} className='continueAsGuest'>
             <ContinueAsGuest

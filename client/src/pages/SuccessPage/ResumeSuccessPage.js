@@ -7,7 +7,10 @@ const ResumeSuccessPage = ({ redirect, currentUser, currentTemplate, retrieveRes
   console.log("retrievePDF:" + currentTemplateID);
   // let retrievePDF_URL="http://localhost:3003/api/retrievePDF/" + currentTemplateID;
   let retrievePDF_URL="https://porthubserver.herokuapp.com/api/retrievePDF/" + currentTemplateID;  
+<<<<<<< HEAD
   
+=======
+>>>>>>> app
   let accessToken = localStorage.getItem('accessToken')
                     ? localStorage.getItem('accessToken') : '';
   if ((!accessToken && !currentUser) || Object.keys(currentTemplate).length === 0) {
