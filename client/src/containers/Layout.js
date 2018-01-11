@@ -58,7 +58,7 @@ class Layout extends Component{
       : '';
     }
    axios.post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token?&client_id='
-      + Keys.localClientId + '&client_secret=' + Keys.localClientSecret + '&code=' + getAuthCode())
+      + Keys.herokuClientId + '&client_secret=' + Keys.herokuClientSecret + '&code=' + getAuthCode())
       .then(response => {
         console.log('finished authenticating')
         accessToken = response.data.slice(13, response.data.indexOf('&'));
@@ -86,7 +86,7 @@ class Layout extends Component{
 
   redirectToGitHubHandler = () => {
     window.location.replace('https://github.com/login/oauth/authorize?client_id='+
-    Keys.localClientId + '&redirect_uri=http://localhost:3000/authLoader&state=1234&scope=user,public_repo');
+    Keys.herokuClientId + '&redirect_uri=https://realporthub.herokuapp.com/authLoader&state=1234&scope=user,public_repo');
   }
 
   guestUserHandler =() => {
