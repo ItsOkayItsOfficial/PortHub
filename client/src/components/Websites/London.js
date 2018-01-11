@@ -45,7 +45,7 @@ const html =
 	<meta name="author" content="Carlos Alvarez - Alvarez.is - blacktie.co">
 	<link rel="shortcut icon" href="assets/ico/favicon.png">
 
-	<title>London</title>
+	<title>${contact ? contact.firstName + ' ' + contact.lastName : ''}</title>
 
 	<!-- Bootstrap 3.0.2 CSS -->
 	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">

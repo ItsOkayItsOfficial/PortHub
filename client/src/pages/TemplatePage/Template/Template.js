@@ -45,8 +45,8 @@ let dashboardList = '';
       {dashboard && dashboardTemplate.type === 'site' ?
       <div className='dashboardFooter'>
         <p> Created On: {createdOn ? createdOn : dashboardTemplate.lastEdited} </p>
-        {dashboardTemplate.url ? <Aux><a  className='htmlButton' href={`https://${dashboardTemplate.url}`} target='_blank' data-tip="React-tooltip" data-for='githubTooltip'><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
-        <ReactTooltip id='githubTooltip' effect="solid">Go to {dashboardTemplate.url} </ReactTooltip></Aux> : ''}
+        {dashboardTemplate.url ? <Aux><a  className='htmlButton' href={`https://${dashboardTemplate.url}`} target='_blank' data-tip="React-tooltip" data-for={dashboardTemplate._id}><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
+        <ReactTooltip id={dashboardTemplate._id} effect="solid">Go to {dashboardTemplate.url} </ReactTooltip></Aux> : ''}
         <button className='htmlButton' data-toggle="modal" data-target="#viewHTML" data-for='htmlTooltip' data-tip="React-tooltip"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button><ReactTooltip id='htmlTooltip' effect="solid">View HTML </ReactTooltip>
         <div className="modal fade bd-example-modal-lg" id="viewHTML" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg">
