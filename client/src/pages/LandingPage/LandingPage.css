@@ -1,8 +1,3 @@
-video {
-	position: fixed;
-	height: 100%;
-    width: auto;
-}
 #container {
     height: 100vh;
     width: 100vw;
@@ -14,15 +9,22 @@ video {
 #background-video {
     position: absolute;
     width: 100vw;
+    height: 100vh;
     top: 0;
-    left: 0;
     z-index: -1;
+}
+
+#background-video > video {
+    position: fixed;
+    width: 100vw;
+    height: 120vh;
 }
 
 #buttons {
     position: absolute;
-    top: 80vh;
+    top: 75vh;
     width: 100%;
+    padding: 10px;
 }
 
 #buttons Link {
@@ -36,16 +38,21 @@ video {
     display: inline-block;
 }
 
-#jumbo img {
-display: inline-block;
-}
-
 #jumbo p {
     color: rgb(255, 255, 255);
     margin-top:50px;
     margin-left: 0;
     width: 100vw;
     font-size: 1.5em;
+}
+
+#logo-Lg {
+    visibility: visible;
+}
+
+#logo-Sm {
+    visibility: hidden;
+    height: 100px;
 }
 
 #info {
@@ -80,24 +87,33 @@ display: inline-block;
     padding: 40px;
 }
 
-.ph_logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+
+@media screen and (max-width: 500px) {
+    #logo-Lg {
+        visibility: hidden;
+    }
+    #logo-Sm {
+        visibility: visible;
+    }
+    #jumbo p {
+        width: 85vw;
+    }
 }
+
 
 @media screen and (max-width: 800px) {
     #buttons Link {
         font-size: 1rem;
     }
+    #background-video > video {
+        width: auto;
+        height: 100vh;
+    }
 }
 
-@media screen and (min-width: 1000px) {
-    video {
-        margin-top: -40px;
-        height: auto;
-        width: 100%;
+@media (min-width: 1000px) and (max-width: 1440px) {
+    #background-video > video {
+        height: 100vh;
+        width: auto;
     }
 }

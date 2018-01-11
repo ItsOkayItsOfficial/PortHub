@@ -1,6 +1,5 @@
 import React from 'react';
 import './InputPage.css';
-import Aux from '../../components/Auxiliary/Auxiliary';
 import BaseInput from '../../components/Inputs/BaseInput';
 import Education from '../../components/Inputs/Education';
 import Skills from '../../components/Inputs/Skills';

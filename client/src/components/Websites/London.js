@@ -9,10 +9,10 @@ export const London = ({contact, experience, education, skills, portfolio, click
        const br = i===2 ? '<br>' : '';
         return i > 3 ? null : (
           `${row}${br}<div class="col-xs-6 centered">
-            <img class="img-responsive" src="${portfolio.img}" alt="${portfolio.title}">
-            <a href="${portfolio.url}">
+            <img class="img-responsive" src="${portfolio && portfolio.img ? portfolio.omg : ''}" alt="${portfolio && portfolio.title ? portfolio.title : ''}">
+            <a href="${portfolio && portfolio.url ? portfolio.url : ''}">
               <h6>
-                <i class="icon-link"></i>${portfolio.title}</h6>
+                <i class="icon-link"></i>${portfolio && portfolio.title ? portfolio.title : ''}</h6>
             </a>
           </div>${rowEnd}`
         )
@@ -22,13 +22,13 @@ export const London = ({contact, experience, education, skills, portfolio, click
   let experienceSection = experience.map((experience, i) => {
        //const offset = i!== 0 ? "col-lg-offset-3" : '';
 			return i > 1 ? null : (
-      `<grey>${experience.employer}</grey> | ${experience.startDate} - ${experience.endDate}
+      `<grey>${experience && experience.employer ? experience.employer : ''}</grey> | ${experience && experience.startDate ? experience.startDate : ''} - ${experience && experience.endDate ? experience.endDate : ''}
 			<br/>`)   
     })
 
   let educationSection = education.map((education, i) => {
         return 	i > 1 ? null : (		
-          `<grey>${education.major}</grey> | ${education.schoolName}
+          `<grey>${education && education.major ? education.major : ''}</grey> | ${education && education.schoolName ? education.schoolName : ''}
 					<br/>`)
       })
       educationSection = educationSection.join('');
@@ -45,7 +45,7 @@ const html =
 	<meta name="author" content="Carlos Alvarez - Alvarez.is - blacktie.co">
 	<link rel="shortcut icon" href="assets/ico/favicon.png">
 
-	<title>London</title>
+	<title>${contact ? contact.firstName + ' ' + contact.lastName : ''}</title>
 
 	<!-- Bootstrap 3.0.2 CSS -->
 	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">

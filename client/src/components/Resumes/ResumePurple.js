@@ -5,26 +5,26 @@ export const ResumePurple = ({contact, experience, education, skills, portfolio,
 
   	let skillSection = skills.map((skill, i) => {
         if (i%4 === 0){
-            return (`</tr><tr><td style="padding-left:10px; padding-right:10px;"><i class="fa fa-circle" aria-hidden="true" style="font-size:8px;"></i>&nbsp&nbsp${skill.skill}</td>`);
+            return (`</tr><tr><td style="padding-left:10px; padding-right:10px;"><i class="fa fa-circle" aria-hidden="true" style="font-size:8px;"></i>&nbsp&nbsp${skill && skill.skill ? skill.skill : ''}</td>`);
         } else {
-            return (`<td style="padding-left:10px; padding-right:10px;"><i class="fa fa-circle" aria-hidden="true" style="font-size:8px;"></i>&nbsp&nbsp${skill.skill}</td>`);
+            return (`<td style="padding-left:10px; padding-right:10px;"><i class="fa fa-circle" aria-hidden="true" style="font-size:8px;"></i>&nbsp&nbsp${skill && skill.skill ? skill.skill : ''}</td>`);
         }
     })
 	skillSection = skillSection.join('');
   	let experienceSection = experience.map((experience) => {
 			return (
-      		`<p><b>${experience.employer}</b></br>
-				<i>${experience.title}</i></br>
-				${experience.duties}</br>
-				${moment(experience.startDate).format('MM/YYYY')} - ${moment(experience.endDate).format('MM/YYYY')}
+      		`<p><b>${experience && experience.employer ? experience.employer : ''}</b></br>
+				<i>${experience && experience.title ? experience.title : ''}</i></br>
+				${experience && experience.duties ? experience.duties : ''}</br>
+				${experience && experience.startDate ? moment(experience.startDate).format('MM/YYYY') : ''} - ${experience && experience.endDate ? moment(experience.endDate).format('MM/YYYY') : ''}
 			</p>`)   
     })
     experienceSection = experienceSection.join('');
   	let educationSection = education.map((education) => {
         return 	(		
-          `<p>	<b>${education.major}</b><br/>
-			  	<i>${education.schoolName}</i><br/>
-				  ${moment(education.startDate).format('MM/YYYY')} - ${moment(education.endDate).format('MM/YYYY')}
+          `<p>	<b>${education && education.major ? education.major : ''}</b><br/>
+			  	<i>${education && education.schoolName ? education.schoolName : ''}</i><br/>
+				  ${education && education.startDate ? moment(education.startDate).format('MM/YYYY') : ''} - ${education && education.endDate ? moment(education.endDate).format('MM/YYYY'): ''}
 			</p>`)
       })
 	  educationSection = educationSection.join('');

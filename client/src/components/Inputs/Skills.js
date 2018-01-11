@@ -25,24 +25,24 @@ const handle = (props) => {
     </Tooltip>
   );
 };
-    // let skillLevel = window.sessionStorage.getItem(id+"description") || "";  
-  return (<div className='container'>
+
+  // let skillLevel = window.sessionStorage.getItem(id+"description") || "";
+  return (
+  <div className="col-md-3 border border-primary rounded p-5 m-3">
     <div className="row">
-          <div className="col-md-12">
+    <h5 className="mr-1">Skill</h5>
               <span className="form-group d-inline-flex flex-row align-items-baseline">
-                  <h5 className="mr-1">Skill</h5>
-                  <input type="text" 
-                         name="title" 
+                  <input type="text"
+                         name="title"
                          value = {skillTitle}
-                         className="form-control" 
-                         placeholder="Please enter your skill" 
-                         required="required" 
+                         className="form-control"
+                         placeholder="Please enter your skill"
+                         required="required"
                          data-error="skill title is required."
                          onChange={(event) => changed(event, id, 'skills', 'skill')} />
                   </span>
-          </div>
       </div>
-      <div className='row' style={{margin: '0 0 5px 0'}}>
+      <div className='row'>
         <h5 className="mr-1">Rating</h5>
         <Slider
           min={0}
@@ -50,10 +50,11 @@ const handle = (props) => {
           step={10}
           value={skillRating}
           handle={handle}
-          onChange={(value) => changed(value, id, 'skills', 'rating')} 
+          onChange={(value) => changed(value, id, 'skills', 'rating')}
         />
       </div>
-  </div>)
+  </div>
+  )
 }
 
 

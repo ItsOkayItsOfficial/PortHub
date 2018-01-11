@@ -9,17 +9,20 @@ const LandingPage = ({ children }) =>
     <div id='container'>
       {/* Logo */}
       <div id='jumbo' className="row text-center p-4 mx-auto">
-          <img className="rounded" src='/assets/images/ph/porthub_logo.png' alt="logo"/>
-          <p className="d-md-block">Create a portfolio site or resume in minutes!</p>
+        <div className='row d-md-block'>
+          <img id='logo-Lg' className="rounded" src='/assets/images/ph/porthub_logo.png' alt="logo"/>
+        </div>
+          <img id='logo-Sm' className="rounded" src='/assets/images/ph/porthub_icon.png' alt="logo"/>
+        <p>Create a portfolio site or resume in minutes!</p>
       </div>
 
       {/* Buttons */}
       <div id='buttons' className="row mx-auto">
             <div className="col-lg-3 col-sm-8 offset-lg-2 offset-md-2 offset-sm-1 d-flex text-center">
-              <Link to='createsite' className="btn btn-warning mx-4 w-100 d-md-block">Create a Portfolio Website</Link>
+              <Link to='createsite' style={{padding:'15px'}} className="btn btn-warning mx-4 w-100 d-md-block">Create a Portfolio Website</Link>
             </div>
             <div className="col-lg-3 col-sm-8 offset-lg-2 offset-md-2 offset-sm-1 d-flex text-center">
-              <Link to='createresume'className="btn btn-info mx-4 w-100 d-md-block">Create a Resume</Link>
+              <Link to='createresume' style={{padding:'15px'}} className="btn btn-info mx-4 w-100 d-md-block">Create a Resume</Link>
             </div>
       </div>
 
@@ -33,7 +36,7 @@ const LandingPage = ({ children }) =>
 
       {/* Scroll Triangle */}
       <div id='spacer' className="d-flex justify-content-center">
-        <img src="/assets/images/triangle-spacer.png"></img>
+        <img src="/assets/images/triangle-spacer.png" alt='spacer' rel="noopener noreferrer"></img>
       </div>
     </div>
 
@@ -43,7 +46,7 @@ const LandingPage = ({ children }) =>
           <div className="col-lg-4 w-100 d-flex flex-column justify-content-start align-items-center moreInfo-item">
                 <p className="m-0 mb-2"><i className="fa fa-github fa-3x"></i></p>
                 <p className="m-0 mb-2">Login with GitHub</p>
-                <p className="mt-4 text-align-right">If you haven't already login with your <a href="http://github.com">GitHub</a> to authenticate with PortHub. This allows you to deploy your site directly to GitHub, or save your data if you want to use multiple website and resume templates!</p>
+                <p className="mt-4 text-align-right">If you haven't already login with your <a href="http://github.com" target='_blank' rel="noopener noreferrer">GitHub</a> to authenticate with PortHub. This allows you to deploy your site directly to GitHub, or save your data if you want to use multiple website and resume templates!</p>
           </div>
           <div className="col-lg-4 w-100 d-flex flex-column justify-content-start align-items-center  moreInfo-item">
                 <p className="m-0 mb-2"><i className="fa fa-file-text fa-3x"></i></p>

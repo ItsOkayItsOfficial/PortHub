@@ -3,22 +3,23 @@ import './Websites.css';
 
 export const Lawrence = ({contact, experience, education, skills, portfolio, clicked }) => {
   let skillSection = skills.map((skill, i) => {
+    console.log(skill)
           return  i > 3 ? null : (
         `<div class="col-lg-3 mt">
-					<canvas id="${skill.skill.trim().replace(/\s/g, '')}" height="130" width="130"></canvas>
-					<p>${skill.skill.trim()}</p>
+					<canvas id="${skill && skill.skill ? skill.skill.trim().replace(/\s/g, '') : ''}" height="130" width="130"></canvas>
+					<p>${skill && skill.skill ? skill.skill.trim() : ''}</p>
 					<br>
 					<script>
 						var doughnutData = [{
-								value: ${skill.rating},
+								value: ${skill &&skill.rating ? skill.rating : ''},
 								color: "#74cfae"
 							},
 							{
-								value: ${100-skill.rating},
+								value: ${skill && skill.rating ? 100-skill.rating : ''},
 								color: "#3c3c3c"
 							}
 						];
-						var myDoughnut = new Chart(document.getElementById("${skill.skill.trim().replace(/\s/g, '')}").getContext("2d")).Doughnut(doughnutData);
+						var myDoughnut = new Chart(document.getElementById("${skill && skill.skill ? skill.skill.trim().replace(/\s/g, '') : ''}").getContext("2d")).Doughnut(doughnutData);
 					</script>
 				</div>`
           )
@@ -31,11 +32,11 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
        const header = i===0 ? '<h3>MY LATEST WORK</h3>' : '';
         return  i > 5 ? null : (
           `${row}${header}<div class="col-lg-4" style='text-align:center; word-wrap: break-word;'>
-            <a id="proj_1" href="${portfolio.url}" target='_blank'>
-              <img style='width:300px; height:300px'src="${portfolio.img}" alt="">
+            <a id="proj_1" href="${portfolio && portfolio.url ? portfolio.url : ''}" target='_blank'>
+              <img style='width:300px; height:300px'src="${portfolio && portfolio.im ? portfolio.img : ''}" alt="">
             </a>
-            <h3 style='margin: 10px auto auto auto'>${portfolio.title}</h3>
-              <p style='width: 300px; margin:auto'>${portfolio.description}</p>
+            <h3 style='margin: 10px auto auto auto'>${portfolio && portfolio.title ? portfolio.title : ''}</h3>
+              <p style='width: 300px; margin:auto'>${portfolio && portfolio.description ? portfolio.description : ''}</p>
           </div>${rowEnd}`
         )
       })
