@@ -53,24 +53,24 @@ const createdOn = dashboard && dashboardTemplate._id.length > 5 ? dateFromObject
         <Aux><Link className='htmlButton' to='/siteLoader' onClick={localStorage.setItem('html', dashboardTemplate.html)} data-tip="React-tooltip" data-for={`${dashboardTemplate._id}publish`}><i className="fa fa-floppy-o fa-2x" aria-hidden="true"></i></Link>
         <ReactTooltip id={`${dashboardTemplate._id}publish`} effect="solid">Publish this site to GitHub</ReactTooltip></Aux>
         }
-        <button className='htmlButton' data-toggle="modal" data-target={`#${dashboardTemplate._id}`} data-for='htmlTooltip' data-tip="React-tooltip"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button><ReactTooltip id='htmlTooltip' effect="solid">View HTML </ReactTooltip>
+        <button className='htmlButton' data-toggle="modal" data-target={dashboard && dashboardTemplate._id ? `#${dashboardTemplate._id}` : ''} data-for='htmlTooltip' data-tip="React-tooltip"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button><ReactTooltip id='htmlTooltip' effect="solid">View HTML </ReactTooltip>
       </div> 
       : 
       dashboard && dashboardTemplate.type=== 'resume' ? <div className='dashboardFooter d-flex justify-content-center p-4'>
-        <a href={`http://localhost:3003/api/retrievePDF/${dashboardTemplate._id}`} className="btn btn-success" data-toggle="modal" data-target={`#${dashboardTemplate._id}`}>Regenerate PDF</a>
+        <a href={`https://porthubserver.herokuapp.com/api/retrievePDF/${dashboardTemplate._id}`} className="btn btn-success" data-toggle="modal" data-target={`#pdf${dashboardTemplate._id}`}>Regenerate PDF</a>
       </div> : ''
     }
-        <div className="modal fade bd-example-modal-lg" id={dashboardTemplate._id} role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div className="modal fade bd-example-modal-lg" id={dashboard && dashboardTemplate._id ? dashboardTemplate._id : ''} role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg">
             <div className="modal-content" style={{textAlign:'left', wordWrap: 'break-word'}}>  
             {dashboard ? dashboardTemplate.html:''}
             </div>
           </div>
         </div>
-        <div className="modal fade bd-example-modal-lg" id={dashboardTemplate._id} role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div className="modal fade bd-example-modal-lg" id={dashboard && dashboardTemplate._id ? `pdf${dashboardTemplate._id}`: ''} role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg">
-            <div className="modal-content" style={{textAlign:'left', wordWrap: 'break-word'}}>  
-                <iframe src={`http://localhost:3003/api/retrievePDF/${dashboardTemplate._id}`}  title="bob"
+            <div className="modal-content" style={{backgroundImage:"url('/assets/images/ph/porthub_breath.gif')", backgroundColor:"#333444", backgroundRepeat:"no-repeat", backgroundPosition:"50% 50%", textAlign:'left', wordWrap: 'break-word'}}>  
+                <iframe src={dashboard && dashboardTemplate._id ? `https://porthubserver.herokuapp.com/api/retrievePDF/${dashboardTemplate._id}` : ''}  title="bob"
                           style={{width:'100%', height:'90vh'}} name="iframeForPDF">
                 </iframe>             
             </div>

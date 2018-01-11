@@ -5,8 +5,8 @@ import './SuccessPage.css';
 
 const ResumeSuccessPage = ({ redirect, currentUser, currentTemplate, retrieveResume, currentTemplateID }) => {
   console.log("retrievePDF:" + currentTemplateID);
-  let retrievePDF_URL="http://localhost:3003/api/retrievePDF/" + currentTemplateID;
-  //let retrievePDF_URL="http://porthubserver.herokuapp.com/api/retrievePDF/" + currentTemplateID;  
+  // let retrievePDF_URL="http://localhost:3003/api/retrievePDF/" + currentTemplateID;
+  let retrievePDF_URL="https://porthubserver.herokuapp.com/api/retrievePDF/" + currentTemplateID;  
   
   let accessToken = localStorage.getItem('accessToken')
                     ? localStorage.getItem('accessToken') : '';
