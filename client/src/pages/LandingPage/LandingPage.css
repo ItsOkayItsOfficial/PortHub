@@ -18,6 +18,9 @@
     position: fixed;
     width: 100vw;
     height: 120vh;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 #buttons {
