@@ -9,6 +9,8 @@ import { Notifications, Linking, AuthSession } from 'expo'
 export default class RootNav extends Component {
   state = {
     result: null,
+    error: null,
+    githubToken: null,
     currentUser: null,
     isAuthenticated: null,
   };
@@ -48,22 +50,14 @@ export default class RootNav extends Component {
   };
 
   _handlePressAsync = async () => {
-    let redirectUrl = AuthSession.getRedirectUrl();
-    let result = await AuthSession.startAsync({
-      authUrl:
-        `${GitHubAuth.GH_URL}` +
-        `&client_id=${GitHubAuth.CLIENT_ID}` +
-        `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
-    });
-    try {
-      await AsyncStorage.setItem({ response });
-    } catch (error) {
-      console.log(error);
-    }
-    this.setState({ result })
-    console.log(this.state.result)
+      let result = await GitHubAuth();
+      this.setState({githubToken: result});
+      console.log(GitHubAuth())
+      console.log(this.state.githubToken)
   };
 
   _getUser = (username) => (axios.get(USER_API + username)).then( response => {console.log(response)}).catch( error => {console.log(error)})
 
-}
+
+  }
+
