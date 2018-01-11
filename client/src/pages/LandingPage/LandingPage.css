@@ -43,7 +43,8 @@
     margin-top:50px;
     margin-left: 0;
     width: 100vw;
-    font-size: 1.5em;
+    font-size: 2em;
+    text-shadow: 2px 2px 3px rgba(70, 70, 70, 0.63)    
 }
 
 #logo-Lg {
@@ -71,6 +72,11 @@
     width: 100%;
  }
 
+ .btn-landingPage{
+     font-size: 1.5em;
+     color: white;
+     text-shadow: 2px 2px 3px rgba(70, 70, 70, 0.63)
+ }
 .moreInfo-title{
     font-size: 30px;
     font-weight: bold;

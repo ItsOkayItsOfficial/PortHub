@@ -8,8 +8,8 @@ const LandingPage = ({ children }) =>
 
     <div id='container'>
       {/* Logo */}
-      <div id='jumbo' className="row text-center p-4 mx-auto">
-        <div className='row d-md-block'>
+      <div id='jumbo' className="row text-center justify-content-center p-4 mx-auto">
+        <div className='row d-md-block justify-content-center'>
           <img id='logo-Lg' className="rounded" src='/assets/images/ph/porthub_logo.png' alt="logo"/>
         </div>
           <img id='logo-Sm' className="rounded" src='/assets/images/ph/porthub_icon.png' alt="logo"/>
@@ -17,12 +17,12 @@ const LandingPage = ({ children }) =>
       </div>
 
       {/* Buttons */}
-      <div id='buttons' className="row mx-auto">
-            <div className="col-lg-3 col-sm-8 offset-lg-2 offset-md-2 offset-sm-1 d-flex text-center">
-              <Link to='createsite' style={{padding:'15px'}} className="btn btn-warning mx-4 w-100 d-md-block">Create a Portfolio Website</Link>
+      <div id='buttons' className="row mx-auto d-flex flex-row justify-content-around">
+            <div className="col-lg-4 col-sm-8 d-flex text-center">
+              <Link to='createsite' className="btn btn-warning mx-4 w-100 d-md-block btn-landingPage">Create a Portfolio Website</Link>
             </div>
-            <div className="col-lg-3 col-sm-8 offset-lg-2 offset-md-2 offset-sm-1 d-flex text-center">
-              <Link to='createresume' style={{padding:'15px'}} className="btn btn-info mx-4 w-100 d-md-block">Create a Resume</Link>
+            <div className="col-lg-4 col-sm-8 d-flex text-center">
+              <Link to='createresume' className="btn btn-info mx-4 w-100 d-md-block btn-landingPage">Create a Resume</Link>
             </div>
       </div>
 
