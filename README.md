@@ -2,14 +2,13 @@
 ### Developer Portfolio Builder
 “You're not a designer”
 
-<iframe src="https://cdn.rawgit.com/ItsOkayItsOfficial/project3/devops/concepts/monaco-editor.html" scrolling="no" style="height: 100%; width: 100%; boarder: none;"></iframe>
+THE PROBLEM. New developers face a hurdle of learning the "Why?", before the "How?" 
+-How do you create a website showing all the skills you have learned? 
+-How do you deploy it? 
+-Where do you deploy it? 
+-Hosting?
+It is so very common for budding developers to create content to show off their skills. But, it's just as common for them not to know how to get it seen! How can you get your content online? Will it take long? Are there any guides or resources I can use? As developers, the Porthub team slammed into this problem and noticed that others were struggling with it too. Porthub saw this problem and wanted to attack it as developers. We wanted to create a simplistic service, that empowered our user to not only FILL out a completely CUSTOMIZABLE template...BUT ALSO PUBLISH their content on a completely hosted domain! All done in the blink of an eye! A resource for developers, made by developers, to help further development careers.
 
-
-<br>
-<div class="iframe_container">
-  <iframe src="http://cdn.rawgit.com/ItsOkayItsOfficial/project3/devops/concepts/monaco-editor.html" frameborder="0" allowfullscreen="allowfullscreen" scrolling="no" style="height: 100%; width: 100%;"> </iframe>
-</div>
-<br>
 
 
 
