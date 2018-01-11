@@ -1,6 +1,24 @@
 .moreInfoText{
-    font-size: 1.5em; 
+    font-size: 1.5em;
+    font-family: 'PT Sans Narrow', sans-serif;
 }
-.title{
-    font-size: 2em;
+.aboutTitle{
+    font-size: 3em;
+    line-height: 90%;
+}
+.smAboutTitle{
+    font-size: 2.5em;
+    line-height: 90%;
+}
+.aboutUsText{
+    font-size: 1em; 
+    font-family: 'Ubuntu', sans-serif;
+}
+.aboutUsImg{
+    width: 200px;
+    height: 200px;
+}
+
+.btn-hover-pointer{
+    cursor: pointer;
 }

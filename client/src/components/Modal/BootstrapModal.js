@@ -2,10 +2,10 @@ import React from 'react';
 import './Modal.css';
 
 
-const BootstrapModal = ({ children, title }) => {
+const BootstrapModal = ({ children, title, modalName }) => {
 
   return (
-  <div className="modal fade" id="viewPDFModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal fade" id={modalName} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">

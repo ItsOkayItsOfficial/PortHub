@@ -9,7 +9,7 @@ const Footer = () => {
             <li className="nav-item">
               <a className="nav-link" href="/ourStory">Our Story</a>
             </li>
-            <li className="nav-item active">
+            <li className="nav-item">
               <a className="nav-link" href="/aboutUs">Meet the Team</a>
             </li>
             <li className="nav-item">

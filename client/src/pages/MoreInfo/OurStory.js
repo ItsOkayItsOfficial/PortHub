@@ -3,7 +3,7 @@ import "./MoreInfo.css";
 import Footer from '../../components/Footer/Footer';
 
 const OurStory = () =>
-  <div className="row d-flex align-items-center mx-4 moreInfoText" style={{height:"90vh", position:"absolute", top:"10vh"}}>
+  <div className="row d-flex align-items-center moreInfoText" style={{position:"absolute", top:"80px", height:"94vh"}}>
       <div className="col-8 offset-2">
           <p className="text-center title">Leave your mark on the world</p>
           <p><span className="font-weight-bold">The problem: </span> New developers face a hurdle of learning the "Why?", before "How?". How do you create a website showing all the 

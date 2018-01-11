@@ -3,7 +3,7 @@ import "./MoreInfo.css";
 import Footer from '../../components/Footer/Footer';
 
 const Repository = () =>
-  <div className="row d-flex align-items-center mx-4 moreInfoText" style={{height:"90vh", position:"absolute", top:"20vh"}} >
+  <div className="row d-flex align-items-center moreInfoText w-100" style={{position:"absolute", top:"20vh", height:"94%"}} >
     <div className="col-8 offset-2" >
         <div>
             <p className="text-center">
