@@ -9,7 +9,7 @@ import UserSkills from './UserSkills/UserSkills';
 import UserContact from './UserContact/UserContact';
 import './Dashboard.css';
 
-const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, viewTemplate, selectedDashboardID, guestContinueShow, selectedTemplate, isAuthenticated, viewingSites, currentDashboardPage, prepareStateHandler, updateUserInputs}) => {
+const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, viewTemplate, selectedDashboardID, guestContinueShow, selectedTemplate, isAuthenticated, viewingSites, currentDashboardPage, prepareStateHandler, updateUserInputs, setHTMLToLocal}) => {
     const userSites = currentUser.template ? currentUser.template.filter(template => template.type === 'site') : '';
     const userResumes = currentUser.template ? currentUser.template.filter(template => template.type === 'resume') : ''
     let currentPage = '';
@@ -21,7 +21,8 @@ const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, vi
                   closeModal={closeModal}
                   selectedTemplate={selectedTemplate}
                   guestContinueShow={guestContinueShow}
-                  selectedDashboardID={selectedDashboardID} />;
+                  selectedDashboardID={selectedDashboardID}
+                  setHTMLToLocal={setHTMLToLocal}/>;
             break;
       case "resumes":
             currentPage = <UserResumes userResumes={userResumes}

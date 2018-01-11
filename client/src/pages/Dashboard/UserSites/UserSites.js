@@ -19,7 +19,8 @@ const UserSites = (props) => {
             selectedTemplate={props.selectedTemplate}
             guestContinueShow={props.guestContinueShow}
             isAuthenticated={props.isAuthenticated}
-            selectedDashboardID={props.selectedDashboardID} />
+            selectedDashboardID={props.selectedDashboardID}
+            setHTMLToLocal={props.setHTMLToLocal} />
   })
   : '';
 

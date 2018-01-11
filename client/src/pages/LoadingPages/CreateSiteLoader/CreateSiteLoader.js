@@ -8,9 +8,10 @@ import './CreateSiteLoader.css';
 import '../loading.css'
 import Alert from 'react-s-alert';
 
-const CreateSiteLoader = ({ login, message, selectedTemplate }) => {
+const CreateSiteLoader = ({ login, message, selectedTemplate, query }) => {
   let accessToken = localStorage.getItem('accessToken')
                     ? localStorage.getItem('accessToken') : '';
+  console.log(query);
   let userRepoNum = 0;
   if (!accessToken || !login || !selectedTemplate) {
     return <Redirect to={'/noMatch'} />

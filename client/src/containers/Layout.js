@@ -174,6 +174,11 @@ class Layout extends Component{
     });
   }
 //-----------------------------------------------------//
+//-----------------SITE METHODS------------------------//
+  postHTMLToLocal = (html) => {
+    localStorage.setItem('html', html);
+  }
+//-----------------------------------------------------//
 //-------------------INPUT METHODS--------------------//
   prepareStateHandler = (event, id, field, subfield) => {
     const currentUser = {...this.state.currentUser};
@@ -374,12 +379,13 @@ class Layout extends Component{
                                                             dashboardInputViewer={this.dashboardInputViewer}
                                                             currentDashboardPage={this.state.currentDashboardPage}
                                                             prepareStateHandler={this.prepareStateHandler}
-                                                            updateUserInputs={this.updateUserInputs}/>}
+                                                            updateUserInputs={this.updateUserInputs}
+                                                            setHTMLToLocal={this.postHTMLToLocal}/>}
                                                              />
               <Route exact path="/ourStory" component={OurStory} />
               <Route exact path="/aboutUs" component={AboutUs} />
               <Route exact path="/repository" component={Repository} />
-              <Route component={NoMatch} />
+              <Route path='/noMatch' component={NoMatch} />
             </Switch>
             <Alert stack={{limit: 3}} />
         </div>

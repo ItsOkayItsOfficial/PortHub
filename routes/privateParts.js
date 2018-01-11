@@ -27,7 +27,6 @@ router.post('/updateUserInputs', ((req, res) => {
 
 
 router.post('/templateURL', ((req, res) => {
-  console.log(req.body)
   db.Template.findOneAndUpdate({
     html: req.body.filecontent
   },

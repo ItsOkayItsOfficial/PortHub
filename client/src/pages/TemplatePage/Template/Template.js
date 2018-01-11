@@ -8,14 +8,12 @@ import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, selectedTemplate, inputs, guestContinueShow, isAuthenticated, dashboard, createdAt, dashboardTemplate, selectedDashboardID, id }) => {
+const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, selectedTemplate, inputs, guestContinueShow, isAuthenticated, dashboard, createdAt, dashboardTemplate, selectedDashboardID, id, setHTMLToLocal }) => {
       const dateFromObjectId = function (objectId) {
         return new Date(parseInt(objectId.substring(0, 8), 16) * 1000);
       };
 const createdOn = dashboard && dashboardTemplate._id.length > 5 ? dateFromObjectId(dashboardTemplate._id).toDateString() : '';
-const loadHTML=()=> {
-  localStorage.setItem("html", dashboard.html);
-}
+
 
 let retrievePDF_URL= "";
 dashboardTemplate ? retrievePDF_URL="http://localhost:3003/api/retrievePDF/" + dashboardTemplate._id : "";
@@ -61,7 +59,9 @@ const regeneratePDF = () =>{
         <p> Created On: {createdOn ? createdOn : dashboardTemplate.lastEdited} </p>
         {dashboardTemplate.url ? <Aux><a  className='htmlButton' href={`https://${dashboardTemplate.url}`} target='_blank' data-tip="React-tooltip" data-for={dashboardTemplate._id}><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
         <ReactTooltip id={dashboardTemplate._id} effect="solid">Go to {dashboardTemplate.url} </ReactTooltip></Aux> : 
-        <Link to="/siteLoader" onClick={this.loadHTML}>Publish your site</Link>}
+        <Aux><Link className='htmlButton' to='/siteLoader' onClick={localStorage.setItem('html', dashboardTemplate.html)} data-tip="React-tooltip" data-for={`${dashboardTemplate._id}publish`}><i className="fa fa-floppy-o fa-2x" aria-hidden="true"></i></Link>
+        <ReactTooltip id={`${dashboardTemplate._id}publish`} effect="solid">Publish this site to GitHub</ReactTooltip></Aux>
+        }
         <button className='htmlButton' data-toggle="modal" data-target="#viewModal" data-for='htmlTooltip' data-tip="React-tooltip"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button><ReactTooltip id='htmlTooltip' effect="solid">View HTML </ReactTooltip>
       </div> 
       : 
