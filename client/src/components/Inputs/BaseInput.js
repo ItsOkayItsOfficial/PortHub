@@ -135,9 +135,12 @@ const BaseInput = ({ changed, contact, button, dashboard  }) => {
             {/* Footer */}
             <div className="row">
 
-                <div className="col-md-6">
-                        <label>Personal Website URL</label>
-                        <div className="row input-group mb-2">
+                {/* Col Left */}
+                <div className="col-md-6 pr-5">
+
+                    <div className='row form-group'>
+                    <label>Personal Website URL</label>
+                        <div className="input-group">
                             <div className="input-group-addon">
                                 <i className="fa fa-globe" aria-hidden="true"></i>
                             </div>
@@ -147,26 +150,30 @@ const BaseInput = ({ changed, contact, button, dashboard  }) => {
                                     value={contact && contact.site ? contact.site : ''}
                                     placeholder="Please enter personal site URL"
                                     onChange={(event) => changed(event, "_", 'contact', 'site')} />
-                        </div>
-                        <div className="help-block with-errors"></div>
-
-                                <label>Profile Picture</label>
-                                <div className="row input-group mb-2">
-                                    <div className="input-group-addon">
-                                        <i className="fa fa-picture" aria-hidden="true"></i>
-                                    </div>
-                                    <input type="text"
-                                            name="profilePicture"
-                                            value={contact && contact.profilePicture ? contact.profilePicture : ''}
-                                            className="form-control"
-                                            placeholder="Profile Picture"
-                                            onChange={(event) => changed(event, "_", 'contact', 'profilePicture')} />
-                                    <div className="help-block with-errors"></div>
                                 </div>
+                            <div className="help-block with-errors"></div>
+                        </div>
 
+                        <div className='row form-group'>
+                        <label>Profile Picture URL</label>
+                        <div className="input-group">
+                            <div className="input-group-addon">
+                                <i className="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                            <input type="text"
+                                    name="profilePicture"
+                                    value={contact && contact.profilePicture ? contact.profilePicture : ''}
+                                    className="form-control"
+                                    placeholder="Profile Picture"
+                                    onChange={(event) => changed(event, "_", 'contact', 'profilePicture')} />
+                            </div>
+                            <div className="help-block with-errors"></div>
+                        </div>
                 </div>
+
+                {/* Col Right */}
                 <div className="col-md-6">
-                    <div className="row form-group">
+                        <div className='row form-group'>
                         <label>GitHub URL</label>
                         <div className="input-group">
                             <div className="input-group-addon">
@@ -178,10 +185,11 @@ const BaseInput = ({ changed, contact, button, dashboard  }) => {
                                         className="form-control"
                                         placeholder="Please enter github URL"
                                         onChange={(event) => changed(event, "_", 'contact', 'github')} />
+                            </div>
+                            <div className="help-block with-errors"></div>
                         </div>
-                        <div className="help-block with-errors"></div>
-                    </div>
-                    <div className="row form-group">
+
+                        <div className="row form-group">
                         <label>LinkedIn URL</label>
                         <div className="input-group">
                             <div className="input-group-addon">
@@ -193,14 +201,16 @@ const BaseInput = ({ changed, contact, button, dashboard  }) => {
                                         className="form-control"
                                         placeholder="Please enter LinkedIn URL"
                                         onChange={(event) => changed(event, "_", 'contact', 'linkedin')} />
+                            </div>
+                            <div className="help-block with-errors"></div>
                         </div>
-                        <div className="help-block with-errors"></div>
+
                     </div>
+
                 </div>
-            </div>
             {/* /Footer */}
 
-    </div>
+        </div>
     )
 }
 
