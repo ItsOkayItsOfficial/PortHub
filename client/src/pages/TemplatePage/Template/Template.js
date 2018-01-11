@@ -16,8 +16,9 @@ const loadHTML=()=>{
   localStorage.setItem("html", dashboard.html);
 }
 
-let retrievePDF_URL="http://localhost:3003/api/retrievePDF/" + dashboardTemplate._id;
-//let retrievePDF_URL="http://porthubserver.herokuapp.com/api/retrievePDF/" + dashboardTemplate._id;  
+let retrievePDF_URL= "";
+dashboardTemplate ? retrievePDF_URL="http://localhost:3003/api/retrievePDF/" + dashboardTemplate._id : "";
+//dashboardTemplate ? retrievePDF_URL="http://porthubserver.herokuapp.com/api/retrievePDF/" + dashboardTemplate._id : "";
 
   return (
     <div style={{margin:'5px'}}>
@@ -68,7 +69,7 @@ let retrievePDF_URL="http://localhost:3003/api/retrievePDF/" + dashboardTemplate
         <div className="modal fade bd-example-modal-lg" id="viewModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg">
             <div className="modal-content" style={{textAlign:'left', wordWrap: 'break-word'}}>  
-            {dashboardTemplate.html}
+            {dashboard ? dashboardTemplate.html:''}
             </div>
           </div>
         </div>
