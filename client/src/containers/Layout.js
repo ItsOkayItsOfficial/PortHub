@@ -193,7 +193,6 @@ class Layout extends Component{
       } : {id};
 
       subfield === 'rating' ? fieldObj[subfield] = event : fieldObj[subfield] = event.target.value;
-      console.log(id[parseInt(id.length-1)])
       !userFieldState[inputIndex] ? userFieldState[id[parseInt(id.length-1)]] = fieldObj  : userFieldState[inputIndex]=fieldObj;
       currentUser[field] = userFieldState
       this.setState({currentUser})

@@ -7,8 +7,8 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
         const offset = i===3 ? "col-lg-offset-3" : ''; 
           return i > 5 ? null : (
         `<div class="col-lg-3 centered ${offset}" >
-					<canvas id="${skill.skill.trim().replace(/\s/g, '')}" height="130" width="130"></canvas>
-					<p>${skill.skill.trim()}</p>
+					<canvas id="${skill && skill.skill ? skill.skill.trim().replace(/\s/g, '') : ''}" height="130" width="130"></canvas>
+					<p>${skill && skill.skill ? skill.skill.trim(): '' }</p>
 					<br>
 					<script>
 						var doughnutData = [{
@@ -20,7 +20,7 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 								color: "#ecf0f1"
 							}
 						];
-						var myDoughnut = new Chart(document.getElementById("${skill.skill.trim().replace(/\s/g, '')}").getContext("2d")).Doughnut(doughnutData);
+						var myDoughnut = new Chart(document.getElementById("${skill && skill.skill ? skill.skill.trim().replace(/\s/g, '') : ''}").getContext("2d")).Doughnut(doughnutData);
 					</script>
 				</div>`
           )
@@ -31,18 +31,18 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
 			return i > 1 ? null : (
       `<div class="col-lg-6 ${offset}">
 				<p>
-					<t>${experience.title}</t>
-					<br/>${experience.employer}
+					<t>${experience && experience.title ? experience.title : ''}</t>
+					<br/>${experience && experience.employer ? experience.employer : ''}
 					<br/>
 				</p>
 				<p>
-					<more>${experience.duties}
+					<more>${experience && experience.duties ? experience.duties : ''}
 					</more>
 				</p>
 			</div>
 			<div class="col-lg-3">
 				<p>
-					<sm>${experience.startDate} - ${experience.endDate}</sm>
+					<sm>${experience && experience.startDate ? experience.startDate : ''} - ${experience && experience.endDate ? experience.endDate : ''}</sm>
 				</p>
 			</div>`)   
     })
@@ -52,14 +52,14 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
         return i > 1 ? null :	(		
           `<div class="col-lg-6 ${offset}">
             <p>
-              <t>${education.major}</t>
-              <br/>${education.schoolName}
+              <t>${education && education.major ? education.major : ''}</t>
+              <br/>${education && education.schoolName ? education.schoolName : ''}
               <br/>
             </p>
           </div>
           <div class="col-lg-3">
             <p>
-					    <sm>${education.startDate} - ${education.endDate}</sm>
+					    <sm>${education && education.startDate ? education.startDate : ''} - ${education && education.endDate ? education.endDate : ''}</sm>
               <br/>
             </p>
           </div>`)
@@ -71,13 +71,13 @@ export const Montreal = ({contact, experience, education, skills, portfolio, cli
         return i > 2 ? null : (
           `<div class="col-lg-6 ${offset}">
             <p>
-              <img class="img-responsive" src="${portfolio.img}" alt="${portfolio.title}">
+              <img class="img-responsive" src="${portfolio && portfolio.img ? portfolio.img : ''}" alt="${portfolio && portfolio.title ? portfolio.title : ''}">
             </p>
           </div>
           <div class="col-lg-3">
-            <p>${portfolio.title}</p>
+            <p>${portfolio && portfolio.title ? portfolio.title : ''}</p>
             <p>
-              <more>${portfolio.description}
+              <more>${portfolio && portfolio.description ? portfolio.description : ''}
                 <br/>
                 <br/>
                 <sm>

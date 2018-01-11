@@ -4,25 +4,25 @@ import moment from 'moment';
 export const ResumeLeftRight = ({contact, experience, education, skills, portfolio, clicked }) => {
   	let skillSection = skills.map((skill) => {
           return (
-			`${skill.skill}
+			`${skill && skill.skill ? skill.skill : ''}
 			<div class="slider w-75"></div>`
           )
         })
 	skillSection = skillSection.join('');
   	let experienceSection = experience.map((experience) => {
 			return (
-      		`<p><b>${experience.employer}</b></br>
-				<i>${experience.title}</i></br>
-				${experience.duties}</br>
-				${moment(experience.startDate).format('MM/YYYY')} - ${moment(experience.endDate).format('MM/YYYY')}
+      		`<p><b>${experience && experience.employer ? experience.employer : ''}</b></br>
+				<i>${experience && experience.title ? experience.title : ''}</i></br>
+				${experience && experience.duties ? experience.duties : ''}</br>
+				${experience && experience.startDate ?  moment(experience.startDate).format('MM/YYYY') : ''} - ${experience && experience.endDate ? moment(experience.endDate).format('MM/YYYY') : ''}
 			</p>`)   
     })
     experienceSection = experienceSection.join('');
   	let educationSection = education.map((education) => {
         return 	(		
-          `<p>	<b>${education.major}</b><br/>
-			  	<i>${education.schoolName}</i><br/>
-				  ${moment(education.startDate).format('MM/YYYY')} - ${moment(education.endDate).format('MM/YYYY')}
+          `<p>	<b>${education && education.major ? education.major : ''}</b><br/>
+			  	<i>${education && education.schoolName ? education.schoolName : ''}</i><br/>
+				  ${education && education.startDate ? moment(education.startDate).format('MM/YYYY') : ''} - ${education && education.endDate ? moment(education.endDate).format('MM/YYYY') : ''}
 			</p>`)
       })
 	  educationSection = educationSection.join('');

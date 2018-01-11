@@ -13,16 +13,16 @@ export const Oslo = ({contact, experience, education, skills, portfolio, clicked
               <div class="project">
                 <div class="photo-wrapper">
                   <div class="photo">
-                    <a class="fancybox" target='_blank' href="${portfolio.url}">
-                      <img class="img-responsive" src="${portfolio.img}" alt="${portfolio.title}">
+                    <a class="fancybox" target='_blank' href="${portfolio && portfolio.url ? portfolio.url : ''}">
+                      <img class="img-responsive" src="${portfolio && portfolio.img ? portfolio.img : ''}" alt="${portfolio && portfolio.title ? portfolio.title : ''}">
                     </a>
                   </div>
                   <div class="overlay"></div>
                 </div>
               </div>
               </div>
-              <h3>${portfolio.title}</h3>
-              <p>${portfolio.description}</p>
+              <h3>${portfolio && portfolio.title ? portfolio.title : ''}</h3>
+              <p>${portfolio && portfolio.description ? portfolio.description : ''}</p>
             </div>
         ${rowEnd}`
     )
@@ -34,20 +34,20 @@ export const Oslo = ({contact, experience, education, skills, portfolio, clicked
     const rowEnd = i === 3 || i === 7 ? '</div>' : '';
     return i > 7 ? null : (
         `${row}<div class="col-lg-3 mt">
-					<canvas id="${skill.skill.trim().replace(/\s/g, '')}" height="130" width="130"></canvas>
-					<p>${skill.skill.trim()}</p>
+					<canvas id="${skill && skill.skill ? skill.skill.trim().replace(/\s/g, '') : ''}" height="130" width="130"></canvas>
+					<p>${skill && skill.skill ? skill.skill.trim() : ''}</p>
 					<br>
 					<script>
 						var doughnutData = [{
-								value: ${skill.rating},
+								value: ${skill && skill.rating ? skill.rating : ''},
 								color: "#74cfae"
 							},
 							{
-								value: ${100-skill.rating},
+								value: ${skill && skill.rating ? 100-skill.rating : ''},
 								color: "#3c3c3c"
 							}
 						];
-						var myDoughnut = new Chart(document.getElementById("${skill.skill.trim().replace(/\s/g, '')}").getContext("2d")).Doughnut(doughnutData);
+						var myDoughnut = new Chart(document.getElementById("${skill && skill.skill ? skill.skill.trim().replace(/\s/g, '') : ''}").getContext("2d")).Doughnut(doughnutData);
 					</script>
 				</div>${rowEnd}`
     )
