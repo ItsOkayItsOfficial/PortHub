@@ -7,6 +7,7 @@
 .dashboardFooter {
   margin: auto;
   box-shadow: 0px 3px 4px -2px black;
+  width: 100%;
 }
 
 .htmlButton {
