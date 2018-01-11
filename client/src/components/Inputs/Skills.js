@@ -28,11 +28,10 @@ const handle = (props) => {
 
   // let skillLevel = window.sessionStorage.getItem(id+"description") || "";
   return (
-  <div className='container'>
+  <div className="col-md-3 border border-primary rounded p-5 m-3">
     <div className="row">
-          <div className="col-md-12">
+    <h5 className="mr-1">Skill</h5>
               <span className="form-group d-inline-flex flex-row align-items-baseline">
-                  <h5 className="mr-1">Skill</h5>
                   <input type="text"
                          name="title"
                          value = {skillTitle}
@@ -42,9 +41,8 @@ const handle = (props) => {
                          data-error="skill title is required."
                          onChange={(event) => changed(event, id, 'skills', 'skill')} />
                   </span>
-          </div>
       </div>
-      <div className='row' style={{margin: '0 0 5px 0'}}>
+      <div className='row'>
         <h5 className="mr-1">Rating</h5>
         <Slider
           min={0}
@@ -55,7 +53,8 @@ const handle = (props) => {
           onChange={(value) => changed(value, id, 'skills', 'rating')}
         />
       </div>
-  </div>)
+  </div>
+  )
 }
 
 
