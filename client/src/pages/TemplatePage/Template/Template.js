@@ -12,7 +12,7 @@ const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, 
         return new Date(parseInt(objectId.substring(0, 8), 16) * 1000);
       };
 const createdOn = dashboard && dashboardTemplate._id.length > 5 ? dateFromObjectId(dashboardTemplate._id).toDateString() : '';
-const loadHTML=()=>{
+const loadHTML=()=> {
   localStorage.setItem("html", dashboard.html);
 }
 
@@ -54,12 +54,10 @@ dashboardTemplate ? retrievePDF_URL="http://localhost:3003/api/retrievePDF/" + d
       {dashboard && dashboardTemplate.type === 'site' ?
       <div className='dashboardFooter'>
         <p> Created On: {createdOn ? createdOn : dashboardTemplate.lastEdited} </p>
-        {dashboardTemplate.url ? <Aux><a  className='htmlButton' href={`https://${dashboardTemplate.url}`} target='_blank' data-tip="React-tooltip" data-for={dashboardTemplate._id}><i className="fa fa-github fa-2x" aria-hidden="true"></i></a> :
+        {dashboardTemplate.url ? <Aux><a  className='htmlButton' href={`https://${dashboardTemplate.url}`} target='_blank' data-tip="React-tooltip" data-for={dashboardTemplate._id}><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
         <ReactTooltip id={dashboardTemplate._id} effect="solid">Go to {dashboardTemplate.url} </ReactTooltip></Aux> : 
         <Link to="/siteLoader" onClick={this.loadHTML}>Publish your site</Link>}
         <button className='htmlButton' data-toggle="modal" data-target="#viewModal" data-for='htmlTooltip' data-tip="React-tooltip"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button><ReactTooltip id='htmlTooltip' effect="solid">View HTML </ReactTooltip>
-        
-
       </div> 
       : 
       <div className='dashboardFooter'>
