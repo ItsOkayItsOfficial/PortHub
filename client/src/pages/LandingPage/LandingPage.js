@@ -9,8 +9,11 @@ const LandingPage = ({ children }) =>
     <div id='container'>
       {/* Logo */}
       <div id='jumbo' className="row text-center p-4 mx-auto">
-          <img className="rounded" src='/assets/images/ph/porthub_logo.png' alt="logo"/>
-          <p className="d-md-block">Create a portfolio site or resume in minutes!</p>
+        <div className='row d-md-block'>
+          <img id='logo-Lg' className="rounded" src='/assets/images/ph/porthub_logo.png' alt="logo"/>
+        </div>
+          <img id='logo-Sm' className="rounded" src='/assets/images/ph/porthub_icon.png' alt="logo"/>
+        <p>Create a portfolio site or resume in minutes!</p>
       </div>
 
       {/* Buttons */}
