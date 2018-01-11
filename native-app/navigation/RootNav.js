@@ -8,10 +8,8 @@ import { Notifications, Linking, AuthSession } from 'expo'
 
 export default class RootNav extends Component {
   state = {
-    result: null,
     error: null,
     githubToken: null,
-    currentUser: null,
     isAuthenticated: null,
   };
 
@@ -27,7 +25,7 @@ export default class RootNav extends Component {
   render() {
     return (
     <View style={{flex: 1}}>
-    {!this.state.result ? (<LoginScreen _handlePressAsync={this._handlePressAsync} />) : (this._renderProfile())}
+    {!this.state.isAuthenticated ? (<LoginScreen _handlePressAsync={this._handlePressAsync} />) : (this._renderProfile())}
     </View>
     )
   }
@@ -50,14 +48,18 @@ export default class RootNav extends Component {
   };
 
   _handlePressAsync = async () => {
+  try {
       let result = await GitHubAuth();
       this.setState({githubToken: result});
-      console.log(GitHubAuth())
-      console.log(this.state.githubToken)
+      console.log('GitHub Token: ' + this.state.githubToken)
+    } catch(error) {
+      this.setState({error: JSON.stringify(error)});
+    }
+  AsyncStorage.getItem('GitHubToken', (error, result) => {
+      this.setState({isAuthenticated: result})
+      console.log('Authentication: ' + this.state.isAuthenticated);
+    });
   };
-
-  _getUser = (username) => (axios.get(USER_API + username)).then( response => {console.log(response)}).catch( error => {console.log(error)})
-
 
   }
 
