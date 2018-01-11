@@ -33,7 +33,7 @@ const LandingPage = ({ children }) =>
 
       {/* Scroll Triangle */}
       <div id='spacer' className="d-flex justify-content-center">
-        <img src="/assets/images/triangle-spacer.png"></img>
+        <img src="/assets/images/triangle-spacer.png" alt='spacer' rel="noopener noreferrer"></img>
       </div>
     </div>
 
@@ -43,7 +43,7 @@ const LandingPage = ({ children }) =>
           <div className="col-lg-4 w-100 d-flex flex-column justify-content-start align-items-center moreInfo-item">
                 <p className="m-0 mb-2"><i className="fa fa-github fa-3x"></i></p>
                 <p className="m-0 mb-2">Login with GitHub</p>
-                <p className="mt-4 text-align-right">If you haven't already login with your <a href="http://github.com">GitHub</a> to authenticate with PortHub. This allows you to deploy your site directly to GitHub, or save your data if you want to use multiple website and resume templates!</p>
+                <p className="mt-4 text-align-right">If you haven't already login with your <a href="http://github.com" target='_blank' rel="noopener noreferrer">GitHub</a> to authenticate with PortHub. This allows you to deploy your site directly to GitHub, or save your data if you want to use multiple website and resume templates!</p>
           </div>
           <div className="col-lg-4 w-100 d-flex flex-column justify-content-start align-items-center  moreInfo-item">
                 <p className="m-0 mb-2"><i className="fa fa-file-text fa-3x"></i></p>

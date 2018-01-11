@@ -1,7 +1,5 @@
 import React from 'react';
 import Education from '../../../components/Inputs/Education';
-import Aux from '../../../components/Auxiliary/Auxiliary';
-
 
 const UserEducation = ({changed, education, updateUserInputs}) => {
   return (
