@@ -100,9 +100,9 @@ display: inline-block;
     }
 }
 
-@media screen and (min-width: 1000px) {
-    /* #background-video > video {
-        height: 150%;
-        width: 100vw;
-    } */
+@media (min-width: 1000px) and (max-width: 1440px) {
+    #background-video > video {
+        height: 100vh;
+        width: auto;
+    }
 }
