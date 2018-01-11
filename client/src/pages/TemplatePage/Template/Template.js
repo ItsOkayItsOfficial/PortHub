@@ -6,7 +6,6 @@ import './Template.css';
 import ReactTooltip from 'react-tooltip'
 
 const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, selectedTemplate, inputs, guestContinueShow, isAuthenticated, dashboard, createdAt, dashboardTemplate, selectedDashboardID, id }) => {
-let dashboardList = '';
       const dateFromObjectId = function (objectId) {
         return new Date(parseInt(objectId.substring(0, 8), 16) * 1000);
       };

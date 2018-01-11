@@ -23,7 +23,6 @@ import ContinueAsGuest from '../components/ContinueAsGuest/ContinueAsGuest';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import Keys from '../keys/keys';
 import axios from 'axios';
-import Aux from '../components/Auxiliary/Auxiliary';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/bouncyflip.css';
@@ -193,7 +192,7 @@ class Layout extends Component{
       } : {id};
 
       subfield === 'rating' ? fieldObj[subfield] = event : fieldObj[subfield] = event.target.value;
-      !userFieldState[inputIndex] ? userFieldState[id[parseInt(id.length-1)]] = fieldObj  : userFieldState[inputIndex]=fieldObj;
+      !userFieldState[inputIndex] ? userFieldState[id[parseInt(id.length-1, 10)]] = fieldObj  : userFieldState[inputIndex]=fieldObj;
       currentUser[field] = userFieldState
       this.setState({currentUser})
     }

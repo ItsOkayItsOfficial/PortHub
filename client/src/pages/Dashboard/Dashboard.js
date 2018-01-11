@@ -7,7 +7,6 @@ import UserPortfolio from './UserPortfolio/UserPortfolio';
 import UserExperience from './UserExperience/UserExperience';
 import UserSkills from './UserSkills/UserSkills';
 import UserContact from './UserContact/UserContact';
-import Aux from '../../components/Auxiliary/Auxiliary';
 import './Dashboard.css';
 
 const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, viewTemplate, selectedDashboardID, guestContinueShow, selectedTemplate, isAuthenticated, viewingSites, currentDashboardPage, prepareStateHandler, updateUserInputs}) => {
@@ -77,7 +76,7 @@ const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, vi
       <Sidebar visible={true} style={{backgroundColor:'#4F575E'}} width='wide'>
       <div style={{marginTop:'80px'}}>
         <div className='userDock d-flex'>
-            <img className='userDockImg' src={currentUser.avatar_url}/>
+            <img className='userDockImg' src={currentUser.avatar_url} alt='user_avatar'/>
               <div className='flex-column'>
               <h3> {currentUser.name}</h3>
               <p>Login: {currentUser.login}</p>
