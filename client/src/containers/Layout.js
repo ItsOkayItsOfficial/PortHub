@@ -60,7 +60,6 @@ class Layout extends Component{
    axios.post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token?&client_id='
       + Keys.herokuClientId + '&client_secret=' + Keys.herokuClientSecret + '&code=' + getAuthCode())
       .then(response => {
-        console.log('finished authenticating')
         accessToken = response.data.slice(13, response.data.indexOf('&'));
         localStorage.setItem('accessToken', accessToken);
         this.getUserInfoHandler(accessToken)
@@ -73,7 +72,6 @@ class Layout extends Component{
   getUserInfoHandler = (token) => {
    axios.get('https://api.github.com/user?access_token=' + token)
     .then((response) => {
-      console.log(response.data)
     return axios.post('/user', response.data)
     })
     .then((user) => {
@@ -164,7 +162,6 @@ class Layout extends Component{
   retrieveResume = () =>{
     axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})
     .then((templateID) =>{
-      console.log("templateID=", templateID.data);
       this.setState({currentTemplateID: templateID.data});
     })
     .catch((err) => {
@@ -189,7 +186,6 @@ class Layout extends Component{
     else {
       const userFieldState = [...this.state.currentUser[field]] ? [...this.state.currentUser[field]] : [];
       const inputIndex = this.state.currentUser[field].findIndex(input => {
-        console.log(input)
         return input ? input.id === id : '';
       });
       const fieldObj = this.state.currentUser[field][inputIndex] ? {
@@ -209,7 +205,6 @@ class Layout extends Component{
     if (this.state.type === "resume") {
     //if user is a guest no need to create template in Database
       if (this.state.currentUser.login === 'guest') {
-        console.log('guest')
           return axios.post('/insertResumeIntoDb', {html:html, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
           .then((response) => {
             return axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})
@@ -238,7 +233,6 @@ class Layout extends Component{
                 type:this.state.type,
                 lastEdited: Date.now()
               }
-              console.log(tempResume)
               const currentUser = {...this.state.currentUser}
               currentUser.template.push(tempResume);
               this.setState({currentTemplateID: templateID.data,resumeSuccess:true, currentUser});
