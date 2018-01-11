@@ -291,7 +291,8 @@ class Layout extends Component{
   render(){
 
     return(
-      <BrowserRouter>
+      <BrowserRouter
+      basename='/app'>
         <div>
           <Modal show={this.state.viewingGuestContinueModal} closeModal={this.guestContinueModalHander} className='continueAsGuest'>
             <ContinueAsGuest
