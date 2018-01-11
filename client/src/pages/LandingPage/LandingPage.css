@@ -16,7 +16,7 @@
 
 #background-video > video {
     position: fixed;
-    width: 120vw;
+    width: 100vw;
     height: 120vh;
 }
 
