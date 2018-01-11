@@ -10,8 +10,11 @@
 *.sln.docstates
 *.ini
 *.eslintrc.json
+
+node_modules/**/*
+.expo/**/*
+api/*
 .DS_Store
-porthubserver/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
