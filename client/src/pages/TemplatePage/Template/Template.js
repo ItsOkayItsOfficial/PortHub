@@ -62,14 +62,14 @@ const regeneratePDF = () =>{
         <Aux><Link className='htmlButton' to='/siteLoader' onClick={localStorage.setItem('html', dashboardTemplate.html)} data-tip="React-tooltip" data-for={`${dashboardTemplate._id}publish`}><i className="fa fa-floppy-o fa-2x" aria-hidden="true"></i></Link>
         <ReactTooltip id={`${dashboardTemplate._id}publish`} effect="solid">Publish this site to GitHub</ReactTooltip></Aux>
         }
-        <button className='htmlButton' data-toggle="modal" data-target="#viewModal" data-for='htmlTooltip' data-tip="React-tooltip"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button><ReactTooltip id='htmlTooltip' effect="solid">View HTML </ReactTooltip>
+        <button className='htmlButton' data-toggle="modal" data-target={`#${dashboardTemplate._id}`} data-for='htmlTooltip' data-tip="React-tooltip"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button><ReactTooltip id='htmlTooltip' effect="solid">View HTML </ReactTooltip>
       </div> 
       : 
       dashboard && dashboardTemplate.type=== 'resume' ? <div className='dashboardFooter d-flex justify-content-center p-4'>
         <button className="btn btn-success" onClick={this.regeneratePDF} data-toggle="modal" data-target="#viewPDF">Regenerate PDF</button>
       </div> : ''
     }
-        <div className="modal fade bd-example-modal-lg" id="viewModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div className="modal fade bd-example-modal-lg" id={dashboardTemplate._id} role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg">
             <div className="modal-content" style={{textAlign:'left', wordWrap: 'break-word'}}>  
             {dashboard ? dashboardTemplate.html:''}
