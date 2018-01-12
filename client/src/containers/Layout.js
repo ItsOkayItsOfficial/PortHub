@@ -75,7 +75,6 @@ class Layout extends Component{
   getUserInfoHandler = (token) => {
    axios.get('https://api.github.com/user?access_token=' + token)
     .then((response) => {
-      console.log(response.data)
     return axios.post('/user', response.data)
     })
     .then((user) => {
@@ -162,7 +161,7 @@ class Layout extends Component{
       this.setState({currentDashboardPage: field})
   }
   //-----------------------------------------//
-  //----------------RESUME METHODS----------//
+  //----------------TEMPLATE METHODS----------//
   retrieveResume = () =>{
     axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})
     .then((templateID) =>{
@@ -173,10 +172,18 @@ class Layout extends Component{
       console.log(err);
     });    
   } 
-//-----------------------------------------------------//
-//-----------------SITE METHODS------------------------//
   postHTMLToLocal = (html) => {
     localStorage.setItem('html', html);
+  }
+
+  deleteTemplate = (id) => {
+    console.log(id)
+    axios.delete(`/deleteTemplate/${id}`)
+    .then((response) => {
+      console.log(response)
+      const accessToken = localStorage.getItem('accessToken');
+      this.getUserInfoHandler(accessToken);
+    })
   }
 //-----------------------------------------------------//
 //-------------------INPUT METHODS--------------------//
@@ -377,7 +384,8 @@ class Layout extends Component{
                                                             dashboardInputViewer={this.dashboardInputViewer}
                                                             currentDashboardPage={this.state.currentDashboardPage}
                                                             prepareStateHandler={this.prepareStateHandler}
-                                                            updateUserInputs={this.updateUserInputs}/> }/>
+                                                            updateUserInputs={this.updateUserInputs}
+                                                            deleteTemplate={this.deleteTemplate}/> }/>
               <Route exact path="/ourStory" component={OurStory} />
               <Route exact path="/aboutUs" component={AboutUs} />
               <Route exact path="/repository" component={Repository} />
