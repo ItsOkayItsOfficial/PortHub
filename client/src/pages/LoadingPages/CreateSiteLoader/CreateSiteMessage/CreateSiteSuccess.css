@@ -1,11 +1,19 @@
 .CreateSiteSuccessContainer div p, h1{
+  font-size: 1.5em;
+  text-shadow: 2px 2px 3px rgba(43, 43, 43, 0.80);
+  padding:0;
+  margin:0;
+}
+
+.CreateSiteSuccessContainer li{
   font-size: 1.25em;
   text-shadow: 2px 2px 3px rgba(43, 43, 43, 0.80);
   padding:0;
   margin:0;
 }
+
 .CreateSiteSuccessContainer .title{
-  font-size: 1.75em;
+  font-size: 3em;
   text-shadow: 2px 2px 3px rgba(43, 43, 43, 0.80);
 }
 
@@ -16,3 +24,12 @@
   padding:0;
   margin: 0;
 }
+
+.loadContainer{
+  position: relative;
+  top:25vh;
+  }
+
+  .s-alert-error{
+    height: 100vh;
+  }
