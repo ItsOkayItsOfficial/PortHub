@@ -25,7 +25,6 @@ router.post('/updateUserInputs', ((req, res) => {
       });     
 }))
 
-
 router.post('/templateURL', ((req, res) => {
   db.Template.findOneAndUpdate({
     html: req.body.filecontent
@@ -117,4 +116,11 @@ router.post('/user', (req, res) => {
   })
 })
 
+
+router.delete('/deleteTemplate', (req, res) => {
+  db.Template.remove({_id: req.body.id})
+  .then((response) => {
+    res.json(response);
+  })
+})
 module.exports = router;

@@ -9,7 +9,7 @@ import UserSkills from './UserSkills/UserSkills';
 import UserContact from './UserContact/UserContact';
 import './Dashboard.css';
 
-const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, viewTemplate, selectedDashboardID, guestContinueShow, selectedTemplate, isAuthenticated, viewingSites, currentDashboardPage, prepareStateHandler, updateUserInputs, setHTMLToLocal}) => {
+const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, viewTemplate, selectedDashboardID, guestContinueShow, selectedTemplate, isAuthenticated, viewingSites, currentDashboardPage, prepareStateHandler, updateUserInputs, setHTMLToLocal, deleteTemplate }) => {
     const userSites = currentUser.template ? currentUser.template.filter(template => template.type === 'site') : '';
     const userResumes = currentUser.template ? currentUser.template.filter(template => template.type === 'resume') : ''
     let currentPage = '';
@@ -22,7 +22,8 @@ const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, vi
                   selectedTemplate={selectedTemplate}
                   guestContinueShow={guestContinueShow}
                   selectedDashboardID={selectedDashboardID}
-                  setHTMLToLocal={setHTMLToLocal}/>;
+                  setHTMLToLocal={setHTMLToLocal}
+                  deleteTemplate={deleteTemplate}/>;
             break;
       case "resumes":
             currentPage = <UserResumes userResumes={userResumes}
@@ -32,7 +33,8 @@ const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, vi
                   selectedTemplate={selectedTemplate}
                   guestContinueShow={guestContinueShow}
                   isAuthenticated={isAuthenticated}
-                  selectedDashboardID={selectedDashboardID} 
+                  selectedDashboardID={selectedDashboardID}
+                  deleteTemplate={deleteTemplate} 
                   />;
             break;
       case 'contact':
