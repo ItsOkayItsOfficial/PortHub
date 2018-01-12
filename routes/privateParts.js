@@ -117,8 +117,8 @@ router.post('/user', (req, res) => {
 })
 
 
-router.delete('/deleteTemplate', (req, res) => {
-  db.Template.remove({_id: req.body.id})
+router.delete('/deleteTemplate/:id', (req, res) => {
+  db.Template.remove({_id: req.params.id})
   .then((response) => {
     res.json(response);
   })

@@ -75,7 +75,6 @@ class Layout extends Component{
   getUserInfoHandler = (token) => {
    axios.get('https://api.github.com/user?access_token=' + token)
     .then((response) => {
-      console.log(response.data)
     return axios.post('/user', response.data)
     })
     .then((user) => {
@@ -178,8 +177,10 @@ class Layout extends Component{
   }
 
   deleteTemplate = (id) => {
-    axios.delete('/deleteTemplate', {_id:id})
+    console.log(id)
+    axios.delete(`/deleteTemplate/${id}`)
     .then((response) => {
+      console.log(response)
       const accessToken = localStorage.getItem('accessToken');
       this.getUserInfoHandler(accessToken);
     })
