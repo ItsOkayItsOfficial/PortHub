@@ -158,7 +158,7 @@ class Layout extends Component{
       this.setState({currentDashboardPage: field})
   }
   //-----------------------------------------//
-  //----------------RESUME METHODS----------//
+  //----------------TEMPLATE METHODS----------//
   retrieveResume = () =>{
     axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})
     .then((templateID) =>{
@@ -168,10 +168,18 @@ class Layout extends Component{
       console.log(err);
     });    
   } 
-//-----------------------------------------------------//
-//-----------------SITE METHODS------------------------//
   postHTMLToLocal = (html) => {
     localStorage.setItem('html', html);
+  }
+
+  deleteTemplate = (id) => {
+    console.log(id)
+    axios.delete(`/deleteTemplate/${id}`)
+    .then((response) => {
+      console.log(response)
+      const accessToken = localStorage.getItem('accessToken');
+      this.getUserInfoHandler(accessToken);
+    })
   }
 //-----------------------------------------------------//
 //-------------------INPUT METHODS--------------------//
@@ -346,7 +354,8 @@ class Layout extends Component{
                                                             currentTemplateID={this.state.currentTemplateID} />} />} />
               <Route exact path='/siteLoader' render={() => <CreateSiteLoader
                                                             selectedTemplate={this.state.selectedTemplate}
-                                                            login={this.state.currentUser.login} />} />
+                                                            login={this.state.currentUser.login}
+                                                            getUser={this.getUserInfoHandler} />} />
               <Route exact path='/authLoader' render={() => <AuthLoader
                                                             authHandler={this.authenticateUser}
                                                             authenticated={this.state.isAuthenticated}
@@ -369,7 +378,8 @@ class Layout extends Component{
                                                             dashboardInputViewer={this.dashboardInputViewer}
                                                             currentDashboardPage={this.state.currentDashboardPage}
                                                             prepareStateHandler={this.prepareStateHandler}
-                                                            updateUserInputs={this.updateUserInputs}/> }/>
+                                                            updateUserInputs={this.updateUserInputs}
+                                                            deleteTemplate={this.deleteTemplate}/> }/>
               <Route exact path="/ourStory" component={OurStory} />
               <Route exact path="/aboutUs" component={AboutUs} />
               <Route exact path="/repository" component={Repository} />

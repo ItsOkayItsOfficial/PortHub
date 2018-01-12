@@ -20,7 +20,8 @@ const UserSites = (props) => {
             guestContinueShow={props.guestContinueShow}
             isAuthenticated={props.isAuthenticated}
             selectedDashboardID={props.selectedDashboardID}
-            setHTMLToLocal={props.setHTMLToLocal} />
+            setHTMLToLocal={props.setHTMLToLocal}
+            deleteTemplate={props.deleteTemplate} />
   })
   : '';
 
