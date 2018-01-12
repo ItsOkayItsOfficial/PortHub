@@ -21,7 +21,7 @@ const SuccessPage = ({ redirect, currentUser, currentTemplate }) => {
                       <p className="m-0 mb-2"><i className="fa fa-file-text fa-3x"></i></p>
                       <p className="m-0 mb-2">View HTML</p>
                       <p className="mt-4 text-align-right">Are you a web devloper looking to tweak the HTML? Copy it here for you to customize.  All the CSS is loaded for you, no external stylesheet is necessary! Follow the href in the link tag labeled "Custom CSS" to find the raw CSS to download.</p>
-                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#HTMLModal">
+                      <button type="button" className="btn btn-success" data-toggle="modal" data-target="#HTMLModal">
                         View
                       </button>                      
                 </div>
@@ -41,7 +41,7 @@ const SuccessPage = ({ redirect, currentUser, currentTemplate }) => {
     </div>
     
     {/* HTML Modal */}
-        <div className="modal fade" id="HTMLModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div className="modal fade" id="HTMLModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">

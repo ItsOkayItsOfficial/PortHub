@@ -4,7 +4,7 @@ import React from 'react';
 const CreateSiteMessage = ({ login, file }) => {
   return (
     <div>
-        <div class="d-none d-lg-block">
+        <div className="d-none d-lg-block">
             <div className='CreateSiteSuccessContainer' style={{height:"100vh"}}>
                 <div className="row d-flex flex-row align-items-center" style={{width:"100vw", height:"15vh"}}>
                             <span className="title w-100 text-center">Congratulations!</span>
@@ -49,7 +49,7 @@ const CreateSiteMessage = ({ login, file }) => {
             </div>
         </div>
         {/* ------ small device ------- */}
-        <div class="d-md-block" style={{height:"100vh"}}>
+        <div className="d-md-block" style={{height:"100vh"}}>
             <div className="row d-flex flex-row align-items-center" style={{width:"100vw", height:"15vh"}}>
                 <span className="title w-100 text-center display-4">Congratulations!</span>
             </div>        

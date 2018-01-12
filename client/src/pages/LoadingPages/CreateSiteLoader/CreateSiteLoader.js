@@ -8,7 +8,7 @@ import './CreateSiteLoader.css';
 import '../loading.css'
 import Alert from 'react-s-alert';
 
-const CreateSiteLoader = ({ login, message, selectedTemplate, query }) => {
+const CreateSiteLoader = ({ login, message, selectedTemplate, query, getUser }) => {
   let accessToken = localStorage.getItem('accessToken')
                     ? localStorage.getItem('accessToken') : '';
   console.log(query);
