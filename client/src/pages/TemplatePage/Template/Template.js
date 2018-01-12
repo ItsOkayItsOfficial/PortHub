@@ -4,9 +4,7 @@ import DetailedTemplate from './DetailedTemplate/DetailedTemplate';
 import Aux from '../../../components/Auxiliary/Auxiliary';
 import './Template.css';
 import ReactTooltip from 'react-tooltip'
-import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 const Template = ({ img, src, type, title, showModal, closeModal, viewTemplate, selectedTemplate, inputs, guestContinueShow, isAuthenticated, dashboard, createdAt, dashboardTemplate, selectedDashboardID, id}) => {
       const dateFromObjectId = function (objectId) {
@@ -48,9 +46,7 @@ const createdOn = dashboard && dashboardTemplate._id.length > 5 ? dateFromObject
       {dashboard && dashboardTemplate.type === 'site' ?
       <div className='dashboardFooter'>
         <p> Created On: {createdOn ? createdOn : dashboardTemplate.lastEdited} </p>
-        {dashboardTemplate.url ? <Aux><a  className='htmlButton' href={`https://${dashboardTemplate.url}`} target='_blank' data-tip="React-tooltip" data-for={dashboardTemplate._id}><i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
-<<<<<<< HEAD
-        <ReactTooltip id={dashboardTemplate._id} effect="solid">Go to {dashboardTemplate.url} </ReactTooltip></Aux> : 
+        {dashboardTemplate.url ? <Aux><a  className='htmlButton' href={`https://${dashboardTemplate.url}`} target='_blank' data-tip="React-tooltip" data-for={dashboardTemplate._id}><i className="fa fa-github fa-2x" aria-hidden="true"></i></a><ReactTooltip id={dashboardTemplate._id} effect="solid">Go to {dashboardTemplate.url} </ReactTooltip></Aux> : 
         <Aux><Link className='htmlButton' to='/siteLoader' onClick={localStorage.setItem('html', dashboardTemplate.html)} data-tip="React-tooltip" data-for={`${dashboardTemplate._id}publish`}><i className="fa fa-floppy-o fa-2x" aria-hidden="true"></i></Link>
         <ReactTooltip id={`${dashboardTemplate._id}publish`} effect="solid">Publish this site to GitHub</ReactTooltip></Aux>
         }
@@ -58,15 +54,11 @@ const createdOn = dashboard && dashboardTemplate._id.length > 5 ? dateFromObject
       </div> 
       : 
       dashboard && dashboardTemplate.type=== 'resume' ? <div className='dashboardFooter d-flex justify-content-center p-4'>
-        <a href={`https://porthubserver.herokuapp.com/api/retrievePDF/${dashboardTemplate._id}`} className="btn btn-success" data-toggle="modal" data-target={`#pdf${dashboardTemplate._id}`}>Regenerate PDF</a>
+        {/* <a href={`https://porthubserver.herokuapp.com/api/retrievePDF/${dashboardTemplate._id}`} className="btn btn-success" data-toggle="modal" data-target={`#pdf${dashboardTemplate._id}`}>Regenerate PDF</a> */}
+        <a href={`http:/localhost:3003/api/retrievePDF/${dashboardTemplate._id}`} className="btn btn-success" data-toggle="modal" data-target={`#pdf${dashboardTemplate._id}`}>Regenerate PDF</a>        
       </div> : ''
     }
         <div className="modal fade bd-example-modal-lg" id={dashboard && dashboardTemplate._id ? dashboardTemplate._id : ''} role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-=======
-        <ReactTooltip id={dashboardTemplate._id} effect="solid">Go to {dashboardTemplate.url} </ReactTooltip></Aux> : ''}
-        <button className='htmlButton' data-toggle="modal" data-target={`#${dashboardTemplate._id}`} data-for='htmlTooltip' data-tip="React-tooltip"><i className="fa fa-code fa-2x" aria-hidden="true"></i></button><ReactTooltip id='htmlTooltip' effect="solid">View HTML </ReactTooltip>
-        <div className="modal fade bd-example-modal-lg" id={dashboardTemplate._id} role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
->>>>>>> app
           <div className="modal-dialog modal-lg">
             <div className="modal-content" style={{textAlign:'left', wordWrap: 'break-word'}}>  
             {dashboard ? dashboardTemplate.html:''}
@@ -76,9 +68,12 @@ const createdOn = dashboard && dashboardTemplate._id.length > 5 ? dateFromObject
         <div className="modal fade bd-example-modal-lg" id={dashboard && dashboardTemplate._id ? `pdf${dashboardTemplate._id}`: ''} role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg">
             <div className="modal-content" style={{backgroundImage:"url('/assets/images/ph/porthub_breath.gif')", backgroundColor:"#333444", backgroundRepeat:"no-repeat", backgroundPosition:"50% 50%", textAlign:'left', wordWrap: 'break-word'}}>  
-                <iframe src={dashboard && dashboardTemplate._id ? `https://porthubserver.herokuapp.com/api/retrievePDF/${dashboardTemplate._id}` : ''}  title="bob"
+                {/* <iframe src={dashboard && dashboardTemplate._id ? `https://porthubserver.herokuapp.com/api/retrievePDF/${dashboardTemplate._id}` : ''}  title="bob"
                           style={{width:'100%', height:'90vh'}} name="iframeForPDF">
-                </iframe>             
+                </iframe>              */}
+                <iframe src={dashboard && dashboardTemplate._id ? `http://localhost:3003/api/retrievePDF/${dashboardTemplate._id}` : ''}  title="bob"
+                          style={{width:'100%', height:'90vh'}} name="iframeForPDF">
+                </iframe>                 
             </div>
           </div>
         </div>            

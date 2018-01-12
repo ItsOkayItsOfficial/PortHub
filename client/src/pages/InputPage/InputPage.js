@@ -108,7 +108,7 @@ const InputPage = (props) => {
         <div className='row p-5 inputPage'>
           <div className="col-md-7">
           <BaseInput key={'base'} changed={props.prepareStateHandler} contact={props.currentUser.contact} button={selectButton}/>
-          <div className="row text-center mt-3">
+          <div className="row flex-row justify-content-center mt-3">
             {selectButton}
         </div>
           </div>

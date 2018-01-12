@@ -1,46 +1,18 @@
-.successSteps {
-  width: 40vw;
-  line-height: 24px;
-  margin: 24px 0;
+.CreateSiteSuccessContainer div p, h1{
+  font-size: 1.25em;
+  text-shadow: 2px 2px 3px rgba(43, 43, 43, 0.80);
+  padding:0;
+  margin:0;
+}
+.CreateSiteSuccessContainer .title{
+  font-size: 1.75em;
+  text-shadow: 2px 2px 3px rgba(43, 43, 43, 0.80);
 }
 
-.successHeader {
-  line-height: 48px;
-  margin: 24px 0;
+.s-alert-close{
+  display: none;
 }
-
-.successButton {
-  margin: 10px;
-  opacity: 1 !important;
-}
-
-@media (max-height: 740px) {
-  .s-alert-box-inner {
-    width: 100%;
-    height: 120vh;
-    overflow: scroll;
-  }
-  .CreateSiteSuccessContainer {
-    height: 150%;
-    overflow: scroll;
-  }
-  .successContent {
-    position: relative;
-    top: -12%;
-    height: 100%;
-    overflow: scroll;
-  }
-  .successContent>h5 {
-    width: 100%;
-    overflow-wrap: break-word;
-  }
-  .successHeader {
-    width: 90%;
-    font-size: 200%;
-  }
-  .successSteps {
-    width: 100%;
-    overflow-wrap: break-word;
-  }
-
+.s-alert-box{
+  padding:0;
+  margin: 0;
 }

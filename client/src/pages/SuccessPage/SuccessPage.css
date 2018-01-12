@@ -20,3 +20,9 @@ h1, h2, h3, h4 {
 .copyButton:focus + #htmlText {
   color: black;
 }
+.successWrapper ol{
+  font-size: .8em;
+  margin-top: 30px;
+  line-height: 130%;
+  padding-left: 25px;
+}

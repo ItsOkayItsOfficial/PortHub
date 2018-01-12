@@ -5,12 +5,8 @@ import './SuccessPage.css';
 
 const ResumeSuccessPage = ({ redirect, currentUser, currentTemplate, retrieveResume, currentTemplateID }) => {
   console.log("retrievePDF:" + currentTemplateID);
-  // let retrievePDF_URL="http://localhost:3003/api/retrievePDF/" + currentTemplateID;
-  let retrievePDF_URL="https://porthubserver.herokuapp.com/api/retrievePDF/" + currentTemplateID;  
-<<<<<<< HEAD
-  
-=======
->>>>>>> app
+   let retrievePDF_URL="http://localhost:3003/api/retrievePDF/" + currentTemplateID;
+  //let retrievePDF_URL="https://porthubserver.herokuapp.com/api/retrievePDF/" + currentTemplateID;  
   let accessToken = localStorage.getItem('accessToken')
                     ? localStorage.getItem('accessToken') : '';
   if ((!accessToken && !currentUser) || Object.keys(currentTemplate).length === 0) {
@@ -18,34 +14,30 @@ const ResumeSuccessPage = ({ redirect, currentUser, currentTemplate, retrieveRes
   }
 
   return (
-  <div className='container successWrapper'>
-    <h1 style={{margin: '10px'}}>Success!</h1> 
-    <div className='row'>
-      <div className='col-lg-6 dividing-border d-flex flex-column align-items-center justify-content-center'>
-        <h4>Access your brand new resume as a PDF</h4>
-        <div className="text-center">
-          <button className="btn btn-success" onClick={retrieveResume} type="button" data-toggle="modal" data-target="#viewPDFModal">View Resume</button>
-        </div>
-      </div>
-      {currentUser.login === 'guest' ? null : 
-      <div className='col-lg-6'>
-        <h4>Publish your site to GitHub Pages</h4>
-          <ul>
-            <li>Host your site on GitHub to get a free, fully functional portfolio site. </li>
-            <li>Customize your site further and add those changes to GitHub to see your site change in real time.</li>
-            <li>What we'll do:
-                <ol>
-                    <li><small>Create a GitHub repository named yourAccountName.github.io. (if you don't already have one) </small></li>
-                    <li><small>Insert your new portfolio into the repository. </small></li>
-                    <li><small>?????</small></li>
-                    <li><small>And that's it, your portfolio will be up and running for future employers to marvel over.</small></li>
-                </ol>
-            </li>
-          </ul>
-        <div className='row' style={{textAlign:'center'}} >
-          <Link to={'/siteLoader'} style={{margin: 'auto'}}><button className='btn btn-success'> Publish to GitHub </button></Link>
-        </div>
-      </div>}
+  <div className='container successWrapper successFontSize'>
+
+    <div id='info' className="row p-4 m-0">
+          <div className="row w-100 d-flex justify-content-center moreInfo-title">Success! What's Next?</div>
+          <div className="row w-100 d-flex justify-content-around">
+                <div className="col-lg-6 d-flex flex-column justify-content-start align-items-center moreInfo-item">
+                      <p className="m-0 mb-2"><i className="fa fa-file-text fa-3x"></i></p>
+                      <p className="m-0 mb-2">Download and View</p>
+                      <p className="mt-4 text-align-right">Download a PDF version of your new resume to view.  Feel free to print out a hardcopy to handoff to employers or save it for your personal use.</p>
+                </div>
+                <div className="col-lg-6 d-flex flex-column justify-content-start align-items-center moreInfo-item">
+                      <p className="m-0 mb-2"><i className="fa fa-globe fa-3x"></i></p>
+                      <p className="m-0 mb-2">Save your resume to GitHub</p>
+                      <p className="mt-4 text-align-right">Did you know you can publish your resume to your GitHub account? Get a LIVE URL to share it with anyone.</p>
+                </div>
+          </div>
+          <div className="row w-100 d-flex justify-content-around">
+              <div className="col-lg-6 m-0 p-0 text-center moreInfo-item">
+                    <button className="btn btn-success" onClick={retrieveResume} type="button" data-toggle="modal" data-target="#viewPDFModal">View Resume</button>
+              </div>
+              <div className="col-lg-6 m-0 p-0 text-center moreInfo-item">
+                    <Link to={'/siteLoader'} style={{margin: 'auto'}}><button className='btn btn-success'> Publish to GitHub </button></Link>          
+              </div>
+          </div>
     </div>
 
     <div className="modal fade bd-example-modal-lg" id="viewPDFModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

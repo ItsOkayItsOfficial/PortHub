@@ -13,46 +13,62 @@ const SuccessPage = ({ redirect, currentUser, currentTemplate }) => {
     return <Redirect to={'/noMatch'} />
   }
   return (
-  <div className='container successWrapper'>
-    <h1 style={{margin: '10px'}}>Success!</h1> 
-      {currentUser.login === 'guest' ? null : 
-      <div className='col-lg-12'>
-        <h4>Publish your site to GitHub Pages</h4>
-          <ul style={{marginLeft: '15%'}}>
-            <li>Host your site on GitHub to get a free, fully functional portfolio site. </li>
-            <li>Customize your site further and add those changes to GitHub to see your site change in real time.</li>
-            <li>What we'll do:
-                <ol>
-                    <li><small>Create a GitHub repository named yourAccountName.github.io. (if you don't already have one) </small></li>
-                    <li><small>Insert your new portfolio into the repository. </small></li>
-                    <li><small>?????</small></li>
-                    <li><small>And that's it, your portfolio will be up and running for future employers to marvel over.</small></li>
-                </ol>
-            </li>
-          </ul>
-        <div className='row' style={{textAlign:'center'}} >
-          <Link to={'/siteLoader'} style={{margin: 'auto'}}><button className='btn btn-success' style={{margin:'10px'}}> Publish to GitHub </button></Link>
-        </div>
-      </div>}
-    <div className='row'>
-      <div className='col-lg-12'>
-      <h4>Here's the HTML of your brand new site:</h4>
-        <ul style={{marginLeft: '15%'}}>
-          <li> All CSS is loaded for you, no external stylesheet is necessary! (but feel free to customize) </li>
-          <li> Follow the href in the link tag labeled "Custom CSS" to find the raw CSS. </li>
-        </ul>
-        <CopyToClipboard text={html}
-          onCopy={() => Alert.success('Copied to clipboard', {
-                          position:'top-left',
-                          effect: 'jelly',
-                          timeout: 3000,
-                          offset: 55
-                  })}>
-          <button className='copyButton btn btn-success'><i className="fa fa-clipboard 2x" aria-hidden="true">Copy to Clipboard</i></button>
-        </CopyToClipboard>
-      <textarea id='htmlText' className='htmlField' defaultValue={html}></textarea>
-      </div>
+  <div className='container successWrapper'>    
+    <div id='info' className="row p-4 m-0">
+          <div className="row w-100 d-flex justify-content-center moreInfo-title">Success! What's Next?</div>
+          <div className="row w-100 d-flex justify-content-around">
+                <div className="col-lg-6 d-flex flex-column justify-content-start align-items-center moreInfo-item">
+                      <p className="m-0 mb-2"><i className="fa fa-file-text fa-3x"></i></p>
+                      <p className="m-0 mb-2">View HTML</p>
+                      <p className="mt-4 text-align-right">Are you a web devloper looking to tweak the HTML? Copy it here for you to customize.  All the CSS is loaded for you, no external stylesheet is necessary! Follow the href in the link tag labeled "Custom CSS" to find the raw CSS to download.</p>
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#HTMLModal">
+                        View
+                      </button>                      
+                </div>
+                
+                <div className="col-lg-6 d-flex flex-column justify-content-start align-items-center moreInfo-item">
+                      <p className="m-0 mb-2"><i className="fa fa-globe fa-3x"></i></p>
+                      <p className="m-0 mb-2">Publish to GitHub</p>
+                      <p className="mt-4 text-align-right">Host your site on a GitHub Page for a free, fully functional portfolio web site. Because <strong>you</strong> host it on your Github account, feel free to customize it anyway you want!</p>
+                      <Link to={'/siteLoader'} style={{margin: 'auto'}}><button className='btn btn-success'> Publish to GitHub </button></Link>            <ol>What Porthub will do:
+                        <li>Create a GitHub repository named yourAccountName.github.io. (if you don't already have one)</li>
+                        <li>insert your new portfolio into the repository.</li>
+                        <li>return to you a <strong>LIVE URL</strong> for you to share with everyone.</li>
+                        <li>And that's it, your portfolio will be up and running for future employers to marvel over.</li>
+                      </ol>            
+                </div>
+          </div>
     </div>
+    
+    {/* HTML Modal */}
+        <div className="modal fade" id="HTMLModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLongTitle">Your Website's HTML</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                  <textarea id='htmlText' className='htmlField' defaultValue={html}></textarea>
+              </div>
+              <div className="modal-footer">
+                <CopyToClipboard text={html}
+                    onCopy={() => Alert.success('Copied to clipboard', {
+                                    position:'top-left',
+                                    effect: 'jelly',
+                                    timeout: 3000,
+                                    offset: 55
+                            })}>
+                    <button className='btn btn-success'><i className="fa fa-clipboard 2x" aria-hidden="true">Copy to Clipboard</i></button>
+                  </CopyToClipboard>              
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
   </div>
   )
 }
