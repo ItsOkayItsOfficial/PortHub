@@ -51,7 +51,7 @@ export default class LoginScreen extends Component {
             title='Sign In With GitHub'
             button
             type='github'
-            onPress={this.props._handlePressAsync}
+            onPress={this.props._handleLoginAsync}
           />
 
           </View>

@@ -1,8 +1,8 @@
 {
-  "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://as-628.itsokayitsofficial.native-app.exp.direct",
-  "packagerNgrokUrl": "https://packager.as-628.itsokayitsofficial.native-app.exp.direct",
-  "ngrokPid": 13532,
-  "packagerPort": 19001,
-  "packagerPid": 15084
+  "expoServerPort": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
+  "packagerPort": null,
+  "packagerPid": null
 }

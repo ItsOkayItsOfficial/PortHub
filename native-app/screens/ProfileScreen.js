@@ -5,7 +5,9 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
+  AsyncStorage,
+  WebView
 } from 'react-native';
 import {WebBrowser} from 'expo'
 import {Colors} from '../constants'
@@ -17,6 +19,23 @@ export default class ProfileScreen extends Component {
   static navigationOptions = {
     Title: 'Profile Screen'
   }
+  constructor(props) {
+    super(props)
+
+  this.state = {
+    error: null,
+    user: {},
+  }
+};
+
+
+  componentWillMount() {
+    AsyncStorage.getItem('GitHub_User', (error, result) => {
+      this.setState({user: JSON.parse(result)});
+      console.log(this._objectLog(this.state.user));
+    })
+  }
+
 
   render() {
     return (
@@ -28,21 +47,28 @@ export default class ProfileScreen extends Component {
           style={styles.container}
           contentContainerStyle={styles.contentContainer}>
 
-          <View style={styles.welcomeContainer}>
+          <View style={styles.profileContainer}>
 
             <Avatar
               xlarge
               rounded
-              source={{
-              uri: "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg"
-            }}
-              onPress={() => console.log("Works!")}
+              source={{uri: this.state.user.avatar_url}}
               activeOpacity={0.7}/>
 
           </View>
 
-          <View style={styles.getStartedContainer}>
-            <Anchor style={styles.getStartedText} href="mailto: ''">Email</Anchor>
+          <View style={styles.profileContainer}>
+            <Text style={styles.profileText}>{this.state.user.name} - {this.state.user.location}</Text>
+          </View>
+
+          <View style={styles.profileTitle}>
+          <Anchor style={styles.profileLink} href={this.state.user.html_url}>{this.state.user.login}</Anchor><Text> | </Text><Anchor style={styles.profileLink} href={this.state.user.blog}>{this.state.user.blog}</Anchor>
+          </View>
+
+          <View style={styles.profileContainer}>
+           <Text>
+             {this.state.user.bio}
+            </Text>
           </View>
 
         </ScrollView>
@@ -60,6 +86,13 @@ export default class ProfileScreen extends Component {
     );
   }
 
+
+  _objectLog = (user) => {
+    Object.entries(user).forEach(([key, value]) => {
+    console.log(`${key}: ${value}`)
+  })
+}
+
 }
 
 const styles = StyleSheet.create({
@@ -72,23 +105,23 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingTop: 30
   },
-  welcomeContainer: {
+  profileContainer: {
     alignItems: 'center',
     marginTop: 10,
     marginBottom: 20
   },
-  welcomeText: {
-    width: 300,
-    height: 80,
-    marginTop: 3,
-    marginLeft: -10
+  profileTitle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  homeScreenFilename: {
-    marginVertical: 7
-  },
-  getStartedText: {
+  profileText: {
     fontSize: 17,
     color: 'rgba(96,100,109, 1)',
+    lineHeight: 24,
+    textAlign: 'center'
+  },
+  profileLink: {
     lineHeight: 24,
     textAlign: 'center'
   },
