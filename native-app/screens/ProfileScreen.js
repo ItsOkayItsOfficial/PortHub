@@ -10,6 +10,7 @@ import {
   WebView
 } from 'react-native';
 import {WebBrowser} from 'expo'
+import { UserAuth } from '../api'
 import {Colors} from '../constants'
 import React, {Component} from 'react'
 import {Button, Avatar} from 'react-native-elements'
@@ -32,6 +33,7 @@ export default class ProfileScreen extends Component {
     AsyncStorage.getItem('GitHub_User', (error, result) => {
       this.setState({user: JSON.parse(result)});
       console.log(`User Profile: ${this.state.user.login}`);
+      UserAuth(this.state.user.login)
     })
   }
 

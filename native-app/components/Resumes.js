@@ -1,9 +1,8 @@
-import {DarkBar} from '../components'
 import React, {Component} from 'react'
 import {View, StyleSheet, AsyncStorage} from 'react-native'
 import {Card, Text, Button} from 'react-native-elements'
 
-export default class ResumesScreen extends Component {
+export default class Resumes extends Component {
   static navigationOptions = {
     title: 'Resumes'
   };

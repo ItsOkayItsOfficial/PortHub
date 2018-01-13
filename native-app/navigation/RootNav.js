@@ -52,7 +52,7 @@ export default class RootNav extends Component {
 
 
   _handleLogout = () => {
-    AsyncStorage.multiRemove(['GitHub_User', 'GitHub_Token', 'PortHub_Templates'], (error) => {
+    AsyncStorage.multiRemove(['GitHub_User', 'GitHub_Token'], (error) => {
       this.setState({user: null, userToken: null})
       console.log(`User: ${this.state.currentUser}, Token: ${this.state.userToken}. Logout Complete`);
     })
@@ -75,8 +75,6 @@ export default class RootNav extends Component {
     AsyncStorage.getItem('GitHub_User', (error, result) => {
       this.setState({user: JSON.parse(result)})
       console.log('User Login: ' + this.state.user.login);
-
-      let userTemplates = UserAuth(this.state.user.login)
 
     });
 
