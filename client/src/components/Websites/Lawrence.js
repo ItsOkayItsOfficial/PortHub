@@ -33,7 +33,7 @@ export const Lawrence = ({contact, experience, education, skills, portfolio, cli
         return  i > 5 ? null : (
           `${row}${header}<div class="col-lg-4" style='text-align:center; word-wrap: break-word;'>
             <a id="proj_1" href="${portfolio && portfolio.url ? portfolio.url : ''}" target='_blank'>
-              <img style='width:300px; height:300px'src="${portfolio && portfolio.im ? portfolio.img : ''}" alt="">
+              <img style='width:300px; height:300px'src="${portfolio && portfolio.img ? portfolio.img : ''}" alt="">
             </a>
             <h3 style='margin: 10px auto auto auto'>${portfolio && portfolio.title ? portfolio.title : ''}</h3>
               <p style='width: 300px; margin:auto'>${portfolio && portfolio.description ? portfolio.description : ''}</p>
