@@ -86,7 +86,7 @@ const createdOn = dashboard && dashboardTemplate._id.length > 5 ? dateFromObject
                 {/* <iframe src={dashboard && dashboardTemplate._id ? `https://porthubserver.herokuapp.com/api/retrievePDF/${dashboardTemplate._id}` : ''}  title="bob"
                           style={{width:'100%', height:'90vh'}} name="iframeForPDF">
                 </iframe>              */}
-                <iframe src={dashboard && dashboardTemplate._id ? `http://localhost:3003/api/retrievePDF/${dashboardTemplate._id}` : ''}  title="bob"
+                <iframe src={dashboard && dashboardTemplate._id ? `https://porthubserver.herokuapp.com/api/retrievePDF/${dashboardTemplate._id}` : ''}  title="bob"
                           style={{width:'100%', height:'90vh'}} name="iframeForPDF">
                 </iframe>                 
             </div>
