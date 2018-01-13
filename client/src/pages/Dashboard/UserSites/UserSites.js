@@ -30,7 +30,7 @@ const UserSites = (props) => {
     {sites.length !== 0 ? sites :
       <div> 
         <h2> It looks like you don't have any personal sites yet..</h2>
-        <img src='http://images6.fanpop.com/image/photos/36800000/Mr-T-mrt-36834265-320-254.png' alt='mr T' />
+        <img src='https://images6.fanpop.com/image/photos/36800000/Mr-T-mrt-36834265-320-254.png' alt='mr T' />
         <h2> Go make one </h2>
         <Link to='createsite' className="btn btn-warning m-auto landingButton">Create a Portfolio Website</Link>
       </div>}
