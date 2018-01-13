@@ -4,8 +4,8 @@ import moment from 'moment';
 export const ResumeLeftRightRTL = ({contact, experience, education, skills, portfolio, clicked }) => {
   	let skillSection = skills.map((skill) => {
           return (
-			`${skill && skill.skill ? skill.skill : ''}
-			<div class="slider w-75"></div>`
+			`${skill && skill.skill ? skill.skill : ''}<br/>
+			<input type="range" min="1" max="100" class="slider w-75 mt-2 mb-3fffff" value=${skill.rating}></input><br/>`
           )
         })
 	skillSection = skillSection.join('');

@@ -2,12 +2,12 @@ import React from 'react';
 import moment from 'moment';
 
 export const ResumeMaterialDark = ({contact, experience, education, skills, portfolio, clicked }) => {
-  	let skillSection = skills.map((skill) => {
-          return (
-            `${skill && skill.skill ? skill.skill : ''}
-            <div class="slider white"></div>`
-          )
-        })
+    let skillSection = skills.map((skill) => {
+        return (
+          `${skill && skill.skill ? skill.skill : ''}<br/>
+          <input type="range" min="1" max="100" class="slider w-75 mt-2 mb-3fffff" value=${skill.rating}></input><br/>`
+        )
+      })
 	skillSection = skillSection.join('');
   	let experienceSection = experience.map((experience) => {
 			return (
