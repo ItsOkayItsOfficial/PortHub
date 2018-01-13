@@ -28,11 +28,10 @@ export default class ProfileScreen extends Component {
   }
 };
 
-
   componentWillMount() {
     AsyncStorage.getItem('GitHub_User', (error, result) => {
       this.setState({user: JSON.parse(result)});
-      console.log(this._objectLog(this.state.user));
+      console.log(`User Profile: ${this.state.user.login}`);
     })
   }
 
@@ -86,12 +85,6 @@ export default class ProfileScreen extends Component {
     );
   }
 
-
-  _objectLog = (user) => {
-    Object.entries(user).forEach(([key, value]) => {
-    console.log(`${key}: ${value}`)
-  })
-}
 
 }
 

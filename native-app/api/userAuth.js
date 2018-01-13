@@ -8,7 +8,8 @@ const TEMP_API = `${BASE_API}/templates/`
 export default async function PortHubAsync(login) {
 
   let user = await _getUserTemplate(login);
-  AsyncStorage.setItem('PortHub_Templates', JSON.stringify(user[0].template));
+  let templates = JSON.stringify(user[0].template)
+  AsyncStorage.setItem('PortHub_Templates', templates);
 
 }
 

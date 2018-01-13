@@ -19,9 +19,10 @@ export default class ResumesScreen extends Component {
       AsyncStorage.getItem('PortHub_Templates', (error, result) => {
         let found = [];
         let templates = JSON.parse(result);
+        console.log(templates)
         templates.map( item => item.type === "site" ? found.push(item) : '')
-        this.setState({sites: found});
-        console.log(this.state.sites[]);
+        found[0] != undefined ? this.setState({sites: found[0]}) : console.log('No Templates')
+        console.log(`Sites: ${this.state.sites.templateName}`);
       });
     }
 

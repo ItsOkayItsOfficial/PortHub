@@ -21,8 +21,8 @@ export default class ResumesScreen extends Component {
         let found = [];
         let templates = JSON.parse(result);
         templates.map( item => item.type === 'resume' ? found.push(item) : '')
-        this.setState({resumes: found});
-        console.log(this.state.resumes[0]);
+        found[0] != undefined ? this.setState({resumes: found[0]}) : console.log('No Resumes');
+        console.log(`Resumes: ${this.state.resumes}`);
       });
     }
 

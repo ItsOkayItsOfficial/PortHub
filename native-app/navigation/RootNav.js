@@ -17,7 +17,7 @@ export default class RootNav extends Component {
     this._notificationSubscription = this._registerForPushNotifications();
     AsyncStorage.getItem('GitHub_Token', (error, result) => {
       !error ? this.setState({userToken: result}) : null;
-      console.log('Authentication: ' + this.state.userToken);
+      console.log('User Token: ' + this.state.userToken);
     });
   }
 
@@ -52,7 +52,7 @@ export default class RootNav extends Component {
 
 
   _handleLogout = () => {
-    AsyncStorage.multiRemove(['GitHub_User', 'GitHub_Token','PortHub_Templates'], (error) => {
+    AsyncStorage.multiRemove(['GitHub_User', 'GitHub_Token', 'PortHub_Templates'], (error) => {
       this.setState({user: null, userToken: null})
       console.log(`User: ${this.state.currentUser}, Token: ${this.state.userToken}. Logout Complete`);
     })
@@ -68,13 +68,13 @@ export default class RootNav extends Component {
     }
     AsyncStorage.getItem('GitHub_Token', (error, result) => {
       this.setState({userToken: result})
-      console.log('Authentication: ' + this.state.userToken);
+      console.log('New User Token: ' + this.state.userToken);
     })
     }
 
     AsyncStorage.getItem('GitHub_User', (error, result) => {
       this.setState({user: JSON.parse(result)})
-      console.log('User Info: ' + this.state.user.login);
+      console.log('User Login: ' + this.state.user.login);
 
       let userTemplates = UserAuth(this.state.user.login)
 
