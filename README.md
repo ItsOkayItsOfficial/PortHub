@@ -1,4 +1,4 @@
-# <img height="200px" src="https://cdn.rawgit.com/ItsOkayItsOfficial/project3/dev/assets/images/porthub-logo.svg?sanitize=true">
+# <img height="200px" src="https://cdn.rawgit.com/ItsOkayItsOfficial/project3/master/assets/images/porthub-logo.svg?sanitize=true">
 ### Developer Portfolio Builder
 “You're not a designer”
 
