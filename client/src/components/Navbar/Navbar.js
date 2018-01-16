@@ -2,15 +2,17 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import WelcomeMessage from './WelcomeMessage/WelcomeMessage';
 import LoginButton from './NavLinks/LoginButton';
+import SidebarToggle from '../../pages/Dashboard/SidebarToggle/SidebarToggle';
+import Aux from '../../components/Auxiliary/Auxiliary';
 import "./Navbar.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-const Navbar = ({ title, ghRedirect, isAuthenticated, user, logoutHandler, reset, loggedIn }) => {
+const Navbar = ({ title, ghRedirect, isAuthenticated, user, logoutHandler, loggedIn, toggleSidebar, leavingDashboard, navigateToDashboard, viewingDashboard }) => {
   return (
     <div>
         <nav className="navbar navbar-expand fixed-top bg-dark text-white">
             <div className="navbar-header">
-              <div onClick={reset} className="navbar-brand">
+              <div onClick={leavingDashboard} className="navbar-brand">
                 <Link to="/" ><img className="rounded" style={{border:'1px solid white'}} src='/assets/images/ph/porthub_icon.png' alt='ph logo' /></Link>
               </div>
             </div>
@@ -19,12 +21,16 @@ const Navbar = ({ title, ghRedirect, isAuthenticated, user, logoutHandler, reset
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav ml-auto">
-                  {loggedIn ? <WelcomeMessage 
-                                      user={user}
-                                      logout={logoutHandler}
-                                      loggedIn={loggedIn}
-                                      reset={reset} /> 
-                                      : <LoginButton />}                                
+                  {loggedIn ? <Aux>
+                                <WelcomeMessage 
+                                  user={user}
+                                  logout={logoutHandler}
+                                  loggedIn={loggedIn}
+                                  navigateToDashboard={navigateToDashboard}
+                                  viewingDashboard={viewingDashboard} />
+                                {loggedIn && viewingDashboard ? <SidebarToggle clicked={toggleSidebar} /> : null}
+                              </Aux>
+                              : <LoginButton />}                                
               </ul>
             </div>
         </nav>

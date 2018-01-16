@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sidebar, Icon} from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 import UserSites from './UserSites/UserSites';
 import UserResumes from './UserResumes/UserResumes';
 import UserEducation from './UserEducation/UserEducation';
@@ -9,9 +9,11 @@ import UserSkills from './UserSkills/UserSkills';
 import UserContact from './UserContact/UserContact';
 import './Dashboard.css';
 
-const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, viewTemplate, selectedDashboardID, guestContinueShow, selectedTemplate, isAuthenticated, viewingSites, currentDashboardPage, prepareStateHandler, updateUserInputs, setHTMLToLocal, deleteTemplate }) => {
+const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, viewTemplate, selectedDashboardID, guestContinueShow, selectedTemplate, isAuthenticated, viewingSites, currentDashboardPage, prepareStateHandler, updateUserInputs, setHTMLToLocal, deleteTemplate, open }) => {
     const userSites = currentUser.template ? currentUser.template.filter(template => template.type === 'site') : '';
     const userResumes = currentUser.template ? currentUser.template.filter(template => template.type === 'resume') : ''
+    let attachedClasses = ['Sidebar', 'Close']
+    open ? attachedClasses = ['Sidebar', 'Open'] : attachedClasses = ['Sidebar', 'Close']
     let currentPage = '';
       switch (currentDashboardPage) {
       case "sites":
@@ -77,8 +79,8 @@ const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, vi
 
   return (
     <div className='dashboard d-flex'>
-      <Sidebar visible={true} style={{backgroundColor:'#4F575E'}} width='wide'>
-      <div style={{marginTop:'80px'}}>
+      <div className={attachedClasses.join(' ')}>
+      <div style={{marginTop:'77px'}}>
         <div className='userDock d-flex'>
             <img className='userDockImg' src={currentUser.avatar_url} alt='user_avatar'/>
               <div className='flex-column'>
@@ -109,7 +111,7 @@ const Dashboard = ({currentUser, showModal, dashboardInputViewer, closeModal, vi
           <h3 className='menuItemHeader'><Icon name='tasks' size='big' />Skills</h3>
         </div>
       </div>
-      </Sidebar>
+      </div>
       <div className='dashboardContent'>
       {currentPage}
       </div>

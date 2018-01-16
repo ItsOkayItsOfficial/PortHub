@@ -40,6 +40,7 @@ class Layout extends Component{
     redirectToInput: false,
     selectedDashboardID: '',
     type:'',
+    viewingDashboard: false,
     viewingDashboardSites: true,
     loggedIn: false,
     success: false,
@@ -47,7 +48,8 @@ class Layout extends Component{
     html: '',
     selectButton:'',
     currentTemplateID:'',
-    currentDashboardPage: 'sites'
+    currentDashboardPage: 'sites',
+    showSidebar: false
   }
   //-----------------USER METHODS-------------//
   authenticateUser = () => {
@@ -120,6 +122,18 @@ class Layout extends Component{
   }
   //-------------------------------------------//
   //-----------------VIEW METHODS-------------//
+  navigateToDashboardHandler = () => {
+   Alert.closeAll()
+   this.setState({viewingDashboard: true})
+  }
+
+  leavingDashboardHandler = () => {
+    Alert.closeAll()
+    this.setState({viewingDashboard: false, selectedTemplate:{}})
+  }
+  sidebarToggleHandler = () => {
+    this.state.showSidebar ? this.setState({showSidebar: false}) : this.setState({showSidebar: true})
+  }
   guestContinueModalHander = () => {
     this.state.viewingGuestContinueModal ?
       this.setState({viewingGuestContinueModal:false})
@@ -148,11 +162,6 @@ class Layout extends Component{
   closeDetailedTemplateHandler = () => {
     this.setState({viewingTemplate: false,
                    selectedTemplate: ''})
-  }
-
-  closeAlertsAndResetTemplateHandler = () => {
-    Alert.closeAll()
-    this.setState({selectedTemplate:{}})
   }
 
   dashboardInputViewer = (field) => {
@@ -313,7 +322,11 @@ class Layout extends Component{
               user={this.state.currentUser}
               logoutHandler={this.logoutHandler}
               reset={this.closeAlertsAndResetTemplateHandler}
-              loggedIn={this.state.loggedIn} />
+              loggedIn={this.state.loggedIn}
+              toggleSidebar={this.sidebarToggleHandler}
+              navigateToDashboard={this.navigateToDashboardHandler}
+              leavingDashboard={this.leavingDashboardHandler}
+              viewingDashboard={this.state.viewingDashboard}/>
             <Switch>
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/createSite"
@@ -377,13 +390,13 @@ class Layout extends Component{
                                                             viewingContinueAsGuest={this.state.viewingGuestContinueModal}
                                                             isAuthenticated={this.state.isAuthenticated}
                                                             selectedDashboardID={this.state.selectedDashboardID}
-                                                            dashboardToggle={this.dashboardViewToggleHandler}
                                                             viewingSites={this.state.viewingDashboardSites}
                                                             dashboardInputViewer={this.dashboardInputViewer}
                                                             currentDashboardPage={this.state.currentDashboardPage}
                                                             prepareStateHandler={this.prepareStateHandler}
                                                             updateUserInputs={this.updateUserInputs}
-                                                            deleteTemplate={this.deleteTemplate}/> }/>
+                                                            deleteTemplate={this.deleteTemplate}
+                                                            open={this.state.showSidebar}/> }/>
               <Route exact path="/ourStory" component={OurStory} />
               <Route exact path="/aboutUs" component={AboutUs} />
               <Route exact path="/repository" component={Repository} />

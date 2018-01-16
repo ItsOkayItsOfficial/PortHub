@@ -3,7 +3,12 @@
   font-size: 18px;
   vertical-align: bottom;
 }
-.welcomeContainer {
-  display:inherit;
-}
 
+.welcomeContainer {
+  display: flex;
+}
+@media (max-width: 499px) {
+  .DesktopOnly {
+    display: none;
+  }
+}

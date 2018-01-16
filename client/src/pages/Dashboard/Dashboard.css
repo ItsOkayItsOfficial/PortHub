@@ -55,8 +55,36 @@
 }
 
 .dashboardContent {
-  margin-left: 360px;
-  margin-top: 85px;
-  margin-right: 10px;
+  margin-top: 100px;
   width: 100%;
+}
+
+.Sidebar {
+  position: fixed;
+  width: 280px;
+  max-width: 70%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 200;
+  background-color: #4F575E;
+  transition: transform 0.3s ease-out;
+  overflow-y: auto;
+}
+
+
+@media (max-width: 500px) {
+  .Open {
+    transform: translateX(0);
+  }
+
+  .Close {
+    transform: translateX(-100%);
+  }
+}
+
+@media (min-width: 500px) {
+  .dashboardContent {
+      margin-left: 280px;
+  }
 }
