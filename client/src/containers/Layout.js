@@ -60,9 +60,8 @@ class Layout extends Component{
       : '';
     }
    axios.post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token?&client_id='
-      + Keys.localClientId + '&client_secret=' + Keys.localClientSecret + '&code=' + getAuthCode())
+      + Keys.herokuClientId + '&client_secret=' + Keys.herokuClientSecret + '&code=' + getAuthCode())
       .then(response => {
-        console.log('finished authenticating')
         accessToken = response.data.slice(13, response.data.indexOf('&'));
         localStorage.setItem('accessToken', accessToken);
         this.getUserInfoHandler(accessToken)
@@ -87,7 +86,7 @@ class Layout extends Component{
 
   redirectToGitHubHandler = () => {
     window.location.replace('https://github.com/login/oauth/authorize?client_id='+
-    Keys.localClientId + '&redirect_uri=http://localhost:3000/authLoader&state=1234&scope=user,public_repo');
+    Keys.herokuClientId + '&redirect_uri=https://realporthub.herokuapp.com/authLoader&state=1234&scope=user,public_repo');
   }
 
   guestUserHandler =() => {
@@ -172,7 +171,6 @@ class Layout extends Component{
   retrieveResume = () =>{
     axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})
     .then((templateID) =>{
-      console.log("templateID=", templateID.data);
       this.setState({currentTemplateID: templateID.data});
     })
     .catch((err) => {
@@ -224,7 +222,6 @@ class Layout extends Component{
     if (this.state.type === "resume") {
     //if user is a guest no need to create template in Database
       if (this.state.currentUser.login === 'guest') {
-        console.log('guest')
           return axios.post('/insertResumeIntoDb', {html:html, type:this.state.type, currentTemplate:this.state.selectedTemplate.title, login:this.state.currentUser.login})
           .then((response) => {
             return axios.post('/getTemplateID', {templateName:this.state.selectedTemplate.title, login:this.state.currentUser.login})
@@ -253,7 +250,6 @@ class Layout extends Component{
                 type:this.state.type,
                 lastEdited: Date.now()
               }
-              console.log(tempResume)
               const currentUser = {...this.state.currentUser}
               currentUser.template.push(tempResume);
               this.setState({currentTemplateID: templateID.data,resumeSuccess:true, currentUser});

@@ -9,8 +9,8 @@ export const London = ({contact, experience, education, skills, portfolio, click
        const br = i===2 ? '<br>' : '';
         return i > 3 ? null : (
           `${row}${br}<div class="col-xs-6 centered">
-            <img class="img-responsive" src="${portfolio && portfolio.img ? portfolio.omg : ''}" alt="${portfolio && portfolio.title ? portfolio.title : ''}">
-            <a href="${portfolio && portfolio.url ? portfolio.url : ''}">
+            <img class="img-responsive" src="${portfolio && portfolio.img ? portfolio.img : ''}" alt="${portfolio && portfolio.title ? portfolio.title : ''}">
+            <a href="${portfolio && portfolio.url ? portfolio.url : ''}" target='_blank'>
               <h6>
                 <i class="icon-link"></i>${portfolio && portfolio.title ? portfolio.title : ''}</h6>
             </a>

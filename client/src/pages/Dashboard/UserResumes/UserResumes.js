@@ -30,7 +30,7 @@ const UserResumes = (props) => {
     {resumes.length !== 0 ? resumes : 
       <div> 
         <h2> It looks like you don't have any resumes yet..</h2>
-        <img src='http://images6.fanpop.com/image/photos/36800000/Mr-T-mrt-36834265-320-254.png' alt='mr T' />
+        <img src='/assets/images/mrt.png' alt='mr T' />
         <h2> Go make one </h2>
         <Link to='createresume'className="btn btn-info m-auto landingButton">Create a Resume</Link>
       </div>}
