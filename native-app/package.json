@@ -11,9 +11,9 @@
     "@expo/samples": "2.1.1",
     "@shoutem/ui": "^0.22.4",
     "axios": "^0.17.1",
-    "expo": "^24.0.0",
-    "react": "16.0.0",
-    "react-native": "^0.51.0",
+    "expo": "^31.0.0",
+    "react": "16.5.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
     "react-native-elements": "^0.18.5",
     "react-native-video": "^2.0.0",
     "react-navigation": "^1.0.0-beta.21"
